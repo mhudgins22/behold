@@ -12,7 +12,7 @@ const navitems = (props) => {
 		)
 	})
 	return(
-		<div style = {{backgroundColor: "pink" /*Just a test color*/}}>
+		<div>
 			{nav}
 		</div>
 	)

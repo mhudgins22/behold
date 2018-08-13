@@ -1,0 +1,12 @@
+.Button {
+	margin: auto;
+	margin: 20px 35%; /*Some reason margin auto is not centering button just a place holder for mostly centered*/
+}
+
+.Register {
+	border: 3px outset #67b7bc;
+	background-color: #77d2d8;
+	font-size: 48px;
+	width: 300px;
+	height: 125px;
+}
