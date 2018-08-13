@@ -1,0 +1,21 @@
+.LargeInfoBox {
+	width: 80%;
+	margin: auto;
+}
+
+.LargeInfoBox img {
+	width: 300px;
+	height: auto;
+	display: inline-block;
+}
+
+.Main p{
+	display: inline-block;
+	width: 60%;
+}
+
+.Main div{
+	width: 300px;
+	height: auto;
+	display: inline-block;
+}
