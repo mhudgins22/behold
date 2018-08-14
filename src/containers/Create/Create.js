@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {Route, Link} from "react-router-dom";
+import React, { Component } from "react";
+import { Route, Link } from "react-router-dom";
 
 import LargeInfoBox from "../../components/LargeInfoBox/LargeInfoBox";
 import CharacterPage from "../CharacterPage/CharacterPage";
