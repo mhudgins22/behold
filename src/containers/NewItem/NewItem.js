@@ -19,6 +19,47 @@ class NewItem extends Component {
 				valid: false,
 				touched: false
 			},
+			itemRarity: {
+				elementType: "dropdown",
+				elementConfig: {
+					placeholder: "Select an Option"
+				},
+				value: [
+					{
+						value: "Common",
+						label: "Common"
+					},
+					{
+						value: "Uncommon",
+						label: "Uncommon"
+					},
+					{
+						value: "Rare",
+						label: "Rare"
+					},
+					{
+						value: "Very Rare",
+						label: "Very Rare"
+					},
+					{
+						value: "Legendary",
+						label: "Legendary"
+					},
+					{
+						value: "Sentient",
+						label: "Sentient"
+					},
+					{
+						value: "Artifact",
+						label: "Artifact"
+					}
+				],
+				validation: {
+					required: true
+				},
+				valid: true,
+				touched: false
+			}
 		}
 	}
 
