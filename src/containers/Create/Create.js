@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Route, Link} from "react-router-dom";
+import {Route, Link, withRouter} from "react-router-dom";
 
 import LargeInfoBox from "../../components/LargeInfoBox/LargeInfoBox";
 import CharacterPage from "../CharacterPage/CharacterPage";
@@ -15,16 +15,22 @@ class Create extends Component {
 					image = "https://www.publicdomainpictures.net/pictures/130000/velka/clip-art-smiley-face.jpg"
 					subHeader = "ITEMS, CHARACTERS AND MORE!!"
 					secondary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sapien pellentesque habitant morbi tristique senectus et. Euismod elementum nisi quis eleifend quam adipiscing. Quis eleifend quam adipiscing vitae proin sagittis nisl rhoncus. Quis hendrerit dolor magna eget est. Elementum facilisis leo vel fringilla est ullamcorper eget nulla facilisi. Nibh mauris cursus mattis molestie a iaculis at erat. Faucibus in ornare quam viverra orci sagittis eu. Ultrices in iaculis nunc sed augue lacus viverra vitae congue. Ipsum suspendisse ultrices gravida dictum fusce ut. Sed felis eget velit aliquet sagittis id. Feugiat vivamus at augue eget arcu dictum varius duis. Volutpat est velit egestas dui id ornare arcu odio ut. Morbi tristique senectus et netus et malesuada fames. Tortor consequat id porta nibh. Viverra nam libero justo laoreet sit amet cursus sit amet. Amet justo donec enim diam vulputate ut pharetra sit amet." />
-					<Link to="/CharacterPage">
+					<Link to={this.props.match.url + "/Characters"}>
 						<Button
 							buttonType = "Character"
 							clicked = {null}
-							text = "Character Page">
+							text = "Characters">
 						</Button>
+					</Link>
+					<Link to = {this.props.match.url + "/Items"}>
+						<Button 
+							buttonType = "Character"
+							clicked = {null}
+							text = "Items"/>
 					</Link>
 			</div>
 		)
 	}
 }
 
-export default Create;
+export default withRouter(Create);
