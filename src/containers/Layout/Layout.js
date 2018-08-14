@@ -8,6 +8,7 @@ import Play from "../Play/Play";
 import CharacterPage from "../CharacterPage/CharacterPage";
 import ItemsPage from "../ItemsPage/ItemsPage";
 import NewCharacter from "../NewCharacter/NewCharacter";
+import NewItem from "../NewItem/NewItem";
 
 import classes from "./Layout.css";
 
@@ -17,12 +18,12 @@ class Layout extends Component {
 			<div className = {classes.Layout}>
 				<Navbar />
 				<Route path = "/" exact component = {Welcome} />
-				<Route path = "/Create" exact component = {Create} />
 				<Route path = "/Play" component = {Play} />
+				<Route path = "/Create" exact component = {Create} />
 				<Route path = "/Create/Characters" exact component = {CharacterPage} />
-				<Route path = "/Create/Items" component = {ItemsPage} />
-				<Route path = "/CharacterPage" component = {CharacterPage} />
 				<Route path = "/Create/Characters/NewCharacter" component = {NewCharacter} />
+				<Route path = "/Create/Items" exact component = {ItemsPage} />
+				<Route path = "/Create/Items/NewItem" component = {NewItem} />
 			</div>
 		)
 	}
