@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Button from "../../components/UI/Button/Button";
+import NewCharacter from "../NewCharacter/NewCharacter";
 
 class CharacterPage extends Component {
   render() {
     return (
       <div>
-        <Button
-          buttonType = "Character"
-          clicked = {null}
-          text = "Create New Character">
-        </Button>
+        <Link to={this.props.match.url + "/NewCharacter"}>
+          <Button
+            buttonType = "Character"
+            clicked = {null}
+            text = "Create New Character">
+          </Button>
+        </Link>
         <Button
           buttonType = "Character"
           clicked = {null}
