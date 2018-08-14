@@ -10,3 +10,12 @@
 	width: 300px;
 	height: 125px;
 }
+
+.Character { /* Just a copy of .Register for now with added display property*/
+	border: 3px outset #67b7bc;
+	background-color: #77d2d8;
+	font-size: 48px;
+	width: 300px;
+	height: 125px;
+	display: inline-block;
+}

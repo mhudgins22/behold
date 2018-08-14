@@ -9,6 +9,10 @@ const button = (props) => {
 		names.push(classes.Register);
 	}
 
+	if (props.buttonType === "Character") {
+		names.push(classes.Character);
+	}
+
 	return (
 		<button className = {names.join(" ")} onClick = {props.clicked}>{props.text}</button>
 	)
