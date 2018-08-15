@@ -30,6 +30,15 @@ const input = props => {
 				</select>
 			);
 			break;
+		case "textarea":
+			inputElement = (
+				<textarea
+					{...props.elementConfig}
+					className = {classes.Textarea}
+					value = {props.value}
+					onChange = {props.changed}/>
+			);
+			break;
 		default:
 			inputElement = (
 				<input

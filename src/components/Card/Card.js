@@ -15,6 +15,14 @@ const card = props => {
 		)
 	}
 
+	if (props.cardType === "new item") {
+		card = (
+			<div>
+				
+			</div>
+		)
+	}
+
 	return(
 		<div>
 			{card}
