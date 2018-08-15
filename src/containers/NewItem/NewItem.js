@@ -153,6 +153,72 @@ class NewItem extends Component {
 				valid: true,
 				touched: false
 			},
+			damageType: {
+				elementType: "select",
+				elementConfig: {
+				
+				},
+				options: [
+					{
+						value: "",
+						label: "Damage Type"
+					},
+					{
+						value: "Piercing",
+						label: "Piercing"
+					},
+					{
+						value: "Slashing",
+						label: "Slashing"
+					},
+					{
+						value: "Bludgeoning",
+						label: "Bludgeoning"
+					},
+					{
+						value: "Fire",
+						label: "Fire"
+					},
+					{
+						value: "Lightning",
+						label: "Lightning"
+					},
+					{
+						value: "Poison",
+						label: "Poison"
+					},
+					{
+						value: "Acid",
+						label: "Acid"
+					},
+					{
+						value: "Thunder",
+						label: "Thunder"
+					},
+					{
+						value: "Radiant",
+						label: "Radiant"
+					},
+					{
+						value: "Necrotic",
+						label: "Necrotic"
+					},
+					{
+						value: "Cold",
+						label: "Cold"
+					},
+					{
+						value: "Force",
+						label: "Force"
+					}
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false
+			},
 			itemFlavorText: {
 				elementType: "textarea",
 				elementConfig: {
@@ -271,6 +337,7 @@ class NewItem extends Component {
 					itemProperties = {this.state.controls.itemProperties.value}
 					numberOfDamageDice = {this.state.controls.numberOfDamageDice.value}
 					damageDie = {this.state.controls.damageDie.value}
+					damageType = {this.state.controls.damageType.value}
 					itemFlavorText = {this.state.controls.itemFlavorText.value}
 					itemAttributes = {this.state.controls.itemAttributes.value}/>
 			</div>
