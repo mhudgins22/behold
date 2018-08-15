@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 import Input from "../../components/UI/Input/Input";
-
+import Card from "../../components/Card/Card";
 
 class NewItem extends Component {
 
@@ -25,7 +25,7 @@ class NewItem extends Component {
 				elementConfig: {
 					
 				},
-				value: [
+				options: [
 					{
 						value: "",
 						label: "Select a rarity"
@@ -58,7 +58,8 @@ class NewItem extends Component {
 						value: "Artifact",
 						label: "Artifact"
 					}
-				],
+				], 
+				value: "",
 				validationRules: {
 					required: true
 				},
@@ -96,9 +97,10 @@ class NewItem extends Component {
 				elementConfig: {
 				
 				},
-				value: [
+				options: [
 				
 				],
+				value: "",
 				validationRules: {
 					required: false
 				},
@@ -108,9 +110,9 @@ class NewItem extends Component {
 			damageDie: {
 				elementType: "select",
 				elementConfig: {
-				
+					
 				},
-				value: [
+				options: [
 					{
 						value: "",
 						label: "Damage Die"
@@ -144,13 +146,14 @@ class NewItem extends Component {
 						label: "d100",
 					},
 				],
+				value: "",
 				validationRules: {
 					required: false
 				},
 				valid: true,
 				touched: false
 			},
-			flavorText: {
+			itemFlavorText: {
 				elementType: "textarea",
 				elementConfig: {
 					type: "textarea",
@@ -163,7 +166,7 @@ class NewItem extends Component {
 				valid: false,
 				touched: false
 			},
-			statistics: {
+			itemAttributes: {
 				elementType: "textarea",
 				elementConfig: {
 					type: "textarea",
@@ -180,6 +183,7 @@ class NewItem extends Component {
 	}
 
 	componentDidMount() {
+	//I'm lazy so populates the number of dice with nums 1-100 for damage dice
 	let nums = [{
 		value: "",
 		label: "# of Dice"
@@ -196,10 +200,36 @@ class NewItem extends Component {
 				...this.state.controls,
 				numberOfDamageDice: {
 					...this.state.controls.numberOfDamageDice,
-					value: nums
+					options: nums
 				}
 			}
 		});
+	}
+
+	//Change values for input and textarea elements
+	onChangeHandler = (event, element) => {
+		this.setState({
+			controls: {
+				...this.state.controls,
+				[element]: {
+					...this.state.controls[element],
+					value: event.target.value
+				}
+			}
+		})
+	}
+
+	//Changes value for select elements currently doesn't work
+	onSelectHandler = (element) => {
+		this.setState({
+			controls: {
+				...this.state.controls,
+				[element]: {
+					...this.state.controls[element],
+					value: this.state.controls[element].options.value
+				}
+			}
+		})
 	}
 
 	render() {
@@ -211,18 +241,39 @@ class NewItem extends Component {
 			});
 		}
 
-		let form = formElements.map(element => (
-			<Input 
-				key = {element.id}
-				elementType = {element.config.elementType}
-				elementConfig = {element.config.elementConfig}
-				value = {element.config.value}
-				validationRules = {element.config.validationRules}
-				valid = {element.config.valid}
-				shouldValidate = {null}
-				touched = {element.config.touched}
-				changed = {null}/>
-		));
+		let form = formElements.map(element => {
+			if (element.elementType != "select") {
+				return (
+					<Input 
+						key = {element.id}
+						elementType = {element.config.elementType}
+						elementConfig = {element.config.elementConfig}
+						options = {element.config.options}
+						value = {element.config.value}
+						validationRules = {element.config.validationRules}
+						valid = {element.config.valid}
+						shouldValidate = {null}
+						touched = {element.config.touched}
+						changed = {(event) => this.onChangeHandler(event, element.id)}/>
+				);
+			} else {
+				//changed doesn't work here yet
+				return (
+					<Input 
+						key = {element.id}
+						elementType = {element.config.elementType}
+						elementConfig = {element.config.elementConfig}
+						options = {element.config.options}
+						value = {element.config.value}
+						validationRules = {element.config.validationRules}
+						valid = {element.config.valid}
+						shouldValidate = {null}
+						touched = {element.config.touched}
+						changed = {() => this.onSelectHandler(element.id)}/>
+				)
+			}
+			
+		});
 
 		return(
 			<div>
@@ -230,7 +281,16 @@ class NewItem extends Component {
 				<form>
 					{form}
 				</form>
-				
+				<Card 
+					cardType = "item"  
+					itemName = {this.state.controls.itemName.value} 
+					itemRarity = {this.state.controls.itemRarity.value}
+					itemType = {this.state.controls.itemType.value}
+					itemProperties = {this.state.controls.itemProperties.value}
+					numberOfDamageDice = {this.state.controls.numberOfDamageDice.value}
+					damageDie = {this.state.controls.damageDie.value}
+					itemFlavorText = {this.state.controls.itemFlavorText.value}
+					itemAttributes = {this.state.controls.itemAttributes.value}/>
 			</div>
 		)
 	}
