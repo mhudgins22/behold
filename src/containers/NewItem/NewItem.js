@@ -220,13 +220,13 @@ class NewItem extends Component {
 	}
 
 	//Changes value for select elements currently doesn't work
-	onSelectHandler = (element) => {
+	onSelectHandler = (event, element) => {
 		this.setState({
 			controls: {
 				...this.state.controls,
 				[element]: {
 					...this.state.controls[element],
-					value: this.state.controls[element].options.value
+					value: event.target.value
 				}
 			}
 		})
@@ -242,37 +242,19 @@ class NewItem extends Component {
 		}
 
 		let form = formElements.map(element => {
-			if (element.elementType != "select") {
-				return (
-					<Input 
-						key = {element.id}
-						elementType = {element.config.elementType}
-						elementConfig = {element.config.elementConfig}
-						options = {element.config.options}
-						value = {element.config.value}
-						validationRules = {element.config.validationRules}
-						valid = {element.config.valid}
-						shouldValidate = {null}
-						touched = {element.config.touched}
-						changed = {(event) => this.onChangeHandler(event, element.id)}/>
-				);
-			} else {
-				//changed doesn't work here yet
-				return (
-					<Input 
-						key = {element.id}
-						elementType = {element.config.elementType}
-						elementConfig = {element.config.elementConfig}
-						options = {element.config.options}
-						value = {element.config.value}
-						validationRules = {element.config.validationRules}
-						valid = {element.config.valid}
-						shouldValidate = {null}
-						touched = {element.config.touched}
-						changed = {() => this.onSelectHandler(element.id)}/>
-				)
-			}
-			
+			return (
+				<Input 
+					key = {element.id}
+					elementType = {element.config.elementType}
+					elementConfig = {element.config.elementConfig}
+					options = {element.config.options}
+					value = {element.config.value}
+					validationRules = {element.config.validationRules}
+					valid = {element.config.valid}
+					shouldValidate = {null}
+					touched = {element.config.touched}
+					changed = {(event) => this.onChangeHandler(event, element.id)}/>
+			);
 		});
 
 		return(

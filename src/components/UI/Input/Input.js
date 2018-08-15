@@ -24,7 +24,7 @@ const input = props => {
 				)
 			})
 			inputElement = (
-				<select>
+				<select onChange = {props.changed}>
 					{options}
 				</select>
 			);
