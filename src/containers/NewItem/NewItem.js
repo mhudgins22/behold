@@ -20,11 +20,15 @@ class NewItem extends Component {
 				touched: false
 			},
 			itemRarity: {
-				elementType: "dropdown",
+				elementType: "select",
 				elementConfig: {
-					placeholder: "Select an Option"
+					
 				},
 				value: [
+					{
+						value: "",
+						label: "Select a rarity"
+					},
 					{
 						value: "Common",
 						label: "Common"

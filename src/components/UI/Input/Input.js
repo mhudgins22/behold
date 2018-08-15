@@ -1,5 +1,5 @@
 import React from "react";
-import Dropdown from 'react-dropdown';
+
 import classes from "./Input.css";
 
 
@@ -17,15 +17,17 @@ const input = props => {
 					onChange = {props.changed}/>
 			);
 			break;
-		case "dropdown":
+		case "select":
 			console.log(props.value);
-			const defaultOption = props.value[0];
+			const options = props.value.map(option => {
+				return(
+					<option value = {option.value} key = {option.value}>{option.label}</option>
+				)
+			})
 			inputElement = (
-				<Dropdown 
-					{...props.elementConfig}
-					options = {props.value}
-					onChange = {props.changed}
-					value = {defaultOption}/>
+				<select>
+					{options}
+				</select>
 			);
 			break;
 		default:
