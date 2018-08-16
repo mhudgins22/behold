@@ -20,7 +20,8 @@ class NewItem extends Component {
 					required: true
 				},
 				valid: false,
-				touched: false
+				touched: false,
+				visible: true
 			},
 			itemRarity: {
 				elementType: "select",
@@ -66,29 +67,31 @@ class NewItem extends Component {
 					required: true
 				},
 				valid: true,
-				touched: false
+				touched: false,
+				visible: true
 			},
 			itemType: {
 				elementType: "radio",
 				elementConfig: {
-					type: "radio"
+					type: "radio",
+					name: "item"
 				},
 				options: [
 					{
 						value: "Weapon",
-						label: "Weapon"
+						label: "Weapon",
 					},
 					{
 						value: "Armor",
-						label: "Armor"
+						label: "Armor",
 					},
 					{
 						value: "Consumable",
-						label: "Consumable"
+						label: "Consumable",
 					},
 					{
 						value: "Other",
-						label: "Other"
+						label: "Other",
 					}
 				],
 				value: "Weapon",
@@ -96,7 +99,8 @@ class NewItem extends Component {
 					required: true
 				},
 				valid: true,
-				touched: false
+				touched: false,
+				visible: true
 			},
 			weaponType: {
 				elementType: "select",
@@ -106,7 +110,7 @@ class NewItem extends Component {
 				options: [
 					{
 						value: "",
-						label: "Item Type"
+						label: "Weapon Type"
 					},
 					{
 						value: "Club",
@@ -265,6 +269,77 @@ class NewItem extends Component {
 				touched: false,
 				visible: true
 			},
+			armorType: {
+				elementType: "select",
+				elementConfig: {
+				
+				},
+				options: [
+					{
+						value: "",
+						label: "Armor Type"
+					},
+					{
+						value: "Padded Armor",
+						label: "Padded Armor"
+					},
+					{
+						value: "Leather Armor",
+						label: "Leather Armor"
+					},
+					{
+						value: "Studded Leather Armor",
+						label: "Studded Leather Armor"
+					},
+					{
+						value: "Hide Armor",
+						label: "Hide Armor"
+					},
+					{
+						value: "Chain Shirt",
+						label: "Chain Shirt"
+					},
+					{
+						value: "Scale Mail",
+						label: "Scale Mail"
+					},
+					{
+						value: "Breastplate",
+						label: "Breastplate"
+					},
+					{
+						value: "Half Plate",
+						label: "Half Plate"
+					},
+					{
+						value: "Ring Mail",
+						label: "Ring Mail"
+					},
+					{
+						value: "Chain Mail",
+						label: "Chain Mail"
+					},
+					{
+						value: "Splint Mail",
+						label: "Splint Mail"
+					},
+					{
+						value: "Plate Mail",
+						label: "Plate Mail"
+					},
+					{
+						value: "Shield",
+						label: "Shield"
+					},
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
 			itemProperties: {
 				elementType: "input",
 				elementConfig: {
@@ -276,7 +351,8 @@ class NewItem extends Component {
 					required: false
 				},
 				valid: true,
-				touched: false
+				touched: false,
+				visible: true
 			},
 			itemFlavorText: {
 				elementType: "textarea",
@@ -289,7 +365,8 @@ class NewItem extends Component {
 					required: true
 				},
 				valid: false,
-				touched: false
+				touched: false,
+				visible: true
 			},
 			numberOfDamageDice: {
 				elementType: "select",
@@ -304,7 +381,8 @@ class NewItem extends Component {
 					required: false
 				},
 				valid: true,
-				touched: false
+				touched: false,
+				visible: true
 			},
 			damageDie: {
 				elementType: "select",
@@ -350,7 +428,8 @@ class NewItem extends Component {
 					required: false
 				},
 				valid: true,
-				touched: false
+				touched: false,
+				visible: true
 			},
 			damageType: {
 				elementType: "select",
@@ -416,7 +495,8 @@ class NewItem extends Component {
 					required: false
 				},
 				valid: true,
-				touched: false
+				touched: false,
+				visible: true
 			},
 			itemAttributes: {
 				elementType: "textarea",
@@ -429,7 +509,8 @@ class NewItem extends Component {
 					required: false
 				},
 				valid: true,
-				touched: false
+				touched: false,
+				visible: true
 			}
 		}
 	}
@@ -460,6 +541,41 @@ class NewItem extends Component {
 
 	//Change values for input and textarea elements
 	onChangeHandler = (event, element) => {
+		console.log(event.target.value);
+		if (element == "itemType") {
+			switch(event.target.value) {
+				case "Weapon":
+					this.setState({
+						controls: {
+							...this.state.controls,
+							weaponType: {
+								...this.state.controls.weaponType,
+								visible: true
+							},
+							armorType: {
+								...this.state.controls.armorType,
+								visible: false
+							},
+						}
+					});
+					break;
+				case "Armor":
+					this.setState({
+						controls: {
+							...this.state.controls,
+							weaponType: {
+								...this.state.controls.weaponType,
+								visible: false
+							},
+							armorType: {
+								...this.state.controls.armorType,
+								visible: true
+							},
+						}
+					});
+					break;
+			}
+		}
 		this.setState({
 			controls: {
 				...this.state.controls,
@@ -477,7 +593,7 @@ class NewItem extends Component {
 		let itemStatElements = [];
 		let i = 0;
 		for (let element in this.state.controls) {
-			if (i < 6) {
+			if (i < 7) {
 				itemInfoElements.push({
 					id: element,
 					config: this.state.controls[element]
@@ -502,11 +618,13 @@ class NewItem extends Component {
 					value = {element.config.value}
 					validationRules = {element.config.validationRules}
 					valid = {element.config.valid}
+					visible = {element.config.visible}
 					shouldValidate = {null}
 					touched = {element.config.touched}
 					changed = {(event) => this.onChangeHandler(event, element.id)}/>
 			);
 		});
+			
 
 		let statForm = itemStatElements.map(element => {
 			return (
@@ -519,11 +637,12 @@ class NewItem extends Component {
 					value = {element.config.value}
 					validationRules = {element.config.validationRules}
 					valid = {element.config.valid}
+					visible = {element.config.visible}
 					shouldValidate = {null}
 					touched = {element.config.touched}
 					changed = {(event) => this.onChangeHandler(event, element.id)}/>
-			)
-		})
+			);
+		});
 
 		return(
 			<div>
@@ -549,6 +668,7 @@ class NewItem extends Component {
 					damageType = {this.state.controls.damageType.value}
 					itemFlavorText = {this.state.controls.itemFlavorText.value}
 					itemAttributes = {this.state.controls.itemAttributes.value}/>
+				{this.state.controls.weaponType.visible === true ? <p>A OK</p> : <p>Thats a Neg</p>}
 			</div>
 		)
 	}

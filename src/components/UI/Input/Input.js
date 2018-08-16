@@ -7,6 +7,7 @@ const input = props => {
 
 
 	let inputElement = null;
+	let inputClasses = [classes.Input];
 	
 	switch(props.elementType) {
 		case "input":
@@ -24,7 +25,7 @@ const input = props => {
 				)
 			});
 			inputElement = (
-				<select onChange = {props.changed}>
+				<select onChange = {props.changed} className = {classes.Hidden}>
 					{options}
 				</select>
 			);
@@ -41,9 +42,15 @@ const input = props => {
 		case "radio":
 			const choices = props.options.map(option => {
 				return(
-					<label key = {option.value}>{option.label}
-						<input {...props.elementConfig} value = {option.value}/>
+					<label key = {option.value}>
+						<input 
+							{...props.elementConfig} 
+							value = {option.value} 
+							checked = {option.value === props.value}
+							onChange = {props.changed}/>
+						{option.label}
 					</label>
+					
 				)
 			});
 			inputElement = (
@@ -62,8 +69,10 @@ const input = props => {
 			break;
 	}
 
+
+	//Trying to figure out how to make an input hidden by pushing a class not sure why it was not working earlier so removed for now
 	return(
-		<div className = {classes.Input}>
+		<div className = {inputClasses.join(" ")}>
 			{inputElement}
 		</div>
 	)
