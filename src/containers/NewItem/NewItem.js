@@ -69,17 +69,201 @@ class NewItem extends Component {
 				touched: false
 			},
 			itemType: {
-				elementType: "input",
+				elementType: "radio",
 				elementConfig: {
-					type: "input",
-					placeholder: "Enter item type (ie. Battleaxe, Potion, Ammunition)"
+					type: "radio"
 				},
+				options: [
+					{
+						value: "Weapon",
+						label: "Weapon"
+					},
+					{
+						value: "Armor",
+						label: "Armor"
+					},
+					{
+						value: "Consumable",
+						label: "Consumable"
+					},
+					{
+						value: "Other",
+						label: "Other"
+					}
+				],
+				value: "Weapon",
+				validationRules: {
+					required: true
+				},
+				valid: true,
+				touched: false
+			},
+			weaponType: {
+				elementType: "select",
+				elementConfig: {
+					
+				},
+				options: [
+					{
+						value: "",
+						label: "Item Type"
+					},
+					{
+						value: "Club",
+						label: "Club",
+					},
+					{
+						value: "Dagger",
+						label: "Dagger"
+					},
+					{
+						value: "Greatclub",
+						label: "Greatclub"
+					},
+					{
+						value: "Handaxe",
+						label: "Handaxe"
+					},
+					{
+						value: "Javelin",
+						label: "Javelin"
+					},
+					{
+						value: "Light Hammer",
+						label: "Light Hammer"
+					},
+					{
+						value: "Mace",
+						label: "Mace"
+					},
+					{
+						value: "Quarterstaff",
+						label: "Quarterstaff"
+					},
+					{
+						value: "Sickle",
+						label: "Sickle"
+					},
+					{
+						value: "Spear",
+						label: "Spear"
+					},
+					{
+						value: "Light Crossbow",
+						label: "Light Crossbow"
+					},
+					{
+						value: "Dart",
+						label: "Dart"
+					},
+					{
+						value: "Shortbow",
+						label: "Shortbow"
+					},
+					{
+						value: "Sling",
+						label: "Sling"
+					},
+					{
+						value: "Battleaxe",
+						label: "Battleaxe"
+					},
+					{
+						value: "Flail",
+						label: "Flail"
+					},
+					{
+						value: "Glaive",
+						label: "Glaive"
+					},
+					{
+						value: "Greataxe",
+						label: "Greataxe"
+					},
+					{
+						value: "Greatsword",
+						label: "Greatsword"
+					},
+					{
+						value: "Halberd",
+						label: "Halberd"
+					},
+					{
+						value: "Lance",
+						label: "Lance"
+					},
+					{
+						value: "Longsword",
+						label: "Longsword"
+					},
+					{
+						value: "Maul",
+						label: "Maul"
+					},
+					{
+						value: "Morningstar",
+						label: "Morningstar"
+					},
+					{
+						value: "Pike",
+						label: "Pike"
+					},
+					{
+						value: "Rapier",
+						label: "Rapier"
+					},
+					{
+						value: "Scimitar",
+						label: "Scimitar"
+					},
+					{
+						value: "Shortsword",
+						label: "Shortsword"
+					},
+					{
+						value: "Trident",
+						label: "Trident"
+					},
+					{
+						value: "War Pick",
+						label: "War Pick"
+					},
+					{
+						value: "Warhammer",
+						label: "Warhammer"
+					},
+					{
+						value: "Whip",
+						label: "Whip"
+					},
+					{
+						value: "Blowgun",
+						label: "Blowgun"
+					},
+					{
+						value: "Hand Crossbow",
+						label: "Hand Crossbow"
+					},
+					{
+						value: "Heavy Crossbow",
+						label: "Heavy Crossbow"
+					},
+					{
+						value: "Longbow",
+						label: "Longbow"
+					},
+					{
+						value: "Net",
+						label: "Net"
+					},
+				],
 				value: "",
 				validationRules: {
 					required: true
 				},
 				valid: false,
-				touched: false
+				touched: false,
+				visible: true
 			},
 			itemProperties: {
 				elementType: "input",
@@ -92,6 +276,19 @@ class NewItem extends Component {
 					required: false
 				},
 				valid: true,
+				touched: false
+			},
+			itemFlavorText: {
+				elementType: "textarea",
+				elementConfig: {
+					type: "textarea",
+					placeholder: "Item's lore, description or flavor text"
+				},
+				value: "",
+				validationRules: {
+					required: true
+				},
+				valid: false,
 				touched: false
 			},
 			numberOfDamageDice: {
@@ -221,19 +418,6 @@ class NewItem extends Component {
 				valid: true,
 				touched: false
 			},
-			itemFlavorText: {
-				elementType: "textarea",
-				elementConfig: {
-					type: "textarea",
-					placeholder: "Item's lore, description or flavor text"
-				},
-				value: "",
-				validationRules: {
-					required: true
-				},
-				valid: false,
-				touched: false
-			},
 			itemAttributes: {
 				elementType: "textarea",
 				elementConfig: {
@@ -284,32 +468,30 @@ class NewItem extends Component {
 					value: event.target.value
 				}
 			}
-		})
+		});
 	}
 
-	//Changes value for select elements currently doesn't work
-	onSelectHandler = (event, element) => {
-		this.setState({
-			controls: {
-				...this.state.controls,
-				[element]: {
-					...this.state.controls[element],
-					value: event.target.value
-				}
-			}
-		})
-	}
 
 	render() {
-		let formElements = [];
+		let itemInfoElements = [];
+		let itemStatElements = [];
+		let i = 0;
 		for (let element in this.state.controls) {
-			formElements.push({
-				id: element,
-				config: this.state.controls[element]
-			});
+			if (i < 6) {
+				itemInfoElements.push({
+					id: element,
+					config: this.state.controls[element]
+				});
+			} else {
+				itemStatElements.push({
+					id: element,
+					config: this.state.controls[element]
+				});
+			}
+			i += 1;
 		}
 
-		let form = formElements.map(element => {
+		let infoForm = itemInfoElements.map(element => {
 			return (
 				<Input 
 					key = {element.id}
@@ -326,17 +508,41 @@ class NewItem extends Component {
 			);
 		});
 
+		let statForm = itemStatElements.map(element => {
+			return (
+				<Input 
+					key = {element.id}
+					className = {classes.Input}
+					elementType = {element.config.elementType}
+					elementConfig = {element.config.elementConfig}
+					options = {element.config.options}
+					value = {element.config.value}
+					validationRules = {element.config.validationRules}
+					valid = {element.config.valid}
+					shouldValidate = {null}
+					touched = {element.config.touched}
+					changed = {(event) => this.onChangeHandler(event, element.id)}/>
+			)
+		})
+
 		return(
 			<div>
 				<h1>Create Your New Item </h1>
 				<form className = {classes.Form}>
-					{form}
+					<div className = {classes.Section}>
+						<h2>Item Info</h2>
+						{infoForm}
+					</div>
+					<div className = {classes.Section}>
+						<h2>Item Stats</h2>
+						{statForm}
+					</div>
 				</form>
 				<Card 
 					cardType = "item"  
 					itemName = {this.state.controls.itemName.value} 
 					itemRarity = {this.state.controls.itemRarity.value}
-					itemType = {this.state.controls.itemType.value}
+					itemType = {this.state.controls.weaponType.value}
 					itemProperties = {this.state.controls.itemProperties.value}
 					numberOfDamageDice = {this.state.controls.numberOfDamageDice.value}
 					damageDie = {this.state.controls.damageDie.value}

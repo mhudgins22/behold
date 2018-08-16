@@ -22,7 +22,7 @@ const input = props => {
 				return(
 					<option value = {option.value} key = {option.value}>{option.label}</option>
 				)
-			})
+			});
 			inputElement = (
 				<select onChange = {props.changed}>
 					{options}
@@ -37,6 +37,20 @@ const input = props => {
 					value = {props.value}
 					onChange = {props.changed}/>
 			);
+			break;
+		case "radio":
+			const choices = props.options.map(option => {
+				return(
+					<label key = {option.value}>{option.label}
+						<input {...props.elementConfig} value = {option.value}/>
+					</label>
+				)
+			});
+			inputElement = (
+				<div>
+					{choices}
+				</div>
+			)
 			break;
 		default:
 			inputElement = (
