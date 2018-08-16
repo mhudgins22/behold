@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Button from "../../components/UI/Button/Button";
-import NewCharacter from "../NewCharacter/NewCharacter";
 
 class CharacterPage extends Component {
   render() {
