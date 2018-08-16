@@ -1,0 +1,61 @@
+.Card {
+	margin: auto;
+	margin-bottom: 10px;
+	width: 400px;
+	height: 500px;
+	border: 5px double #d1b673;
+	border-radius: 5px;
+	padding: 5px;
+	background-image: url("../../assets/images/old-paper.jpg");
+	background-size: cover;
+}
+
+.Header {
+	color: #aa2020;
+	font-style: bold;
+	font-size: 24px;
+	line-height: .1;
+	border-bottom: 3px solid #a58f59;
+}
+
+.Subheader {
+	display: inline;
+	font-style: italic;
+	color: #494848;
+	font-size: 12px;
+	line-height: normal;
+}
+
+.ItemImage {
+	width: 45%;
+	border: 3px inset #a58f59;
+	margin: 25px 5px;
+	float: left;
+}
+
+.Stats {
+	width: 45%;
+	border: 3px inset #a58f59;
+	margin: 25px 5px;
+	float: right;
+}
+
+.FlavorText {
+	font-style: italic;
+	font-size: 12;
+}
+
+.Damage h4,p {
+	display: inline;
+}
+
+.XDivider {
+	width: 100%;
+	height: 2px;
+	background-color: #a58f59;
+	margin: 5px 0px;
+}
+
+.YDivider {
+
+}

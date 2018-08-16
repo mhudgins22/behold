@@ -49,7 +49,7 @@ const input = props => {
 	}
 
 	return(
-		<div>
+		<div className = {classes.Input}>
 			{inputElement}
 		</div>
 	)

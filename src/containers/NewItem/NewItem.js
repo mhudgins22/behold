@@ -3,6 +3,8 @@ import React, {Component} from "react";
 import Input from "../../components/UI/Input/Input";
 import Card from "../../components/Card/Card";
 
+import classes from "./NewItem.css";
+
 class NewItem extends Component {
 
 	state = {
@@ -311,6 +313,7 @@ class NewItem extends Component {
 			return (
 				<Input 
 					key = {element.id}
+					className = {classes.Input}
 					elementType = {element.config.elementType}
 					elementConfig = {element.config.elementConfig}
 					options = {element.config.options}
@@ -326,7 +329,7 @@ class NewItem extends Component {
 		return(
 			<div>
 				<h1>Create Your New Item </h1>
-				<form>
+				<form className = {classes.Form}>
 					{form}
 				</form>
 				<Card 
