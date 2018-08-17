@@ -110,7 +110,8 @@ class NewItem extends Component {
 				options: [
 					{
 						value: "",
-						label: "Weapon Type"
+						label: "Weapon Type",
+						properties: ""
 					},
 					{
 						value: "Club",
@@ -315,59 +316,73 @@ class NewItem extends Component {
 				options: [
 					{
 						value: "",
-						label: "Armor Type"
+						label: "Armor Type",
+						properties: ""
 					},
 					{
 						value: "Padded Armor",
-						label: "Padded Armor"
+						label: "Padded Armor",
+						properties: "Light, Stealth Disadvantage"
 					},
 					{
 						value: "Leather Armor",
-						label: "Leather Armor"
+						label: "Leather Armor",
+						properties: "Light"
 					},
 					{
 						value: "Studded Leather Armor",
-						label: "Studded Leather Armor"
+						label: "Studded Leather Armor",
+						properties: "Light"
 					},
 					{
 						value: "Hide Armor",
-						label: "Hide Armor"
+						label: "Hide Armor",
+						properties: "Medium"
 					},
 					{
 						value: "Chain Shirt",
-						label: "Chain Shirt"
+						label: "Chain Shirt",
+						properties: "Medium"
 					},
 					{
 						value: "Scale Mail",
-						label: "Scale Mail"
+						label: "Scale Mail",
+						properties: "Medium, Stealth Disadvantage"
 					},
 					{
 						value: "Breastplate",
-						label: "Breastplate"
+						label: "Breastplate",
+						properties: "Medium"
 					},
 					{
 						value: "Half Plate",
-						label: "Half Plate"
+						label: "Half Plate",
+						properties: "Medium, Stealth Disadvantage"
 					},
 					{
 						value: "Ring Mail",
-						label: "Ring Mail"
+						label: "Ring Mail",
+						properties: "Heavy, Stealth Disadvantage"
 					},
 					{
 						value: "Chain Mail",
-						label: "Chain Mail"
+						label: "Chain Mail",
+						properties: "Heavy, Stealth Disadvantage"
 					},
 					{
 						value: "Splint Mail",
-						label: "Splint Mail"
+						label: "Splint Mail",
+						properties: "Heavy, Stealth Disadvantage"
 					},
 					{
 						value: "Plate Mail",
-						label: "Plate Mail"
+						label: "Plate Mail",
+						properties: "Heavy, Stealth Disadvantage"
 					},
 					{
 						value: "Shield",
-						label: "Shield"
+						label: "Shield",
+						properties: ""
 					},
 				],
 				value: "",
@@ -403,6 +418,36 @@ class NewItem extends Component {
 					required: true
 				},
 				valid: false,
+				touched: false,
+				visible: true
+			},
+			itemCheckBoxes: {
+				elementType: "checkbox",
+				elementConfig: {
+					type: "checkbox"
+				},
+				options: [
+					{
+						value: "AC",
+						label: "AC",
+						checked: "unchecked"
+					},
+					{
+						value: "Damage",
+						label: "Damage",
+						checked: "unchecked"
+					},
+					{
+						value: "Healing",
+						label: "Healing",
+						checked: "unchecked"
+					}
+				],
+				value: "",
+				validationRules: {
+				
+				},
+				valid: true,
 				touched: false,
 				visible: true
 			},
