@@ -115,150 +115,188 @@ class NewItem extends Component {
 					{
 						value: "Club",
 						label: "Club",
+						properties: "Light"
 					},
 					{
 						value: "Dagger",
-						label: "Dagger"
+						label: "Dagger",
+						properties: "Finesse, Light, Thrown(Range 20/60)"
 					},
 					{
 						value: "Greatclub",
-						label: "Greatclub"
+						label: "Greatclub",
+						properties: "Two-handed"
 					},
 					{
 						value: "Handaxe",
-						label: "Handaxe"
+						label: "Handaxe",
+						properties: "Light, Thrown(Range 20/60)"
 					},
 					{
 						value: "Javelin",
-						label: "Javelin"
+						label: "Javelin",
+						properties: "Thrown(Range 30/120)"
 					},
 					{
 						value: "Light Hammer",
-						label: "Light Hammer"
+						label: "Light Hammer",
+						properties: "Light, Thrown(Range 20/60)"
 					},
 					{
 						value: "Mace",
-						label: "Mace"
+						label: "Mace",
+						properties: ""
+
 					},
 					{
 						value: "Quarterstaff",
-						label: "Quarterstaff"
+						label: "Quarterstaff",
+						properties: "Versatile(1d8)"
 					},
 					{
 						value: "Sickle",
-						label: "Sickle"
+						label: "Sickle",
+						properties: "Light"
 					},
 					{
 						value: "Spear",
-						label: "Spear"
+						label: "Spear",
+						properties: "Thrown(range 20/60), Versatile(1d8)"
 					},
 					{
 						value: "Light Crossbow",
-						label: "Light Crossbow"
+						label: "Light Crossbow",
+						properties: "Ammunition(Range 80/320), Loading, Two-handed"
 					},
 					{
 						value: "Dart",
-						label: "Dart"
+						label: "Dart",
+						properties: "Finesse, Thrown(Range 20/60)"
 					},
 					{
 						value: "Shortbow",
-						label: "Shortbow"
+						label: "Shortbow",
+						properties: "Ammunition(Range 80/320), Two-handed"
 					},
 					{
 						value: "Sling",
-						label: "Sling"
+						label: "Sling",
+						properties: "Ammunition(Range 30/120)"
 					},
 					{
 						value: "Battleaxe",
-						label: "Battleaxe"
+						label: "Battleaxe",
+						properties: "Versatile(1d10)"
 					},
 					{
 						value: "Flail",
-						label: "Flail"
+						label: "Flail",
+						properties: ""
 					},
 					{
 						value: "Glaive",
-						label: "Glaive"
+						label: "Glaive",
+						properties: "Heavy, Reach, Two-handed"
 					},
 					{
 						value: "Greataxe",
-						label: "Greataxe"
+						label: "Greataxe",
+						properties: "Heavy, Two-handed"
 					},
 					{
 						value: "Greatsword",
-						label: "Greatsword"
+						label: "Greatsword",
+						properties: "Heavy, Two-handed"
 					},
 					{
 						value: "Halberd",
-						label: "Halberd"
+						label: "Halberd",
+						properties: "Heavy, Reach, Two-handed"
 					},
 					{
 						value: "Lance",
-						label: "Lance"
+						label: "Lance",
+						properties: "Reach, Special"
 					},
 					{
 						value: "Longsword",
-						label: "Longsword"
+						label: "Longsword",
+						properties: "Versatile(1d10)"
 					},
 					{
 						value: "Maul",
-						label: "Maul"
+						label: "Maul",
+						properties: "Heavy, Two-handed"
 					},
 					{
 						value: "Morningstar",
-						label: "Morningstar"
+						label: "Morningstar",
+						properties: ""
 					},
 					{
 						value: "Pike",
-						label: "Pike"
+						label: "Pike",
+						properties: "Heavy, Reach, Two-handed"
 					},
 					{
 						value: "Rapier",
-						label: "Rapier"
+						label: "Rapier",
+						properties: "Finesse"
 					},
 					{
 						value: "Scimitar",
-						label: "Scimitar"
+						label: "Scimitar",
+						properties: "Finesse, Light"
 					},
 					{
 						value: "Shortsword",
-						label: "Shortsword"
+						label: "Shortsword",
+						properties: "Finesse, Light"
 					},
 					{
 						value: "Trident",
-						label: "Trident"
+						label: "Trident",
+						properties: "Thrown(Range 20/60), Versatile(1d8)"
 					},
 					{
 						value: "War Pick",
-						label: "War Pick"
+						label: "War Pick",
+						properties: ""
 					},
 					{
 						value: "Warhammer",
-						label: "Warhammer"
+						label: "Warhammer",
+						properties: "Versatile(1d10)"
 					},
 					{
 						value: "Whip",
-						label: "Whip"
+						label: "Whip",
+						properties: "Finesse, Reach"
 					},
 					{
 						value: "Blowgun",
-						label: "Blowgun"
+						label: "Blowgun",
+						properties: "Ammunition(Range 25/100), Loading"
 					},
 					{
 						value: "Hand Crossbow",
-						label: "Hand Crossbow"
+						label: "Hand Crossbow",
+						properties: "Ammunition(Range 30/120), Light, Loading"
 					},
 					{
 						value: "Heavy Crossbow",
-						label: "Heavy Crossbow"
+						label: "Heavy Crossbow",
+						properties: "Ammunition(Range 100/400), Heavy, Loading, Two-handed"
 					},
 					{
 						value: "Longbow",
-						label: "Longbow"
+						label: "Longbow",
+						properties: "Ammunition(Range 150/600), Heavy, Two-handed"
 					},
 					{
 						value: "Net",
-						label: "Net"
+						label: "Net",
+						properties: "Special, Thrown(Range 5/15)"
 					},
 				],
 				value: "",
@@ -541,7 +579,6 @@ class NewItem extends Component {
 
 	//Change values for input and textarea elements
 	onChangeHandler = (event, element) => {
-		console.log(event.target.value);
 		if (element == "itemType") {
 			switch(event.target.value) {
 				case "Weapon":
@@ -575,6 +612,15 @@ class NewItem extends Component {
 					});
 					break;
 			}
+		}
+		if (element === "weaponType") {
+			let properties = "";
+			for (let i = 0; i < this.state.controls[element].options.length; ++i) {
+				if (this.state.controls[element].options[i].value === event.target.value) {
+					properties = this.state.controls[element].options[i].properties;
+				}
+			}
+			this.state.controls.itemProperties.value = properties;
 		}
 		this.setState({
 			controls: {
