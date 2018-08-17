@@ -157,7 +157,6 @@ class NewCharacter extends Component {
               }
             }
           });
-          console.log(this.state.controls.characterRace.value)
           break;
         case ("Dwarf"):
           this.setState({
@@ -180,7 +179,6 @@ class NewCharacter extends Component {
               }
             }
           });
-          console.log(this.state.controls.characterRace.value)
           break;
         case ("Gnome"):
           this.setState({
@@ -192,7 +190,6 @@ class NewCharacter extends Component {
               }
             }
           });
-          console.log(this.state.controls.characterRace.value)
           break;
         case ("Half-Elf"):
           this.setState({
@@ -204,7 +201,6 @@ class NewCharacter extends Component {
               }
             }
           });
-          console.log(this.state.controls.characterRace.value)
           break;
         case ("Halfling"):
           this.setState({
@@ -216,7 +212,6 @@ class NewCharacter extends Component {
               }
             }
           });
-          console.log(this.state.controls.characterRace.value)
           break;
         case ("Half-Orc"):
           this.setState({
@@ -228,7 +223,6 @@ class NewCharacter extends Component {
               }
             }
           });
-          console.log(this.state.controls.characterRace.value)
           break;
         case ("Human"):
           this.setState({
@@ -240,7 +234,6 @@ class NewCharacter extends Component {
               }
             }
           });
-          console.log(this.state.controls.characterRace.value)
           break;
         case ("Tiefling"):
           this.setState({
@@ -255,6 +248,143 @@ class NewCharacter extends Component {
           break;
       }
     }
+    if (element === "characterClass") {
+      switch (event.target.value) {
+        case ("Barbarian"):
+          this.setState({
+            controls: {
+              ...this.state.controls,
+              characterClass: {
+                ...this.state.controls.characterClass,
+                value: "Barbarian"
+              }
+            }
+          });
+          break;
+        case ("Bard"):
+          this.setState({
+            controls: {
+              ...this.state.controls,
+              characterClass: {
+                ...this.state.controls.characterClass,
+                value: "Bard"
+              }
+            }
+          });
+          break;
+        case ("Cleric"):
+          this.setState({
+            controls: {
+              ...this.state.controls,
+              characterClass: {
+                ...this.state.controls.characterClass,
+                value: "Cleric"
+              }
+            }
+          });
+          break;
+        case ("Druid"):
+          this.setState({
+            controls: {
+              ...this.state.controls,
+              characterClass: {
+                ...this.state.controls.characterClass,
+                value: "Druid"
+              }
+            }
+          });
+          break;
+        case ("Fighter"):
+          this.setState({
+            controls: {
+              ...this.state.controls,
+              characterClass: {
+                ...this.state.controls.characterClass,
+                value: "Fighter"
+              }
+            }
+          });
+          break;
+        case ("Monk"):
+          this.setState({
+            controls: {
+              ...this.state.controls,
+              characterClass: {
+                ...this.state.controls.characterClass,
+                value: "Monk"
+              }
+            }
+          });
+          break;
+        case ("Paladin"):
+          this.setState({
+            controls: {
+              ...this.state.controls,
+              characterClass: {
+                ...this.state.controls.characterClass,
+                value: "Paladin"
+              }
+            }
+          });
+          break;
+        case ("Ranger"):
+          this.setState({
+            controls: {
+              ...this.state.controls,
+              characterClass: {
+                ...this.state.controls.characterClass,
+                value: "Ranger"
+              }
+            }
+          });
+          break;
+        case ("Rouge"):
+          this.setState({
+            controls: {
+              ...this.state.controls,
+              characterClass: {
+                ...this.state.controls.characterClass,
+                value: "Rouge"
+              }
+            }
+          });
+          break;
+        case ("Sorcerer"):
+          this.setState({
+            controls: {
+              ...this.state.controls,
+              characterClass: {
+                ...this.state.controls.characterClass,
+                value: "Sorcerer"
+              }
+            }
+          });
+          break;
+        case ("Warlock"):
+          this.setState({
+            controls: {
+              ...this.state.controls,
+              characterClass: {
+                ...this.state.controls.characterClass,
+                value: "Warlock"
+              }
+            }
+          });
+          break;
+        case ("Wizard"):
+          this.setState({
+            controls: {
+              ...this.state.controls,
+              characterClass: {
+                ...this.state.controls.characterClass,
+                value: "Wizard"
+              }
+            }
+          });
+          break;
+      }
+    }
+
   }
 
   render() {
@@ -282,9 +412,10 @@ class NewCharacter extends Component {
         />
     ));
 
+    //display race information
     let raceDescription = "";
     let raceTraits ="";
-    //race information
+
     switch (this.state.controls.characterRace.value) {
       case "Dragonborn":
         raceDescription = (
@@ -360,6 +491,145 @@ class NewCharacter extends Component {
         break;
       }
 
+    //display class information. I need to add more styling to this section
+    let classInfo = "";
+
+    switch (this.state.controls.characterClass.value) {
+      case "Barbarian":
+        classInfo = (
+          <div>
+            <p>A fierce warrior of primitive background who can enter a battle rage.</p>
+            <br />
+            <p>Hit Die: d12</p>
+            <p>Primary Ability: Strength</p>
+            <p>Saving Throws: Strength & Consitution</p>
+          </div>
+        );
+        break;
+      case "Bard":
+        classInfo = (
+          <div>
+            <p>An inspiring magician whose power echoes the music of creation</p>
+            <br />
+            <p>Hit Die: d8</p>
+            <p>Primary Ability: Charisma</p>
+            <p>Saving Throws: Dexterity & Charisma</p>
+          </div>
+        );
+        break;
+      case "Cleric":
+        classInfo = (
+          <div>
+            <p>A priestly champion who wields divine magic in service of a higher power</p>
+            <br />
+            <p>Hit Die: d8</p>
+            <p>Primary Ability: Charisma</p>
+            <p>Saving Throws: Wisdom & Charisma</p>
+          </div>
+        );
+        break;
+      case "Druid":
+        classInfo = (
+          <div>
+            <p>A priest of the Old Faith, wielding the powers of nature and adopting animal forms</p>
+            <br />
+            <p>Hit Die: d8</p>
+            <p>Primary Ability: Wisdom</p>
+            <p>Saving Throws: Intelligence & Wisdom</p>
+          </div>
+        );
+        break;
+      case "Fighter":
+        classInfo = (
+          <div>
+            <p>A master of martial combat, skilled with a variety of weapons and armor</p>
+            <br />
+            <p>Hit Die: d10</p>
+            <p>Primary Ability: Strength or Dexterity</p>
+            <p>Saving Throws: Strength & Constitution</p>
+          </div>
+        );
+        break;
+      case "Monk":
+        classInfo = (
+          <div>
+            <p>A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection</p>
+            <br />
+            <p>Hit Die: d8</p>
+            <p>Primary Ability: Dexterity & Wisdom</p>
+            <p>Saving Throws: Strength & Dexterity</p>
+          </div>
+        );
+        break;
+      case "Paladin":
+        classInfo = (
+          <div>
+            <p>A holy warrior bound to a sacred oath</p>
+            <br />
+            <p>Hit Die: d10</p>
+            <p>Primary Ability: Strength & Charisma</p>
+            <p>Saving Throws: Wisdom & Charisma</p>
+          </div>
+        );
+        break;
+      case "Ranger":
+        classInfo = (
+          <div>
+            <p>A warrior who combats threats on the edges of civilization</p>
+            <br />
+            <p>Hit Die: d10</p>
+            <p>Primary Ability: Dexterity & Wisdom</p>
+            <p>Saving Throws: Strength & Dexterity</p>
+          </div>
+        );
+        break;
+      case "Rouge":
+        classInfo = (
+          <div>
+            <p>A scoundrel who uses stealth and trickery to overcome obstacles and enemies</p>
+            <br />
+            <p>Hit Die: d8</p>
+            <p>Primary Ability: Dexterity</p>
+            <p>Saving Throws: Dexterity & Intelligence</p>
+          </div>
+        );
+        break;
+      case "Sorcerer":
+        classInfo = (
+          <div>
+            <p>A spellcaster who draws on inherent magic from a gift or bloodline</p>
+            <br />
+            <p>Hit Die: d6</p>
+            <p>Primary Ability: Charisma</p>
+            <p>Saving Throws: Consitution & Charisma</p>
+          </div>
+        );
+        break;
+      case "Warlock":
+        classInfo = (
+          <div>
+            <p>A wielder of magic that is derived from a bargain with an extraplanar entity</p>
+            <br />
+            <p>Hit Die: d8</p>
+            <p>Primary Ability: Charisma</p>
+            <p>Saving Throws: Wisdom & Charisma</p>
+          </div>
+        );
+        break;
+      case "Wizard":
+        classInfo = (
+          <div>
+            <p>A scholarly magic-user capable of manipulating the structures of reality</p>
+            <br />
+            <p>Hit Die: d6</p>
+            <p>Primary Ability: Intelligence</p>
+            <p>Saving Throws: Intelligence & Wisdom</p>
+          </div>
+        )
+        break;
+    }
+
+
     return ( //I will take all of the <br /> out once I figure out proper styling
       <div>
         <h2>Character Creation Page</h2>
@@ -371,6 +641,9 @@ class NewCharacter extends Component {
         <br />
         <br />
         {raceTraits}
+        <br />
+        <br />
+        {classInfo}
       </div>
     )
   }
