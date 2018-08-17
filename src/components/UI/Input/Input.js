@@ -66,7 +66,7 @@ const input = props => {
 						<input 
 							{...props.elementConfig}
 							value = {option.value}
-							{...option.checked} 
+							checked = {option.checked}
 							onChange = {props.changed}/>
 						{option.label}
 					</label>

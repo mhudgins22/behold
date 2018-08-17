@@ -430,17 +430,17 @@ class NewItem extends Component {
 					{
 						value: "AC",
 						label: "AC",
-						checked: "unchecked"
+						checked: false
 					},
 					{
 						value: "Damage",
 						label: "Damage",
-						checked: "unchecked"
+						checked: true
 					},
 					{
 						value: "Healing",
 						label: "Healing",
-						checked: "unchecked"
+						checked: false
 					}
 				],
 				value: "",
@@ -627,7 +627,12 @@ class NewItem extends Component {
 		if (element == "itemType") {
 			switch(event.target.value) {
 				case "Weapon":
-					this.setState({
+					//Bad way to set state will fix later
+					this.state.controls.weaponType.visible = true;
+					this.state.controls.armorType.visible = false;
+					this.state.controls.itemCheckBoxes.options[1].checked = true;
+					this.state.controls.itemCheckBoxes.options[0].checked = false;
+					/*this.setState({
 						controls: {
 							...this.state.controls,
 							weaponType: {
@@ -638,11 +643,25 @@ class NewItem extends Component {
 								...this.state.controls.armorType,
 								visible: false
 							},
+							itemCheckBoxes: {
+								...this.state.controls.itemCheckBoxes,
+								options: [
+									...this.state.controls.itemCheckBoxes.options,
+									[1]: {
+										checked: true
+									}
+								]
+							}
 						}
-					});
+					});*/
 					break;
 				case "Armor":
-					this.setState({
+					//Bad way to set state it will fix later
+					this.state.controls.weaponType.visible = false;
+					this.state.controls.armorType.visible = true;
+					this.state.controls.itemCheckBoxes.options[0].checked = true;
+					this.state.controls.itemCheckBoxes.options[1].checked = false;
+					/*this.setState({
 						controls: {
 							...this.state.controls,
 							weaponType: {
@@ -654,7 +673,7 @@ class NewItem extends Component {
 								visible: true
 							},
 						}
-					});
+					});*/
 					break;
 			}
 		}
@@ -676,6 +695,7 @@ class NewItem extends Component {
 				}
 			}
 		});
+		console.log(this.state);
 	}
 
 
