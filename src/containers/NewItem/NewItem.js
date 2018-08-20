@@ -514,6 +514,19 @@ class NewItem extends Component {
 				touched: false,
 				visible: true
 			},
+			damageBonus: {
+				elementType: "select",
+				options: [
+				
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: true
+			},
 			damageType: {
 				elementType: "select",
 				elementConfig: {
@@ -600,15 +613,33 @@ class NewItem extends Component {
 
 	componentDidMount() {
 	//I'm lazy so populates the number of dice with nums 1-100 for damage dice
-	let nums = [{
-		value: "",
-		label: "# of Dice"
-	}];
+		let nums = [{
+			value: "",
+			label: "# of Dice"
+		}];
 		for (let i = 1; i < 100; ++i) {
 			nums.push({
 				value: i,
 				label: i
 			});
+		}
+		let bonus = [{
+			value: "",
+			label: "Damage Bonus"
+		}]
+		for (let j = -10; j <= 10; ++j) {
+			if (j < 0) {
+				bonus.push({
+					value: j,
+					label: j
+				});
+			} else {
+				bonus.push({
+					value: "+" + j,
+					label: "+" + j
+				})
+			}
+			
 		}
 		this.setState({
 			...this.state,
@@ -617,6 +648,10 @@ class NewItem extends Component {
 				numberOfDamageDice: {
 					...this.state.controls.numberOfDamageDice,
 					options: nums
+				},
+				damageBonus: {
+					...this.state.controls.damageBonus,
+					options: bonus
 				}
 			}
 		});
@@ -632,6 +667,9 @@ class NewItem extends Component {
 					this.state.controls.weaponType.visible = true;
 					this.state.controls.armorType.visible = false;
 					this.state.controls.damageCheckBox.value = true;
+					this.state.controls.numberOfDamageDice.visible = true;
+					this.state.controls.damageDie.visible = true;
+					this.state.controls.damageType.visible = true;
 					this.state.controls.armorClassCheckBox.value = false;
 					this.state.controls.armorType.value = "";
 					this.state.controls.itemProperties.value = "";
@@ -693,6 +731,10 @@ class NewItem extends Component {
 			this.state.controls.itemProperties.value = properties;
 		}
 		if (element === "damageCheckBox") {
+			this.state.controls.numberOfDamageDice.visible = value;
+			this.state.controls.damageDie.visible = value;
+			this.state.controls.damageType.visible = value;
+			/* Some reason this.setState will not make these inputs appear and disappear
 			this.setState({
 				controls: {
 					...this.state.controls,
@@ -711,6 +753,7 @@ class NewItem extends Component {
 					
 				}
 			})
+			*/
 		}
 		//Sets the value of input elements
 		this.setState({
@@ -806,9 +849,9 @@ class NewItem extends Component {
 					numberOfDamageDice = {this.state.controls.numberOfDamageDice.value}
 					damageDie = {this.state.controls.damageDie.value}
 					damageType = {this.state.controls.damageType.value}
+					damageBonus = {this.state.controls.damageBonus.value}
 					itemFlavorText = {this.state.controls.itemFlavorText.value}
 					itemAttributes = {this.state.controls.itemAttributes.value}/>
-				{this.state.controls.weaponType.visible === true ? <p>A OK</p> : <p>Thats a Neg</p>}
 			</div>
 		)
 	}

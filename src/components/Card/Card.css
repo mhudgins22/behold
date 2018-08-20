@@ -45,7 +45,11 @@
 	font-size: 12;
 }
 
-.Damage h4,p {
+
+.Damage {
+	line-height: 0.2;
+}
+.Damage p {
 	display: inline;
 }
 
