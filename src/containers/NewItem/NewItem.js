@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 import Input from "../../components/UI/Input/Input";
 import Card from "../../components/Card/Card";
+import Button from "../../components/UI/Button/Button";
 
 import classes from "./NewItem.css";
 
@@ -466,7 +467,7 @@ class NewItem extends Component {
 				touched: false,
 				visible: true
 			},
-			numberOfDamageDice: {
+			numberOfDamageDiceOne: {
 				elementType: "select",
 				elementConfig: {
 				
@@ -485,7 +486,7 @@ class NewItem extends Component {
 				touched: false,
 				visible: true
 			},
-			damageDie: {
+			damageDieOne: {
 				elementType: "select",
 				elementConfig: {
 					
@@ -532,7 +533,7 @@ class NewItem extends Component {
 				touched: false,
 				visible: true
 			},
-			damageBonus: {
+			damageBonusOne: {
 				elementType: "select",
 				options: [
 					{
@@ -548,7 +549,7 @@ class NewItem extends Component {
 				touched: false,
 				visible: true
 			},
-			damageType: {
+			damageTypeOne: {
 				elementType: "select",
 				elementConfig: {
 				
@@ -614,6 +615,304 @@ class NewItem extends Component {
 				valid: true,
 				touched: false,
 				visible: true
+			},
+			numberOfDamageDiceTwo: {
+				elementType: "select",
+				elementConfig: {
+				
+				},
+				options: [
+					{
+						value: "",
+						label: "# of Dice"
+					}
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			damageDieTwo: {
+				elementType: "select",
+				elementConfig: {
+					
+				},
+				options: [
+					{
+						value: "",
+						label: "Damage Die"
+					},
+					{
+						value: "d4",
+						label: "d4",
+					},
+					{
+						value: "d6",
+						label: "d6",
+					},
+					{
+						value: "d8",
+						label: "d8",
+					},
+					{
+						value: "d10",
+						label: "d10",
+					},
+					{
+						value: "d12",
+						label: "d12",
+					},
+					{
+						value: "d20",
+						label: "d20",
+					},
+					{
+						value: "d100",
+						label: "d100",
+					},
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			damageBonusTwo: {
+				elementType: "select",
+				options: [
+					{
+						value: "",
+						label: "Damage Bonus"
+					}
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			damageTypeTwo: {
+				elementType: "select",
+				elementConfig: {
+				
+				},
+				options: [
+					{
+						value: "",
+						label: "Damage Type"
+					},
+					{
+						value: "Piercing",
+						label: "Piercing"
+					},
+					{
+						value: "Slashing",
+						label: "Slashing"
+					},
+					{
+						value: "Bludgeoning",
+						label: "Bludgeoning"
+					},
+					{
+						value: "Fire",
+						label: "Fire"
+					},
+					{
+						value: "Lightning",
+						label: "Lightning"
+					},
+					{
+						value: "Poison",
+						label: "Poison"
+					},
+					{
+						value: "Acid",
+						label: "Acid"
+					},
+					{
+						value: "Thunder",
+						label: "Thunder"
+					},
+					{
+						value: "Radiant",
+						label: "Radiant"
+					},
+					{
+						value: "Necrotic",
+						label: "Necrotic"
+					},
+					{
+						value: "Cold",
+						label: "Cold"
+					},
+					{
+						value: "Force",
+						label: "Force"
+					}
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			numberOfDamageDiceThree: {
+				elementType: "select",
+				elementConfig: {
+				
+				},
+				options: [
+					{
+						value: "",
+						label: "# of Dice"
+					}
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			damageDieThree: {
+				elementType: "select",
+				elementConfig: {
+					
+				},
+				options: [
+					{
+						value: "",
+						label: "Damage Die"
+					},
+					{
+						value: "d4",
+						label: "d4",
+					},
+					{
+						value: "d6",
+						label: "d6",
+					},
+					{
+						value: "d8",
+						label: "d8",
+					},
+					{
+						value: "d10",
+						label: "d10",
+					},
+					{
+						value: "d12",
+						label: "d12",
+					},
+					{
+						value: "d20",
+						label: "d20",
+					},
+					{
+						value: "d100",
+						label: "d100",
+					},
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			damageBonusThree: {
+				elementType: "select",
+				options: [
+					{
+						value: "",
+						label: "Damage Bonus"
+					}
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			damageTypeThree: {
+				elementType: "select",
+				elementConfig: {
+				
+				},
+				options: [
+					{
+						value: "",
+						label: "Damage Type"
+					},
+					{
+						value: "Piercing",
+						label: "Piercing"
+					},
+					{
+						value: "Slashing",
+						label: "Slashing"
+					},
+					{
+						value: "Bludgeoning",
+						label: "Bludgeoning"
+					},
+					{
+						value: "Fire",
+						label: "Fire"
+					},
+					{
+						value: "Lightning",
+						label: "Lightning"
+					},
+					{
+						value: "Poison",
+						label: "Poison"
+					},
+					{
+						value: "Acid",
+						label: "Acid"
+					},
+					{
+						value: "Thunder",
+						label: "Thunder"
+					},
+					{
+						value: "Radiant",
+						label: "Radiant"
+					},
+					{
+						value: "Necrotic",
+						label: "Necrotic"
+					},
+					{
+						value: "Cold",
+						label: "Cold"
+					},
+					{
+						value: "Force",
+						label: "Force"
+					}
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
 			},
 			armorClass: {
 				elementType: "select",
@@ -781,13 +1080,29 @@ class NewItem extends Component {
 			...this.state,
 			controls: {
 				...this.state.controls,
-				numberOfDamageDice: {
-					...this.state.controls.numberOfDamageDice,
-					options: this.state.controls.numberOfDamageDice.options.concat(nums)
+				numberOfDamageDiceOne: {
+					...this.state.controls.numberOfDamageDiceOne,
+					options: this.state.controls.numberOfDamageDiceOne.options.concat(nums)
 				},
-				damageBonus: {
-					...this.state.controls.damageBonus,
-					options: this.state.controls.damageBonus.options.concat(bonus)
+				damageBonusOne: {
+					...this.state.controls.damageBonusOne,
+					options: this.state.controls.damageBonusOne.options.concat(bonus)
+				},
+				numberOfDamageDiceTwo: {
+					...this.state.controls.numberOfDamageDiceTwo,
+					options: this.state.controls.numberOfDamageDiceTwo.options.concat(nums)
+				},
+				damageBonusTwo: {
+					...this.state.controls.damageBonusTwo,
+					options: this.state.controls.damageBonusTwo.options.concat(bonus)
+				},
+				numberOfDamageDiceThree: {
+					...this.state.controls.numberOfDamageDiceThree,
+					options: this.state.controls.numberOfDamageDiceThree.options.concat(nums)
+				},
+				damageBonusThree: {
+					...this.state.controls.damageBonusThree,
+					options: this.state.controls.damageBonusThree.options.concat(bonus)
 				},
 				armorClass: {
 					...this.state.controls.armorClass,
@@ -823,10 +1138,10 @@ class NewItem extends Component {
 
 					//alter visibility of damage values
 					this.state.controls.damageCheckBox.value = true;
-					this.state.controls.numberOfDamageDice.visible = true;
-					this.state.controls.damageDie.visible = true;
-					this.state.controls.damageType.visible = true;
-					this.state.controls.damageBonus.visible = true;
+					this.state.controls.numberOfDamageDiceOne.visible = true;
+					this.state.controls.damageDieOne.visible = true;
+					this.state.controls.damageTypeOne.visible = true;
+					this.state.controls.damageBonusOne.visible = true;
 
 					//alter visibility of armor values
 					this.state.controls.armorClassCheckBox.value = false;
@@ -867,10 +1182,10 @@ class NewItem extends Component {
 
 					
 					this.state.controls.damageCheckBox.value = false;
-					this.state.controls.numberOfDamageDice.visible = false;
-					this.state.controls.damageDie.visible = false;
-					this.state.controls.damageType.visible = false;
-					this.state.controls.damageBonus.visible = false;
+					this.state.controls.numberOfDamageDiceOne.visible = false;
+					this.state.controls.damageDieOne.visible = false;
+					this.state.controls.damageTypeOne.visible = false;
+					this.state.controls.damageBonusOne.visible = false;
 
 					
 					this.state.controls.armorClassCheckBox.value = true;
@@ -907,24 +1222,24 @@ class NewItem extends Component {
 			this.state.controls.itemProperties.value = properties;
 		}
 		if (element === "damageCheckBox") {
-			this.state.controls.numberOfDamageDice.visible = value;
-			this.state.controls.damageDie.visible = value;
-			this.state.controls.damageType.visible = value;
-			this.state.controls.damageBonus.visible = value;
+			this.state.controls.numberOfDamageDiceOne.visible = value;
+			this.state.controls.damageDieOne.visible = value;
+			this.state.controls.damageTypeOne.visible = value;
+			this.state.controls.damageBonusOne.visible = value;
 			/* Some reason this.setState will not make these inputs appear and disappear
 			this.setState({
 				controls: {
 					...this.state.controls,
-						numberOfDamageDice: {
-							...this.state.controls.numberOfDamageDice,
+						numberOfDamageDiceOne: {
+							...this.state.controls.numberOfDamageDiceOne,
 							visible: value
 						},
-						damageDie: {
-							...this.state.controls.damageDie,
+						damageDieOne: {
+							...this.state.controls.damageDieOne,
 							visible: value
 						},
-						damageType: {
-							...this.state.controls.damageType,
+						damageTypeOne: {
+							...this.state.controls.damageTypeOne,
 							visible: value
 						}
 					
@@ -949,6 +1264,31 @@ class NewItem extends Component {
 				[element]: {
 					...this.state.controls[element],
 					value: value
+				}
+			}
+		});
+	}
+
+	onVisibilityHandler = (event, number, die, bonus, type, bool) => {
+		event.preventDefault();
+		this.setState({
+			controls: {
+				...this.state.controls,
+				[number]: {
+					...this.state.controls[number],
+					visible: bool
+				},
+				[die]: {
+					...this.state.controls[die],
+					visible: bool
+				},
+				[bonus]: {
+					...this.state.controls[bonus],
+					visible: bool
+				},
+				[type]: {
+					...this.state.controls[type],
+					visible: bool
 				}
 			}
 		});
@@ -1013,6 +1353,27 @@ class NewItem extends Component {
 			}
 		});
 
+		let damageButtonOne = null;
+		let damageButtonTwo = null;
+		if (this.state.controls.damageCheckBox.value) {
+			damageButtonOne = (
+				<Button 
+					buttonType = "" 
+					text = "Add 2nd Damage" 
+					clicked = {(event) => {this.onVisibilityHandler(event, "numberOfDamageDiceTwo", "damageDieTwo", "damageBonusTwo", "damageTypeTwo", true)}}/>
+				);
+		}
+		if (this.state.controls.numberOfDamageDiceTwo.visible) {
+			damageButtonTwo = (
+				<Button
+					buttonType = ""
+					text = "Add 3rd Damage"
+					clicked = {(event) => {this.onVisibilityHandler(event, "numberOfDamageDiceThree", "damageDieThree", "damageBonusThree", "damageTypeThree", true)}}/>
+			);
+		}
+		
+		
+
 		return(
 			<div>
 				<h1>Create Your New Item </h1>
@@ -1024,6 +1385,8 @@ class NewItem extends Component {
 					<div className = {classes.Section}>
 						<h2>Item Stats</h2>
 						{statForm}
+						{damageButtonOne}
+						{damageButtonTwo}
 					</div>
 				</form>
 				<Card 
@@ -1032,10 +1395,18 @@ class NewItem extends Component {
 					itemRarity = {this.state.controls.itemRarity.value}
 					itemType = {this.state.controls.weaponType.value || this.state.controls.armorType.value}
 					itemProperties = {this.state.controls.itemProperties.value}
-					numberOfDamageDice = {this.state.controls.numberOfDamageDice.value}
-					damageDie = {this.state.controls.damageDie.value}
-					damageType = {this.state.controls.damageType.value}
-					damageBonus = {this.state.controls.damageBonus.value}
+					numberOfDamageDiceOne = {this.state.controls.numberOfDamageDiceOne.value}
+					damageDieOne = {this.state.controls.damageDieOne.value}
+					damageTypeOne = {this.state.controls.damageTypeOne.value}
+					damageBonusOne = {this.state.controls.damageBonusOne.value}
+					numberOfDamageDiceTwo = {this.state.controls.numberOfDamageDiceTwo.value}
+					damageDieTwo = {this.state.controls.damageDieTwo.value}
+					damageBonusTwo = {this.state.controls.damageBonusTwo.value}
+					damageTypeTwo = {this.state.controls.damageTypeTwo.value}
+					numberOfDamageDiceThree = {this.state.controls.numberOfDamageDiceThree.value}
+					damageDieThree = {this.state.controls.damageDieThree.value}
+					damageBonusThree = {this.state.controls.damageBonusThree.value}
+					damageTypeThree = {this.state.controls.damageTypeThree.value}
 					armorClass = {this.state.controls.armorClass.value}
 					armorClassBonus = {this.state.controls.armorClassBonus.value}
 					numberOfHealingDice = {this.state.controls.numberOfHealingDice.value}

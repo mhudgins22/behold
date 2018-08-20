@@ -24,8 +24,14 @@ const card = props => {
 					<div className = {classes.XDivider}>
 					</div>
 					<div className = {classes.Attributes}>
-						{props.damageDie || props.damageType|| props.numberOfDamageDice ? <h4>Damage: </h4> : null}
-						<p>{props.numberOfDamageDice}{props.damageDie}{props.damageBonus} {props.damageType}</p>
+						{props.damageDieOne || props.damageTypeOne|| props.numberOfDamageDiceOne || props.damageBonusOne ? <h4>Damage: </h4> : null}
+						<p>{props.numberOfDamageDiceOne}{props.damageDieOne}{props.damageBonusOne} {props.damageTypeOne}</p>
+						{props.damageDieTwo || props.numberOfDamageDiceTwo || props.damageBonusTwo || props.damageTypeTwo ? 
+							<p>{props.numberOfDamageDiceTwo}{props.damageDieTwo}{props.damageBonusTwo} {props.damageTypeTwo}</p>
+						: null}
+						{props.numberOfDamageDiceThree || props.damageDieThree || props.damageBonusThree || props.damageTypeThree ?
+							<p>{props.numberOfDamageDiceThree}{props.damageDieThree}{props.damageBonusThree} {props.damageTypeThree}</p>
+						: null}
 					</div>
 					<div className = {classes.Attributes}>
 						{props.armorClass || props.armorClassBonus ? <h4>Armor Class: </h4> : null}
