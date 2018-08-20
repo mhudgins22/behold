@@ -451,13 +451,31 @@ class NewItem extends Component {
 				touched: false,
 				visible: true
 			},
+			healingCheckBox: {
+				elementType: "checkbox",
+				label: "Healing",
+				elementConfig: {
+					type: "checkbox",
+					name: "itemAttributes"
+				},
+				value: false,
+				validationRules: {
+				
+				},
+				valid: true,
+				touched: false,
+				visible: true
+			},
 			numberOfDamageDice: {
 				elementType: "select",
 				elementConfig: {
 				
 				},
 				options: [
-				
+					{
+						value: "",
+						label: "# of Dice"
+					}
 				],
 				value: "",
 				validationRules: {
@@ -517,7 +535,10 @@ class NewItem extends Component {
 			damageBonus: {
 				elementType: "select",
 				options: [
-				
+					{
+						value: "",
+						label: "Damage Bonus"
+					}
 				],
 				value: "",
 				validationRules: {
@@ -594,7 +615,124 @@ class NewItem extends Component {
 				touched: false,
 				visible: true
 			},
-			itemAttributes: {
+			armorClass: {
+				elementType: "select",
+				elementConfig: {
+					
+				},
+				options: [
+					{
+						value: "",
+						label: "Armor Class"
+					}
+				],
+				value: "",
+				validationRules: {
+				
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			armorClassBonus: {
+				elementType: "select",
+				options: [
+					{
+						value: "",
+						label: "AC Bonus"
+					}
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			numberOfHealingDice: {
+				elementType: "select",
+				elementConfig: {
+				
+				},
+				options: [
+					{
+						value: "",
+						label: "# of Dice"
+					}
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			healingDie: {
+				elementType: "select",
+				elementConfig: {
+					
+				},
+				options: [
+					{
+						value: "",
+						label: "Healing Die"
+					},
+					{
+						value: "d4",
+						label: "d4",
+					},
+					{
+						value: "d6",
+						label: "d6",
+					},
+					{
+						value: "d8",
+						label: "d8",
+					},
+					{
+						value: "d10",
+						label: "d10",
+					},
+					{
+						value: "d12",
+						label: "d12",
+					},
+					{
+						value: "d20",
+						label: "d20",
+					},
+					{
+						value: "d100",
+						label: "d100",
+					},
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			healingBonus: {
+				elementType: "select",
+				options: [
+					{
+						value: "",
+						label: "Healing Bonus"
+					}
+				],
+				value: "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			itemAbilities: {
 				elementType: "textarea",
 				elementConfig: {
 					type: "textarea",
@@ -613,20 +751,18 @@ class NewItem extends Component {
 
 	componentDidMount() {
 	//I'm lazy so populates the number of dice with nums 1-100 for damage dice
-		let nums = [{
-			value: "",
-			label: "# of Dice"
-		}];
+		let nums = [
+			
+		];
 		for (let i = 1; i < 100; ++i) {
 			nums.push({
 				value: i,
 				label: i
 			});
 		}
-		let bonus = [{
-			value: "",
-			label: "Damage Bonus"
-		}]
+		let bonus = [
+			
+		];
 		for (let j = -10; j <= 10; ++j) {
 			if (j < 0) {
 				bonus.push({
@@ -647,11 +783,27 @@ class NewItem extends Component {
 				...this.state.controls,
 				numberOfDamageDice: {
 					...this.state.controls.numberOfDamageDice,
-					options: nums
+					options: this.state.controls.numberOfDamageDice.options.concat(nums)
 				},
 				damageBonus: {
 					...this.state.controls.damageBonus,
-					options: bonus
+					options: this.state.controls.damageBonus.options.concat(bonus)
+				},
+				armorClass: {
+					...this.state.controls.armorClass,
+					options: this.state.controls.armorClass.options.concat(nums)
+				},
+				armorClassBonus: {
+					...this.state.controls.armorClassBonus,
+					options: this.state.controls.armorClassBonus.options.concat(bonus)
+				},
+				numberOfHealingDice: {
+					...this.state.controls.numberOfHealingDice,
+					options: this.state.controls.numberOfHealingDice.options.concat(nums)
+				},
+				healingBonus: {
+					...this.state.controls.healingBonus,
+					options: this.state.controls.healingBonus.options.concat(bonus)
 				}
 			}
 		});
@@ -663,16 +815,28 @@ class NewItem extends Component {
 		if (element == "itemType") {
 			switch(event.target.value) {
 				case "Weapon":
-					//Bad way to set state will fix later
+					//FIX SETSTATE ISSUE BY ONLY HAVING ONE SETSTATE FOR FUNCTION
+
+					//alter visibility of selects for weapon/armor
 					this.state.controls.weaponType.visible = true;
 					this.state.controls.armorType.visible = false;
+
+					//alter visibility of damage values
 					this.state.controls.damageCheckBox.value = true;
 					this.state.controls.numberOfDamageDice.visible = true;
 					this.state.controls.damageDie.visible = true;
 					this.state.controls.damageType.visible = true;
+					this.state.controls.damageBonus.visible = true;
+
+					//alter visibility of armor values
 					this.state.controls.armorClassCheckBox.value = false;
+					this.state.controls.armorClass.visible = false;
+					this.state.controls.armorClassBonus.visible = false;
+
+					//resets properties
 					this.state.controls.armorType.value = "";
 					this.state.controls.itemProperties.value = "";
+
 					/*this.setState({
 						controls: {
 							...this.state.controls,
@@ -700,8 +864,20 @@ class NewItem extends Component {
 					//Bad way to set state it will fix later
 					this.state.controls.weaponType.visible = false;
 					this.state.controls.armorType.visible = true;
-					this.state.controls.armorClassCheckBox.value = true;
+
+					
 					this.state.controls.damageCheckBox.value = false;
+					this.state.controls.numberOfDamageDice.visible = false;
+					this.state.controls.damageDie.visible = false;
+					this.state.controls.damageType.visible = false;
+					this.state.controls.damageBonus.visible = false;
+
+					
+					this.state.controls.armorClassCheckBox.value = true;
+					this.state.controls.armorClass.visible = true;
+					this.state.controls.armorClassBonus.visible = true;
+
+
 					this.state.controls.weaponType.value = "";
 					this.state.controls.itemProperties.value = "";
 					/*this.setState({
@@ -734,6 +910,7 @@ class NewItem extends Component {
 			this.state.controls.numberOfDamageDice.visible = value;
 			this.state.controls.damageDie.visible = value;
 			this.state.controls.damageType.visible = value;
+			this.state.controls.damageBonus.visible = value;
 			/* Some reason this.setState will not make these inputs appear and disappear
 			this.setState({
 				controls: {
@@ -754,6 +931,16 @@ class NewItem extends Component {
 				}
 			})
 			*/
+		} 
+		
+		if (element === "armorClassCheckBox") {
+			this.state.controls.armorClass.visible = value;
+			this.state.controls.armorClassBonus.visible = value;
+		}
+		if (element === "healingCheckBox") {
+			this.state.controls.healingDie.visible = value;
+			this.state.controls.healingBonus.visible = value;
+			this.state.controls.numberOfHealingDice.visible = value;
 		}
 		//Sets the value of input elements
 		this.setState({
@@ -765,7 +952,6 @@ class NewItem extends Component {
 				}
 			}
 		});
-		console.log(value);
 	}
 
 	render() {
@@ -801,7 +987,7 @@ class NewItem extends Component {
 						valid = {element.config.valid}
 						shouldValidate = {null}
 						touched = {element.config.touched}
-						changed = {(event) => this.onChangeHandler(event, element.id, i)}/>
+						changed = {(event) => this.onChangeHandler(event, element.id)}/>
 				);
 			}
 		});
@@ -850,8 +1036,13 @@ class NewItem extends Component {
 					damageDie = {this.state.controls.damageDie.value}
 					damageType = {this.state.controls.damageType.value}
 					damageBonus = {this.state.controls.damageBonus.value}
+					armorClass = {this.state.controls.armorClass.value}
+					armorClassBonus = {this.state.controls.armorClassBonus.value}
+					numberOfHealingDice = {this.state.controls.numberOfHealingDice.value}
+					healingDie = {this.state.controls.healingDie.value}
+					healingBonus = {this.state.controls.healingBonus.value}
 					itemFlavorText = {this.state.controls.itemFlavorText.value}
-					itemAttributes = {this.state.controls.itemAttributes.value}/>
+					itemAbilities = {this.state.controls.itemAbilities.value}/>
 			</div>
 		)
 	}

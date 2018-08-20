@@ -46,11 +46,11 @@
 }
 
 
-.Damage {
+.Attributes {
 	line-height: 0.2;
 }
-.Damage p {
-	display: inline;
+.Attributes p {
+	
 }
 
 .XDivider {

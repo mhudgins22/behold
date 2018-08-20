@@ -23,15 +23,24 @@ const card = props => {
 					</div>
 					<div className = {classes.XDivider}>
 					</div>
-					<div className = {classes.Damage}>
+					<div className = {classes.Attributes}>
 						{props.damageDie || props.damageType|| props.numberOfDamageDice ? <h4>Damage: </h4> : null}
 						<p>{props.numberOfDamageDice}{props.damageDie}{props.damageBonus} {props.damageType}</p>
 					</div>
+					<div className = {classes.Attributes}>
+						{props.armorClass || props.armorClassBonus ? <h4>Armor Class: </h4> : null}
+						<p>{props.armorClass ? "AC = " + props.armorClass : null}</p>
+						<p>{props.armorClassBonus ? props.armorClassBonus + " to AC" : null}</p>
+					</div>
+					<div className = {classes.Attributes}>
+						{props.numberOfHealingDice || props.healingDie || props.healingBonus ? <h4>Healing: </h4> : null}
+						<p>{props.numberOfHealingDice}{props.healingDie}{props.healingBonus}</p>
+					</div>
 					<div className = {classes.XDivider}>
 					</div>
-					<div className = {classes.Attribute}>
-						{props.itemAttributes ? <h4>Attributes:</h4> : null}
-						<p>{props.itemAttributes}</p>
+					<div className = {classes.Abilities}>
+						{props.itemAbilities ? <h4>Ablities:</h4> : null}
+						<p>{props.itemAbilities}</p>
 					</div>
 				</div>
 			</div>
