@@ -421,29 +421,29 @@ class NewItem extends Component {
 				touched: false,
 				visible: true
 			},
-			itemCheckBoxes: {
+			armorClassCheckBox: {
 				elementType: "checkbox",
+				label: "AC",
 				elementConfig: {
-					type: "checkbox"
+					type: "checkbox",
+					name: "itemAttributes"
 				},
-				options: [
-					{
-						value: "AC",
-						label: "AC",
-						checked: false
-					},
-					{
-						value: "Damage",
-						label: "Damage",
-						checked: true
-					},
-					{
-						value: "Healing",
-						label: "Healing",
-						checked: false
-					}
-				],
-				value: "",
+				value: false,
+				validationRules: {
+				
+				},
+				valid: true,
+				touched: false,
+				visible: true
+			},
+			damageCheckBox: {
+				elementType: "checkbox",
+				label: "Damage",
+				elementConfig: {
+					type: "checkbox",
+					name: "itemAttributes"
+				},
+				value: true,
 				validationRules: {
 				
 				},
@@ -624,14 +624,17 @@ class NewItem extends Component {
 
 	//Change values for input and textarea elements
 	onChangeHandler = (event, element) => {
+		const value = this.state.controls[element].elementType === "checkbox" ? event.target.checked : event.target.value
 		if (element == "itemType") {
 			switch(event.target.value) {
 				case "Weapon":
 					//Bad way to set state will fix later
 					this.state.controls.weaponType.visible = true;
 					this.state.controls.armorType.visible = false;
-					this.state.controls.itemCheckBoxes.options[1].checked = true;
-					this.state.controls.itemCheckBoxes.options[0].checked = false;
+					this.state.controls.damageCheckBox.value = true;
+					this.state.controls.armorClassCheckBox.value = false;
+					this.state.controls.armorType.value = "";
+					this.state.controls.itemProperties.value = "";
 					/*this.setState({
 						controls: {
 							...this.state.controls,
@@ -659,8 +662,10 @@ class NewItem extends Component {
 					//Bad way to set state it will fix later
 					this.state.controls.weaponType.visible = false;
 					this.state.controls.armorType.visible = true;
-					this.state.controls.itemCheckBoxes.options[0].checked = true;
-					this.state.controls.itemCheckBoxes.options[1].checked = false;
+					this.state.controls.armorClassCheckBox.value = true;
+					this.state.controls.damageCheckBox.value = false;
+					this.state.controls.weaponType.value = "";
+					this.state.controls.itemProperties.value = "";
 					/*this.setState({
 						controls: {
 							...this.state.controls,
@@ -677,7 +682,8 @@ class NewItem extends Component {
 					break;
 			}
 		}
-		if (element === "weaponType") {
+		//Adds assigned properties of weapon or armor to item card
+		if (element === "weaponType" || element === "armorType") {
 			let properties = "";
 			for (let i = 0; i < this.state.controls[element].options.length; ++i) {
 				if (this.state.controls[element].options[i].value === event.target.value) {
@@ -686,18 +692,38 @@ class NewItem extends Component {
 			}
 			this.state.controls.itemProperties.value = properties;
 		}
+		if (element === "damageCheckBox") {
+			this.setState({
+				controls: {
+					...this.state.controls,
+						numberOfDamageDice: {
+							...this.state.controls.numberOfDamageDice,
+							visible: value
+						},
+						damageDie: {
+							...this.state.controls.damageDie,
+							visible: value
+						},
+						damageType: {
+							...this.state.controls.damageType,
+							visible: value
+						}
+					
+				}
+			})
+		}
+		//Sets the value of input elements
 		this.setState({
 			controls: {
 				...this.state.controls,
 				[element]: {
 					...this.state.controls[element],
-					value: event.target.value
+					value: value
 				}
 			}
 		});
-		console.log(this.state);
+		console.log(value);
 	}
-
 
 	render() {
 		let itemInfoElements = [];
@@ -718,41 +744,44 @@ class NewItem extends Component {
 			i += 1;
 		}
 
-		let infoForm = itemInfoElements.map(element => {
-			return (
-				<Input 
-					key = {element.id}
-					className = {classes.Input}
-					elementType = {element.config.elementType}
-					elementConfig = {element.config.elementConfig}
-					options = {element.config.options}
-					value = {element.config.value}
-					validationRules = {element.config.validationRules}
-					valid = {element.config.valid}
-					visible = {element.config.visible}
-					shouldValidate = {null}
-					touched = {element.config.touched}
-					changed = {(event) => this.onChangeHandler(event, element.id)}/>
-			);
+		let infoForm = itemInfoElements.map((element, i) => {
+			if(element.config.visible) {
+				return (
+					<Input 
+						key = {element.id}
+						className = {classes.Input}
+						elementType = {element.config.elementType}
+						elementConfig = {element.config.elementConfig}
+						options = {element.config.options}
+						value = {element.config.value}
+						validationRules = {element.config.validationRules}
+						valid = {element.config.valid}
+						shouldValidate = {null}
+						touched = {element.config.touched}
+						changed = {(event) => this.onChangeHandler(event, element.id, i)}/>
+				);
+			}
 		});
 			
 
 		let statForm = itemStatElements.map(element => {
-			return (
-				<Input 
-					key = {element.id}
-					className = {classes.Input}
-					elementType = {element.config.elementType}
-					elementConfig = {element.config.elementConfig}
-					options = {element.config.options}
-					value = {element.config.value}
-					validationRules = {element.config.validationRules}
-					valid = {element.config.valid}
-					visible = {element.config.visible}
-					shouldValidate = {null}
-					touched = {element.config.touched}
-					changed = {(event) => this.onChangeHandler(event, element.id)}/>
-			);
+			if (element.config.visible) {
+				return (
+					<Input 
+						key = {element.id}
+						label = {element.config.label}
+						className = {classes.Input}
+						elementType = {element.config.elementType}
+						elementConfig = {element.config.elementConfig}
+						options = {element.config.options}
+						value = {element.config.value}
+						validationRules = {element.config.validationRules}
+						valid = {element.config.valid}
+						shouldValidate = {null}
+						touched = {element.config.touched}
+						changed = {(event) => this.onChangeHandler(event, element.id)}/>
+				);
+			}
 		});
 
 		return(
@@ -772,7 +801,7 @@ class NewItem extends Component {
 					cardType = "item"  
 					itemName = {this.state.controls.itemName.value} 
 					itemRarity = {this.state.controls.itemRarity.value}
-					itemType = {this.state.controls.weaponType.value}
+					itemType = {this.state.controls.weaponType.value || this.state.controls.armorType.value}
 					itemProperties = {this.state.controls.itemProperties.value}
 					numberOfDamageDice = {this.state.controls.numberOfDamageDice.value}
 					damageDie = {this.state.controls.damageDie.value}

@@ -60,18 +60,16 @@ const input = props => {
 			)
 			break;
 		case "checkbox":
-			return props.options.map(option => {
-				return(
-					<label key = {option.value}>
+				inputElement = (
+					<label>
+						{props.label}
 						<input 
 							{...props.elementConfig}
-							value = {option.value}
-							checked = {option.checked}
+							checked = {props.value}
 							onChange = {props.changed}/>
-						{option.label}
 					</label>
-				)
-			})
+				);
+				break;
 		default:
 			inputElement = (
 				<input
