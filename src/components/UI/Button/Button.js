@@ -13,6 +13,14 @@ const button = (props) => {
 		names.push(classes.Character);
 	}
 
+	if (props.buttonType === "Success") {
+		names.push(classes.Success);
+	}
+
+	if (props.buttonType === "Danger") {
+		names.push(classes.Danger);
+	}
+
 	return (
 		<button className = {names.join(" ")} onClick = {props.clicked}>{props.text}</button>
 	)

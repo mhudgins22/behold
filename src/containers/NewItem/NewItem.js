@@ -1,8 +1,11 @@
 import React, {Component} from "react";
+import {connect} from "react-redux";
 
 import Input from "../../components/UI/Input/Input";
 import Card from "../../components/Card/Card";
 import Button from "../../components/UI/Button/Button";
+
+import * as actions from "../../store/actions/index";
 
 import classes from "./NewItem.css";
 
@@ -421,6 +424,20 @@ class NewItem extends Component {
 						label: "Adventuring Gear"
 					}
 				],
+				value: "",
+				validationRules: {
+				
+				},
+				valid: true,
+				touched: false,
+				visible: false
+			},
+			otherType: {
+				elementType: "input",
+				elementConfig: {
+					type: "input",
+					placeholder: "Item Type"
+				},
 				value: "",
 				validationRules: {
 				
@@ -1166,8 +1183,8 @@ class NewItem extends Component {
 			switch(event.target.value) {
 				case "Weapon":
 					//FIX SETSTATE ISSUE BY ONLY HAVING ONE SETSTATE FOR FUNCTION
-					this.onVisibilityHandler(null, ["weaponType", "numberOfDamageDiceOne", "damageDieOne", "damageTypeOne", "damageBonusOne"], true);
-					this.onVisibilityHandler(null, ["armorType", "consumableType", "armorClass", "armorClassBonus", "numberOfHealingDice", "healingDie", "healingBonus"], false);
+					this.onVisibilityHandler(["weaponType", "numberOfDamageDiceOne", "damageDieOne", "damageTypeOne", "damageBonusOne"], true);
+					this.onVisibilityHandler(["armorType", "consumableType", "otherType", "armorClass", "armorClassBonus", "numberOfHealingDice", "healingDie", "healingBonus"], false);
 					//checks box
 					this.state.controls.damageCheckBox.value = true;
 					//alter visibility of armor values
@@ -1177,8 +1194,8 @@ class NewItem extends Component {
 					this.state.controls.itemProperties.value = "";
 					break;
 				case "Armor":
-					this.onVisibilityHandler(null, ["armorType", "armorClass", "armorClassBonus"], true);
-					this.onVisibilityHandler(null, ["weaponType", "consumableType", "numberOfDamageDiceOne", "numberOfDamageDiceTwo", "numberOfDamageDiceThree", "damageDieOne", "damageDieTwo", "damageDieThree", "damageBonusOne", "damageBonusTwo", "damageBonusThree", "damageTypeOne", "damageTypeTwo", "damageTypeThree", "numberOfHealingDice", "healingDie", "healingBonus"], false)
+					this.onVisibilityHandler(["armorType", "armorClass", "armorClassBonus"], true);
+					this.onVisibilityHandler(["weaponType", "consumableType", "otherType", "numberOfDamageDiceOne", "numberOfDamageDiceTwo", "numberOfDamageDiceThree", "damageDieOne", "damageDieTwo", "damageDieThree", "damageBonusOne", "damageBonusTwo", "damageBonusThree", "damageTypeOne", "damageTypeTwo", "damageTypeThree", "numberOfHealingDice", "healingDie", "healingBonus"], false)
 
 					//Adjusts check boxes
 					this.state.controls.damageCheckBox.value = false;
@@ -1190,14 +1207,24 @@ class NewItem extends Component {
 					break;
 				case "Consumable":
 					//adjust visibility of item types
-					this.state.controls.weaponType.visible = false;
-					this.state.controls.armorType.visible = false;
-					this.state.controls.consumableType.visible = true;
+					this.onVisibilityHandler(["consumableType"], true);
+					this.onVisibilityHandler(["weaponType", "armorType", "armorClass", "armorClassBonus", "numberOfDamageDiceOne", "numberOfDamageDiceTwo", "numberOfDamageDiceThree", "damageDieOne", "damageDieTwo", "damageDieThree", "damageBonusOne", "damageBonusTwo", "damageBonusThree", "damageTypeOne", "damageTypeTwo", "damageTypeThree", "numberOfHealingDice", "healingDie", "healingBonus"], false);
 
+					//Adjust checkbox
+					this.state.controls.damageCheckBox.value = false;
+					this.state.controls.healingCheckBox.value = false;
+					this.state.controls.armorClassCheckBox.value = false;
 
-
+					//Removes properties
+					this.state.controls.itemProperties.value = "";
+					break;
+				case "Other":
+					this.onVisibilityHandler(["otherType"], true);
+					this.onVisibilityHandler(["weaponType", "armorType", "consumableType", "armorClass", "armorClassBonus", "numberOfDamageDiceOne", "numberOfDamageDiceTwo", "numberOfDamageDiceThree", "damageDieOne", "damageDieTwo", "damageDieThree", "damageBonusOne", "damageBonusTwo", "damageBonusThree", "damageTypeOne", "damageTypeTwo", "damageTypeThree", "numberOfHealingDice", "healingDie", "healingBonus"], false);
 			}
 		}
+
+
 		//Adds assigned properties of weapon or armor to item card
 		if (element === "weaponType" || element === "armorType") {
 			let properties = "";
@@ -1208,20 +1235,24 @@ class NewItem extends Component {
 			}
 			this.state.controls.itemProperties.value = properties;
 		}
+
+
 		//adjusts visiblity based on check box
 		if (element === "damageCheckBox") {
 			if (value === false) {
-				this.onVisibilityHandler(null, ["numberOfDamageDiceOne", "numberOfDamageDiceTwo", "numberOfDamageDiceThree", "damageDieOne", "damageDieTwo", "damageDieThree", "damageBonusOne", "damageBonusTwo", "damageBonusThree", "damageTypeOne", "damageTypeTwo", "damageTypeThree"], value);
+				this.onVisibilityHandler(["numberOfDamageDiceOne", "numberOfDamageDiceTwo", "numberOfDamageDiceThree", "damageDieOne", "damageDieTwo", "damageDieThree", "damageBonusOne", "damageBonusTwo", "damageBonusThree", "damageTypeOne", "damageTypeTwo", "damageTypeThree"], value);
 			} else {
-				this.onVisibilityHandler(null, ["numberOfDamageDiceOne", "damageDieOne", "damageBonusOne", "damageTypeOne"], value);
+				this.onVisibilityHandler(["numberOfDamageDiceOne", "damageDieOne", "damageBonusOne", "damageTypeOne"], value);
 			}
 		} 
 		if (element === "armorClassCheckBox") {
-			this.onVisibilityHandler(null, ["armorClass", "armorClassBonus"], value);
+			this.onVisibilityHandler(["armorClass", "armorClassBonus"], value);
 		}
 		if (element === "healingCheckBox") {
-			this.onVisibilityHandler(null, ["numberOfHealingDice", "healingDie", "healingBonus"], value);
+			this.onVisibilityHandler(["numberOfHealingDice", "healingDie", "healingBonus"], value);
 		}
+
+
 		//Sets the value of input elements
 		this.setState({
 			controls: {
@@ -1234,11 +1265,9 @@ class NewItem extends Component {
 		});
 	}
 
-	onVisibilityHandler = (event, arr, bool) => {
+	//Changes visiblity on form elements
+	onVisibilityHandler = (arr, bool) => {
 		let updatedState = this.state;
-		if (event) {
-			event.preventDefault();
-		}
 		for (let i = 0; i < arr.length; ++i) {
 			updatedState = {
 				controls: {
@@ -1254,12 +1283,93 @@ class NewItem extends Component {
 		this.state = updatedState;
 	}
 
+	//Adds up to three total damage types
+	onAddDamageHandler = (event, number, die, bonus, type) => {
+		event.preventDefault();
+		this.setState({
+			controls: {
+				...this.state.controls,
+				[number]: {
+					...this.state.controls[number],
+					visible: true
+				},
+				[die]: {
+					...this.state.controls[die],
+					visible: true
+				},
+				[bonus]: {
+					...this.state.controls[bonus],
+					visible: true
+				},
+				[type]: {
+					...this.state.controls[type],
+					visible: true
+				},
+			}
+		})
+	}
+
+	//Collects info from form to be posted on backend
+	onSaveItemHandler = (event) => {
+		event.preventDefault();
+		let itemType = null;
+		if (this.state.controls.weaponType.value) {
+			itemType = this.state.controls.weaponType.value;
+		} else if (this.state.controls.armorType.value) {
+			itemType = this.state.controls.armorType.value;
+		} else if (this.state.controls.consumableType.value) {
+			itemType = this.state.controls.consumableType.value;
+		} else {
+			itemType = this.state.controls.otherType.value;
+		}
+		const itemData = {
+			name: this.state.controls.itemName.value,
+			rarity: this.state.controls.itemRarity.value,
+			type: itemType,
+			properties: this.state.controls.itemProperties.value,
+			flavorText: this.state.controls.itemFlavorText.value,
+			damage: [
+				{
+					numberOfDice: this.state.controls.numberOfDamageDiceOne.value,
+					die: this.state.controls.damageDieOne.value,
+					bonus: this.state.controls.damageBonusOne.value,
+					type: this.state.controls.damageTypeOne.value
+				},
+				{
+					numberOfDice: this.state.controls.numberOfDamageDiceTwo.value,
+					die: this.state.controls.damageDieTwo.value,
+					bonus: this.state.controls.damageBonusTwo.value,
+					type: this.state.controls.damageTypeTwo.value
+				},
+				{
+					numberOfDice: this.state.controls.numberOfDamageDiceThree.value,
+					die: this.state.controls.damageDieThree.value,
+					bonus: this.state.controls.damageBonusThree.value,
+					type: this.state.controls.damageTypeThree.value
+				}
+			],
+			armorClass: {
+				AC:	this.state.controls.armorClass.value,
+				bonus: this.state.controls.armorClassBonus.value
+			},
+			healing: {
+				numberOfDice: this.state.controls.numberOfHealingDice.value,
+				die: this.state.controls.healingDie.value,
+				bonus: this.state.controls.healingBonus.value
+			},
+			abilities: this.state.controls.itemAbilities.value
+		};
+		this.props.onSaveItem(itemData);
+		this.props.history.push("/Create/Items");
+	}
+
 	render() {
 		let itemInfoElements = [];
 		let itemStatElements = [];
 		let i = 0;
+		//Splits the form elements into two sections
 		for (let element in this.state.controls) {
-			if (i < 7) {
+			if (i < 9) {
 				itemInfoElements.push({
 					id: element,
 					config: this.state.controls[element]
@@ -1314,12 +1424,12 @@ class NewItem extends Component {
 		});
 
 		let damageButtonOne = null;
-		if (this.state.controls.damageCheckBox.value) {
+		if (this.state.controls.damageCheckBox.value && !this.state.controls.numberOfDamageDiceTwo.visible) {
 			damageButtonOne = (
 				<Button 
 					buttonType = "" 
 					text = "Add 2nd Damage" 
-					clicked = {(event) => {this.onVisibilityHandler(event, ["numberOfDamageDiceTwo", "damageDieTwo", "damageBonusTwo", "damageTypeTwo"], true)}}/>
+					clicked = {(event) => {this.onAddDamageHandler(event,"numberOfDamageDiceTwo", "damageDieTwo", "damageBonusTwo", "damageTypeTwo")}}/>
 				);
 		}
 		if (this.state.controls.numberOfDamageDiceTwo.visible && !this.state.controls.numberOfDamageDiceThree.visible) {
@@ -1327,11 +1437,11 @@ class NewItem extends Component {
 				<Button
 					buttonType = ""
 					text = "Add 3rd Damage"
-					clicked = {(event) => {this.onVisibilityHandler(event, ["numberOfDamageDiceThree", "damageDieThree", "damageBonusThree", "damageTypeThree"], true)}}/>
+					clicked = {(event) => {this.onAddDamageHandler(event, "numberOfDamageDiceThree", "damageDieThree", "damageBonusThree", "damageTypeThree")}}/>
 			);
 		}
 		
-		
+	
 
 		return(
 			<div>
@@ -1346,12 +1456,22 @@ class NewItem extends Component {
 						{statForm}
 						{damageButtonOne}
 					</div>
+					<div className = {classes.Controls}>
+						<Button 
+							buttonType = "Success" 
+							text = "Save Item" 
+							clicked = {this.onSaveItemHandler}/>
+						<Button 
+							buttonType = "Danger"
+							text = "Discard Item"
+							clicked = {() => {this.props.history.push("/Create/Items")}}/>
+					</div>
 				</form>
 				<Card 
 					cardType = "item"  
 					itemName = {this.state.controls.itemName.value} 
 					itemRarity = {this.state.controls.itemRarity.value}
-					itemType = {this.state.controls.weaponType.value || this.state.controls.armorType.value}
+					itemType = {this.state.controls.weaponType.value || this.state.controls.armorType.value || this.state.controls.consumableType.value || this.state.controls.otherType.value}
 					itemProperties = {this.state.controls.itemProperties.value}
 					numberOfDamageDiceOne = {this.state.controls.numberOfDamageDiceOne.value}
 					damageDieOne = {this.state.controls.damageDieOne.value}
@@ -1377,4 +1497,10 @@ class NewItem extends Component {
 	}
 }
 
-export default NewItem;
+const mapDispatchToProps = dispatch => {
+	return {
+		onSaveItem: (itemData) => dispatch(actions.postItem(itemData))
+	}
+}
+
+export default connect(null, mapDispatchToProps)(NewItem);

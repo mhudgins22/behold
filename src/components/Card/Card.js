@@ -44,10 +44,12 @@ const card = props => {
 					</div>
 					<div className = {classes.XDivider}>
 					</div>
-					<div className = {classes.Abilities}>
-						{props.itemAbilities ? <h4>Ablities:</h4> : null}
-						<p>{props.itemAbilities}</p>
-					</div>
+					{props.itemAbilities ?
+						<div className = {classes.Abilities}>
+							<h4>Ablities:</h4> 
+							<p>{props.itemAbilities}</p>
+						</div>
+					: null}
 				</div>
 			</div>
 		)

@@ -4,6 +4,7 @@
 	width: 80%;
 	border: 3px solid #706d66;
 	background-color: #b5b3af;
+	text-align: right;
 }
 
 .Section{
@@ -11,4 +12,9 @@
 	background-color: #d8d6d2;
 	margin: 25px;
 	padding: 10px;
+	text-align: left;
+}
+
+.Controls{
+	display: inline-block;
 }

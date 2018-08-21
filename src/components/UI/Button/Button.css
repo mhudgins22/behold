@@ -19,3 +19,23 @@
 	height: 125px;
 	display: inline-block;
 }
+
+.Success {
+	border: 1px solid #2a991b;
+	background-color: #36bf24;
+	width: 150px;
+	height: 75px;
+	color: white;
+	font-size: 24px;
+	display: inline-block;
+}
+
+.Danger {
+	border: 1px solid #a51a1a;
+	background-color: #ce2323;
+	width: 150px;
+	height: 75px;
+	color: white;
+	font-size: 24px;
+	display: inline-block;
+}
