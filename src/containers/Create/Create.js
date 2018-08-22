@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import {Route, Link, withRouter} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
+
 import LargeInfoBox from "../../components/LargeInfoBox/LargeInfoBox";
-import CharacterPage from "../CharacterPage/CharacterPage";
 import Button from "../../components/UI/Button/Button";
 
 class Create extends Component {

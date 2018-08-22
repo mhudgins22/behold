@@ -422,6 +422,10 @@ class NewItem extends Component {
 					{
 						value: "Adventuring Gear",
 						label: "Adventuring Gear"
+					},
+					{
+						value: "Wonderous Item",
+						label: "Wonderous Item"
 					}
 				],
 				value: "",
@@ -1183,44 +1187,37 @@ class NewItem extends Component {
 			switch(event.target.value) {
 				case "Weapon":
 					//FIX SETSTATE ISSUE BY ONLY HAVING ONE SETSTATE FOR FUNCTION
+					//Handles visiblity for form options
 					this.onVisibilityHandler(["weaponType", "numberOfDamageDiceOne", "damageDieOne", "damageTypeOne", "damageBonusOne"], true);
 					this.onVisibilityHandler(["armorType", "consumableType", "otherType", "armorClass", "armorClassBonus", "numberOfHealingDice", "healingDie", "healingBonus"], false);
 					//checks box
-					this.state.controls.damageCheckBox.value = true;
-					//alter visibility of armor values
-					this.state.controls.armorClassCheckBox.value = false;
-					this.state.controls.healingCheckBox.value = false;
+					this.onCheckboxHandler(["damageCheckBox"], ["armorClassCheckBox", "healingCheckBox"]);
 					//resets properties
-					this.state.controls.itemProperties.value = "";
+					this.removePropertiesHandler();
 					break;
 				case "Armor":
 					this.onVisibilityHandler(["armorType", "armorClass", "armorClassBonus"], true);
 					this.onVisibilityHandler(["weaponType", "consumableType", "otherType", "numberOfDamageDiceOne", "numberOfDamageDiceTwo", "numberOfDamageDiceThree", "damageDieOne", "damageDieTwo", "damageDieThree", "damageBonusOne", "damageBonusTwo", "damageBonusThree", "damageTypeOne", "damageTypeTwo", "damageTypeThree", "numberOfHealingDice", "healingDie", "healingBonus"], false)
-
 					//Adjusts check boxes
-					this.state.controls.damageCheckBox.value = false;
-					this.state.controls.healingCheckBox.value = false;
-					this.state.controls.armorClassCheckBox.value = true;
-
+					this.onCheckboxHandler(["armorClassCheckBox"], ["damageCheckBox", "healingCheckBox"]);
 					//Removes properties
-					this.state.controls.itemProperties.value = "";
+					this.removePropertiesHandler();
 					break;
 				case "Consumable":
 					//adjust visibility of item types
 					this.onVisibilityHandler(["consumableType"], true);
 					this.onVisibilityHandler(["weaponType", "armorType", "armorClass", "armorClassBonus", "numberOfDamageDiceOne", "numberOfDamageDiceTwo", "numberOfDamageDiceThree", "damageDieOne", "damageDieTwo", "damageDieThree", "damageBonusOne", "damageBonusTwo", "damageBonusThree", "damageTypeOne", "damageTypeTwo", "damageTypeThree", "numberOfHealingDice", "healingDie", "healingBonus"], false);
-
 					//Adjust checkbox
-					this.state.controls.damageCheckBox.value = false;
-					this.state.controls.healingCheckBox.value = false;
-					this.state.controls.armorClassCheckBox.value = false;
-
+					this.onCheckboxHandler([], ["damageCheckBox", "armorClassCheckBox", "healingCheckBox"]);
 					//Removes properties
-					this.state.controls.itemProperties.value = "";
+					this.removePropertiesHandler();
 					break;
 				case "Other":
 					this.onVisibilityHandler(["otherType"], true);
 					this.onVisibilityHandler(["weaponType", "armorType", "consumableType", "armorClass", "armorClassBonus", "numberOfDamageDiceOne", "numberOfDamageDiceTwo", "numberOfDamageDiceThree", "damageDieOne", "damageDieTwo", "damageDieThree", "damageBonusOne", "damageBonusTwo", "damageBonusThree", "damageTypeOne", "damageTypeTwo", "damageTypeThree", "numberOfHealingDice", "healingDie", "healingBonus"], false);
+					break;
+				default:
+					break;
 			}
 		}
 
@@ -1309,6 +1306,31 @@ class NewItem extends Component {
 		})
 	}
 
+	//sets Checkboxes to true or false
+	onCheckboxHandler = (arrTrue, arrFalse) => {
+		let updatedState = this.state;
+		for (let i = 0; i < arrTrue.length + arrFalse.length; ++i) {
+			updatedState = {
+				controls: {
+					...updatedState.controls,
+					[arrTrue[i]]: {
+						...updatedState.controls[arrTrue[i]],
+						value: true
+					},
+					[arrFalse[i]]: {
+						...updatedState.controls[arrFalse[i]],
+						value: false
+					}
+				}
+			}
+		}
+		this.state = updatedState;
+	}
+
+	removePropertiesHandler = () => {
+		this.state.controls.itemProperties.value = "";
+	}
+
 	//Collects info from form to be posted on backend
 	onSaveItemHandler = (event) => {
 		event.preventDefault();
@@ -1363,9 +1385,35 @@ class NewItem extends Component {
 		this.props.history.push("/Create/Items");
 	}
 
+	mapElements = (elements) => {
+		return elements.map(element => {
+			if (element.config.visible) {
+				return(
+					<Input 
+						key = {element.id}
+						className = {classes.Input}
+						elementType = {element.config.elementType}
+						elementConfig = {element.config.elementConfig}
+						options = {element.config.options}
+						label = {element.config.label}
+						value = {element.config.value}
+						validationRules = {element.config.validationRules}
+						valid = {element.config.valid}
+						shouldValidate = {null}
+						touched = {element.config.touched}
+						changed = {(event) => this.onChangeHandler(event, element.id)}/>
+				)
+			}
+		});
+	};
+
 	render() {
 		let itemInfoElements = [];
-		let itemStatElements = [];
+		let itemCheckboxElements = [];
+		let itemDamageElements = [];
+		let itemArmorElements = [];
+		let itemHealingElements = [];
+		let itemAbilitiesElements = [];
 		let i = 0;
 		//Splits the form elements into two sections
 		for (let element in this.state.controls) {
@@ -1374,8 +1422,28 @@ class NewItem extends Component {
 					id: element,
 					config: this.state.controls[element]
 				});
+			} else if (i >= 9 && i < 12) {
+				itemCheckboxElements.push({
+					id: element,
+					config: this.state.controls[element]
+				});
+			} else if (i >= 12 && i < 24) {
+				itemDamageElements.push({
+					id: element,
+					config: this.state.controls[element]
+				});
+			} else if (i >=24 && i < 26) {
+				itemArmorElements.push({
+					id: element,
+					config: this.state.controls[element]
+				});
+			} else if (i >= 26 && i < 29) {
+				itemHealingElements.push({
+					id: element,
+					config: this.state.controls[element]
+				});
 			} else {
-				itemStatElements.push({
+				itemAbilitiesElements.push({
 					id: element,
 					config: this.state.controls[element]
 				});
@@ -1383,45 +1451,14 @@ class NewItem extends Component {
 			i += 1;
 		}
 
-		let infoForm = itemInfoElements.map((element, i) => {
-			if(element.config.visible) {
-				return (
-					<Input 
-						key = {element.id}
-						className = {classes.Input}
-						elementType = {element.config.elementType}
-						elementConfig = {element.config.elementConfig}
-						options = {element.config.options}
-						value = {element.config.value}
-						validationRules = {element.config.validationRules}
-						valid = {element.config.valid}
-						shouldValidate = {null}
-						touched = {element.config.touched}
-						changed = {(event) => this.onChangeHandler(event, element.id)}/>
-				);
-			}
-		});
-			
-
-		let statForm = itemStatElements.map(element => {
-			if (element.config.visible) {
-				return (
-					<Input 
-						key = {element.id}
-						label = {element.config.label}
-						className = {classes.Input}
-						elementType = {element.config.elementType}
-						elementConfig = {element.config.elementConfig}
-						options = {element.config.options}
-						value = {element.config.value}
-						validationRules = {element.config.validationRules}
-						valid = {element.config.valid}
-						shouldValidate = {null}
-						touched = {element.config.touched}
-						changed = {(event) => this.onChangeHandler(event, element.id)}/>
-				);
-			}
-		});
+		const infoForm = this.mapElements(itemInfoElements);
+		const checkboxSection = this.mapElements(itemCheckboxElements);
+		const damageSectionOne = this.mapElements(itemDamageElements.slice(0, 4));
+		const damageSectionTwo = this.mapElements(itemDamageElements.slice(4, 8));
+		const damageSectionThree = this.mapElements(itemDamageElements.slice(8));
+		const armorSection = this.mapElements(itemArmorElements);
+		const healingSection = this.mapElements(itemHealingElements);
+		const abilitiesSection = this.mapElements(itemAbilitiesElements);
 
 		let damageButtonOne = null;
 		if (this.state.controls.damageCheckBox.value && !this.state.controls.numberOfDamageDiceTwo.visible) {
@@ -1440,8 +1477,6 @@ class NewItem extends Component {
 					clicked = {(event) => {this.onAddDamageHandler(event, "numberOfDamageDiceThree", "damageDieThree", "damageBonusThree", "damageTypeThree")}}/>
 			);
 		}
-		
-	
 
 		return(
 			<div>
@@ -1453,7 +1488,41 @@ class NewItem extends Component {
 					</div>
 					<div className = {classes.Section}>
 						<h2>Item Stats</h2>
-						{statForm}
+						<div className = {classes.Part}>
+							<h3>Stats</h3>
+							{checkboxSection}
+						</div> 
+						{ this.state.controls.damageCheckBox.value ?
+						<div className = {classes.Part}>
+							<h3>Damage</h3>
+							<div>
+								{damageSectionOne}
+							</div>
+							<div>
+								{damageSectionTwo}
+							</div>
+							<div>
+								{damageSectionThree}
+							</div>
+						</div> : null}
+
+						{this.state.controls.armorClassCheckBox.value ?
+						<div className = {classes.Part}>	
+							<h3>Armor</h3>
+							{armorSection}
+						</div> : null}
+
+						{this.state.controls.healingCheckBox.value ?
+						<div className = {classes.Part}>
+							<h3>Healing</h3>
+							{healingSection}
+						</div> : null}
+
+						<div className = {classes.Part}>
+							<h3>Abilities</h3>
+							{abilitiesSection}
+						</div>
+
 						{damageButtonOne}
 					</div>
 					<div className = {classes.Controls}>
