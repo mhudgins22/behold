@@ -1281,26 +1281,30 @@ class NewItem extends Component {
 	}
 
 	//Adds up to three total damage types
-	onAddDamageHandler = (event, number, die, bonus, type) => {
+	onAdjustDamageHandler = (event, number, die, bonus, type, bool) => {
 		event.preventDefault();
 		this.setState({
 			controls: {
 				...this.state.controls,
 				[number]: {
 					...this.state.controls[number],
-					visible: true
+					visible: bool,
+					value: ""
 				},
 				[die]: {
 					...this.state.controls[die],
-					visible: true
+					visible: bool,
+					value: ""
 				},
 				[bonus]: {
 					...this.state.controls[bonus],
-					visible: true
+					visible: bool,
+					value: ""
 				},
 				[type]: {
 					...this.state.controls[type],
-					visible: true
+					visible: bool,
+					value: ""
 				},
 			}
 		})
@@ -1466,7 +1470,7 @@ class NewItem extends Component {
 				<Button 
 					buttonType = "" 
 					text = "Add 2nd Damage" 
-					clicked = {(event) => {this.onAddDamageHandler(event,"numberOfDamageDiceTwo", "damageDieTwo", "damageBonusTwo", "damageTypeTwo")}}/>
+					clicked = {(event) => {this.onAdjustDamageHandler(event,"numberOfDamageDiceTwo", "damageDieTwo", "damageBonusTwo", "damageTypeTwo", true)}}/>
 				);
 		}
 		if (this.state.controls.numberOfDamageDiceTwo.visible && !this.state.controls.numberOfDamageDiceThree.visible) {
@@ -1474,10 +1478,26 @@ class NewItem extends Component {
 				<Button
 					buttonType = ""
 					text = "Add 3rd Damage"
-					clicked = {(event) => {this.onAddDamageHandler(event, "numberOfDamageDiceThree", "damageDieThree", "damageBonusThree", "damageTypeThree")}}/>
+					clicked = {(event) => {this.onAdjustDamageHandler(event, "numberOfDamageDiceThree", "damageDieThree", "damageBonusThree", "damageTypeThree", true)}}/>
 			);
 		}
-
+		let damageButtonTwo = null;
+		if (this.state.controls.numberOfDamageDiceTwo.visible && ! this.state.controls.numberOfDamageDiceThree.visible) {
+			damageButtonTwo = (
+				<Button
+					buttontype = ""
+					text = "Remove Damage"
+					clicked = {(event) => {this.onAdjustDamageHandler(event, "numberOfDamageDiceTwo","damageDieTwo", "damageBonusTwo", "damageTypeTwo", false)}}/>
+			);
+		}
+		if (this.state.controls.numberOfDamageDiceThree.visible) {
+			damageButtonTwo = (
+				<Button
+					buttontype = ""
+					text = "Remove Damage"
+					clicked = {(event) => {this.onAdjustDamageHandler(event, "numberOfDamageDiceThree","damageDieThree", "damageBonusThree", "damageTypeThree", false)}}/>
+			);
+		}
 		return(
 			<div>
 				<h1>Create Your New Item </h1>
@@ -1504,6 +1524,8 @@ class NewItem extends Component {
 							<div>
 								{damageSectionThree}
 							</div>
+							{damageButtonOne}
+							{damageButtonTwo}
 						</div> : null}
 
 						{this.state.controls.armorClassCheckBox.value ?
@@ -1522,8 +1544,6 @@ class NewItem extends Component {
 							<h3>Abilities</h3>
 							{abilitiesSection}
 						</div>
-
-						{damageButtonOne}
 					</div>
 					<div className = {classes.Controls}>
 						<Button 

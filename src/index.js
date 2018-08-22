@@ -5,6 +5,8 @@ import {Provider} from "react-redux";
 import {createStore, combineReducers, applyMiddleware, compose} from "redux";
 import {BrowserRouter} from "react-router-dom";
 
+import itemReducer from "./store/reducers/itemReducer";
+
 import './index.css';
 
 import App from './App';
@@ -13,7 +15,7 @@ import registerServiceWorker from './registerServiceWorker';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-	
+	items: itemReducer 
 });
 
 const store = createStore(rootReducer, composeEnhancers(

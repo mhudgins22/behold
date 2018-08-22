@@ -1,3 +1,4 @@
 export {
-	postItem
+	postItem,
+	fetchItemList
 } from "./itemActions";
