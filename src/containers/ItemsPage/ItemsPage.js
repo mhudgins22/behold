@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 
 import classes from "./ItemsPage.css";
 
-
+import Card from "../../components/Card/Card";
 
 import * as actions from "../../store/actions/index";
 
@@ -37,13 +37,17 @@ class ItemsPage extends Component {
 				</div>
 				<div className = {classes.List}>
 					<div>
-						<Link to = {this.props.match.url + "/NewItem"}>
+						<Link style = {{textDecoration: "none", color: "black"}} to = {this.props.match.url + "/NewItem"}>
 							<h3>+ Create New Item</h3>
 						</Link>
 					</div>
 					<div>
 						{customItems}
 					</div>
+				</div>
+				<div className = {classes.Card}>
+					<Card 
+						cardType = "item"/>
 				</div>
 			</div>
 		);
