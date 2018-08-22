@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Input from '../../components/UI/Input/Input';
+import Button from '../../components/UI/Button/Button';
 import classes from './NewCharacter.css';
 
 class NewCharacter extends Component {
@@ -586,8 +588,8 @@ class NewCharacter extends Component {
           this.setState({
             controls: {
               ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
+              background: {
+                ...this.state.controls.background,
                 value: "Noble"
               }
             }
@@ -1177,6 +1179,14 @@ class NewCharacter extends Component {
         {classInfo}
         <br />
         {backgroundInfo}
+        <br />
+        <Link to={this.props.match.url + "/Stats"}>
+          <Button
+            buttonType="Success"
+            clicked={null}
+            text="Save and Continue">
+          </Button>
+        </Link>
       </div>
     )
   }
