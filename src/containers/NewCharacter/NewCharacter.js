@@ -1169,8 +1169,10 @@ class NewCharacter extends Component {
 
     return (
       <div>
-        <h2>Character Creation Page</h2>
-        <p>Use this page to create a new character that can easily be exported to any campaign that has been set up on this app. We have provided some general instructions and tips to help guide you though the process!</p>
+        <h1>Character Creation Guide</h1>
+        <h3>Use this page to create a new character that can easily be exported to any campaign that has been set up
+          on this app. We have provided some general instructions and tips to help guide you though the process!
+          We will start by defining some basic characteristics of your new character.</h3>
         <br />
         {form}
         <br />
@@ -1184,8 +1186,7 @@ class NewCharacter extends Component {
           <Button
             buttonType="Success"
             clicked={null}
-            text="Save and Continue">
-          </Button>
+            text="Save and Continue" />
         </Link>
       </div>
     )
