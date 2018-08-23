@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
+
 import Input from "../../components/UI/Input/Input";
 import Card from "../../components/Card/Card";
 import Button from "../../components/UI/Button/Button";
@@ -1586,9 +1587,11 @@ class NewItem extends Component {
 	}
 }
 
+
 const mapDispatchToProps = dispatch => {
 	return {
-		onSaveItem: (itemData) => dispatch(actions.postItem(itemData))
+		onSaveItem: (itemData) => dispatch(actions.postItem(itemData)),
+		setRedirectPath: (path) => dispatch(actions.setRedirectPath(path))
 	}
 }
 

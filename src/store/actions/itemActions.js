@@ -70,3 +70,13 @@ export const fetchItemList = () => {
 		});
 	}
 }
+
+//========================================================
+
+//Action to populate item card with data from clicked item
+export const previewItemCard = (itemData) => {
+	return {
+		type: actionTypes.PREVIEW_ITEM_CARD,
+		itemData: itemData
+	}
+}

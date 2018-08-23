@@ -12,27 +12,7 @@
 	display: inline-block;
 }
 
-.Item {
-	border: 3px outset #a8892b;
-	padding: 15px;
-	margin: 20px 5px;
-	background-image: url("../../assets/images/old-paper.jpg");
-}
 
-.Item h3{
-	color: #aa2020;
-	font-style: bold;
-	font-size: 24px;
-	line-height: .1;
-}
-
-.Item p {
-	display: inline;
-	font-style: italic;
-	color: #494848;
-	font-size: 12px;
-	line-height: normal;
-}
 
 .Card {
 	display: inline-block;
