@@ -1,28 +1,89 @@
 import React, { Component } from 'react';
 
 import Button from '../../../components/UI/Button/Button';
+import Input from '../../../components/UI/Input/Input';
 
 class NewCharacterStats extends Component {
   state = {
     controls: {
       attributes: {
         strength: {
-          value: null
+          elementType: "input",
+          elementConfig: {
+            type: "input",
+            placeholder: "Strength"
+          },
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false
         },
         dexterity: {
-          value: null
+          elementType: "input",
+          elementConfig: {
+            type: "input",
+            placeholder: "Dexterity"
+          },
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false
         },
         constitution: {
-          value: null
+          elementType: "input",
+          elementConfig: {
+            type: "input",
+            placeholder: "Constitution"
+          },
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false
         },
         intelligence: {
-          value: null
+          elementType: "input",
+          elementConfig: {
+            type: "input",
+            placeholder: "Intelligence"
+          },
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false
         },
         charisma: {
-          value: null
+          elementType: "input",
+          elementConfig: {
+            type: "input",
+            placeholder: "Charisma"
+          },
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false
         },
         wisdom: {
-          value: null
+          elementType: "input",
+          elementConfig: {
+            type: "input",
+            placeholder: "Wisdom"
+          },
+          value: "",
+          validation: {
+            required: true
+          },
+          valid: false,
+          touched: false
         }
       },
       storedStats: []
@@ -81,6 +142,30 @@ class NewCharacterStats extends Component {
       </div>
     );
 
+    let formElements = [];
+    for (let element in this.state.controls.attributes) {
+      formElements.push({
+        id: element,
+        config: this.state.controls.attributes[element]
+      });
+    }
+
+    let form = formElements.map(element => (
+      <div>
+        <Input
+          elementType = {element.config.elementType}
+          elementConfig = {element.config.elementConfig}
+          options = {element.config.options}
+          value = {element.config.value}
+          validation = {element.config.validation}
+          placeholder = {element.config.placeholder}
+          valid = {element.config.valid}
+          touched = {element.config.touched}
+          shouldValidate = {null}
+          changed = {null}/>
+      </div>
+    ));
+
     return (
       <div>
         {directions}
@@ -89,6 +174,9 @@ class NewCharacterStats extends Component {
           clicked={this.rollStats}
           text="Roll My Stats" />
           <h3>Your automatically rolled stat values are: {this.displayStatsNicely((this.state.controls.storedStats))}</h3>
+          <br />
+          <h3>Enter your values below:</h3>
+          {form}
       </div>
     );
   }
