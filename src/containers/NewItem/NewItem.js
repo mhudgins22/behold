@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import Input from "../../components/UI/Input/Input";
 import Card from "../../components/Card/Card";
 import Button from "../../components/UI/Button/Button";
+import ReactMarkdown from "react-markdown";
 
 import * as actions from "../../store/actions/index";
 
@@ -20,7 +21,7 @@ class NewItem extends Component {
 					type: "input",
 					placeholder: "The Name of Your Item"
 				},
-				value: "",
+				value: this.props.itemPreview.name,
 				validationRules: {
 					required: true
 				},
@@ -35,8 +36,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "Select a rarity"
+						value: this.props.itemPreview.rarity,
+						label: this.props.itemPreview.rarity,
 					},
 					{
 						value: "Common",
@@ -67,7 +68,7 @@ class NewItem extends Component {
 						label: "Artifact"
 					}
 				], 
-				value: "",
+				value: this.props.itemPreview.rarity,
 				validationRules: {
 					required: true
 				},
@@ -99,7 +100,7 @@ class NewItem extends Component {
 						label: "Other",
 					}
 				],
-				value: "Weapon",
+				value: this.props.itemPreview.catagory,
 				validationRules: {
 					required: true
 				},
@@ -114,8 +115,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "Weapon Type",
+						value: this.props.itemPreview.type,
+						label: this.props.itemPreview.type,
 						properties: ""
 					},
 					{
@@ -305,7 +306,7 @@ class NewItem extends Component {
 						properties: "Special, Thrown(Range 5/15)"
 					},
 				],
-				value: "",
+				value: this.props.itemPreview.type,
 				validationRules: {
 					required: true
 				},
@@ -320,8 +321,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "Armor Type",
+						value: this.props.itemPreview.type,
+						label: this.props.itemPreview.type,
 						properties: ""
 					},
 					{
@@ -390,7 +391,7 @@ class NewItem extends Component {
 						properties: ""
 					},
 				],
-				value: "",
+				value: this.props.itemPreview.type,
 				validationRules: {
 					required: false
 				},
@@ -405,8 +406,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "Consumable Type"
+						value: this.props.itemPreview.type,
+						label: this.props.itemPreview.type,
 					},
 					{
 						value: "Potion",
@@ -429,7 +430,7 @@ class NewItem extends Component {
 						label: "Wonderous Item"
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.type,
 				validationRules: {
 				
 				},
@@ -443,7 +444,7 @@ class NewItem extends Component {
 					type: "input",
 					placeholder: "Item Type"
 				},
-				value: "",
+				value: this.props.itemPreview.type,
 				validationRules: {
 				
 				},
@@ -457,7 +458,7 @@ class NewItem extends Component {
 					type: "input",
 					placeholder: "ex: Light, Finess...."
 				},
-				value: "",
+				value: this.props.itemPreview.properties,
 				validationRules: {
 					required: false
 				},
@@ -471,7 +472,7 @@ class NewItem extends Component {
 					type: "textarea",
 					placeholder: "Item's lore, description or flavor text"
 				},
-				value: "",
+				value: this.props.itemPreview.flavorText,
 				validationRules: {
 					required: true
 				},
@@ -486,7 +487,7 @@ class NewItem extends Component {
 					type: "checkbox",
 					name: "itemAttributes"
 				},
-				value: false,
+				value: this.props.itemPreview.armor,
 				validationRules: {
 				
 				},
@@ -501,7 +502,7 @@ class NewItem extends Component {
 					type: "checkbox",
 					name: "itemAttributes"
 				},
-				value: true,
+				value: this.props.itemPreview.damage,
 				validationRules: {
 				
 				},
@@ -516,7 +517,7 @@ class NewItem extends Component {
 					type: "checkbox",
 					name: "itemAttributes"
 				},
-				value: false,
+				value: this.props.itemPreview.healing,
 				validationRules: {
 				
 				},
@@ -531,11 +532,11 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "# of Dice"
+						value: this.props.itemPreview.damageValues[0].numberOfDice,
+						label: this.props.itemPreview.damageValues[0].numberOfDice,
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.damageValues[0].numberOfDice,
 				validationRules: {
 					required: false
 				},
@@ -550,8 +551,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "Damage Die"
+						value: this.props.itemPreview.damageValues[0].die,
+						label: this.props.itemPreview.damageValues[0].die,
 					},
 					{
 						value: "d4",
@@ -582,7 +583,7 @@ class NewItem extends Component {
 						label: "d100",
 					},
 				],
-				value: "",
+				value: this.props.itemPreview.damageValues[0].die,
 				validationRules: {
 					required: false
 				},
@@ -594,11 +595,11 @@ class NewItem extends Component {
 				elementType: "select",
 				options: [
 					{
-						value: "",
-						label: "Damage Bonus"
+						value: this.props.itemPreview.damageValues[0].bonus,
+						label: this.props.itemPreview.damageValues[0].bonus,
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.damageValues[0].bonus,
 				validationRules: {
 					required: false
 				},
@@ -613,8 +614,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "Damage Type"
+						value: this.props.itemPreview.damageValues[0].type,
+						label: this.props.itemPreview.damageValues[0].type,
 					},
 					{
 						value: "Piercing",
@@ -665,7 +666,7 @@ class NewItem extends Component {
 						label: "Force"
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.damageValues[0].type,
 				validationRules: {
 					required: false
 				},
@@ -680,11 +681,11 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "# of Dice"
+						value: this.props.itemPreview.damageValues[1].numberOfDice,
+						label: this.props.itemPreview.damageValues[1].numberOfDice,
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.damageValues[1].numberOfDice,
 				validationRules: {
 					required: false
 				},
@@ -699,8 +700,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "Damage Die"
+						value: this.props.itemPreview.damageValues[1].die,
+						label: this.props.itemPreview.damageValues[1].die,
 					},
 					{
 						value: "d4",
@@ -731,7 +732,7 @@ class NewItem extends Component {
 						label: "d100",
 					},
 				],
-				value: "",
+				value: this.props.itemPreview.damageValues[1].die,
 				validationRules: {
 					required: false
 				},
@@ -743,11 +744,11 @@ class NewItem extends Component {
 				elementType: "select",
 				options: [
 					{
-						value: "",
-						label: "Damage Bonus"
+						value: this.props.itemPreview.damageValues[1].bonus,
+						label: this.props.itemPreview.damageValues[1].bonus,
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.damageValues[1].bonus,
 				validationRules: {
 					required: false
 				},
@@ -762,8 +763,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "Damage Type"
+						value: this.props.itemPreview.damageValues[1].type,
+						label: this.props.itemPreview.damageValues[1].type,
 					},
 					{
 						value: "Piercing",
@@ -814,7 +815,7 @@ class NewItem extends Component {
 						label: "Force"
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.damageValues[1].type,
 				validationRules: {
 					required: false
 				},
@@ -829,11 +830,11 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "# of Dice"
+						value: this.props.itemPreview.damageValues[2].numberOfDice,
+						label: this.props.itemPreview.damageValues[2].numberOfDice
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.damageValues[2].numberOfDice,
 				validationRules: {
 					required: false
 				},
@@ -848,8 +849,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "Damage Die"
+						value: this.props.itemPreview.damageValues[2].bonus,
+						label: this.props.itemPreview.damageValues[2].bonus
 					},
 					{
 						value: "d4",
@@ -880,7 +881,7 @@ class NewItem extends Component {
 						label: "d100",
 					},
 				],
-				value: "",
+				value: this.props.itemPreview.damageValues[2].die,
 				validationRules: {
 					required: false
 				},
@@ -896,7 +897,7 @@ class NewItem extends Component {
 						label: "Damage Bonus"
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.damageValues[2].bonus,
 				validationRules: {
 					required: false
 				},
@@ -911,8 +912,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "Damage Type"
+						value: this.props.itemPreview.damageValues[2].type,
+						label: this.props.itemPreview.damageValues[2].type
 					},
 					{
 						value: "Piercing",
@@ -963,7 +964,7 @@ class NewItem extends Component {
 						label: "Force"
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.damageValues[2].type,
 				validationRules: {
 					required: false
 				},
@@ -978,33 +979,33 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "Armor Class"
+						value: this.props.itemPreview.armorClassValues.AC,
+						label: this.props.itemPreview.armorClassValues.AC
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.armorClassValues.AC,
 				validationRules: {
 				
 				},
 				valid: true,
 				touched: false,
-				visible: false
+				visible: this.props.itemPreview.armor
 			},
 			armorClassBonus: {
 				elementType: "select",
 				options: [
 					{
-						value: "",
-						label: "AC Bonus"
+						value: this.props.itemPreview.armorClassValues.bonus,
+						label: this.props.itemPreview.armorClassValues.bonus
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.armorClassValues.bonus,
 				validationRules: {
 					required: false
 				},
 				valid: true,
 				touched: false,
-				visible: false
+				visible: this.props.itemPreview.armor
 			},
 			numberOfHealingDice: {
 				elementType: "select",
@@ -1013,17 +1014,17 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "# of Dice"
+						value: this.props.itemPreview.healingValues.numberOfDice,
+						label: this.props.itemPreview.healingValues.numberOfDice
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.healingValues.numberOfDice,
 				validationRules: {
 					required: false
 				},
 				valid: true,
 				touched: false,
-				visible: false
+				visible: this.props.itemPreview.healing
 			},
 			healingDie: {
 				elementType: "select",
@@ -1032,8 +1033,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: "",
-						label: "Healing Die"
+						value: this.props.itemPreview.healingValues.die,
+						label: this.props.itemPreview.healingValues.die
 					},
 					{
 						value: "d4",
@@ -1064,29 +1065,29 @@ class NewItem extends Component {
 						label: "d100",
 					},
 				],
-				value: "",
+				value: this.props.itemPreview.healingValues.die,
 				validationRules: {
 					required: false
 				},
 				valid: true,
 				touched: false,
-				visible: false
+				visible: this.props.itemPreview.healing
 			},
 			healingBonus: {
 				elementType: "select",
 				options: [
 					{
-						value: "",
-						label: "Healing Bonus"
+						value: this.props.itemPreview.healingValues.bonus,
+						label: this.props.itemPreview.healingValues.bonus
 					}
 				],
-				value: "",
+				value: this.props.itemPreview.healingValues.bonus,
 				validationRules: {
 					required: false
 				},
 				valid: true,
 				touched: false,
-				visible: false
+				visible: this.props.itemPreview.healing
 			},
 			itemAbilities: {
 				elementType: "textarea",
@@ -1094,7 +1095,7 @@ class NewItem extends Component {
 					type: "textarea",
 					placeholder: "Item's extra abilities (extra damage types, charges, effects)"
 				},
-				value: "",
+				value: this.props.itemPreview.abilities,
 				validationRules: {
 					required: false
 				},
@@ -1106,7 +1107,22 @@ class NewItem extends Component {
 	}
 
 	componentDidMount() {
-	//I'm lazy so populates the number of dice with nums 1-100 for damage dice
+		if (this.props.itemPreview.damageValues[1].numberOfDice) {
+			this.state.controls.numberOfDamageDiceTwo.visible = true
+			this.state.controls.damageDieTwo.visible = true
+			this.state.controls.damageBonusTwo.visible = true
+			this.state.controls.damageTypeTwo.visible = true
+		}
+
+		if (this.props.itemPreview.damageValues[2].numberOfDice) {
+			this.state.controls.numberOfDamageDiceThree.visible = true
+			this.state.controls.damageDieThree.visible = true
+			this.state.controls.damageBonusThree.visible = true
+			this.state.controls.damageTypeThree.visible = true
+		}
+
+
+		//I'm lazy so populates the number of dice with nums 1-100 for damage dice
 		let nums = [
 			
 		];
@@ -1355,7 +1371,11 @@ class NewItem extends Component {
 			type: itemType,
 			properties: this.state.controls.itemProperties.value,
 			flavorText: this.state.controls.itemFlavorText.value,
-			damage: [
+			damage: this.state.controls.damageCheckBox.value,
+			healing: this.state.controls.healingCheckBox.value,
+			armor: this.state.controls.armorClassCheckBox.value,
+			catagory: this.state.controls.itemType.value,
+			damageValues: [
 				{
 					numberOfDice: this.state.controls.numberOfDamageDiceOne.value,
 					die: this.state.controls.damageDieOne.value,
@@ -1375,11 +1395,11 @@ class NewItem extends Component {
 					type: this.state.controls.damageTypeThree.value
 				}
 			],
-			armorClass: {
+			armorClassValues: {
 				AC:	this.state.controls.armorClass.value,
 				bonus: this.state.controls.armorClassBonus.value
 			},
-			healing: {
+			healingValues: {
 				numberOfDice: this.state.controls.numberOfHealingDice.value,
 				die: this.state.controls.healingDie.value,
 				bonus: this.state.controls.healingBonus.value
@@ -1388,6 +1408,10 @@ class NewItem extends Component {
 		};
 		this.props.onSaveItem(itemData);
 		this.props.history.push("/Create/Items");
+	}
+
+	onClearPreview = () => {
+		this.props.clearPreviewHandler;
 	}
 
 	mapElements = (elements) => {
@@ -1544,6 +1568,20 @@ class NewItem extends Component {
 						<div className = {classes.Part}>
 							<h3>Abilities</h3>
 							{abilitiesSection}
+							<h4>Markdown Key:</h4>
+							<p># H1 ## H2 ### H3 #### H4 ##### H5 ###### H6 *Italics* **Bold** **_Both_** ~~Strike through~~</p>
+							<div>
+								<ReactMarkdown source = "# H1"/>
+								<ReactMarkdown source = "## H2"/>
+								<ReactMarkdown source = "### H3"/>
+								<ReactMarkdown source = "#### H4"/>
+								<ReactMarkdown source = "##### H5"/>
+								<ReactMarkdown source = "###### H6"/>
+								<ReactMarkdown source = "*Italics*"/>
+								<ReactMarkdown source = "**Bold**"/>
+								<ReactMarkdown source = "**_Both_**"/>
+								<ReactMarkdown source = "~~Strike Through~~"/>
+							</div>
 						</div>
 					</div>
 					<div className = {classes.Controls}>
@@ -1587,12 +1625,18 @@ class NewItem extends Component {
 	}
 }
 
+const mapStateToProps = state => {
+	return {
+		itemPreview: state.items.itemPreview
+	}
+}
 
 const mapDispatchToProps = dispatch => {
 	return {
 		onSaveItem: (itemData) => dispatch(actions.postItem(itemData)),
-		setRedirectPath: (path) => dispatch(actions.setRedirectPath(path))
+		setRedirectPath: (path) => dispatch(actions.setRedirectPath(path)),
+		clearPreviewHandler: () => dispatch(actions.clearItemPreview())
 	}
 }
 
-export default connect(null, mapDispatchToProps)(NewItem);
+export default connect(mapStateToProps, mapDispatchToProps)(NewItem);

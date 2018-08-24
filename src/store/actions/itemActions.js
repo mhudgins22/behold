@@ -80,3 +80,10 @@ export const previewItemCard = (itemData) => {
 		itemData: itemData
 	}
 }
+
+//Action to remove data from itemCard and item PREVIEW_ITEM_CARD
+export const clearItemPreview = () => {
+	return {
+		type: actionTypes.CLEAR_ITEM_PREVIEW
+	}
+}

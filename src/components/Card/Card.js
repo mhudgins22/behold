@@ -2,6 +2,8 @@ import React from "react";
 
 import classes from "./Card.css";
 
+import ReactMarkdown from "react-markdown";
+
 const card = props => {
 	let card = null;
 	
@@ -47,7 +49,7 @@ const card = props => {
 					{props.itemAbilities ?
 						<div className = {classes.Abilities}>
 							<h4>Ablities:</h4> 
-							<p>{props.itemAbilities}</p>
+							<ReactMarkdown source = {props.itemAbilities} />
 						</div>
 					: null}
 				</div>

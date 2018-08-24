@@ -11,6 +11,8 @@ export const FETCH_ITEM_LIST_SUCCESS = "FETCH_ITEM_LIST_SUCCESS";
 
 //Populate card with Data
 export const PREVIEW_ITEM_CARD = "PREVIEW_ITEM_CARD";
+//Clears itemPreview
+export const CLEAR_ITEM_PREVIEW = "CLEAR_ITEM_PREVIEW"
 
 //========================================================================
 

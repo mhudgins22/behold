@@ -1,7 +1,8 @@
 export {
 	postItem,
 	fetchItemList,
-	previewItemCard
+	previewItemCard,
+	clearItemPreview
 } from "./itemActions";
 
 export {
