@@ -16,10 +16,9 @@ export const postItemFail = () => {
 	}
 }
 
-export const postItemSuccess = (itemData) => {
+export const postItemSuccess = () => {
 	return {
 		type: actionTypes.POST_ITEM_SUCCESS,
-		itemData: itemData
 	}
 }
 
@@ -29,6 +28,56 @@ export const postItem = (itemData) => {
 	}
 }
 
+//=============================================================
+//Actions for updating an item
+export const putItemStart = () => {
+	return {
+		type: actionTypes.PUT_ITEM_START
+	}
+}
+
+export const putItemFail = () => {
+	return {
+		type: actionTypes.PUT_ITEM_FAIL
+	}
+}
+
+export const putItemSuccess = () => {
+	return {
+		type: actionTypes.PUT_ITEM_SUCCESS
+	}
+}
+
+export const putItem = (itemData, id) => {
+	return dispatch => {
+		axios.put("items/custom/" + id + ".json", itemData);
+	}
+}
+//=================================================================
+//Actions for deleting an item
+export const deleteItemStart = () => {
+	return {
+		type: actionTypes.DELETE_ITEM_START
+	}
+}
+
+export const deleteItemFail = () => {
+	return {
+		type: actionTypes.DELETE_ITEM_FAIL
+	}
+}
+
+export const deleteItemSuccess = () => {
+	return {
+		type: actionTypes.DELETE_ITEM_SUCCESS
+	}
+}
+
+export const deleteItem = (id) => {
+	return dispatch => {
+		axios.delete("/items/custom/" + id + ".json");
+	}
+}
 
 //======================================================
 //Actions for fetching item lists

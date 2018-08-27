@@ -4,6 +4,16 @@ export const POST_ITEM_START = "POST_ITEM_START";
 export const POST_ITEM_SUCCESS = "POST_ITEM_SUCCESS";
 export const POST_ITEM_FAIL = "POST_ITEM_FAIL";
 
+//Actions for putting a new item (updating existing entry)
+export const PUT_ITEM_START = "PUT_ITEM_START";
+export const PUT_ITEM_SUCCESS = "PUT_ITEM_SUCCESS";
+export const PUT_ITEM_FAIL = "PUT_ITEM_FAIL";
+
+//Actions for deletign an Item
+export const DELETE_ITEM_START = "DELETE_ITEM_START";
+export const DELETE_ITEM_SUCCESS = "DELETE_ITEM_SUCCESS";
+export const DELETE_ITEM_FAIL = "DELETE_ITEM_FAIL";
+
 //Actions for fetching item List
 export const FETCH_ITEM_LIST_START = "FETCH_ITEM_LIST_START";
 export const FETCH_ITEM_LIST_FAIL = "FETCH_ITEM_LIST_FAIL";

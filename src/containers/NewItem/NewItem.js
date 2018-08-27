@@ -36,8 +36,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.rarity,
-						label: this.props.itemPreview.rarity,
+						value: this.props.itemPreview.rarity || "",
+						label: this.props.itemPreview.rarity || "Item Rarity",
 					},
 					{
 						value: "Common",
@@ -115,8 +115,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.type,
-						label: this.props.itemPreview.type,
+						value: this.props.itemPreview.catagory === "Weapon" && this.props.itemPreview.type ? this.props.itemPreview.type : "",
+						label: this.props.itemPreview.catagory === "Weapon" && this.props.itemPreview.type ? this.props.itemPreview.type : "Weapon Type",
 						properties: ""
 					},
 					{
@@ -312,7 +312,7 @@ class NewItem extends Component {
 				},
 				valid: false,
 				touched: false,
-				visible: true
+				visible: this.props.itemPreview.catagory === "Weapon"
 			},
 			armorType: {
 				elementType: "select",
@@ -321,8 +321,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.type,
-						label: this.props.itemPreview.type,
+						value: this.props.itemPreview.catagory === "Armor" && this.props.itemPreview.type ? this.props.itemPreview.type : "",
+						label: this.props.itemPreview.catagory === "Armor" && this.props.itemPreview.type ? this.props.itemPreview.type : "Armor Type",
 						properties: ""
 					},
 					{
@@ -397,7 +397,7 @@ class NewItem extends Component {
 				},
 				valid: true,
 				touched: false,
-				visible: false
+				visible: this.props.itemPreview.catagory === "Armor"
 			},
 			consumableType: {
 				elementType: "select",
@@ -406,8 +406,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.type,
-						label: this.props.itemPreview.type,
+						value: this.props.itemPreview.catagory === "Consumable" && this.props.itemPreview.type ? this.props.itemPreview.type : "",
+						label: this.props.itemPreview.catagory === "Consumable" && this.props.itemPreview.type ? this.props.itemPreview.type : "Consumable Type",
 					},
 					{
 						value: "Potion",
@@ -436,7 +436,7 @@ class NewItem extends Component {
 				},
 				valid: true,
 				touched: false,
-				visible: false
+				visible: this.props.itemPreview.catagory === "Consumable"
 			},
 			otherType: {
 				elementType: "input",
@@ -450,7 +450,7 @@ class NewItem extends Component {
 				},
 				valid: true,
 				touched: false,
-				visible: false
+				visible: this.props.itemPreview.catagory === "Other"
 			},
 			itemProperties: {
 				elementType: "input",
@@ -532,8 +532,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.damageValues[0].numberOfDice,
-						label: this.props.itemPreview.damageValues[0].numberOfDice,
+						value: this.props.itemPreview.damageValues[0].numberOfDice || "",
+						label: this.props.itemPreview.damageValues[0].numberOfDice || " # of Dice",
 					}
 				],
 				value: this.props.itemPreview.damageValues[0].numberOfDice,
@@ -551,8 +551,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.damageValues[0].die,
-						label: this.props.itemPreview.damageValues[0].die,
+						value: this.props.itemPreview.damageValues[0].die || "",
+						label: this.props.itemPreview.damageValues[0].die || "Damage Die",
 					},
 					{
 						value: "d4",
@@ -595,8 +595,8 @@ class NewItem extends Component {
 				elementType: "select",
 				options: [
 					{
-						value: this.props.itemPreview.damageValues[0].bonus,
-						label: this.props.itemPreview.damageValues[0].bonus,
+						value: this.props.itemPreview.damageValues[0].bonus || "",
+						label: this.props.itemPreview.damageValues[0].bonus || "Damage Bonus",
 					}
 				],
 				value: this.props.itemPreview.damageValues[0].bonus,
@@ -614,8 +614,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.damageValues[0].type,
-						label: this.props.itemPreview.damageValues[0].type,
+						value: this.props.itemPreview.damageValues[0].type || "",
+						label: this.props.itemPreview.damageValues[0].type || "Damage Type",
 					},
 					{
 						value: "Piercing",
@@ -681,8 +681,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.damageValues[1].numberOfDice,
-						label: this.props.itemPreview.damageValues[1].numberOfDice,
+						value: this.props.itemPreview.damageValues[1].numberOfDice || "",
+						label: this.props.itemPreview.damageValues[1].numberOfDice || "# of Dice",
 					}
 				],
 				value: this.props.itemPreview.damageValues[1].numberOfDice,
@@ -700,8 +700,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.damageValues[1].die,
-						label: this.props.itemPreview.damageValues[1].die,
+						value: this.props.itemPreview.damageValues[1].die || "",
+						label: this.props.itemPreview.damageValues[1].die || "Damage Die",
 					},
 					{
 						value: "d4",
@@ -744,8 +744,8 @@ class NewItem extends Component {
 				elementType: "select",
 				options: [
 					{
-						value: this.props.itemPreview.damageValues[1].bonus,
-						label: this.props.itemPreview.damageValues[1].bonus,
+						value: this.props.itemPreview.damageValues[1].bonus || "",
+						label: this.props.itemPreview.damageValues[1].bonus || "Damage Bonus",
 					}
 				],
 				value: this.props.itemPreview.damageValues[1].bonus,
@@ -763,8 +763,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.damageValues[1].type,
-						label: this.props.itemPreview.damageValues[1].type,
+						value: this.props.itemPreview.damageValues[1].type || "",
+						label: this.props.itemPreview.damageValues[1].type || "Damage Type",
 					},
 					{
 						value: "Piercing",
@@ -830,8 +830,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.damageValues[2].numberOfDice,
-						label: this.props.itemPreview.damageValues[2].numberOfDice
+						value: this.props.itemPreview.damageValues[2].numberOfDice || "",
+						label: this.props.itemPreview.damageValues[2].numberOfDice || "# of Dice"
 					}
 				],
 				value: this.props.itemPreview.damageValues[2].numberOfDice,
@@ -849,8 +849,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.damageValues[2].bonus,
-						label: this.props.itemPreview.damageValues[2].bonus
+						value: this.props.itemPreview.damageValues[2].bonus || "",
+						label: this.props.itemPreview.damageValues[2].bonus || "Damage Die"
 					},
 					{
 						value: "d4",
@@ -893,8 +893,8 @@ class NewItem extends Component {
 				elementType: "select",
 				options: [
 					{
-						value: "",
-						label: "Damage Bonus"
+						value: this.props.itemPreview.damageValues[2].bonus || "",
+						label: this.props.itemPreview.damageValues[2].bonus || "Damage Bonus"
 					}
 				],
 				value: this.props.itemPreview.damageValues[2].bonus,
@@ -912,8 +912,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.damageValues[2].type,
-						label: this.props.itemPreview.damageValues[2].type
+						value: this.props.itemPreview.damageValues[2].type || "",
+						label: this.props.itemPreview.damageValues[2].type || "Damage Type"
 					},
 					{
 						value: "Piercing",
@@ -979,8 +979,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.armorClassValues.AC,
-						label: this.props.itemPreview.armorClassValues.AC
+						value: this.props.itemPreview.armorClassValues.AC || "",
+						label: this.props.itemPreview.armorClassValues.AC || "Armor Class"
 					}
 				],
 				value: this.props.itemPreview.armorClassValues.AC,
@@ -995,8 +995,8 @@ class NewItem extends Component {
 				elementType: "select",
 				options: [
 					{
-						value: this.props.itemPreview.armorClassValues.bonus,
-						label: this.props.itemPreview.armorClassValues.bonus
+						value: this.props.itemPreview.armorClassValues.bonus || "",
+						label: this.props.itemPreview.armorClassValues.bonus || "AC Bonus"
 					}
 				],
 				value: this.props.itemPreview.armorClassValues.bonus,
@@ -1014,8 +1014,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.healingValues.numberOfDice,
-						label: this.props.itemPreview.healingValues.numberOfDice
+						value: this.props.itemPreview.healingValues.numberOfDice || "",
+						label: this.props.itemPreview.healingValues.numberOfDice || "# of Dice"
 					}
 				],
 				value: this.props.itemPreview.healingValues.numberOfDice,
@@ -1033,8 +1033,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.healingValues.die,
-						label: this.props.itemPreview.healingValues.die
+						value: this.props.itemPreview.healingValues.die || "",
+						label: this.props.itemPreview.healingValues.die || "Healing Die"
 					},
 					{
 						value: "d4",
@@ -1077,8 +1077,8 @@ class NewItem extends Component {
 				elementType: "select",
 				options: [
 					{
-						value: this.props.itemPreview.healingValues.bonus,
-						label: this.props.itemPreview.healingValues.bonus
+						value: this.props.itemPreview.healingValues.bonus || "",
+						label: this.props.itemPreview.healingValues.bonus || "Healing Bonus"
 					}
 				],
 				value: this.props.itemPreview.healingValues.bonus,
@@ -1406,12 +1406,18 @@ class NewItem extends Component {
 			},
 			abilities: this.state.controls.itemAbilities.value
 		};
-		this.props.onSaveItem(itemData);
+		if (this.props.match.url === "/Create/Items/NewItem") {
+			this.props.onSaveItem(itemData);
+		} else {
+			this.props.onUpateItem(itemData, this.props.itemPreview.id);
+		}
 		this.props.history.push("/Create/Items");
 	}
 
-	onClearPreview = () => {
-		this.props.clearPreviewHandler;
+	onDeleteItemHandler = (event) => {
+		event.preventDefault();
+		this.props.onDeleteItem(this.props.itemPreview.id);
+		this.props.history.push("/Create/Items");
 	}
 
 	mapElements = (elements) => {
@@ -1591,8 +1597,14 @@ class NewItem extends Component {
 							clicked = {this.onSaveItemHandler}/>
 						<Button 
 							buttonType = "Danger"
-							text = "Discard Item"
+							text = {this.props.match.url === "/Create/Items/NewItem" ? "Discard Item" : "Discard Changes"}
 							clicked = {() => {this.props.history.push("/Create/Items")}}/>
+						{this.props.match.url !== "/Create/Items/NewItem" ?
+							<Button 
+								buttonType = "Danger"
+								text = "Delete Item"
+								clicked = {this.onDeleteItemHandler}/>							
+						: null}
 					</div>
 				</form>
 				<Card 
@@ -1635,7 +1647,8 @@ const mapDispatchToProps = dispatch => {
 	return {
 		onSaveItem: (itemData) => dispatch(actions.postItem(itemData)),
 		setRedirectPath: (path) => dispatch(actions.setRedirectPath(path)),
-		clearPreviewHandler: () => dispatch(actions.clearItemPreview())
+		onUpateItem: (itemData, id) => dispatch(actions.putItem(itemData, id)),
+		onDeleteItem: (id) => dispatch(actions.deleteItem(id))
 	}
 }
 

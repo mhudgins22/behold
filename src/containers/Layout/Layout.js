@@ -26,7 +26,7 @@ class Layout extends Component {
 				<Route path = "/Create/Characters/NewCharacter/Stats" exact component = {NewCharacterStats} />
 				<Route path = "/Create/Items" exact component = {ItemsPage} />
 				<Route path = "/Create/Items/NewItem" component = {NewItem} />
-				<Route path = "/Create/Items/Edit/:id" component = {null} />
+				<Route path = "/Create/Items/Edit/:id" component = {NewItem} />
 			</div>
 		)
 	}
