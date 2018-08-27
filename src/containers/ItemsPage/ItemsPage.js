@@ -14,7 +14,9 @@ class ItemsPage extends Component {
 
 	state = {
 		baseListVisible: true,
-		customListVisible: false
+		customListVisible: false,
+		baseTab: "ActiveTab",
+		customTab: "Tab"
 	}
 
 	componentDidMount() {
@@ -136,21 +138,25 @@ class ItemsPage extends Component {
 				</div>
 				<div>
 					<Button 
-						buttonType = ""
+						buttonType = {this.state.baseTab}
 						text = "Base Items"
 						clicked = {() => {
 							this.setState({
 								baseListVisible: true,
-								customListVisible: false
+								customListVisible: false,
+								baseTab: "ActiveTab",
+								customTab: "Tab"
 							})
 						}}/>
 					<Button 
-						buttonType = ""
+						buttonType = {this.state.customTab}
 						text = "Custom Items"
 						clicked = {() => {
 							this.setState({
 								baseListVisible: false,
-								customListVisible: true
+								customListVisible: true,
+								baseTab: "Tab",
+								customTab: "ActiveTab"
 							})
 						}}/>
 				</div>

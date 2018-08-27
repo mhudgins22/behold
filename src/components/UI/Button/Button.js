@@ -21,6 +21,14 @@ const button = (props) => {
 		names.push(classes.Danger);
 	}
 
+	if (props.buttonType === "Tab") {
+		names.push(classes.Tab);
+	}
+
+	if (props.buttonType === "ActiveTab") {
+		names.push(classes.ActiveTab);
+	}
+
 	return (
 		<button className = {names.join(" ")} onClick = {props.clicked}>{props.text}</button>
 	)

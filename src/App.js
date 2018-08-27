@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ScrollToTop from "./Utility/scrollToTop";
 
 
 import Layout from "./containers/Layout/Layout";
@@ -8,7 +9,9 @@ class App extends Component {
 	render() {
 		return (
 			<div>
-				<Layout redirectPath = {this.props.redirectPath}/>
+				<ScrollToTop>
+					<Layout/>
+				</ScrollToTop>
 			</div>
 		);
 	}

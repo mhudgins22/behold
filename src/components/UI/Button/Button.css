@@ -39,3 +39,21 @@
 	font-size: 24px;
 	display: inline-block;
 }
+
+.Tab {
+	border: 1px outset #d6b671;
+	border-radius: 5px;
+	background-color: #ddd99f;
+	margin: 0px 5px;
+	display: inline-block;
+	z-index: 100;
+}
+
+.ActiveTab {
+	border: 1px inset #d6b671;
+	border-radius: 5px;
+	background-color: #ddd99f;
+	margin: 0px 5px;
+	display: inline-block;
+	z-index: 100;
+}
