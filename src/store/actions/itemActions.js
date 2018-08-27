@@ -24,7 +24,11 @@ export const postItemSuccess = () => {
 
 export const postItem = (itemData) => {
 	return dispatch => {
-		axios.post("items/custom.json", itemData);
+		dispatch(postItemStart());
+		axios.post("items/custom.json", itemData)
+		.then (reponse => {
+			dispatch(postItemSuccess());
+		})
 	}
 }
 
@@ -100,6 +104,13 @@ export const fetchItemListSuccess = (itemList) => {
 	}
 }
 
+export const fetchBaseItemsSuccess = (itemList) => {
+	return {
+		type: actionTypes.FETCH_BASE_ITEMS_SUCCESS,
+		itemList: itemList
+	}
+}
+
 export const fetchItemList = () => {
 	return dispatch => {
 		axios.get("items/custom.json")
@@ -111,8 +122,21 @@ export const fetchItemList = () => {
 					...response.data[key]
 				});
 			}
-			console.log(data);
 			dispatch(fetchItemListSuccess(data));
+		})
+		.catch(err => {
+			console.log(err)
+		});
+		axios.get("items/base.json")
+		.then(response => {
+			let data = [];
+			for (let key in response.data) {
+				data.push({
+					id: key,
+					...response.data[key]
+				});
+			}
+			dispatch(fetchBaseItemsSuccess(data));
 		})
 		.catch(err => {
 			console.log(err)

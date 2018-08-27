@@ -14,10 +14,4 @@ class App extends Component {
 	}
 }
 
-const mapStateToProps = state => {
-	return {
-		redirectPath: state.auth.redirectPath
-	}
-}
-
 export default App;

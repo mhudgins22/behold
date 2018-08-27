@@ -849,8 +849,8 @@ class NewItem extends Component {
 				},
 				options: [
 					{
-						value: this.props.itemPreview.damageValues[2].bonus || "",
-						label: this.props.itemPreview.damageValues[2].bonus || "Damage Die"
+						value: this.props.itemPreview.damageValues[2].die || "",
+						label: this.props.itemPreview.damageValues[2].die || "Damage Die"
 					},
 					{
 						value: "d4",
@@ -1107,21 +1107,6 @@ class NewItem extends Component {
 	}
 
 	componentDidMount() {
-		if (this.props.itemPreview.damageValues[1].numberOfDice) {
-			this.state.controls.numberOfDamageDiceTwo.visible = true
-			this.state.controls.damageDieTwo.visible = true
-			this.state.controls.damageBonusTwo.visible = true
-			this.state.controls.damageTypeTwo.visible = true
-		}
-
-		if (this.props.itemPreview.damageValues[2].numberOfDice) {
-			this.state.controls.numberOfDamageDiceThree.visible = true
-			this.state.controls.damageDieThree.visible = true
-			this.state.controls.damageBonusThree.visible = true
-			this.state.controls.damageTypeThree.visible = true
-		}
-
-
 		//I'm lazy so populates the number of dice with nums 1-100 for damage dice
 		let nums = [
 			
@@ -1163,19 +1148,39 @@ class NewItem extends Component {
 				},
 				numberOfDamageDiceTwo: {
 					...this.state.controls.numberOfDamageDiceTwo,
-					options: this.state.controls.numberOfDamageDiceTwo.options.concat(nums)
+					options: this.state.controls.numberOfDamageDiceTwo.options.concat(nums),
+					visible: this.props.itemPreview.damageValues[1].numberOfDice
+				},
+				damageDieTwo: {
+					...this.state.controls.damageDieTwo,
+					visible: this.props.itemPreview.damageValues[1].numberOfDice
 				},
 				damageBonusTwo: {
 					...this.state.controls.damageBonusTwo,
-					options: this.state.controls.damageBonusTwo.options.concat(bonus)
+					options: this.state.controls.damageBonusTwo.options.concat(bonus),
+					visible: this.props.itemPreview.damageValues[1].numberOfDice
+				},
+				damageTypeTwo: {
+					...this.state.controls.damageTypeTwo,
+					visible: this.props.itemPreview.damageValues[1].numberOfDice
 				},
 				numberOfDamageDiceThree: {
 					...this.state.controls.numberOfDamageDiceThree,
-					options: this.state.controls.numberOfDamageDiceThree.options.concat(nums)
+					options: this.state.controls.numberOfDamageDiceThree.options.concat(nums),
+					visible: this.props.itemPreview.damageValues[2].numberOfDice
+				},
+				damageDieThree: {
+					...this.state.controls.damageDieThree,
+					visible: this.props.itemPreview.damageValues[2].numberOfDice
 				},
 				damageBonusThree: {
 					...this.state.controls.damageBonusThree,
-					options: this.state.controls.damageBonusThree.options.concat(bonus)
+					options: this.state.controls.damageBonusThree.options.concat(bonus),
+					visible: this.props.itemPreview.damageValues[2].numberOfDice
+				},
+				damageTypeThree: {
+					...this.state.controls.damageTypeThree,
+					visible: this.props.itemPreview.damageValues[2].numberOfDice
 				},
 				armorClass: {
 					...this.state.controls.armorClass,
@@ -1240,8 +1245,8 @@ class NewItem extends Component {
 
 
 		//Adds assigned properties of weapon or armor to item card
+		let properties = null;
 		if (element === "weaponType" || element === "armorType") {
-			let properties = "";
 			for (let i = 0; i < this.state.controls[element].options.length; ++i) {
 				if (this.state.controls[element].options[i].value === event.target.value) {
 					properties = this.state.controls[element].options[i].properties;
@@ -1639,7 +1644,8 @@ class NewItem extends Component {
 
 const mapStateToProps = state => {
 	return {
-		itemPreview: state.items.itemPreview
+		itemPreview: state.items.itemPreview,
+		loading: state.items.loading
 	}
 }
 

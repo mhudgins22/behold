@@ -12,6 +12,11 @@ import * as actions from "../../store/actions/index";
 
 class ItemsPage extends Component {
 
+	state = {
+		baseListVisible: true,
+		customListVisible: false
+	}
+
 	componentDidMount() {
 		this.props.fetchItemListHandler();
 	}
@@ -20,12 +25,9 @@ class ItemsPage extends Component {
 		this.props.itemPreviewHandler(data)
 	}
 
-	render() {
-		
-		let customItems = null
-
-		if (this.props.customList) {
-			customItems = this.props.customList.map(item => {
+	makeListHandler = (items) => {
+		return (
+			items.map(item => {
 				return(
 					<ListItem 
 						key = {item.id}
@@ -36,9 +38,15 @@ class ItemsPage extends Component {
 						type = {item.type}
 						clicked = {() => this.onPreviewHandler(item)}/>
 				)
-			});
-		}
+			})
+		)
+	}
+
+	render() {
 		
+		let list = null;
+		let items = null;
+
 		let card = <Card cardType = "item"/>;
 		let buttons = null;
 		if (this.props.itemPreview) {
@@ -69,7 +77,7 @@ class ItemsPage extends Component {
 					itemFlavorText = {this.props.itemPreview.flavorText}
 					itemAbilities = {this.props.itemPreview.abilities}/>
 			);
-
+			
 			buttons = (
 				<div className = {classes.CardOptions}>
 					<Button clicked = {() => this.props.history.push("/Create/Items/Edit/id=" + this.props.itemPreview.id)} buttonType = "Success" text = "Edit"/>
@@ -77,26 +85,76 @@ class ItemsPage extends Component {
 				</div>
 			)
 		}
+
+		if (this.props.customList && this.state.customListVisible) {
+			items = this.makeListHandler(this.props.customList);
+			list = (
+				<div>
+					<div className = {classes.List}>
+						<div>
+							<Link onClick = {this.props.clearPreviewHandler} style = {{textDecoration: "none", color: "black"}} to = {this.props.match.url + "/NewItem"}>
+								<h3>+ Create New Item</h3>
+							</Link>
+						</div>
+						<div>
+							{items}
+						</div>
+					</div>
+					<div className = {classes.Card}>
+						{card}
+					</div>
+					{buttons}
+				</div>
+			);
+		}
+
+		if (this.props.baseList && this.state.baseListVisible) {
+			items = this.makeListHandler(this.props.baseList);
+			list = (
+				<div>
+					<div className = {classes.List}>
+						<div>
+							<Link onClick = {this.props.clearPreviewHandler} style = {{textDecoration: "none", color: "black"}} to = {this.props.match.url + "/NewItem"}>
+								<h3>+ Create New Item</h3>
+							</Link>
+						</div>
+						<div>
+							{items}
+						</div>
+					</div>
+					<div className = {classes.Card}>
+						{card}
+					</div>
+				</div>
+			);
+		}
 		
 		return(
 			<div>
 				<div className = {classes.Header}>
 					<h1>Wonderous Items To Create and Use</h1>
 				</div>
-				<div className = {classes.List}>
-					<div>
-						<Link onClick = {this.props.clearPreviewHandler} style = {{textDecoration: "none", color: "black"}} to = {this.props.match.url + "/NewItem"}>
-							<h3>+ Create New Item</h3>
-						</Link>
-					</div>
-					<div>
-						{customItems}
-					</div>
+				<div>
+					<Button 
+						buttonType = ""
+						text = "Base Items"
+						clicked = {() => {
+							this.setState({
+								baseListVisible: true,
+								customListVisible: false
+							})
+						}}/>
+					<Button 
+						buttonType = ""
+						text = "Custom Items"
+						clicked = {() => {
+							this.setState({
+								baseListVisible: false,
+								customListVisible: true
+							})
+						}}/>
 				</div>
-				<div className = {classes.Card}>
-					{card}
-				</div>
-				{buttons}
+				{list}
 			</div>
 		);
 	}
@@ -105,6 +163,7 @@ class ItemsPage extends Component {
 const mapStateToProps = state => {
 	return {
 		customList: state.items.customList,
+		baseList: state.items.baseList,
 		itemPreview: state.items.itemPreview
 	}
 }

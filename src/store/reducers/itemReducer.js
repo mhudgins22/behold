@@ -2,6 +2,7 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
 	customList: null,
+	baseList: null,
 	itemPreview: {
 		name: "",
 		rarity: "",
@@ -42,6 +43,22 @@ const initialState = {
 			die: "",
 			bonus: ""
 		}
+	},
+	loading: false
+}
+
+//Post item function
+const postItemStart = (state, action) => {
+	return {
+		...state,
+		loading: true,
+	}
+}
+
+const postItemSuccess = (state, action) => {
+	return {
+		...state,
+		loading: false
 	}
 }
 
@@ -50,6 +67,13 @@ const fetchItemListSuccess = (state, action) => {
 	return {
 		...state,
 		customList: action.itemList
+	}
+}
+
+const fetchBaseItemsSuccess = (state, action) => {
+	return {
+		...state,
+		baseList: action.itemList
 	}
 }
 
@@ -105,13 +129,17 @@ const clearItemPreview = (state, action) => {
 				die: "",
 				bonus: ""
 			}
-		}
+		},
+		loading: false
 	}
 }
 
 const reducer = (state = initialState, action) => {
 	switch(action.type) {
+		case actionTypes.POST_ITEM_START: return postItemStart(state, action);
+		case actionTypes.POST_ITEM_SUCCESS: return postItemSuccess(state, action);
 		case actionTypes.FETCH_ITEM_LIST_SUCCESS: return fetchItemListSuccess(state, action);
+		case actionTypes.FETCH_BASE_ITEMS_SUCCESS: return fetchBaseItemsSuccess(state, action);
 		case actionTypes.PREVIEW_ITEM_CARD: return previewItemCard(state, action);
 		case actionTypes.CLEAR_ITEM_PREVIEW: return clearItemPreview(state, action);
 		default: return state;

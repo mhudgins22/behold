@@ -1,0 +1,82 @@
+{
+	"Longsword": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "d8",
+				"numberOfDice": "1",
+				"type": "Slashing"
+			},
+			{
+				"bonus": "",
+				"die": "d10",
+				"numberOfDice": "1",
+				"type": "Slashing"
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"name": "Longsword",
+		"properties": "Versatile(d10)",
+		"rarity": "Common",
+		"type": "Longsword"
+	},
+	"Shortsword": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "d6",
+				"numberOfDice": "1",
+				"type": "Slashing"
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"name": "Shortsword",
+		"properties": "Light, Finesse",
+		"rarity": "Common",
+		"type": "Shortsword"
+	}
+}
