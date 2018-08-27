@@ -51,7 +51,7 @@ class ItemsPage extends Component {
 
 		let card = <Card cardType = "item"/>;
 		let buttons = null;
-		if (this.props.itemPreview) {
+		if (this.props.itemPreview.name) {
 			card = (
 				<Card 
 					cardType = "item"  
@@ -116,9 +116,7 @@ class ItemsPage extends Component {
 				<div>
 					<div className = {classes.List}>
 						<div>
-							<Link onClick = {this.props.clearPreviewHandler} style = {{textDecoration: "none", color: "black"}} to = {this.props.match.url + "/NewItem"}>
-								<h3>+ Create New Item</h3>
-							</Link>
+							<h3>Basic Items</h3>
 						</div>
 						<div>
 							{items}
@@ -146,7 +144,8 @@ class ItemsPage extends Component {
 								customListVisible: false,
 								baseTab: "ActiveTab",
 								customTab: "Tab"
-							})
+							});
+							this.props.clearPreviewHandler();
 						}}/>
 					<Button 
 						buttonType = {this.state.customTab}
@@ -157,7 +156,8 @@ class ItemsPage extends Component {
 								customListVisible: true,
 								baseTab: "Tab",
 								customTab: "ActiveTab"
-							})
+							});
+							this.props.clearPreviewHandler();
 						}}/>
 				</div>
 				{list}
