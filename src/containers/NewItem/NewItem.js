@@ -6,6 +6,8 @@ import Input from "../../components/UI/Input/Input";
 import Card from "../../components/Card/Card";
 import Button from "../../components/UI/Button/Button";
 import ReactMarkdown from "react-markdown";
+import Modal from "../../components/UI/Modal/Modal";
+import Backdrop from "../../components/UI/Backdrop/Backdrop";
 
 import * as actions from "../../store/actions/index";
 
@@ -1103,7 +1105,8 @@ class NewItem extends Component {
 				touched: false,
 				visible: true
 			}
-		}
+		},
+		showModal: false
 	}
 
 	componentDidMount() {
@@ -1413,10 +1416,14 @@ class NewItem extends Component {
 		};
 		if (this.props.match.url === "/Create/Items/NewItem") {
 			this.props.onSaveItem(itemData);
+			this.setState({
+				...this.state,
+				showModal: true
+			})
 		} else {
 			this.props.onUpateItem(itemData, this.props.itemPreview.id);
 		}
-		this.props.history.push("/Create/Items");
+		//this.props.history.push("/Create/Items");
 	}
 
 	onDeleteItemHandler = (event) => {
@@ -1454,7 +1461,11 @@ class NewItem extends Component {
 		let itemArmorElements = [];
 		let itemHealingElements = [];
 		let itemAbilitiesElements = [];
+		let modal = null;
+		let backdrop = null;
 		let i = 0;
+
+
 		//Splits the form elements into two sections
 		for (let element in this.state.controls) {
 			if (i < 9) {
@@ -1534,8 +1545,25 @@ class NewItem extends Component {
 					clicked = {(event) => {this.onAdjustDamageHandler(event, "numberOfDamageDiceThree","damageDieThree", "damageBonusThree", "damageTypeThree", false)}}/>
 			);
 		}
+
+		if (this.state.showModal === true) {
+			modal = (
+				<Modal 
+					text = "hi" 
+					buttonOneType = "Success"
+					buttonOneText = "test one"
+					buttonOneClicked = {null}
+					buttonTwoType = "Danger"
+					buttonTwoText = "test two"
+					buttonTwoClicked = {null}/>
+			);
+			backdrop = <Backdrop />
+		}
+
 		return(
 			<div>
+				{backdrop}
+				{modal}
 				<h1>Create Your New Item </h1>
 				<form className = {classes.Form}>
 					<div className = {classes.Section}>

@@ -45,7 +45,7 @@
 			"AC": "",
 			"bonus": ""
 		},
-		"catagory": "Weapon",
+		"catagory": "",
 		"damage": true,
 		"damageValues": [
 			{
@@ -78,5 +78,45 @@
 		"properties": "Light, Finesse",
 		"rarity": "Common",
 		"type": "Shortsword"
-	}
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
 }
