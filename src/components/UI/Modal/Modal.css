@@ -1,10 +1,25 @@
 .Modal {
 	width: 60%;
-	height: 500px;
+	height: 200px;
 	position: fixed;
 	left: 20%;
-	margin: auto;
-	border: 1px outset black;
-	background-color: white;
+	text-align: center;
+	border: 1px outset #b2b06b;
+	background-color: #e8e6a0;
 	z-index: 500;
+}
+
+.Option {
+	display: inline-block;
+	margin: 0 12.5%;
+}
+
+.Info {
+	border: 1px solid #c6c46d;
+	background: #e2df81;
+}
+
+.Controls {
+	border: 1px solid #c6c46d;
+	background-color: #e2df81;
 }

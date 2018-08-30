@@ -19,9 +19,9 @@ const input = props => {
 			);
 			break;
 		case "select":
-			const options = props.options.map(option => {
+			const options = props.options.map((option, i) => {
 				return(
-					<option value = {option.value} key = {option.value}>{option.label}</option>
+					<option value = {option.value} key = {option.value + i.toString()}>{option.label}</option>
 				)
 			});
 			inputElement = (

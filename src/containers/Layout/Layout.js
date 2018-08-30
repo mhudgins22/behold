@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route} from "react-router-dom";
 
 import Navbar from "../../components/Navigation/Navbar/Navbar";
 import Welcome from "../Welcome/Welcome";

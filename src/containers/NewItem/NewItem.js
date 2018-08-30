@@ -9,6 +9,7 @@ import ReactMarkdown from "react-markdown";
 import Modal from "../../components/UI/Modal/Modal";
 import Backdrop from "../../components/UI/Backdrop/Backdrop";
 
+
 import * as actions from "../../store/actions/index";
 
 import classes from "./NewItem.css";
@@ -1360,6 +1361,10 @@ class NewItem extends Component {
 		this.state.controls.itemProperties.value = "";
 	}
 
+	newItemHandler = () => {
+		window.location.reload();
+	}
+
 	//Collects info from form to be posted on backend
 	onSaveItemHandler = (event) => {
 		event.preventDefault();
@@ -1423,7 +1428,6 @@ class NewItem extends Component {
 		} else {
 			this.props.onUpateItem(itemData, this.props.itemPreview.id);
 		}
-		//this.props.history.push("/Create/Items");
 	}
 
 	onDeleteItemHandler = (event) => {
@@ -1433,11 +1437,11 @@ class NewItem extends Component {
 	}
 
 	mapElements = (elements) => {
-		return elements.map(element => {
+		return elements.map((element, i) => {
 			if (element.config.visible) {
 				return(
 					<Input 
-						key = {element.id}
+						key = {element.id + i}
 						className = {classes.Input}
 						elementType = {element.config.elementType}
 						elementConfig = {element.config.elementConfig}
@@ -1549,13 +1553,13 @@ class NewItem extends Component {
 		if (this.state.showModal === true) {
 			modal = (
 				<Modal 
-					text = "hi" 
+					text = {this.state.controls.itemName.value + " was saved!"} 
 					buttonOneType = "Success"
-					buttonOneText = "test one"
-					buttonOneClicked = {null}
+					buttonOneText = "Create another item"
+					buttonOneClicked = {(event) => this.newItemHandler(event)}
 					buttonTwoType = "Danger"
-					buttonTwoText = "test two"
-					buttonTwoClicked = {null}/>
+					buttonTwoText = "Return to Items Page"
+					buttonTwoClicked = {() => this.props.history.push("/Create/Items")}/>
 			);
 			backdrop = <Backdrop />
 		}
