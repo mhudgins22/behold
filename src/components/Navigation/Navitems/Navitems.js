@@ -8,9 +8,7 @@ import Navitem from "./Navitem/Navitem";
 const navitems = (props) => {
 	let nav = props.nav.map(item => {
 		return(
-			
-				<Navitem text = {item} hidden = {props.hidden} sidedrawer = {props.sidedrawer} key = {item}/>
-
+			<Navitem text = {item} hidden = {props.hidden} sidedrawer = {props.sidedrawer} key = {item}/>
 		)
 	})
 	return(

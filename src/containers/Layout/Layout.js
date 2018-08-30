@@ -3,6 +3,7 @@ import { Route} from "react-router-dom";
 
 import Navbar from "../../components/Navigation/Navbar/Navbar";
 import Sidedrawer from "../../components/Navigation/Sidedrawer/Sidedrawer";
+import Backdrop from "../../components/UI/Backdrop/Backdrop";
 import Welcome from "../Welcome/Welcome";
 import Create from "../Create/Create";
 import Play from "../Play/Play";
@@ -20,11 +21,27 @@ class Layout extends Component {
 		showSidedrawer: false
 	}
 
+	toggleSideDrawer = () => {
+		this.setState({
+			showSidedrawer: !this.state.showSidedrawer
+		})
+	}
+
 	render() {
+
+		let backdrop = null;
+		let sidedrawer = null;
+
+		if (this.state.showSidedrawer) {
+			backdrop = <Backdrop clicked = {this.toggleSideDrawer}/>
+			sidedrawer = <Sidedrawer />
+		}
+
 		return (
 			<div className = {classes.Layout}>
-				<Navbar />
-				<Sidedrawer visible = {this.state.showSidedrawer}/>
+				{backdrop}
+				<Navbar clicked = {this.toggleSideDrawer}/>
+				{sidedrawer}
 				<Route path = "/" exact component = {Welcome} />
 				<Route path = "/Play" component = {Play} />
 				<Route path = "/Create" exact component = {Create} />

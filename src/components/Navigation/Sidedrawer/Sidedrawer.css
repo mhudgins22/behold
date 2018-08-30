@@ -3,3 +3,16 @@
 		display: none;
 	}
 }
+
+@media (max-width: 749px) {
+	.Sidedrawer {
+		background-color: pink;
+		border-right: 3px outset #ff1ce4;
+		width: 45%;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 500;
+	}
+}
