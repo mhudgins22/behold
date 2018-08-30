@@ -11,7 +11,7 @@ const navbar = (props) => {
 	return(
 		<div className = {classes.Navbar}>
 			<Link to = "/">
-				<Logo image = "https://icon2.kisspng.com/20180323/aje/kisspng-sword-shield-clip-art-shield-5ab5be22208755.5271689515218601301332.jpg" altText = "Sword Shield Clip art - shield @kisspng"/>
+				<Logo className = {classes.Logo} image = "https://icon2.kisspng.com/20180323/aje/kisspng-sword-shield-clip-art-shield-5ab5be22208755.5271689515218601301332.jpg" altText = "Sword Shield Clip art - shield @kisspng"/>
 			</Link>
 			<Navitems nav = {navigation}/>
 		</div>

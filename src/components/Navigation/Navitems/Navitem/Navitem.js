@@ -1,10 +1,21 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 import classes from "./Navitem.css"
 
 const navitem = (props) => {
+	let classNames = [classes.Navitem];
+
+	if (props.sidedrawer) {
+		classNames = [classes.Sideitem]
+	}
+	if (props.hidden) {
+		classNames.push(classes.Hidden);
+	}
 	return(
-		<h3 className = {classes.Navitem}>{props.text}</h3>
+		<Link className = {classNames.join(" ")} to = {"/" + props.text.split(" ").join("")}>
+			{props.text}
+		</Link>
 	)
 }
 

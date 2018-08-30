@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Route} from "react-router-dom";
 
 import Navbar from "../../components/Navigation/Navbar/Navbar";
+import Sidedrawer from "../../components/Navigation/Sidedrawer/Sidedrawer";
 import Welcome from "../Welcome/Welcome";
 import Create from "../Create/Create";
 import Play from "../Play/Play";
@@ -14,10 +15,16 @@ import NewItem from "../NewItem/NewItem";
 import classes from "./Layout.css";
 
 class Layout extends Component {
+
+	state = {
+		showSidedrawer: false
+	}
+
 	render() {
 		return (
 			<div className = {classes.Layout}>
 				<Navbar />
+				<Sidedrawer visible = {this.state.showSidedrawer}/>
 				<Route path = "/" exact component = {Welcome} />
 				<Route path = "/Play" component = {Play} />
 				<Route path = "/Create" exact component = {Create} />
