@@ -3,7 +3,7 @@ import React from "react";
 import classes from "./Button.css";
 
 const button = (props) => {
-	let names = [classes.Button];
+	let names = [];
 
 	if (props.buttonType === "Register") {
 		names.push(classes.Register);
@@ -11,6 +11,10 @@ const button = (props) => {
 
 	if (props.buttonType === "Character") {
 		names.push(classes.Character);
+	}
+
+	if (props.buttonType === "Navigation") {
+		names.push(classes.Navigation);
 	}
 
 	if (props.buttonType === "Success") {

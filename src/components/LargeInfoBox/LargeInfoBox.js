@@ -6,15 +6,16 @@ const largeInfoBox = (props) => {
 	return(
 		<div className = {classes.LargeInfoBox}>
 			<h1>{props.header}</h1>
-			<div className = {classes.Main}>
-				<p>{props.main}</p>
-				<div>
+			<div className = {classes.MainBox}>
+				<p className = {classes.MainInfo}>{props.main}</p>
+				<div className = {classes.MainImage}>
 					<img src = {props.image} alt ="" />
 				</div>
 			</div>
-			
-			<h3>{props.subHeader}</h3>
-			<p>{props.secondary}</p>
+			<div className = {classes.SubBox}>
+				<h3>{props.subHeader}</h3>
+				<p className = {classes.SubInfo}>{props.secondary}</p>
+			</div>
 		</div>
 	);
 }

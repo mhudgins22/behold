@@ -1,31 +1,70 @@
-.Header {
-	margin-left: 50px;
+@media (min-width: 1000px) {
+	.Header {
+		margin-left: 1%;
+	}
+
+	.List {
+		width: 35%;
+		background-color: #ddd99f;
+		border: 1px solid black;
+		border-radius: 3px;
+		margin: 0 10px;
+		padding: 15px;
+		display: inline-block;
+	}
+
+	.Controls {
+		margin: 0 5px;
+	}
+
+	.Card {
+		display: inline-block;
+		width: 45%;
+		position: fixed;
+		top: 15%;
+		bottom: 0;
+	}
+
+	.CardOptions {
+		width: 10%;
+		float: right;
+		position: fixed;
+		top: 15%;
+		left: 83%;
+	}
 }
 
-.List {
-	width: 45%;
-	background-color: #ddd99f;
-	border: 1px solid black;
-	border-radius: 3px;
-	margin: 0px;
-	padding: 15px;
-	display: inline-block;
+@media (max-width: 999px) {
+	 
+	 .Page {
+	 	 text-align: center;
+	 }
+
+	.Header {
+		margin-left: 1%;
+		font-size: 12px;
+	}
+
+	.List {
+		width: 80%;
+		background-color: #ddd99f;
+		border: 1px solid black;
+		border-radius: 3px;
+		margin: auto;
+		padding: 15px;
+		display: inline-block;
+		text-align: left;
+	}
+
+	.Card {
+		display: none;
+	}
+
+	.CardOptions {
+		display: none;
+	}
 }
 
-
-
-.Card {
-	display: inline-block;
-	width: 45%;
-	position: fixed;
-	top: 15%;
-	bottom: 0;
-}
-
-.CardOptions {
-	width: 10%;
-	float: right;
-	position: fixed;
-	top: 15%;
-	left: 83%;
+.Hidden {
+	display: none;
 }

@@ -4,24 +4,26 @@
 	margin-top: 25px;
 	border: 3px solid #d363a3;
 	background-color: #f989c9;
-	padding: 25px;
+	text-align: left;
+	padding: 10px;
 }
 
-.LargeInfoBox img {
+.MainImage {
+	display: inline-block;
+}
+
+.MainImage img {
 	width: 300px;
 	height: auto;
 	display: inline-block;
 	border: 3px solid #d363a3;
-	margin: 50px;
 }
 
-.Main p{
+.MainInfo {
 	display: inline-block;
-	width: 60%;
+	max-width: 80%;
 }
 
-.Main div{
-	width: 300px;
-	height: auto;
-	display: inline-block;
+.MainBox {
+	
 }

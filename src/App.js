@@ -3,6 +3,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 
+import classes from "./App.css";
 
 import ScrollToTop from "./Utility/scrollToTop";
 
@@ -15,9 +16,9 @@ library.add(faBars);
 class App extends Component {
 	render() {
 		return (
-			<div>
+			<div className = {classes.App}>
 				<ScrollToTop>
-					<Layout/>
+					<Layout />
 				</ScrollToTop>
 			</div>
 		);

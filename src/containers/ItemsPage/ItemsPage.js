@@ -16,7 +16,7 @@ class ItemsPage extends Component {
 		baseListVisible: true,
 		customListVisible: false,
 		baseTab: "ActiveTab",
-		customTab: "Tab"
+		customTab: "Tab",
 	}
 
 	componentDidMount() {
@@ -48,9 +48,10 @@ class ItemsPage extends Component {
 		
 		let list = null;
 		let items = null;
-
-		let card = <Card cardType = "item"/>;
 		let buttons = null;
+		let card  = <Card cardType = "item"/>;
+		
+
 		if (this.props.itemPreview.name) {
 			card = (
 				<Card 
@@ -130,11 +131,11 @@ class ItemsPage extends Component {
 		}
 		
 		return(
-			<div>
+			<div className = {classes.Page}>
 				<div className = {classes.Header}>
-					<h1>Wonderous Items To Create and Use</h1>
+					<h1>Items To Create and Use</h1>
 				</div>
-				<div>
+				<div className = {classes.Controls}>
 					<Button 
 						buttonType = {this.state.baseTab}
 						text = "Base Items"

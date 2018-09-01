@@ -1,24 +1,52 @@
-.Button {
-	margin: auto;
-	margin: 20px 35%; /*Some reason margin auto is not centering button just a place holder for mostly centered*/
+@media (min-width: 750px) {
+	.Navigation { 
+		border: 3px outset #eae279;
+		border-radius: 10px;
+		background-color: #fcf380;
+		font-size: 48px;
+		width: 60%;
+		margin: 15px auto;
+		height: 75px;
+		display: block;
+	}
 }
+
+@media (max-width: 749px) {
+	.Navigation { 
+		border: 3px outset #eae279;
+		border-radius: 10px;
+		background-color: #fcf380;
+		font-size: 32px;
+		width: 60%;
+		margin: 15px auto;
+		height: 75px;
+		display: block;
+	}
+}
+
+
 
 .Register {
+	margin: 20px auto;
 	border: 3px outset #67b7bc;
 	background-color: #77d2d8;
 	font-size: 48px;
-	width: 300px;
+	width: 80%;
 	height: 125px;
 }
 
-.Character { /* Just a copy of .Register for now with added display property*/
+.Character {
+	margin: auto;
 	border: 3px outset #67b7bc;
 	background-color: #77d2d8;
-	font-size: 48px;
-	width: 300px;
+	font-size: 36px;
+	width: 40%;
 	height: 125px;
-	display: inline-block;
+	display: block;
+	margin: 10px auto;
 }
+
+
 
 .Success {
 	border: 1px solid #2a991b;
@@ -27,7 +55,7 @@
 	height: 75px;
 	color: white;
 	font-size: 24px;
-	display: inline-block;
+	margin: 10px;
 }
 
 .Danger {
@@ -37,7 +65,7 @@
 	height: 75px;
 	color: white;
 	font-size: 24px;
-	display: inline-block;
+	margin: 10px;
 }
 
 .Tab {
