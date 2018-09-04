@@ -25,7 +25,7 @@ const input = props => {
 				)
 			});
 			inputElement = (
-				<select onChange = {props.changed} className = {classes.Hidden}>
+				<select onChange = {props.changed}>
 					{options}
 				</select>
 			);
@@ -80,6 +80,9 @@ const input = props => {
 			break;
 	}
 
+	if (props.valid === false) {
+		inputClasses.push(classes.Invalid);
+	}
 
 	//Trying to figure out how to make an input hidden by pushing a class not sure why it was not working earlier so removed for now
 	return(

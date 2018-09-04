@@ -17,14 +17,22 @@ class ItemsPage extends Component {
 		customListVisible: false,
 		baseTab: "ActiveTab",
 		customTab: "Tab",
+		showCard: false 
 	}
 
 	componentDidMount() {
 		this.props.fetchItemListHandler();
+		
 	}
 
 	onPreviewHandler = (data) => {
-		this.props.itemPreviewHandler(data)
+		this.props.itemPreviewHandler(data);
+		if (window.innerWidth < 1000) {
+			this.setState({
+				...this.state,
+				showCard: true
+			})
+		}
 	}
 
 	makeListHandler = (items) => {
@@ -48,9 +56,11 @@ class ItemsPage extends Component {
 		
 		let list = null;
 		let items = null;
-		let buttons = null;
+		let controls = null;
 		let card  = <Card cardType = "item"/>;
-		
+		let cardClasses = [classes.Mobile];
+		let listClasses = [classes.List];
+		let controlClasses = [classes.Controls];
 
 		if (this.props.itemPreview.name) {
 			card = (
@@ -81,19 +91,28 @@ class ItemsPage extends Component {
 					itemAbilities = {this.props.itemPreview.abilities}/>
 			);
 			
-			buttons = (
+			controls = (
 				<div className = {classes.CardOptions}>
 					<Button clicked = {() => this.props.history.push("/Create/Items/Edit/id=" + this.props.itemPreview.id)} buttonType = "Success" text = "Edit"/>
 					<Button clicked = {null} buttonType = "Success" text = "Save as Image" />
 				</div>
-			)
+			);
+		}
+
+		if (this.state.showCard === false) {
+			cardClasses.push(classes.Hidden);
+		}
+
+		if (this.state.showCard === true && window.innerWidth < 1000) {
+			listClasses.push(classes.Hidden);
+			controlClasses.push(classes.Hidden);
 		}
 
 		if (this.props.customList && this.state.customListVisible) {
 			items = this.makeListHandler(this.props.customList);
 			list = (
 				<div>
-					<div className = {classes.List}>
+					<div className = {listClasses.join(" ")}>
 						<div>
 							<Link onClick = {this.props.clearPreviewHandler} style = {{textDecoration: "none", color: "black"}} to = {this.props.match.url + "/NewItem"}>
 								<h3>+ Create New Item</h3>
@@ -106,7 +125,17 @@ class ItemsPage extends Component {
 					<div className = {classes.Card}>
 						{card}
 					</div>
-					{buttons}
+					<div className = {cardClasses.join(" ")}>
+						{card}
+						<div>
+							<Button clicked = {() => this.setState({...this.state, showCard: false})} buttonType = "Danger" text = "Back to List" />
+						</div>
+					</div>
+					{this.state.showCard || window.innerWidth >= 1000 ?
+					<div>
+						{controls}
+					</div> 
+					: null}
 				</div>
 			);
 		}
@@ -115,7 +144,7 @@ class ItemsPage extends Component {
 			items = this.makeListHandler(this.props.baseList);
 			list = (
 				<div>
-					<div className = {classes.List}>
+					<div className = {listClasses.join(" ")}>
 						<div>
 							<h3>Basic Items</h3>
 						</div>
@@ -126,6 +155,20 @@ class ItemsPage extends Component {
 					<div className = {classes.Card}>
 						{card}
 					</div>
+					<div className = {cardClasses.join(" ")}>
+						{card}
+						<div>
+							<Button clicked = {() => {
+								this.setState({
+									...this.state, 
+									showCard: false
+								});
+								this.props.clearPreviewHandler();
+							}}
+							buttonType = "Danger" 
+							text = "Back to List" />
+						</div>
+					</div>
 				</div>
 			);
 		}
@@ -135,7 +178,7 @@ class ItemsPage extends Component {
 				<div className = {classes.Header}>
 					<h1>Items To Create and Use</h1>
 				</div>
-				<div className = {classes.Controls}>
+				<div className = {controlClasses.join(" ")}>
 					<Button 
 						buttonType = {this.state.baseTab}
 						text = "Base Items"

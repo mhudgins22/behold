@@ -32,6 +32,10 @@
 		top: 15%;
 		left: 83%;
 	}
+
+	.Mobile {
+		display: none;
+	}
 }
 
 @media (max-width: 999px) {
@@ -57,11 +61,20 @@
 	}
 
 	.Card {
-		display: none;
+		display:none;
 	}
 
 	.CardOptions {
-		display: none;
+		display: block;
+	}
+
+	.Controls {
+		margin: 0 auto;
+	}
+
+	.Mobile{
+		display: block;
+		margin: 10px auto;
 	}
 }
 

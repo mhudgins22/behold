@@ -33,8 +33,12 @@ const button = (props) => {
 		names.push(classes.ActiveTab);
 	}
 
+	if (props.buttonType === "Disabled") {
+		names.push(classes.Disabled)
+	}
+
 	return (
-		<button className = {names.join(" ")} onClick = {props.clicked}>{props.text}</button>
+		<button className = {names.join(" ")} onClick = {props.clicked} disabled = {props.disabled}>{props.text}</button>
 	)
 }
 

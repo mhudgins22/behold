@@ -9,3 +9,8 @@
 	width: 200px;
 	height: 100px;
 }
+
+.Invalid {
+	background-color: #ff7566;
+	border: 1px solid #ff1800;
+}

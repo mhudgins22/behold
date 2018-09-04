@@ -68,6 +68,16 @@
 	margin: 10px;
 }
 
+.Disabled {
+	border: 1px solid #979ba0;
+	background-color: #babfc6;
+	width: 150px;
+	height: 75px;
+	color: black;
+	font-size: 24px;
+	margin: 10px;
+}
+
 .Tab {
 	border: 1px outset #d6b671;
 	border-radius: 5px;

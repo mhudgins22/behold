@@ -75,7 +75,7 @@ class NewItem extends Component {
 				validationRules: {
 					required: true
 				},
-				valid: true,
+				valid: false,
 				touched: false,
 				visible: true
 			},
@@ -105,7 +105,7 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.catagory,
 				validationRules: {
-					required: true
+					
 				},
 				valid: true,
 				touched: false,
@@ -311,7 +311,7 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.type,
 				validationRules: {
-					required: true
+					required: this.props.itemPreview.catagory === "Weapon"
 				},
 				valid: false,
 				touched: false,
@@ -396,9 +396,9 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.type,
 				validationRules: {
-					required: false
+					required: this.props.itemPreview.catagory === "Armor"
 				},
-				valid: true,
+				valid: false,
 				touched: false,
 				visible: this.props.itemPreview.catagory === "Armor"
 			},
@@ -435,9 +435,9 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.type,
 				validationRules: {
-				
+					required: this.props.itemPreview.catagory === "Consumable"
 				},
-				valid: true,
+				valid: false,
 				touched: false,
 				visible: this.props.itemPreview.catagory === "Consumable"
 			},
@@ -449,9 +449,9 @@ class NewItem extends Component {
 				},
 				value: this.props.itemPreview.type,
 				validationRules: {
-				
+					required: this.props.itemPreview.catagory === "Other"
 				},
-				valid: true,
+				valid: false,
 				touched: false,
 				visible: this.props.itemPreview.catagory === "Other"
 			},
@@ -492,7 +492,7 @@ class NewItem extends Component {
 				},
 				value: this.props.itemPreview.armor,
 				validationRules: {
-				
+					required: false
 				},
 				valid: true,
 				touched: false,
@@ -507,7 +507,7 @@ class NewItem extends Component {
 				},
 				value: this.props.itemPreview.damage,
 				validationRules: {
-				
+					required: false
 				},
 				valid: true,
 				touched: false,
@@ -522,7 +522,7 @@ class NewItem extends Component {
 				},
 				value: this.props.itemPreview.healing,
 				validationRules: {
-				
+					required: false
 				},
 				valid: true,
 				touched: false,
@@ -541,9 +541,9 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.damageValues[0].numberOfDice,
 				validationRules: {
-					required: false
+					required: true
 				},
-				valid: true,
+				valid: false,
 				touched: false,
 				visible: true
 			},
@@ -588,9 +588,9 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.damageValues[0].die,
 				validationRules: {
-					required: false
+					required: true
 				},
-				valid: true,
+				valid: false,
 				touched: false,
 				visible: true
 			},
@@ -604,9 +604,9 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.damageValues[0].bonus,
 				validationRules: {
-					required: false
+					required: true
 				},
-				valid: true,
+				valid: false,
 				touched: false,
 				visible: true
 			},
@@ -671,9 +671,9 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.damageValues[0].type,
 				validationRules: {
-					required: false
+					required: true
 				},
-				valid: true,
+				valid: false,
 				touched: false,
 				visible: true
 			},
@@ -988,7 +988,7 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.armorClassValues.AC,
 				validationRules: {
-				
+					required: false
 				},
 				valid: true,
 				touched: false,
@@ -1107,7 +1107,8 @@ class NewItem extends Component {
 				visible: true
 			}
 		},
-		showModal: false
+		showModal: false,
+		isValid: false
 	}
 
 	componentDidMount() {
@@ -1241,6 +1242,7 @@ class NewItem extends Component {
 				case "Other":
 					this.onVisibilityHandler(["otherType"], true);
 					this.onVisibilityHandler(["weaponType", "armorType", "consumableType", "armorClass", "armorClassBonus", "numberOfDamageDiceOne", "numberOfDamageDiceTwo", "numberOfDamageDiceThree", "damageDieOne", "damageDieTwo", "damageDieThree", "damageBonusOne", "damageBonusTwo", "damageBonusThree", "damageTypeOne", "damageTypeTwo", "damageTypeThree", "numberOfHealingDice", "healingDie", "healingBonus"], false);
+					this.onCheckboxHandler([], ["damageCheckBox", "armorClassCheckBox", "healingCheckBox"]);
 					break;
 				default:
 					break;
@@ -1275,6 +1277,7 @@ class NewItem extends Component {
 			this.onVisibilityHandler(["numberOfHealingDice", "healingDie", "healingBonus"], value);
 		}
 
+		
 
 		//Sets the value of input elements
 		this.setState({
@@ -1282,10 +1285,37 @@ class NewItem extends Component {
 				...this.state.controls,
 				[element]: {
 					...this.state.controls[element],
-					value: value
+					value: value,
+					valid: this.checkValidity(element, value),
+					touched: true
 				}
-			}
+			},
+			isValid: this.shouldValidate()
 		});
+		this.checkValidity(element, value);
+	}
+
+	//Update valid state of element
+	checkValidity = (element, value) => {
+		let valid = true
+		if (this.state.controls[element].validationRules.required && value === "") {
+			valid = false
+		}
+
+		if (this.state.controls[element].validationRules.minLength && value.length < this.state.controls[element].validationRules.minLength) {
+			valid = false
+		}
+		return valid;
+	}
+
+	//Determines if save is enabled
+	shouldValidate = () => {
+		for (let element in this.state.controls) {
+			if (element.valid === false) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	//Changes visiblity on form elements
@@ -1297,6 +1327,10 @@ class NewItem extends Component {
 					...updatedState.controls,
 					[arr[i]]: {
 						...updatedState.controls[arr[i]],
+						validationRules: {
+							required: bool
+						},
+						valid: !bool,
 						visible: bool,
 						value: ""
 					}
@@ -1314,21 +1348,37 @@ class NewItem extends Component {
 				...this.state.controls,
 				[number]: {
 					...this.state.controls[number],
+					validationRules: {
+						required: bool
+					},
+					valid: !bool,
 					visible: bool,
 					value: ""
 				},
 				[die]: {
 					...this.state.controls[die],
+					validationRules: {
+						required: bool
+					},
+					valid: !bool,
 					visible: bool,
 					value: ""
 				},
 				[bonus]: {
 					...this.state.controls[bonus],
+					validationRules: {
+						required: bool
+					},
+					valid: !bool,
 					visible: bool,
 					value: ""
 				},
 				[type]: {
 					...this.state.controls[type],
+					validationRules: {
+						required: bool
+					},
+					valid: !bool,
 					visible: bool,
 					value: ""
 				},
@@ -1448,9 +1498,7 @@ class NewItem extends Component {
 						options = {element.config.options}
 						label = {element.config.label}
 						value = {element.config.value}
-						validationRules = {element.config.validationRules}
 						valid = {element.config.valid}
-						shouldValidate = {null}
 						touched = {element.config.touched}
 						changed = {(event) => this.onChangeHandler(event, element.id)}/>
 				)
@@ -1465,6 +1513,7 @@ class NewItem extends Component {
 		let itemArmorElements = [];
 		let itemHealingElements = [];
 		let itemAbilitiesElements = [];
+		let buttonType = "Success";
 		let modal = null;
 		let backdrop = null;
 		let i = 0;
@@ -1564,6 +1613,10 @@ class NewItem extends Component {
 			backdrop = <Backdrop />
 		}
 
+		if (this.state.isValid === false) {
+			buttonType = "Disabled";
+		}
+
 		return(
 			<div>
 				{backdrop}
@@ -1629,9 +1682,11 @@ class NewItem extends Component {
 					</div>
 					<div className = {classes.Controls}>
 						<Button 
-							buttonType = "Success" 
+							disabled = {!this.state.isValid}
+							buttonType = {buttonType} 
 							text = "Save Item" 
 							clicked = {this.onSaveItemHandler}/>
+
 						<Button 
 							buttonType = "Danger"
 							text = {this.props.match.url === "/Create/Items/NewItem" ? "Discard Item" : "Discard Changes"}

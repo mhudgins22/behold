@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\Navigation\\Navbar",
+    "\\src\\components\\Navigation\\Navitems\\Navitem",
+    "\\src\\components\\UI\\Backdrop",
+    "\\src\\containers",
+    "\\src\\containers\\ItemsPage",
+    "\\src\\containers\\NewItem",
+    "\\src\\containers\\Play"
+  ],
+  "SelectedNode": "\\src\\containers\\NewItem\\NewItem.js",
+  "PreviewInSolutionExplorer": false
+}
