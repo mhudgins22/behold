@@ -8,6 +8,7 @@
 	padding: 5px;
 	background-image: url("../../assets/images/old-paper.jpg");
 	background-size: cover;
+	position: relative;
 }
 
 .Header {
@@ -26,11 +27,18 @@
 	line-height: normal;
 }
 
-.ItemImage {
+.ImageBox {
 	width: 45%;
 	border: 3px inset #a58f59;
 	margin: 25px 5px;
+	text-align: center;
 	float: left;
+	height: 45%;
+}
+
+.ItemImage {
+	width: 90%;
+	padding: 10px;
 }
 
 .Stats {
@@ -38,25 +46,31 @@
 	border: 3px inset #a58f59;
 	margin: 25px 5px;
 	float: right;
-	max-height: 80%;
+	height: 45%;
 	overflow: auto;
 }
 
 .FlavorText {
 	font-style: italic;
 	font-size: 12;
+	padding: 2px;
 }
 
 
 .Attributes {
 	line-height: 0.2;
 }
-.Attributes p {
-	
-}
 
-.Abilities: {
-	
+.Abilities {
+	border: 3px inset #a58f59;
+	display: block;
+	width: 90%;
+	margin: 0 2.5%;
+	padding: 2px;
+	position: absolute;
+	top: 70%;
+	height: 25%;
+	overflow: auto;
 }
 
 .XDivider {
@@ -64,10 +78,6 @@
 	height: 2px;
 	background-color: #a58f59;
 	margin: 5px 0px;
-}
-
-.YDivider {
-
 }
 
 /* width */

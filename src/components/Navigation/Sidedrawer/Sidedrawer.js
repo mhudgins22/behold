@@ -14,7 +14,7 @@ const sidedrawer = (props) => {
 			<Link to = "/">
 				<Logo image = "https://icon2.kisspng.com/20180323/aje/kisspng-sword-shield-clip-art-shield-5ab5be22208755.5271689515218601301332.jpg" altText = "Sword Shield Clip art - shield @kisspng"/>
 			</Link>
-			<Navitems sidedrawer nav = {navigation}/>
+			<Navitems sidedrawer clicked = {props.clicked} nav = {navigation}/>
 		</div>
 	)
 }

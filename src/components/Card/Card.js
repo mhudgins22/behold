@@ -16,9 +16,11 @@ const card = props => {
 						<p>{props.itemRarity} {props.itemType} {props.itemProperties ? "- " + props.itemProperties : null}</p>
 					</div>
 				</div>
-				<div className = {classes.ItemImage}>
-					<img src = "" alt = "" />
+				{/*Item Image Here*/}
+				<div className = {classes.ImageBox}>
+					<img className = {classes.ItemImage} src = {props.itemImage} alt = "" />
 				</div>
+				{/*Item Stats and FlavorText here*/}
 				<div className = {classes.Stats}>
 					<div className = {classes.FlavorText}>	
 						<p>{props.itemFlavorText}</p>
@@ -44,15 +46,14 @@ const card = props => {
 						{props.numberOfHealingDice || props.healingDie || props.healingBonus ? <h4>Healing: </h4> : null}
 						<p>{props.numberOfHealingDice}{props.healingDie}{props.healingBonus}</p>
 					</div>
-					<div className = {classes.XDivider}>
-					</div>
-					{props.itemAbilities ?
-						<div className = {classes.Abilities}>
-							<h4>Ablities:</h4> 
-							<ReactMarkdown source = {props.itemAbilities} />
-						</div>
-					: null}
 				</div>
+				{/*Item Abilities here*/}
+				{props.itemAbilities ?
+					<div className = {classes.Abilities}>
+						<h4>Ablities:</h4> 
+						<ReactMarkdown source = {props.itemAbilities} />
+					</div>
+				: null}
 			</div>
 		)
 	}

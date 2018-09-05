@@ -34,7 +34,7 @@ class Layout extends Component {
 
 		if (this.state.showSidedrawer) {
 			backdrop = <Backdrop clicked = {this.toggleSideDrawer}/>
-			sidedrawer = <Sidedrawer />
+			sidedrawer = <Sidedrawer clicked = {this.toggleSideDrawer}/>
 		}
 
 		return (

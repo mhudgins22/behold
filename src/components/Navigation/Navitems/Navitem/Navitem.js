@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
+
 import classes from "./Navitem.css"
 
 const navitem = (props) => {
@@ -13,10 +14,12 @@ const navitem = (props) => {
 		classNames.push(classes.Hidden);
 	}
 	return(
-		<Link className = {classNames.join(" ")} to = {"/" + props.text.split(" ").join("")}>
+		<Link className = {classNames.join(" ")} to = {"/" + props.text.split(" ").join("")} onClick = {props.clicked}>
 			{props.text}
 		</Link>
 	)
 }
+
+
 
 export default navitem;

@@ -14,6 +14,8 @@ import * as actions from "../../store/actions/index";
 
 import classes from "./NewItem.css";
 
+import shortsword from "../../assets/images/items/shortsword.png";
+
 class NewItem extends Component {
 
 	state = {
@@ -1411,6 +1413,7 @@ class NewItem extends Component {
 		this.state.controls.itemProperties.value = "";
 	}
 
+	//Reloads page and resets state when making an additional item
 	newItemHandler = () => {
 		window.location.reload();
 	}
@@ -1480,6 +1483,7 @@ class NewItem extends Component {
 		}
 	}
 
+	//Deletes a saved item from backend
 	onDeleteItemHandler = (event) => {
 		event.preventDefault();
 		this.props.onDeleteItem(this.props.itemPreview.id);
@@ -1723,7 +1727,8 @@ class NewItem extends Component {
 					healingDie = {this.state.controls.healingDie.value}
 					healingBonus = {this.state.controls.healingBonus.value}
 					itemFlavorText = {this.state.controls.itemFlavorText.value}
-					itemAbilities = {this.state.controls.itemAbilities.value}/>
+					itemAbilities = {this.state.controls.itemAbilities.value}
+					itemImage = {shortsword}/>
 			</div>
 		)
 	}

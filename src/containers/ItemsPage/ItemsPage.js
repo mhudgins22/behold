@@ -7,6 +7,7 @@ import classes from "./ItemsPage.css";
 import Card from "../../components/Card/Card";
 import ListItem from "../../components/ListItem/ListItem";
 import Button from "../../components/UI/Button/Button";
+import Spinner from "../../components/UI/Spinner/Spinner";
 
 import * as actions from "../../store/actions/index";
 
@@ -23,6 +24,10 @@ class ItemsPage extends Component {
 	componentDidMount() {
 		this.props.fetchItemListHandler();
 		
+	}
+
+	componentWillUnmount() {
+		this.props.clearPreviewHandler();
 	}
 
 	onPreviewHandler = (data) => {
@@ -54,7 +59,7 @@ class ItemsPage extends Component {
 
 	render() {
 		
-		let list = null;
+		let list = <Spinner />;
 		let items = null;
 		let controls = null;
 		let card  = <Card cardType = "item"/>;
