@@ -25,7 +25,10 @@ export const PREVIEW_ITEM_CARD = "PREVIEW_ITEM_CARD";
 //Clears itemPreview
 export const CLEAR_ITEM_PREVIEW = "CLEAR_ITEM_PREVIEW"
 
-//========================================================================
+//==============================================================
+//Character Page Actions
+export const SAVE_CHAR_BASICS = "SAVE_CHAR_BASICS";
 
+//==============================================================
 //Auth Actions
 export const SET_REDIRECT_PATH = "SET_REDIRECT_PATH";

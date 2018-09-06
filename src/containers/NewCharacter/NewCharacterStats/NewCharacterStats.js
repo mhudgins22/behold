@@ -128,7 +128,7 @@ class NewCharacterStats extends Component {
     const directions = (
       <div>
         <h1>Roll Your Stats</h1>
-        <h3>There are six attributes where you will need to define the stats for your character (Strength, Dexterity, Constitution, Wisdom, Intelligence, and Charisma). You can either roll your six stats automatically by
+        <h3>There are six attributes where you will need to define the stats for your character: Strength, Dexterity, Constitution, Wisdom, Intelligence, and Charisma. You can either roll your six stats automatically by
           pressing the button below or the "old fashioned way" by using four six-sided dice and by following
           the directions below:
         </h3>
@@ -151,7 +151,7 @@ class NewCharacterStats extends Component {
     }
 
     let form = formElements.map(element => (
-      <div>
+      <div key = {element.id}>
         <Input
           elementType = {element.config.elementType}
           elementConfig = {element.config.elementConfig}

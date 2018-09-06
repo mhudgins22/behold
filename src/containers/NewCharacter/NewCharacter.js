@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import classes from './NewCharacter.css';
+import * as actions from '../../store/actions/index';
 
 class NewCharacter extends Component {
   state = {
@@ -1185,7 +1187,7 @@ class NewCharacter extends Component {
         <Link to={this.props.match.url + "/Stats"}>
           <Button
             buttonType="Success"
-            clicked={null}
+            clicked={this.onSaveBasics}
             text="Save and Continue" />
         </Link>
       </div>
@@ -1193,4 +1195,19 @@ class NewCharacter extends Component {
   }
 }
 
-export default NewCharacter;
+const mapStateToProps = (state) => {
+  return {
+    name: state.characterName,
+    race: state.characterRace,
+    class: state.characterClass,
+    background: state.background
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSaveBasics: () => dispatch(actions.saveCharBasics())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewCharacter);

@@ -8,5 +8,9 @@ export {
 } from "./itemActions";
 
 export {
+	saveCharBasics
+} from "./charActions";
+
+export {
 	setRedirectPath
 } from "./authActions";
