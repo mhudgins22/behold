@@ -2,7 +2,7 @@
 	border: 3px outset #a8892b;
 	padding: 15px;
 	margin: 20px 5px;
-	background-image: url("../../assets/images/old-paper.jpg");
+	background-image: url("../../assets/images/backgrounds/old-paper.jpg");
 }
 
 .Item:hover {

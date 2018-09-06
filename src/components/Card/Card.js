@@ -25,8 +25,8 @@ const card = props => {
 					<div className = {classes.FlavorText}>	
 						<p>{props.itemFlavorText}</p>
 					</div>
-					<div className = {classes.XDivider}>
-					</div>
+					{props.itemFlavorText ? <div className = {classes.XDivider}>
+					</div> : null}
 					<div className = {classes.Attributes}>
 						{props.damageDieOne || props.damageTypeOne|| props.numberOfDamageDiceOne || props.damageBonusOne ? <h4>Damage: </h4> : null}
 						<p>{props.numberOfDamageDiceOne}{props.damageDieOne}{props.damageBonusOne} {props.damageTypeOne}</p>

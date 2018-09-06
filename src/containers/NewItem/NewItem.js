@@ -14,8 +14,6 @@ import * as actions from "../../store/actions/index";
 
 import classes from "./NewItem.css";
 
-import shortsword from "../../assets/images/items/shortsword.png";
-
 class NewItem extends Component {
 
 	state = {
@@ -456,6 +454,25 @@ class NewItem extends Component {
 				valid: false,
 				touched: false,
 				visible: this.props.itemPreview.catagory === "Other"
+			},
+			itemImage: {
+				elementType: "select",
+				elementConfig: {
+				
+				},
+				options: [
+					{
+						value: this.props.itemPreview.image || "",
+						label: this.props.itemPreview.image || "Select Image"
+					}
+				],
+				value: this.props.itemPreview.image || "",
+				validationRules: {
+					required: false
+				},
+				valid: true,
+				touched:false,
+				visible: true
 			},
 			itemProperties: {
 				elementType: "input",
@@ -1263,7 +1280,6 @@ class NewItem extends Component {
 			this.state.controls.itemProperties.value = properties;
 		}
 
-
 		//adjusts visiblity based on check box
 		if (element === "damageCheckBox") {
 			if (value === false) {
@@ -1294,7 +1310,20 @@ class NewItem extends Component {
 			},
 			isValid: this.shouldValidate()
 		});
+
+		switch (element) {
+			case "weaponType": this.setItemImages(element, value);
+			case "armorType": this.setItemImages(element, value);
+			case "consumableType": this.setItemImages(element, value);
+			default: break;
+		}
+
 		this.checkValidity(element, value);
+	}
+
+	//Sets item image options
+	setItemImages = (element, value) => {
+		
 	}
 
 	//Update valid state of element
@@ -1436,6 +1465,7 @@ class NewItem extends Component {
 			rarity: this.state.controls.itemRarity.value,
 			type: itemType,
 			properties: this.state.controls.itemProperties.value,
+			image: this.state.controls.itemImage.value,
 			flavorText: this.state.controls.itemFlavorText.value,
 			damage: this.state.controls.damageCheckBox.value,
 			healing: this.state.controls.healingCheckBox.value,
@@ -1525,7 +1555,7 @@ class NewItem extends Component {
 
 		//Splits the form elements into two sections
 		for (let element in this.state.controls) {
-			if (i < 9) {
+			if (i < 10) {
 				itemInfoElements.push({
 					id: element,
 					config: this.state.controls[element]
@@ -1728,7 +1758,7 @@ class NewItem extends Component {
 					healingBonus = {this.state.controls.healingBonus.value}
 					itemFlavorText = {this.state.controls.itemFlavorText.value}
 					itemAbilities = {this.state.controls.itemAbilities.value}
-					itemImage = {shortsword}/>
+					itemImage = {null}/>
 			</div>
 		)
 	}

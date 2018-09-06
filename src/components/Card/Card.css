@@ -6,7 +6,7 @@
 	border: 5px double #d1b673;
 	border-radius: 5px;
 	padding: 5px;
-	background-image: url("../../assets/images/old-paper.jpg");
+	background-image: url("../../assets/images/backgrounds/old-paper.jpg");
 	background-size: cover;
 	position: relative;
 }
@@ -15,6 +15,7 @@
 	color: #aa2020;
 	font-style: bold;
 	font-size: 24px;
+	height: 24px;
 	line-height: .1;
 	border-bottom: 3px solid #a58f59;
 }
@@ -48,6 +49,7 @@
 	float: right;
 	height: 45%;
 	overflow: auto;
+	padding: 0 2px;
 }
 
 .FlavorText {

@@ -44,7 +44,8 @@ const initialState = {
 			bonus: ""
 		}
 	},
-	loading: false
+	loading: false,
+	error: null
 }
 
 //Post item function
@@ -59,6 +60,37 @@ const postItemSuccess = (state, action) => {
 	return {
 		...state,
 		loading: false
+	}
+}
+
+const postItemFail = (state, action) => {
+	return {
+		...state,
+		loading: false,
+		error: action.error
+	}
+}
+
+//Put item functions
+const putItemStart = (state, action) => {
+	return {
+		...state,
+		loading: true
+	}
+}
+
+const putItemSuccess = (state, action) => {
+	return {
+		...state,
+		loading: false
+	}
+}
+
+const putItemFail = (state, action) => {
+	return {
+		...state,
+		loading: false,
+		error: action.error
 	}
 }
 
@@ -138,6 +170,8 @@ const reducer = (state = initialState, action) => {
 	switch(action.type) {
 		case actionTypes.POST_ITEM_START: return postItemStart(state, action);
 		case actionTypes.POST_ITEM_SUCCESS: return postItemSuccess(state, action);
+		case actionTypes.POST_ITEM_FAIL: return postItemFail(state, action);
+		case actionTypes.PUT_ITEM_FAIL: return putItemFail(state, action);
 		case actionTypes.FETCH_ITEM_LIST_SUCCESS: return fetchItemListSuccess(state, action);
 		case actionTypes.FETCH_BASE_ITEMS_SUCCESS: return fetchBaseItemsSuccess(state, action);
 		case actionTypes.PREVIEW_ITEM_CARD: return previewItemCard(state, action);

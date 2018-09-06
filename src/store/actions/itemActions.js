@@ -3,6 +3,7 @@ import axios from "../../axios";
 
 
 
+
 //Actions for posting an item
 export const postItemStart = () => {
 	return {
@@ -10,9 +11,10 @@ export const postItemStart = () => {
 	}
 }
 
-export const postItemFail = () => {
+export const postItemFail = (error) => {
 	return {
-		type: actionTypes.POST_ITEM_FAIL
+		type: actionTypes.POST_ITEM_FAIL,
+		error: error
 	}
 }
 
@@ -29,6 +31,9 @@ export const postItem = (itemData) => {
 		.then (reponse => {
 			dispatch(postItemSuccess());
 		})
+		.catch(err => {
+			dispatch(postItemFail(err));
+		});
 	}
 }
 
@@ -40,9 +45,10 @@ export const putItemStart = () => {
 	}
 }
 
-export const putItemFail = () => {
+export const putItemFail = (error) => {
 	return {
-		type: actionTypes.PUT_ITEM_FAIL
+		type: actionTypes.PUT_ITEM_FAIL,
+		error: error
 	}
 }
 
@@ -54,7 +60,13 @@ export const putItemSuccess = () => {
 
 export const putItem = (itemData, id) => {
 	return dispatch => {
-		axios.put("items/custom/" + id + ".json", itemData);
+		axios.put("items/custom/" + id + ".json", itemData)
+		.then(() => {
+			dispatch(putItemSuccess());
+		})
+		.catch(err => {
+			dispatch(putItemFail(err));
+		})
 	}
 }
 //=================================================================
@@ -143,6 +155,8 @@ export const fetchItemList = () => {
 		});
 	}
 }
+
+
 
 //========================================================
 
