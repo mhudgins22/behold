@@ -3,6 +3,12 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
 	customList: null,
 	baseList: null,
+	imageOptions: [
+		{
+			value: "",
+			label: "Select Image"
+		}
+	],
 	itemPreview: {
 		name: "",
 		rarity: "",
@@ -13,6 +19,7 @@ const initialState = {
 		damage: true,
 		healing: false,
 		armor: false,
+		imagePath: "",
 		catagory: "Weapon",
 		damageValues: [
 			{
@@ -102,6 +109,32 @@ const fetchItemListSuccess = (state, action) => {
 	}
 }
 
+//Fetch item paths
+const fetchItemPathsSuccess = (state, action) => {
+	return {
+		...state,
+		imageOptions: [
+			{
+				value: "",
+				label: "Select Image"
+			},
+			...action.imagePaths
+		]
+	}
+}
+
+//Fetchs Item image data
+const fetchItemImageSuccess = (state, action) => {
+	return {
+		...state,
+		itemPreview: {
+			...state.itemPreview,
+			imagePath: action.imagePath
+		}
+	}
+}
+
+//Fetches list of input items
 const fetchBaseItemsSuccess = (state, action) => {
 	return {
 		...state,
@@ -131,6 +164,7 @@ const clearItemPreview = (state, action) => {
 			damage: true,
 			healing: false,
 			armor: false,
+			imagePath: "",
 			catagory: "Weapon",
 			damageValues: [
 				{
@@ -174,6 +208,8 @@ const reducer = (state = initialState, action) => {
 		case actionTypes.PUT_ITEM_FAIL: return putItemFail(state, action);
 		case actionTypes.FETCH_ITEM_LIST_SUCCESS: return fetchItemListSuccess(state, action);
 		case actionTypes.FETCH_BASE_ITEMS_SUCCESS: return fetchBaseItemsSuccess(state, action);
+		case actionTypes.FETCH_ITEM_IMAGE_SUCCESS: return fetchItemImageSuccess(state, action);
+		case actionTypes.FETCH_ITEM_PATHS_SUCCESS: return fetchItemPathsSuccess(state,action);
 		case actionTypes.PREVIEW_ITEM_CARD: return previewItemCard(state, action);
 		case actionTypes.CLEAR_ITEM_PREVIEW: return clearItemPreview(state, action);
 		default: return state;

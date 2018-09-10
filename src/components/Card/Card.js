@@ -17,8 +17,7 @@ const card = props => {
 					</div>
 				</div>
 				{/*Item Image Here*/}
-				<div className = {classes.ImageBox}>
-					<img className = {classes.ItemImage} src = {props.itemImage} alt = "" />
+				<div className = {classes.ImageBox} style = {{backgroundImage: "url(" + props.itemImage + ")"}}>
 				</div>
 				{/*Item Stats and FlavorText here*/}
 				<div className = {classes.Stats}>

@@ -20,6 +20,12 @@ export const FETCH_ITEM_LIST_FAIL = "FETCH_ITEM_LIST_FAIL";
 export const FETCH_ITEM_LIST_SUCCESS = "FETCH_ITEM_LIST_SUCCESS";
 export const FETCH_BASE_ITEMS_SUCCESS = "FETCH_BASE_ITEMS_SUCCESS";
 
+//Actions for fetching item images
+export const FETCH_ITEM_IMAGE_SUCCESS = "FETCH_ITEM_IMAGE_SUCCESS";
+
+//Actions to fetch the paths for items
+export const FETCH_ITEM_PATHS_SUCCESS = "FETCH_ITEM_PATHS_SUCCESS";
+
 //Populate card with Data
 export const PREVIEW_ITEM_CARD = "PREVIEW_ITEM_CARD";
 //Clears itemPreview

@@ -3,6 +3,8 @@ export {
 	putItem,
 	deleteItem,
 	fetchItemList,
+	fetchItemPaths,
+	fetchItemImage,
 	previewItemCard,
 	clearItemPreview
 } from "./itemActions";

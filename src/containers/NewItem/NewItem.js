@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
-
 import Input from "../../components/UI/Input/Input";
 import Card from "../../components/Card/Card";
 import Button from "../../components/UI/Button/Button";
@@ -460,13 +459,8 @@ class NewItem extends Component {
 				elementConfig: {
 				
 				},
-				options: [
-					{
-						value: this.props.itemPreview.image || "",
-						label: this.props.itemPreview.image || "Select Image"
-					}
-				],
-				value: this.props.itemPreview.image || "",
+				options: this.props.imageOptions,
+				value: this.props.itemPreview.imagePath || "",
 				validationRules: {
 					required: false
 				},
@@ -1127,7 +1121,7 @@ class NewItem extends Component {
 			}
 		},
 		showModal: false,
-		isValid: false
+		isValid: false,
 	}
 
 	componentDidMount() {
@@ -1226,6 +1220,12 @@ class NewItem extends Component {
 		});
 	}
 
+	componentDidUpdate() {
+		if (this.state.controls.itemImage.options != this.props.imageOptions) {
+			this.state.controls.itemImage.options = this.props.imageOptions;
+		}
+	}
+
 	//Change values for input and textarea elements
 	onChangeHandler = (event, element) => {
 		const value = this.state.controls[element].elementType === "checkbox" ? event.target.checked : event.target.value
@@ -1295,7 +1295,13 @@ class NewItem extends Component {
 			this.onVisibilityHandler(["numberOfHealingDice", "healingDie", "healingBonus"], value);
 		}
 
-		
+		if ((element === "weaponType" || element === "armorType" || element === "consumableType") && value != "") {
+			this.props.fetchItemPaths(element, value);
+		}
+
+		if (element === "itemImage") {
+			this.props.fetchItemImage(value);
+		}
 
 		//Sets the value of input elements
 		this.setState({
@@ -1311,19 +1317,9 @@ class NewItem extends Component {
 			isValid: this.shouldValidate()
 		});
 
-		switch (element) {
-			case "weaponType": this.setItemImages(element, value);
-			case "armorType": this.setItemImages(element, value);
-			case "consumableType": this.setItemImages(element, value);
-			default: break;
-		}
+		
 
 		this.checkValidity(element, value);
-	}
-
-	//Sets item image options
-	setItemImages = (element, value) => {
-		
 	}
 
 	//Update valid state of element
@@ -1465,12 +1461,13 @@ class NewItem extends Component {
 			rarity: this.state.controls.itemRarity.value,
 			type: itemType,
 			properties: this.state.controls.itemProperties.value,
-			image: this.state.controls.itemImage.value,
+			imagePath: this.state.controls.itemImage.value,
 			flavorText: this.state.controls.itemFlavorText.value,
 			damage: this.state.controls.damageCheckBox.value,
 			healing: this.state.controls.healingCheckBox.value,
 			armor: this.state.controls.armorClassCheckBox.value,
 			catagory: this.state.controls.itemType.value,
+			image: this.state.controls.itemImage.value,
 			damageValues: [
 				{
 					numberOfDice: this.state.controls.numberOfDamageDiceOne.value,
@@ -1560,22 +1557,22 @@ class NewItem extends Component {
 					id: element,
 					config: this.state.controls[element]
 				});
-			} else if (i >= 9 && i < 12) {
+			} else if (i >= 10 && i < 13) {
 				itemCheckboxElements.push({
 					id: element,
 					config: this.state.controls[element]
 				});
-			} else if (i >= 12 && i < 24) {
+			} else if (i >= 13 && i < 25) {
 				itemDamageElements.push({
 					id: element,
 					config: this.state.controls[element]
 				});
-			} else if (i >=24 && i < 26) {
+			} else if (i >=25 && i < 27) {
 				itemArmorElements.push({
 					id: element,
 					config: this.state.controls[element]
 				});
-			} else if (i >= 26 && i < 29) {
+			} else if (i >= 27 && i < 30) {
 				itemHealingElements.push({
 					id: element,
 					config: this.state.controls[element]
@@ -1758,7 +1755,7 @@ class NewItem extends Component {
 					healingBonus = {this.state.controls.healingBonus.value}
 					itemFlavorText = {this.state.controls.itemFlavorText.value}
 					itemAbilities = {this.state.controls.itemAbilities.value}
-					itemImage = {null}/>
+					itemImage = {this.state.controls.itemImage.value}/>
 			</div>
 		)
 	}
@@ -1767,7 +1764,9 @@ class NewItem extends Component {
 const mapStateToProps = state => {
 	return {
 		itemPreview: state.items.itemPreview,
-		loading: state.items.loading
+		loading: state.items.loading,
+		imageOptions: state.items.imageOptions,
+		image: state.items.image
 	}
 }
 
@@ -1776,7 +1775,9 @@ const mapDispatchToProps = dispatch => {
 		onSaveItem: (itemData) => dispatch(actions.postItem(itemData)),
 		setRedirectPath: (path) => dispatch(actions.setRedirectPath(path)),
 		onUpateItem: (itemData, id) => dispatch(actions.putItem(itemData, id)),
-		onDeleteItem: (id) => dispatch(actions.deleteItem(id))
+		onDeleteItem: (id) => dispatch(actions.deleteItem(id)),
+		fetchItemPaths: (itemType, item) => dispatch(actions.fetchItemPaths(itemType, item)),
+		fetchItemImage: (imagePath) => dispatch(actions.fetchItemImage(imagePath))
 	}
 }
 

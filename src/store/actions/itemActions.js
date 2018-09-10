@@ -1,8 +1,56 @@
 import * as actionTypes from "./actionTypes";
 import axios from "../../axios";
+import storage from "../../firebase";
 
+//Actions for fetching item images
+export const fetchItemImageSuccess = (imageData) => {
+	return {
+		type: actionTypes.FETCH_ITEM_IMAGE_SUCCESS,
+		imageData: imageData
+	}
+}
 
+//Reaches to database to fetch item paths from storage, uses paths to fetch images stored there
+export const fetchItemImage = (imagePath) => {
+	return dispatch => { 
+		const storageRef = storage.ref();
+		const spaceRef = storageRef.child(imagePath);
+		storageRef.child(imagePath).getDownloadURL()
+		.then(function(url){
+			dispatch(fetchItemImageSuccess(url));
+		})
+		.catch(err => {
+			console.log(err);
+		});
+	}
+}
+//=============================================================
 
+export const fetchItemPathSuccess = (imagePaths) => {
+	return {
+		type: actionTypes.FETCH_ITEM_PATHS_SUCCESS,
+		imagePaths: imagePaths
+	}
+}
+
+//Actions for fetching paths to item images to create options
+	export const fetchItemPaths = (itemType, item) => {
+	return dispatch => {
+		let imagePaths = [];
+		axios.get("/items/imagePath/" + itemType + "/" + item + ".json")
+		.then(response => {
+			for (let key in response.data) {
+				imagePaths.push({
+					value: response.data[key].path,
+					label: response.data[key].name
+				});
+			}
+			dispatch(fetchItemPathSuccess(imagePaths));
+		});
+		
+	}
+} 
+//==============================================
 
 //Actions for posting an item
 export const postItemStart = () => {
