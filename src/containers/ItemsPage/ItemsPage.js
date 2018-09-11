@@ -32,6 +32,7 @@ class ItemsPage extends Component {
 
 	onPreviewHandler = (data) => {
 		this.props.itemPreviewHandler(data);
+		this.props.fetchItemImage(data.imagePath);
 		if (window.innerWidth < 1000) {
 			this.setState({
 				...this.state,
@@ -93,7 +94,8 @@ class ItemsPage extends Component {
 					healingDie = {this.props.itemPreview.healingValues.die}
 					healingBonus = {this.props.itemPreview.healingValues.bonus}
 					itemFlavorText = {this.props.itemPreview.flavorText}
-					itemAbilities = {this.props.itemPreview.abilities}/>
+					itemAbilities = {this.props.itemPreview.abilities}
+					itemImage = {this.props.image}/>
 			);
 			
 			controls = (
@@ -219,7 +221,8 @@ const mapStateToProps = state => {
 	return {
 		customList: state.items.customList,
 		baseList: state.items.baseList,
-		itemPreview: state.items.itemPreview
+		itemPreview: state.items.itemPreview,
+		image: state.items.image
 	}
 }
 
@@ -227,6 +230,7 @@ const mapDispatchToProps = dispatch => {
 	return {
 		fetchItemListHandler: () => dispatch(actions.fetchItemList()),
 		itemPreviewHandler: (itemData) => dispatch(actions.previewItemCard(itemData)),
+		fetchItemImage: (imagePath) => dispatch(actions.fetchItemImage(imagePath)),
 		clearPreviewHandler: () => dispatch(actions.clearItemPreview())
 	}
 }

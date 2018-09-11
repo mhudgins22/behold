@@ -4,6 +4,7 @@ import classes from "./Card.css";
 
 import ReactMarkdown from "react-markdown";
 
+
 const card = props => {
 	let card = null;
 	
@@ -48,9 +49,11 @@ const card = props => {
 				</div>
 				{/*Item Abilities here*/}
 				{props.itemAbilities ?
-					<div className = {classes.Abilities}>
-						<h4>Ablities:</h4> 
-						<ReactMarkdown source = {props.itemAbilities} />
+					<div>
+						<h4 style = {{margin: "0px 2.5%"}}>Ablities:</h4> 
+						<div className = {classes.Abilities}>
+							<ReactMarkdown source = {props.itemAbilities} />
+						</div>
 					</div>
 				: null}
 			</div>

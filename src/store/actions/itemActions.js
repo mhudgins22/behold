@@ -47,7 +47,6 @@ export const fetchItemPathSuccess = (imagePaths) => {
 			}
 			dispatch(fetchItemPathSuccess(imagePaths));
 		});
-		
 	}
 } 
 //==============================================

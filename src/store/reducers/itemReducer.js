@@ -52,7 +52,8 @@ const initialState = {
 		}
 	},
 	loading: false,
-	error: null
+	error: null,
+	image: ""
 }
 
 //Post item function
@@ -129,8 +130,9 @@ const fetchItemImageSuccess = (state, action) => {
 		...state,
 		itemPreview: {
 			...state.itemPreview,
-			imagePath: action.imagePath
-		}
+			value: action.imageData
+		},
+		image: action.imageData
 	}
 }
 

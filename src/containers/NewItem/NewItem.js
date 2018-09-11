@@ -459,8 +459,8 @@ class NewItem extends Component {
 				elementConfig: {
 				
 				},
-				options: this.props.imageOptions,
-				value: this.props.itemPreview.imagePath || "",
+				options: [...this.props.imageOptions],
+				value: this.props.itemPreview.imagePath,
 				validationRules: {
 					required: false
 				},
@@ -1126,6 +1126,20 @@ class NewItem extends Component {
 
 	componentDidMount() {
 		//I'm lazy so populates the number of dice with nums 1-100 for damage dice
+		if (this.props.match.url !== "/Create/Items/NewItem") {
+			switch(this.props.itemPreview.catagory) {
+				case "Weapon":
+					this.props.fetchItemPaths("weaponType", this.props.itemPreview.type);
+					break;
+				case "Armor":
+					this.props.fetchItemPaths("armorType", this.props.itemPreview.type);
+					break;
+				case "Consumable":
+					this.props.fetchItemPaths("consumableType", this.props.itemPreview.type);
+					break;
+			}
+		}
+
 		let nums = [
 			
 		];
@@ -1215,14 +1229,22 @@ class NewItem extends Component {
 				healingBonus: {
 					...this.state.controls.healingBonus,
 					options: this.state.controls.healingBonus.options.concat(bonus)
-				}
+				},
 			}
 		});
 	}
 
-	componentDidUpdate() {
-		if (this.state.controls.itemImage.options != this.props.imageOptions) {
-			this.state.controls.itemImage.options = this.props.imageOptions;
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.imageOptions !== this.props.imageOptions) {
+			this.setState({
+				controls: {
+					...this.state.controls,
+					itemImage: {
+						...this.state.controls.itemImage,
+						options: [...this.props.imageOptions]
+					}
+				}
+			})
 		}
 	}
 
@@ -1294,9 +1316,9 @@ class NewItem extends Component {
 		if (element === "healingCheckBox") {
 			this.onVisibilityHandler(["numberOfHealingDice", "healingDie", "healingBonus"], value);
 		}
-
 		if ((element === "weaponType" || element === "armorType" || element === "consumableType") && value != "") {
 			this.props.fetchItemPaths(element, value);
+
 		}
 
 		if (element === "itemImage") {
@@ -1312,7 +1334,7 @@ class NewItem extends Component {
 					value: value,
 					valid: this.checkValidity(element, value),
 					touched: true
-				}
+				},
 			},
 			isValid: this.shouldValidate()
 		});
@@ -1755,7 +1777,7 @@ class NewItem extends Component {
 					healingBonus = {this.state.controls.healingBonus.value}
 					itemFlavorText = {this.state.controls.itemFlavorText.value}
 					itemAbilities = {this.state.controls.itemAbilities.value}
-					itemImage = {this.state.controls.itemImage.value}/>
+					itemImage = {this.props.image}/>
 			</div>
 		)
 	}
