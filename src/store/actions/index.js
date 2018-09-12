@@ -5,6 +5,7 @@ export {
 	fetchItemList,
 	fetchItemPaths,
 	fetchItemImage,
+	clearItemImage,
 	previewItemCard,
 	clearItemPreview
 } from "./itemActions";

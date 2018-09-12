@@ -21,7 +21,7 @@ const card = props => {
 				</div>
 				{/*Item Image Here*/}
 				<div className = {classes.ImageBox} style = {{backgroundImage: "url(" + props.itemImage + ")"}}>
-					{props.loading === true ? <Spinner /> : null}
+					{props.loading === true && props.itemImage === "" ? <Spinner /> : null}
 				</div>
 				{/*Item Stats and FlavorText here*/}
 				<div className = {classes.Stats}>

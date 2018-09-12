@@ -34,6 +34,7 @@
 			"die": "",
 			"numberOfDice": ""
 		},
+		"imagePath": "/items/weaponType/Longsword/longsword.png",
 		"name": "Longsword",
 		"properties": "Versatile(d10)",
 		"rarity": "Common",
@@ -74,6 +75,7 @@
 			"die": "",
 			"numberOfDice": ""
 		},
+		"imagePath": "/items/weaponType/Shortsword/shortsword.png",
 		"name": "Shortsword",
 		"properties": "Light, Finesse",
 		"rarity": "Common",
@@ -114,6 +116,7 @@
 			"die": "",
 			"numberOfDice": ""
 		},
+		"imagePath": "",
 		"name": "",
 		"properties": "",
 		"rarity": "",
