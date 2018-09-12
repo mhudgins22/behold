@@ -27,7 +27,7 @@ class ItemsPage extends Component {
 	}
 
 	componentWillUnmount() {
-		this.props.clearPreviewHandler();
+		
 	}
 
 	onPreviewHandler = (data) => {
@@ -95,7 +95,8 @@ class ItemsPage extends Component {
 					healingBonus = {this.props.itemPreview.healingValues.bonus}
 					itemFlavorText = {this.props.itemPreview.flavorText}
 					itemAbilities = {this.props.itemPreview.abilities}
-					itemImage = {this.props.image}/>
+					itemImage = {this.props.image}
+					loading = {this.props.loading}/>
 			);
 			
 			controls = (
@@ -222,7 +223,8 @@ const mapStateToProps = state => {
 		customList: state.items.customList,
 		baseList: state.items.baseList,
 		itemPreview: state.items.itemPreview,
-		image: state.items.image
+		image: state.items.image,
+		loading: state.items.loading
 	}
 }
 

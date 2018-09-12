@@ -1137,6 +1137,7 @@ class NewItem extends Component {
 				case "Consumable":
 					this.props.fetchItemPaths("consumableType", this.props.itemPreview.type);
 					break;
+				default: break;
 			}
 		}
 
@@ -1230,7 +1231,7 @@ class NewItem extends Component {
 					...this.state.controls.healingBonus,
 					options: this.state.controls.healingBonus.options.concat(bonus)
 				},
-			}
+			},
 		});
 	}
 
@@ -1529,6 +1530,10 @@ class NewItem extends Component {
 			})
 		} else {
 			this.props.onUpateItem(itemData, this.props.itemPreview.id);
+			this.setState({
+				...this.state,
+				showModal: true
+			})
 		}
 	}
 
@@ -1777,7 +1782,8 @@ class NewItem extends Component {
 					healingBonus = {this.state.controls.healingBonus.value}
 					itemFlavorText = {this.state.controls.itemFlavorText.value}
 					itemAbilities = {this.state.controls.itemAbilities.value}
-					itemImage = {this.props.image}/>
+					itemImage = {this.props.image}
+					loading = {this.props.loading}/>
 			</div>
 		)
 	}

@@ -2,7 +2,13 @@ import * as actionTypes from "./actionTypes";
 import axios from "../../axios";
 import storage from "../../firebase";
 
-//Actions for fetching item images
+//Actions for item images
+export const fetchItemImageStart = () => {
+	return {
+		type: actionTypes.FETCH_ITEM_IMAGE_START
+	}
+}
+
 export const fetchItemImageSuccess = (imageData) => {
 	return {
 		type: actionTypes.FETCH_ITEM_IMAGE_SUCCESS,
@@ -10,9 +16,17 @@ export const fetchItemImageSuccess = (imageData) => {
 	}
 }
 
+export const clearItemImage = () => {
+	return {
+		type: actionTypes.CLEAR_ITEM_IMAGE
+	}
+}
+
 //Reaches to database to fetch item paths from storage, uses paths to fetch images stored there
 export const fetchItemImage = (imagePath) => {
-	return dispatch => { 
+	return dispatch => {
+		dispatch(clearItemImage());
+		dispatch(fetchItemImageStart());
 		const storageRef = storage.ref();
 		const spaceRef = storageRef.child(imagePath);
 		storageRef.child(imagePath).getDownloadURL()
@@ -26,6 +40,7 @@ export const fetchItemImage = (imagePath) => {
 }
 //=============================================================
 
+//Actions for fetching paths to item images to create options
 export const fetchItemPathSuccess = (imagePaths) => {
 	return {
 		type: actionTypes.FETCH_ITEM_PATHS_SUCCESS,
@@ -33,8 +48,8 @@ export const fetchItemPathSuccess = (imagePaths) => {
 	}
 }
 
-//Actions for fetching paths to item images to create options
-	export const fetchItemPaths = (itemType, item) => {
+
+export const fetchItemPaths = (itemType, item) => {
 	return dispatch => {
 		let imagePaths = [];
 		axios.get("/items/imagePath/" + itemType + "/" + item + ".json")

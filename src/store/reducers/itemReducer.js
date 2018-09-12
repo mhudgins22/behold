@@ -10,6 +10,7 @@ const initialState = {
 		}
 	],
 	itemPreview: {
+		id: "",
 		name: "",
 		rarity: "",
 		type: "",
@@ -56,6 +57,8 @@ const initialState = {
 	image: ""
 }
 
+
+
 //Post item function
 const postItemStart = (state, action) => {
 	return {
@@ -78,6 +81,8 @@ const postItemFail = (state, action) => {
 		error: action.error
 	}
 }
+
+//========================================================
 
 //Put item functions
 const putItemStart = (state, action) => {
@@ -102,6 +107,8 @@ const putItemFail = (state, action) => {
 	}
 }
 
+//========================================================
+
 //Fetches items to populate list on ItemsPage
 const fetchItemListSuccess = (state, action) => {
 	return {
@@ -109,6 +116,15 @@ const fetchItemListSuccess = (state, action) => {
 		customList: action.itemList
 	}
 }
+
+const fetchBaseItemsSuccess = (state, action) => {
+	return {
+		...state,
+		baseList: action.itemList
+	}
+}
+
+//===============================================================
 
 //Fetch item paths
 const fetchItemPathsSuccess = (state, action) => {
@@ -124,25 +140,32 @@ const fetchItemPathsSuccess = (state, action) => {
 	}
 }
 
+//=====================================================================
+
 //Fetchs Item image data
-const fetchItemImageSuccess = (state, action) => {
+const fetchItemImageStart = (state, action) => {
 	return {
 		...state,
-		itemPreview: {
-			...state.itemPreview,
-			value: action.imageData
-		},
-		image: action.imageData
+		loading: true
 	}
 }
 
-//Fetches list of input items
-const fetchBaseItemsSuccess = (state, action) => {
+const fetchItemImageSuccess = (state, action) => {
 	return {
 		...state,
-		baseList: action.itemList
+		image: action.imageData,
+		loading: false
 	}
 }
+
+export const clearItemImage = (state, action) => {
+	return {
+		...state,
+		image: ""
+	}
+}
+
+//=========================================================================
 
 //Populates itemPreview with data from selected item
 const previewItemCard = (state, action) => {
@@ -157,6 +180,7 @@ const clearItemPreview = (state, action) => {
 	return {
 		...state,
 		itemPreview: {
+			id: "",
 			name: "",
 			rarity: "",
 			type: "",
@@ -198,22 +222,31 @@ const clearItemPreview = (state, action) => {
 				bonus: ""
 			}
 		},
-		loading: false
+		loading: false,
 	}
 }
 
 const reducer = (state = initialState, action) => {
 	switch(action.type) {
+		//Post item cases
 		case actionTypes.POST_ITEM_START: return postItemStart(state, action);
 		case actionTypes.POST_ITEM_SUCCESS: return postItemSuccess(state, action);
 		case actionTypes.POST_ITEM_FAIL: return postItemFail(state, action);
+		//Put item cases
 		case actionTypes.PUT_ITEM_FAIL: return putItemFail(state, action);
+		//Fetch list cases
 		case actionTypes.FETCH_ITEM_LIST_SUCCESS: return fetchItemListSuccess(state, action);
 		case actionTypes.FETCH_BASE_ITEMS_SUCCESS: return fetchBaseItemsSuccess(state, action);
+		//Fetch image cases
+		case actionTypes.FETCH_ITEM_IMAGE_START: return fetchItemImageStart(state, action);
 		case actionTypes.FETCH_ITEM_IMAGE_SUCCESS: return fetchItemImageSuccess(state, action);
+		case actionTypes.CLEAR_ITEM_IMAGE: return clearItemImage(state, action);
+		//Fetch paths cases
 		case actionTypes.FETCH_ITEM_PATHS_SUCCESS: return fetchItemPathsSuccess(state,action);
+		//Adjust preview cases
 		case actionTypes.PREVIEW_ITEM_CARD: return previewItemCard(state, action);
 		case actionTypes.CLEAR_ITEM_PREVIEW: return clearItemPreview(state, action);
+		
 		default: return state;
 	}
 }

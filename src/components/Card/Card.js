@@ -4,6 +4,8 @@ import classes from "./Card.css";
 
 import ReactMarkdown from "react-markdown";
 
+import Spinner from "../UI/Spinner/Spinner";
+
 
 const card = props => {
 	let card = null;
@@ -19,6 +21,7 @@ const card = props => {
 				</div>
 				{/*Item Image Here*/}
 				<div className = {classes.ImageBox} style = {{backgroundImage: "url(" + props.itemImage + ")"}}>
+					{props.loading === true ? <Spinner /> : null}
 				</div>
 				{/*Item Stats and FlavorText here*/}
 				<div className = {classes.Stats}>
