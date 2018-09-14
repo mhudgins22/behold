@@ -10,7 +10,7 @@ export {
 } from "./itemActions";
 
 export {
-	saveCharBasics
+	postCharacterBasics
 } from "./charActions";
 
 export {

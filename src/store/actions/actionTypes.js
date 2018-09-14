@@ -43,7 +43,9 @@ export const CLEAR_ITEM_PREVIEW = "CLEAR_ITEM_PREVIEW"
 
 //==============================================================
 //Character Page Actions
-export const SAVE_CHAR_BASICS = "SAVE_CHAR_BASICS";
+export const POST_CHARACTER_BASICS_START = "POST_CHARACTER_BASICS_START";
+export const POST_CHARACTER_BASICS_SUCCESS = "POST_CHARACTER_BASICS_SUCCESS";
+export const POST_CHARACTER_BASICS_FAIL = "POST_CHARACTER_BASICS_FAIL";
 
 //==============================================================
 //Auth Actions

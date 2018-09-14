@@ -667,7 +667,20 @@ class NewCharacter extends Component {
     }
   }
 
+  onSaveCharacterBasics = (event) => {
+    event.preventDefault();
+    let basicCharacterData = {
+      name: this.state.controls.characterName.value,
+      race: this.state.controls.characterRace.value,
+      class: this.state.controls.characterClass.value,
+      background: this.state.controls.background.value
+    }
+    this.props.onSaveBasics(basicCharacterData);
+  }
+
   render() {
+
+    //Build the form
     let formElements = [];
     for (let element in this.state.controls) {
       formElements.push({
@@ -1187,7 +1200,7 @@ class NewCharacter extends Component {
         <Link to={this.props.match.url + "/Stats"}>
           <Button
             buttonType="Success"
-            clicked={this.onSaveBasics}
+            clicked={this.onSaveCharacterBasics}
             text="Save and Continue" />
         </Link>
       </div>
@@ -1206,7 +1219,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSaveBasics: () => dispatch(actions.saveCharBasics())
+    onSaveBasics: (basicCharacterData) => dispatch(actions.postCharacterBasics(basicCharacterData))
   };
 };
 
