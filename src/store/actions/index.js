@@ -10,7 +10,8 @@ export {
 } from "./itemActions";
 
 export {
-	postCharacterBasics
+	postCharacterBasics,
+	postCharacterStats
 } from "./charActions";
 
 export {

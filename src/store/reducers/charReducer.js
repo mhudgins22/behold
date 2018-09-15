@@ -11,7 +11,7 @@ const initialState = {
   loading: false
 };
 
-//Post character function
+//Post character basics
 const postCharacterBasicsStart = (state, action) => {
 	return {
 		...state,
@@ -34,11 +34,37 @@ const postCharacterBasicsFail = (state, action) => {
 	}
 }
 
+//Post character stats
+const postCharacterStatsStart = (state, action) => {
+  return {
+    ...state,
+    loading: true
+  };
+};
+
+const postCharacterStatsSuccess = (state, action) => {
+  return {
+    ...state,
+    loading: false,
+  };
+};
+
+const postCharacterStatsFail = (state, action) => {
+  return {
+    ...state,
+    loading: false,
+    error: action.error
+  };
+};
+
 const charReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.POST_CHARACTER_BASICS_START: return postCharacterBasicsStart(state, action);
     case actionTypes.POST_CHARACTER_BASICS_SUCCESS: return postCharacterBasicsSuccess(state, action);
     case actionTypes.POST_CHARACTER_BASICS_FAIL: return postCharacterBasicsFail(state, action);
+    case actionTypes.POST_CHARACTER_STATS_START: return postCharacterStatsStart(state, action);
+    case actionTypes.POST_CHARACTER_STATS_SUCCESS: return postCharacterStatsSuccess(state, action);
+    case actionTypes.POST_CHARACTER_STATS_FAIL: return postCharacterStatsFail(state, action);
     default: return state;
   };
 };

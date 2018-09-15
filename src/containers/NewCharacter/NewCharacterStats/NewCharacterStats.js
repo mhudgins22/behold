@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input';
+import * as actions from '../../../store/actions/index';
 
 class NewCharacterStats extends Component {
   state = {
@@ -122,6 +124,17 @@ class NewCharacterStats extends Component {
     return statDisplay;
   }
 
+  onSaveCharacterStats = (event) => {
+    let characterStats = {
+      strength: this.state.controls.attributes.strength,
+      dexterity: this.state.controls.attributes.dexterity,
+      constitution: this.state.controls.attributes.constitution,
+      intelligence: this.state.controls.attributes.intelligence,
+      charisma: this.state.controls.attributes.charisma,
+      wisdom: this.state.controls.attributes.wisdom
+    }
+    this.props.onSaveStats(characterStats);
+  }
 
   render () {
 
@@ -173,13 +186,23 @@ class NewCharacterStats extends Component {
           buttonType="Character"
           clicked={this.rollStats}
           text="Roll My Stats" />
-          <h3>Your automatically rolled stat values are: {this.displayStatsNicely((this.state.controls.storedStats))}</h3>
-          <br />
-          <h3>Enter your values below:</h3>
-          {form}
+        <h3>Your automatically rolled stat values are: {this.displayStatsNicely((this.state.controls.storedStats))}</h3>
+        <br />
+        <h3>Enter your values below:</h3>
+        {form}
+        <Button
+          buttonType="Success"
+          clicked={this.onSaveCharacterStats}
+          text="Save and Continue" />
       </div>
     );
   }
  }
 
-export default NewCharacterStats;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSaveStats: (characterStats) => dispatch(actions.postCharacterStats(characterStats))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(NewCharacterStats);

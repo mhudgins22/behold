@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
@@ -668,7 +668,7 @@ class NewCharacter extends Component {
   }
 
   onSaveCharacterBasics = (event) => {
-    event.preventDefault();
+    //event.preventDefault();
     let basicCharacterData = {
       name: this.state.controls.characterName.value,
       race: this.state.controls.characterRace.value,
