@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input';
+import classes from './NewCharacterStats.css';
 import * as actions from '../../../store/actions/index';
 
 class NewCharacterStats extends Component {
@@ -610,6 +611,13 @@ class NewCharacterStats extends Component {
       </div>
     );
 
+    let suggestionBox = (
+      <div>
+        <p>As a {this.props.class}, your suggested primary ability score is {firstSuggestion}, followed by {secondSuggestion}.</p>
+        <p>{additionalNotes}</p>
+      </div>
+    );
+
     let formElements = [];
     for (let element in this.state.controls.attributes) {
       formElements.push({
@@ -618,16 +626,9 @@ class NewCharacterStats extends Component {
       });
     }
 
-    //Still need to figure out how to properly update global state for class so this works.
-    let suggestionBox = (
-      <div>
-        <p>As a {this.props.class}, your suggested primary ability score is {firstSuggestion}, followed by {secondSuggestion}.</p>
-        <p>{additionalNotes}</p>
-      </div>
-    );
-
     let form = formElements.map(element => (
       <div key = {element.id}>
+        <p className = {classes.FormLabels}>{element.id}:</p>
         <Input
           elementType = {element.config.elementType}
           elementConfig = {element.config.elementConfig}
