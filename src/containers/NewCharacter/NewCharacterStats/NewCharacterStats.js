@@ -10,11 +10,80 @@ class NewCharacterStats extends Component {
     controls: {
       attributes: {
         strength: {
-          elementType: "input",
+          elementType: "select",
           elementConfig: {
-            type: "input",
-            placeholder: "Strength"
+
           },
+          options: [
+            {
+              value: "",
+              label: "Strength"
+            },
+            {
+              value: "3",
+              label: "3"
+            },
+            {
+              value: "4",
+              label: "4"
+            },
+            {
+              value: "5",
+              label: "5"
+            },
+            {
+              value: "6",
+              label: "6"
+            },
+            {
+              value: "7",
+              label: "7"
+            },
+            {
+              value: "8",
+              label: "8"
+            },
+            {
+              value: "9",
+              label: "9"
+            },
+            {
+              value: "10",
+              label: "10"
+            },
+            {
+              value: "11",
+              label: "11"
+            },
+            {
+              value: "12",
+              label: "12"
+            },
+            {
+              value: "13",
+              label: "13"
+            },
+            {
+              value: "14",
+              label: "14"
+            },
+            {
+              value: "15",
+              label: "15"
+            },
+            {
+              value: "16",
+              label: "16"
+            },
+            {
+              value: "17",
+              label: "17"
+            },
+            {
+              value: "18",
+              label: "18"
+            }
+          ],
           value: "",
           validation: {
             required: true
@@ -23,11 +92,80 @@ class NewCharacterStats extends Component {
           touched: false
         },
         dexterity: {
-          elementType: "input",
+          elementType: "select",
           elementConfig: {
-            type: "input",
-            placeholder: "Dexterity"
+
           },
+          options: [
+            {
+              value: "",
+              label: "Dexterity"
+            },
+            {
+              value: "3",
+              label: "3"
+            },
+            {
+              value: "4",
+              label: "4"
+            },
+            {
+              value: "5",
+              label: "5"
+            },
+            {
+              value: "6",
+              label: "6"
+            },
+            {
+              value: "7",
+              label: "7"
+            },
+            {
+              value: "8",
+              label: "8"
+            },
+            {
+              value: "9",
+              label: "9"
+            },
+            {
+              value: "10",
+              label: "10"
+            },
+            {
+              value: "11",
+              label: "11"
+            },
+            {
+              value: "12",
+              label: "12"
+            },
+            {
+              value: "13",
+              label: "13"
+            },
+            {
+              value: "14",
+              label: "14"
+            },
+            {
+              value: "15",
+              label: "15"
+            },
+            {
+              value: "16",
+              label: "16"
+            },
+            {
+              value: "17",
+              label: "17"
+            },
+            {
+              value: "18",
+              label: "18"
+            }
+          ],
           value: "",
           validation: {
             required: true
@@ -36,11 +174,80 @@ class NewCharacterStats extends Component {
           touched: false
         },
         constitution: {
-          elementType: "input",
+          elementType: "select",
           elementConfig: {
-            type: "input",
-            placeholder: "Constitution"
+
           },
+          options: [
+            {
+              value: "",
+              label: "Constitution"
+            },
+            {
+              value: "3",
+              label: "3"
+            },
+            {
+              value: "4",
+              label: "4"
+            },
+            {
+              value: "5",
+              label: "5"
+            },
+            {
+              value: "6",
+              label: "6"
+            },
+            {
+              value: "7",
+              label: "7"
+            },
+            {
+              value: "8",
+              label: "8"
+            },
+            {
+              value: "9",
+              label: "9"
+            },
+            {
+              value: "10",
+              label: "10"
+            },
+            {
+              value: "11",
+              label: "11"
+            },
+            {
+              value: "12",
+              label: "12"
+            },
+            {
+              value: "13",
+              label: "13"
+            },
+            {
+              value: "14",
+              label: "14"
+            },
+            {
+              value: "15",
+              label: "15"
+            },
+            {
+              value: "16",
+              label: "16"
+            },
+            {
+              value: "17",
+              label: "17"
+            },
+            {
+              value: "18",
+              label: "18"
+            }
+          ],
           value: "",
           validation: {
             required: true
@@ -49,11 +256,80 @@ class NewCharacterStats extends Component {
           touched: false
         },
         intelligence: {
-          elementType: "input",
+          elementType: "select",
           elementConfig: {
-            type: "input",
-            placeholder: "Intelligence"
+
           },
+          options: [
+            {
+              value: "",
+              label: "Intelligence"
+            },
+            {
+              value: "3",
+              label: "3"
+            },
+            {
+              value: "4",
+              label: "4"
+            },
+            {
+              value: "5",
+              label: "5"
+            },
+            {
+              value: "6",
+              label: "6"
+            },
+            {
+              value: "7",
+              label: "7"
+            },
+            {
+              value: "8",
+              label: "8"
+            },
+            {
+              value: "9",
+              label: "9"
+            },
+            {
+              value: "10",
+              label: "10"
+            },
+            {
+              value: "11",
+              label: "11"
+            },
+            {
+              value: "12",
+              label: "12"
+            },
+            {
+              value: "13",
+              label: "13"
+            },
+            {
+              value: "14",
+              label: "14"
+            },
+            {
+              value: "15",
+              label: "15"
+            },
+            {
+              value: "16",
+              label: "16"
+            },
+            {
+              value: "17",
+              label: "17"
+            },
+            {
+              value: "18",
+              label: "18"
+            }
+          ],
           value: "",
           validation: {
             required: true
@@ -62,11 +338,80 @@ class NewCharacterStats extends Component {
           touched: false
         },
         charisma: {
-          elementType: "input",
+          elementType: "select",
           elementConfig: {
-            type: "input",
-            placeholder: "Charisma"
+
           },
+          options: [
+            {
+              value: "",
+              label: "Charisma"
+            },
+            {
+              value: "3",
+              label: "3"
+            },
+            {
+              value: "4",
+              label: "4"
+            },
+            {
+              value: "5",
+              label: "5"
+            },
+            {
+              value: "6",
+              label: "6"
+            },
+            {
+              value: "7",
+              label: "7"
+            },
+            {
+              value: "8",
+              label: "8"
+            },
+            {
+              value: "9",
+              label: "9"
+            },
+            {
+              value: "10",
+              label: "10"
+            },
+            {
+              value: "11",
+              label: "11"
+            },
+            {
+              value: "12",
+              label: "12"
+            },
+            {
+              value: "13",
+              label: "13"
+            },
+            {
+              value: "14",
+              label: "14"
+            },
+            {
+              value: "15",
+              label: "15"
+            },
+            {
+              value: "16",
+              label: "16"
+            },
+            {
+              value: "17",
+              label: "17"
+            },
+            {
+              value: "18",
+              label: "18"
+            }
+          ],
           value: "",
           validation: {
             required: true
@@ -75,11 +420,80 @@ class NewCharacterStats extends Component {
           touched: false
         },
         wisdom: {
-          elementType: "input",
+          elementType: "select",
           elementConfig: {
-            type: "input",
-            placeholder: "Wisdom"
+
           },
+          options: [
+            {
+              value: "",
+              label: "Wisdom"
+            },
+            {
+              value: "3",
+              label: "3"
+            },
+            {
+              value: "4",
+              label: "4"
+            },
+            {
+              value: "5",
+              label: "5"
+            },
+            {
+              value: "6",
+              label: "6"
+            },
+            {
+              value: "7",
+              label: "7"
+            },
+            {
+              value: "8",
+              label: "8"
+            },
+            {
+              value: "9",
+              label: "9"
+            },
+            {
+              value: "10",
+              label: "10"
+            },
+            {
+              value: "11",
+              label: "11"
+            },
+            {
+              value: "12",
+              label: "12"
+            },
+            {
+              value: "13",
+              label: "13"
+            },
+            {
+              value: "14",
+              label: "14"
+            },
+            {
+              value: "15",
+              label: "15"
+            },
+            {
+              value: "16",
+              label: "16"
+            },
+            {
+              value: "17",
+              label: "17"
+            },
+            {
+              value: "18",
+              label: "18"
+            }
+          ],
           value: "",
           validation: {
             required: true
