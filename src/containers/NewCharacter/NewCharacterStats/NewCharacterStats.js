@@ -578,17 +578,17 @@ class NewCharacterStats extends Component {
       case "Sorcerer":
         firstSuggestion = "Charisma";
         secondSuggestion = "Constitution";
-        additionalNotes = "Suggested cantrips: light, prestidigitation, ray of frost, and shocking grasp. Suggested first level spells: shield and magic missile.";
+        // additionalNotes = "Suggested cantrips: light, prestidigitation, ray of frost, and shocking grasp. Suggested first level spells: shield and magic missile.";
         break;
       case "Warlock":
         firstSuggestion = "Charisma";
         secondSuggestion = "Constitution";
-        additionalNotes = "Suggested cantrips: blast and chill touch. Suggested first level spells: charm person and witch bolt.";
+        // additionalNotes = "Suggested cantrips: blast and chill touch. Suggested first level spells: charm person and witch bolt.";
         break;
       case "Wizard":
         firstSuggestion = "Intelligence";
         secondSuggestion = "Constitution or Dexterity";
-        additionalNotes = "Suggested cantrips: mage hand, light, and ray of frost. Suggested first level spells for your spellbook: burning hands, charm person, feather fall, mage armor, magic missile, and sleep.";
+        // additionalNotes = "Suggested cantrips: mage hand, light, and ray of frost. Suggested first level spells for your spellbook: burning hands, charm person, feather fall, mage armor, magic missile, and sleep.";
         break;
     };
 
@@ -621,8 +621,8 @@ class NewCharacterStats extends Component {
     //Still need to figure out how to properly update global state for class so this works.
     let suggestionBox = (
       <div>
-        <p>As a {this.props.class}, your suggested primary ability score is {this.firstSuggestion}, followed by {this.secondSuggestion}.</p>
-        <p>{this.additionalNotes}</p>
+        <p>As a {this.props.class}, your suggested primary ability score is {firstSuggestion}, followed by {secondSuggestion}.</p>
+        <p>{additionalNotes}</p>
       </div>
     );
 

@@ -23,17 +23,23 @@ const postCharacterBasicsStart = (state, action) => {
 const postCharacterBasicsSuccess = (state, action) => {
 	return {
 		...state,
-		loading: false
-	}
-}
+		loading: false,
+    basicCharacterData: {
+      characterName: action.charData.name,
+      characterRace: action.charData.race,
+      characterClass: action.charData.charClass,
+      background: action.charData.background
+    }
+	};
+};
 
 const postCharacterBasicsFail = (state, action) => {
 	return {
 		...state,
 		loading: false,
 		error: action.error
-	}
-}
+	};
+};
 
 //Post character stats
 const postCharacterStatsStart = (state, action) => {

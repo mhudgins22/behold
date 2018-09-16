@@ -7,9 +7,11 @@ export const postCharacterBasicsStart = () => {
 	};
 };
 
-export const postCharacterBasicsSuccess = () => {
+export const postCharacterBasicsSuccess = (id, characterData) => {
 	return {
 		type: actionTypes.POST_CHARACTER_BASICS_SUCCESS,
+    charId: id,
+    charData: characterData
 	};
 };
 
@@ -25,7 +27,8 @@ export const postCharacterBasics = (basicCharacterData) => {
 		dispatch(postCharacterBasicsStart());
 		axios.post("/characters/custom.json", basicCharacterData)
 		.then (response => {
-			dispatch(postCharacterBasicsSuccess());
+      console.log(response.data);
+			dispatch(postCharacterBasicsSuccess(response.data.name, basicCharacterData));
 		})
 		.catch(err => {
 			dispatch(postCharacterBasicsFail(err));

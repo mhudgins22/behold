@@ -485,6 +485,7 @@ class NewCharacter extends Component {
           break;
       }
     }
+
     if (element === "background") {
       switch (event.target.value) {
         case ("Acolyte"):
@@ -672,7 +673,7 @@ class NewCharacter extends Component {
     let basicCharacterData = {
       name: this.state.controls.characterName.value,
       race: this.state.controls.characterRace.value,
-      class: this.state.controls.characterClass.value,
+      charClass: this.state.controls.characterClass.value,
       background: this.state.controls.background.value
     }
     this.props.onSaveBasics(basicCharacterData);
@@ -1210,10 +1211,7 @@ class NewCharacter extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    name: state.characterName,
-    race: state.characterRace,
-    class: state.characterClass,
-    background: state.background
+    class: state.char.basicCharacterData.characterClass
   };
 };
 
