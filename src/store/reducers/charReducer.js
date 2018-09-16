@@ -8,6 +8,7 @@ const initialState = {
     characterClass: "",
     background: ""
   },
+  rolledStats: [],
   loading: false
 };
 
@@ -57,6 +58,28 @@ const postCharacterStatsFail = (state, action) => {
   };
 };
 
+const rollCharacterStats = (state, action) => {
+  let diceHolder = [];    //A place to temporarily hold our results
+  let results = [];
+  for (let i = 0; i < 6; i++) {   // Will run six times to give us 6 stat rolls
+    for (let j = 0; j < 4; j++ ) {    //Will run four times to give us our 4 D6 rolls for each stat
+      let rand = 1 + Math.floor(Math.random() * 6);
+      diceHolder.push(rand);
+    }
+    diceHolder.sort();    //Order dice so we can get the lowest value at the front
+    let removedNumber = diceHolder.shift();   //Remove lowest value from front
+    let nextStat = diceHolder.reduce((a, b) => a + b);    //Add the remaining dice together
+    results.push(nextStat);
+    diceHolder = [];
+    nextStat = 0;
+  }
+  console.log(results);
+  return {
+    ...state,
+    rolledStats: results
+  };
+};
+
 const charReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.POST_CHARACTER_BASICS_START: return postCharacterBasicsStart(state, action);
@@ -65,6 +88,7 @@ const charReducer = (state = initialState, action) => {
     case actionTypes.POST_CHARACTER_STATS_START: return postCharacterStatsStart(state, action);
     case actionTypes.POST_CHARACTER_STATS_SUCCESS: return postCharacterStatsSuccess(state, action);
     case actionTypes.POST_CHARACTER_STATS_FAIL: return postCharacterStatsFail(state, action);
+    case actionTypes.ROLL_CHARACTER_STATS: return rollCharacterStats(state, action);
     default: return state;
   };
 };

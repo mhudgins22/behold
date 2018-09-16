@@ -92,30 +92,6 @@ class NewCharacterStats extends Component {
     }
   }
 
-  rollStats = () => {
-    let diceHolder = [];    //A place to temporarily hold our results
-    let results = [];
-    for (let i = 0; i < 6; i++) {   // Will run six times to give us 6 stat rolls
-      for (let j = 0; j < 4; j++ ) {    //Will run four times to give us our 4 D6 rolls for each stat
-        let rand = 1 + Math.floor(Math.random() * 6);
-        diceHolder.push(rand);
-      }
-      diceHolder.sort();    //Order dice so we can get the lowest value at the front
-      let removedNumber = diceHolder.shift();   //Remove lowest value from front
-      let nextStat = diceHolder.reduce((a, b) => a + b);    //Add the remaining dice together
-      results.push(nextStat);
-      diceHolder = [];
-      nextStat = 0;
-    }
-    console.log(results);
-    this.setState({
-      controls: {
-        ...this.state.controls,
-        storedStats: results
-      }
-    })
-  }
-
   displayStatsNicely = (arr) => {          //Used so the app doesn't freak out when you try to call .join when the stats array is not yet defined
     let statDisplay = "";
     if (arr.length !== 0) {
@@ -184,9 +160,9 @@ class NewCharacterStats extends Component {
         {directions}
         <Button
           buttonType="Character"
-          clicked={this.rollStats}
+          clicked={this.props.onRollStats}
           text="Roll My Stats" />
-        <h3>Your automatically rolled stat values are: {this.displayStatsNicely((this.state.controls.storedStats))}</h3>
+        <h3>Your automatically rolled stat values are: {this.displayStatsNicely(this.props.stats)}</h3>
         <br />
         <h3>Enter your values below:</h3>
         {form}
@@ -199,10 +175,17 @@ class NewCharacterStats extends Component {
   }
  }
 
-const mapDispatchToProps = (dispatch) => {
+const mapStateToProps = (state) => {
   return {
-    onSaveStats: (characterStats) => dispatch(actions.postCharacterStats(characterStats))
+    stats: state.char.rolledStats
   };
 };
 
-export default connect(null, mapDispatchToProps)(NewCharacterStats);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSaveStats: (characterStats) => dispatch(actions.postCharacterStats(characterStats)),
+    onRollStats: () => dispatch(actions.rollCharacterStats())
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewCharacterStats);

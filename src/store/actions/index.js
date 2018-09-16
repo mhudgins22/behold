@@ -11,7 +11,8 @@ export {
 
 export {
 	postCharacterBasics,
-	postCharacterStats
+	postCharacterStats,
+	rollCharacterStats
 } from "./charActions";
 
 export {

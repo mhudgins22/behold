@@ -26,7 +26,6 @@ export const postCharacterBasics = (basicCharacterData) => {
 		axios.post("/characters/custom.json", basicCharacterData)
 		.then (response => {
 			dispatch(postCharacterBasicsSuccess());
-      console.log("thisworking?");
 		})
 		.catch(err => {
 			dispatch(postCharacterBasicsFail(err));
@@ -59,10 +58,15 @@ export const postCharacterStats = (characterStats) => {
     axios.post("/characters/custom/stats.json", characterStats)
       .then(response => {
         dispatch(postCharacterStatsSuccess());
-        console.log("Post character stats success?")
       })
       .catch(err => {
         dispatch(postCharacterStatsFail(err))
       });
+  };
+};
+
+export const rollCharacterStats = () => {
+  return {
+    type: actionTypes.ROLL_CHARACTER_STATS
   };
 };

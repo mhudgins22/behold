@@ -51,6 +51,8 @@ export const POST_CHARACTER_STATS_START = "POST_CHARACTER_STATS_START";
 export const POST_CHARACTER_STATS_SUCCESS = "POST_CHARACTER_STATS_SUCCESS";
 export const POST_CHARACTER_STATS_FAIL = "POST_CHARACTER_STATS_FAIL";
 
+export const ROLL_CHARACTER_STATS = "ROLL_CHARACTER_STATS";
+
 //==============================================================
 //Auth Actions
 export const SET_REDIRECT_PATH = "SET_REDIRECT_PATH";
