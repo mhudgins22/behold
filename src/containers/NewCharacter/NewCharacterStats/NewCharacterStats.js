@@ -506,6 +506,10 @@ class NewCharacterStats extends Component {
     }
   }
 
+  componentDidMount () {
+    console.log(this.props.class);
+  }
+
   displayStatsNicely = (arr) => {          //Used so the app doesn't freak out when you try to call .join when the stats array is not yet defined
     let statDisplay = "";
     if (arr.length !== 0) {
@@ -527,6 +531,67 @@ class NewCharacterStats extends Component {
   }
 
   render () {
+
+    let firstSuggestion = "";
+    let secondSuggestion = "";
+    let additionalNotes = "";
+
+    switch (this.props.class) {
+      case "Barbarian":
+        firstSuggestion = "Strength";
+        secondSuggestion = "Constitution";
+        break;
+      case "Bard":
+        firstSuggestion = "Charisma";
+        secondSuggestion = "Dexterity";
+        break;
+      case "Cleric":
+        firstSuggestion = "Wisdom";
+        secondSuggestion = "Strength or Constitution";
+        break;
+      case "Druid":
+        firstSuggestion = "Wisdom";
+        secondSuggestion = "Constitution";
+        break;
+      case "Fighter":
+        firstSuggestion = "Strength or Dexterity";
+        secondSuggestion = "Constitution";
+        additionalNotes = "Your choice of strength or dexterity should depend on whether you would like to focus of melee weapons (strength) or ranged weapons (dexterity)";
+        break;
+      case "Monk":
+        firstSuggestion = "Dexterity";
+        secondSuggestion = "Wisdom";
+        break;
+      case "Paladin":
+        firstSuggestion = "Strength";
+        secondSuggestion = "Charisma";
+        break;
+      case "Ranger":
+        firstSuggestion = "Dexterity";
+        secondSuggestion = "Wisdom";
+        break;
+      case "Rouge":
+        firstSuggestion = "Dexterity";
+        secondSuggestion = "Intelligence";
+        additionalNotes = "Choose charisma instead of intelligence if you plan to emphasize deception and social interaction";
+        break;
+      case "Sorcerer":
+        firstSuggestion = "Charisma";
+        secondSuggestion = "Constitution";
+        additionalNotes = "Suggested cantrips: light, prestidigitation, ray of frost, and shocking grasp. Suggested first level spells: shield and magic missile.";
+        break;
+      case "Warlock":
+        firstSuggestion = "Charisma";
+        secondSuggestion = "Constitution";
+        additionalNotes = "Suggested cantrips: blast and chill touch. Suggested first level spells: charm person and witch bolt.";
+        break;
+      case "Wizard":
+        firstSuggestion = "Intelligence";
+        secondSuggestion = "Constitution or Dexterity";
+        additionalNotes = "Suggested cantrips: mage hand, light, and ray of frost. Suggested first level spells for your spellbook: burning hands, charm person, feather fall, mage armor, magic missile, and sleep.";
+        break;
+    };
+
 
     const directions = (
       <div>
@@ -553,6 +618,14 @@ class NewCharacterStats extends Component {
       });
     }
 
+    //Still need to figure out how to properly update global state for class so this works.
+    let suggestionBox = (
+      <div>
+        <p>As a {this.props.class}, your suggested primary ability score is {this.firstSuggestion}, followed by {this.secondSuggestion}.</p>
+        <p>{this.additionalNotes}</p>
+      </div>
+    );
+
     let form = formElements.map(element => (
       <div key = {element.id}>
         <Input
@@ -578,6 +651,8 @@ class NewCharacterStats extends Component {
           text="Roll My Stats" />
         <h3>Your automatically rolled stat values are: {this.displayStatsNicely(this.props.stats)}</h3>
         <br />
+        {suggestionBox}
+        <br />
         <h3>Enter your values below:</h3>
         {form}
         <Button
@@ -591,7 +666,8 @@ class NewCharacterStats extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    stats: state.char.rolledStats
+    stats: state.char.rolledStats,
+    class: state.char.basicCharacterData.characterClass
   };
 };
 
