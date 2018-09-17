@@ -27,7 +27,7 @@ class NewItem extends Component {
 				validationRules: {
 					required: true
 				},
-				valid: false,
+				valid: this.props.itemPreview.name ? true : false,
 				touched: false,
 				visible: true
 			},
@@ -74,7 +74,7 @@ class NewItem extends Component {
 				validationRules: {
 					required: true
 				},
-				valid: false,
+				valid: this.props.itemPreview.rarity ? true : false,
 				touched: false,
 				visible: true
 			},
@@ -312,7 +312,7 @@ class NewItem extends Component {
 				validationRules: {
 					required: this.props.itemPreview.catagory === "Weapon"
 				},
-				valid: false,
+				valid: this.props.itemPreview.type ? true : false,
 				touched: false,
 				visible: this.props.itemPreview.catagory === "Weapon"
 			},
@@ -397,7 +397,7 @@ class NewItem extends Component {
 				validationRules: {
 					required: this.props.itemPreview.catagory === "Armor"
 				},
-				valid: false,
+				valid: this.props.itemPreview.type ? true : false,
 				touched: false,
 				visible: this.props.itemPreview.catagory === "Armor"
 			},
@@ -436,7 +436,7 @@ class NewItem extends Component {
 				validationRules: {
 					required: this.props.itemPreview.catagory === "Consumable"
 				},
-				valid: false,
+				valid: this.props.itemPreview.type ? true : false,
 				touched: false,
 				visible: this.props.itemPreview.catagory === "Consumable"
 			},
@@ -450,7 +450,7 @@ class NewItem extends Component {
 				validationRules: {
 					required: this.props.itemPreview.catagory === "Other"
 				},
-				valid: false,
+				valid: this.props.itemPreview.type ? true : false,
 				touched: false,
 				visible: this.props.itemPreview.catagory === "Other"
 			},
@@ -462,9 +462,9 @@ class NewItem extends Component {
 				options: [...this.props.imageOptions],
 				value: this.props.itemPreview.imagePath,
 				validationRules: {
-					required: false
+					required: true
 				},
-				valid: true,
+				valid: this.props.itemPreview.imagePath ? true : false,
 				touched:false,
 				visible: true
 			},
@@ -492,7 +492,7 @@ class NewItem extends Component {
 				validationRules: {
 					required: true
 				},
-				valid: false,
+				valid: this.props.itemPreview.flavor,
 				touched: false,
 				visible: true
 			},
@@ -554,9 +554,9 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.damageValues[0].numberOfDice,
 				validationRules: {
-					required: true
+					required: false
 				},
-				valid: false,
+				valid: true,
 				touched: false,
 				visible: true
 			},
@@ -601,9 +601,9 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.damageValues[0].die,
 				validationRules: {
-					required: true
+					required: false
 				},
-				valid: false,
+				valid: true,
 				touched: false,
 				visible: true
 			},
@@ -617,9 +617,9 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.damageValues[0].bonus,
 				validationRules: {
-					required: true
+					required: false
 				},
-				valid: false,
+				valid: true,
 				touched: false,
 				visible: true
 			},
@@ -684,9 +684,9 @@ class NewItem extends Component {
 				],
 				value: this.props.itemPreview.damageValues[0].type,
 				validationRules: {
-					required: true
+					required: false
 				},
-				valid: false,
+				valid: true,
 				touched: false,
 				visible: true
 			},
@@ -1126,6 +1126,11 @@ class NewItem extends Component {
 
 	componentDidMount() {
 		//I'm lazy so populates the number of dice with nums 1-100 for damage dice
+
+		for (let element in this.state.controls) {
+			this.state.controls[element].valid = this.checkValidity(element, this.state.controls[element].value);
+		}
+		
 		if (this.props.match.url !== "/Create/Items/NewItem") {
 			switch(this.props.itemPreview.catagory) {
 				case "Weapon":
@@ -1232,12 +1237,15 @@ class NewItem extends Component {
 					options: this.state.controls.healingBonus.options.concat(bonus)
 				},
 			},
+			isValid: this.shouldValidate()
 		});
 	}
 
 	componentDidUpdate(prevProps, prevState) {
+		console.log(this.state);
 		if (prevProps.imageOptions !== this.props.imageOptions) {
 			this.setState({
+				...this.state,
 				controls: {
 					...this.state.controls,
 					itemImage: {
@@ -1361,7 +1369,7 @@ class NewItem extends Component {
 	//Determines if save is enabled
 	shouldValidate = () => {
 		for (let element in this.state.controls) {
-			if (element.valid === false) {
+			if (this.state.controls[element].valid === false) {
 				return false;
 			}
 		}
@@ -1394,6 +1402,7 @@ class NewItem extends Component {
 	onAdjustDamageHandler = (event, number, die, bonus, type, bool) => {
 		event.preventDefault();
 		this.setState({
+			...this.state,
 			controls: {
 				...this.state.controls,
 				[number]: {

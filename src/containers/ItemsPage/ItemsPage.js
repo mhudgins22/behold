@@ -18,7 +18,7 @@ class ItemsPage extends Component {
 		customListVisible: false,
 		baseTab: "ActiveTab",
 		customTab: "Tab",
-		showCard: false 
+		showCard: false,
 	}
 
 	componentDidMount() {
