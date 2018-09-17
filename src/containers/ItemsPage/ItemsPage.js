@@ -18,16 +18,12 @@ class ItemsPage extends Component {
 		customListVisible: false,
 		baseTab: "ActiveTab",
 		customTab: "Tab",
-		showCard: false 
+		showCard: false,
 	}
 
 	componentDidMount() {
+		this.props.clearPreviewHandler();
 		this.props.fetchItemListHandler();
-		
-	}
-
-	componentWillUnmount() {
-		
 	}
 
 	onPreviewHandler = (data) => {
@@ -122,7 +118,10 @@ class ItemsPage extends Component {
 				<div>
 					<div className = {listClasses.join(" ")}>
 						<div>
-							<Link onClick = {this.props.clearPreviewHandler} style = {{textDecoration: "none", color: "black"}} to = {this.props.match.url + "/NewItem"}>
+							<Link 
+								onClick = {this.props.clearPreviewHandler} 
+								style = {{textDecoration: "none", color: "black"}} 
+								to = {this.props.match.url + "/NewItem"}>
 								<h3>+ Create New Item</h3>
 							</Link>
 						</div>

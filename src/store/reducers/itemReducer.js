@@ -223,6 +223,7 @@ const clearItemPreview = (state, action) => {
 			}
 		},
 		loading: false,
+		image: ""
 	}
 }
 

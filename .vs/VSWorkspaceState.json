@@ -2,15 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\assets",
+    "\\src\\assets\\itemLists",
     "\\src\\components",
-    "\\src\\components\\Navigation\\Navbar",
-    "\\src\\components\\Navigation\\Navitems\\Navitem",
-    "\\src\\components\\UI\\Backdrop",
-    "\\src\\containers",
-    "\\src\\containers\\ItemsPage",
-    "\\src\\containers\\NewItem",
-    "\\src\\containers\\Play"
+    "\\src\\components\\Card",
+    "\\src\\components\\UI",
+    "\\src\\components\\UI\\Modal",
+    "\\src\\components\\UI\\Spinner",
+    "\\src\\store",
+    "\\src\\store\\actions"
   ],
-  "SelectedNode": "\\src\\containers\\NewItem\\NewItem.js",
+  "SelectedNode": "\\src\\components\\UI\\Modal\\Modal.js",
   "PreviewInSolutionExplorer": false
 }

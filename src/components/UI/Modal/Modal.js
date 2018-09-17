@@ -5,7 +5,8 @@ import classes from "./Modal.css"
 import Button from "../Button/Button";
 
 const modal = (props) => {
-	return(
+	
+	let modal = (
 		<div className = {classes.Modal}>
 			<div>
 				<h2>{props.text}</h2>
@@ -25,6 +26,10 @@ const modal = (props) => {
 				</div>
 			</div>
 		</div>
+	)
+	
+	return(
+		modal
 	)
 }
 
