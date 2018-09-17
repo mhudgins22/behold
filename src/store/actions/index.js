@@ -11,7 +11,9 @@ export {
 } from "./itemActions";
 
 export {
-	saveCharBasics
+	postCharacterBasics,
+	postCharacterStats,
+	rollCharacterStats
 } from "./charActions";
 
 export {

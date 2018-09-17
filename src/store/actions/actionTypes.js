@@ -43,7 +43,15 @@ export const CLEAR_ITEM_PREVIEW = "CLEAR_ITEM_PREVIEW"
 
 //==============================================================
 //Character Page Actions
-export const SAVE_CHAR_BASICS = "SAVE_CHAR_BASICS";
+export const POST_CHARACTER_BASICS_START = "POST_CHARACTER_BASICS_START";
+export const POST_CHARACTER_BASICS_SUCCESS = "POST_CHARACTER_BASICS_SUCCESS";
+export const POST_CHARACTER_BASICS_FAIL = "POST_CHARACTER_BASICS_FAIL";
+
+export const POST_CHARACTER_STATS_START = "POST_CHARACTER_STATS_START";
+export const POST_CHARACTER_STATS_SUCCESS = "POST_CHARACTER_STATS_SUCCESS";
+export const POST_CHARACTER_STATS_FAIL = "POST_CHARACTER_STATS_FAIL";
+
+export const ROLL_CHARACTER_STATS = "ROLL_CHARACTER_STATS";
 
 //==============================================================
 //Auth Actions

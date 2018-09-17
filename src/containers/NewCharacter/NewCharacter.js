@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
@@ -485,6 +485,7 @@ class NewCharacter extends Component {
           break;
       }
     }
+
     if (element === "background") {
       switch (event.target.value) {
         case ("Acolyte"):
@@ -667,7 +668,20 @@ class NewCharacter extends Component {
     }
   }
 
+  onSaveCharacterBasics = (event) => {
+    //event.preventDefault();
+    let basicCharacterData = {
+      name: this.state.controls.characterName.value,
+      race: this.state.controls.characterRace.value,
+      charClass: this.state.controls.characterClass.value,
+      background: this.state.controls.background.value
+    }
+    this.props.onSaveBasics(basicCharacterData);
+  }
+
   render() {
+
+    //Build the form
     let formElements = [];
     for (let element in this.state.controls) {
       formElements.push({
@@ -1187,7 +1201,7 @@ class NewCharacter extends Component {
         <Link to={this.props.match.url + "/Stats"}>
           <Button
             buttonType="Success"
-            clicked={this.onSaveBasics}
+            clicked={this.onSaveCharacterBasics}
             text="Save and Continue" />
         </Link>
       </div>
@@ -1197,16 +1211,13 @@ class NewCharacter extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    name: state.characterName,
-    race: state.characterRace,
-    class: state.characterClass,
-    background: state.background
+    class: state.char.basicCharacterData.characterClass
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSaveBasics: () => dispatch(actions.saveCharBasics())
+    onSaveBasics: (basicCharacterData) => dispatch(actions.postCharacterBasics(basicCharacterData))
   };
 };
 
