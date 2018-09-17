@@ -507,10 +507,6 @@ class NewCharacterStats extends Component {
     }
   }
 
-  componentDidMount () {
-    console.log(this.props.class);
-  }
-
   displayStatsNicely = (arr) => {          //Used so the app doesn't freak out when you try to call .join when the stats array is not yet defined
     let statDisplay = "";
     if (arr.length !== 0) {
@@ -536,6 +532,7 @@ class NewCharacterStats extends Component {
     let firstSuggestion = "";
     let secondSuggestion = "";
     let additionalNotes = "";
+    let raceBonusInfo = "";
 
     switch (this.props.class) {
       case "Barbarian":
@@ -593,6 +590,35 @@ class NewCharacterStats extends Component {
         break;
     };
 
+    switch (this.props.race) {
+      case "Dragonborn":
+        raceBonusInfo = "+2 Strength and +1 Charisma";
+        break;
+      case "Dwarf":
+        raceBonusInfo = "+2 Constitution";
+        break;
+      case "Elf":
+        raceBonusInfo = "+2 Dexterity";
+        break;
+      case "Gnome":
+        raceBonusInfo = "+2 Intelligence";
+        break;
+      case "Half-Elf":
+        raceBonusInfo = "+2 Charisma and +1 to Two Other Ability Scores of Your Choice";
+        break;
+      case "Halfling":
+        raceBonusInfo = "+2 Dexterity";
+        break;
+      case "Half-Orc":
+        raceBonusInfo = "+2 Strength and +1 Constitution";
+        break;
+      case "Human":
+        raceBonusInfo = "+1 to All Ability Scores";
+        break;
+      case "Tiefling":
+        raceBonusInfo = "+2 Charisma and +1 Intelligence";
+        break;
+    };
 
     const directions = (
       <div>
@@ -615,6 +641,7 @@ class NewCharacterStats extends Component {
       <div>
         <p>As a {this.props.class}, your suggested primary ability score is {firstSuggestion}, followed by {secondSuggestion}.</p>
         <p>{additionalNotes}</p>
+        <p>As a {this.props.race}, you will receive {raceBonusInfo}.</p>
       </div>
     );
 
@@ -668,7 +695,8 @@ class NewCharacterStats extends Component {
 const mapStateToProps = (state) => {
   return {
     stats: state.char.rolledStats,
-    class: state.char.basicCharacterData.characterClass
+    class: state.char.basicCharacterData.characterClass,
+    race: state.char.basicCharacterData.characterRace
   };
 };
 
