@@ -19,3 +19,8 @@ export {
 export {
 	setRedirectPath
 } from "./authActions";
+
+export {
+	setUploadType,
+	stageUpload
+} from "./uploadActions";

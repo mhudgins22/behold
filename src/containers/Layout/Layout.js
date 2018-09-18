@@ -7,6 +7,7 @@ import Backdrop from "../../components/UI/Backdrop/Backdrop";
 import Welcome from "../Welcome/Welcome";
 import Create from "../Create/Create";
 import Play from "../Play/Play";
+import UploadImage from "../UploadImage/UploadImage";
 import CharacterPage from "../CharacterPage/CharacterPage";
 import ItemsPage from "../ItemsPage/ItemsPage";
 import NewCharacter from "../NewCharacter/NewCharacter";
@@ -49,6 +50,7 @@ class Layout extends Component {
 				<Route path = "/Create/Characters/NewCharacter" exact component = {NewCharacter} />
 				<Route path = "/Create/Characters/NewCharacter/Stats" exact component = {NewCharacterStats} />
 				<Route path = "/Create/Items" exact component = {ItemsPage} />
+				<Route path = "/Create/Items/Upload" component = {UploadImage} />
 				<Route path = "/Create/Items/NewItem" component = {NewItem} />
 				<Route path = "/Create/Items/Edit/:id" component = {NewItem} />
 			</div>

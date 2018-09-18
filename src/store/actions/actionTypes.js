@@ -54,5 +54,12 @@ export const POST_CHARACTER_STATS_FAIL = "POST_CHARACTER_STATS_FAIL";
 export const ROLL_CHARACTER_STATS = "ROLL_CHARACTER_STATS";
 
 //==============================================================
+//Upload actions (for uploading new images to backend storage)
+export const SET_UPLOAD_TYPE = "SET_UPLOAD_TYPE";
+
+export const STAGE_UPLOAD = "STAGE_UPLOAD";
+
+
+//===============================================================
 //Auth Actions
 export const SET_REDIRECT_PATH = "SET_REDIRECT_PATH";

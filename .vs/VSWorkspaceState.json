@@ -7,11 +7,10 @@
     "\\src\\components",
     "\\src\\components\\Card",
     "\\src\\components\\UI",
-    "\\src\\components\\UI\\Modal",
-    "\\src\\components\\UI\\Spinner",
-    "\\src\\store",
-    "\\src\\store\\actions"
+    "\\src\\containers",
+    "\\src\\store\\actions",
+    "\\src\\store\\reducers"
   ],
-  "SelectedNode": "\\src\\components\\UI\\Modal\\Modal.js",
+  "SelectedNode": "\\src\\containers\\Layout",
   "PreviewInSolutionExplorer": false
 }

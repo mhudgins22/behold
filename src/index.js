@@ -8,6 +8,7 @@ import {BrowserRouter} from "react-router-dom";
 import itemReducer from "./store/reducers/itemReducer";
 import authReducer from "./store/reducers/authReducer";
 import charReducer from "./store/reducers/charReducer";
+import uploadReducer from "./store/reducers/uploadReducer";
 
 import './index.css';
 
@@ -19,7 +20,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
 	items: itemReducer,
 	auth: authReducer,
-	char: charReducer
+	char: charReducer,
+	upload: uploadReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(

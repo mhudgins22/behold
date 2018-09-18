@@ -184,6 +184,9 @@ class ItemsPage extends Component {
 			<div className = {classes.Page}>
 				<div className = {classes.Header}>
 					<h1>Items To Create and Use</h1>
+					<Link onClick = {() => this.props.setUploadType("items")} style = {{textDecoration: "none", color: "black"}} to = {this.props.match.url + "/Upload"}>
+						<h6>+Upload new images</h6>
+					</Link>
 				</div>
 				<div className = {controlClasses.join(" ")}>
 					<Button 
@@ -232,7 +235,8 @@ const mapDispatchToProps = dispatch => {
 		fetchItemListHandler: () => dispatch(actions.fetchItemList()),
 		itemPreviewHandler: (itemData) => dispatch(actions.previewItemCard(itemData)),
 		fetchItemImage: (imagePath) => dispatch(actions.fetchItemImage(imagePath)),
-		clearPreviewHandler: () => dispatch(actions.clearItemPreview())
+		clearPreviewHandler: () => dispatch(actions.clearItemPreview()),
+		setUploadType: (uploadType) => dispatch(actions.setUploadType(uploadType))
 	}
 }
 
