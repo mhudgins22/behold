@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Button from '../../../components/UI/Button/Button';
@@ -683,10 +684,12 @@ class NewCharacterStats extends Component {
         <br />
         <h3>Enter your values below:</h3>
         {form}
-        <Button
-          buttonType="Success"
-          clicked={this.onSaveCharacterStats}
-          text="Save and Continue" />
+        <Link to={"/Create/Characters/NewCharacter/Skills"}>
+          <Button
+            buttonType="Success"
+            clicked={this.onSaveCharacterStats}
+            text="Save and Continue" />
+        </Link>
       </div>
     );
   }
