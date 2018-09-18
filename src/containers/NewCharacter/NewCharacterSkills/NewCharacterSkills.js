@@ -116,6 +116,326 @@ class NewCharacterSkills extends Component {
     }
   };
 
+  //Will refactor later
+  onChangeHandler = (event, element) => {
+    //change strength proficiencies
+    if (element === "athletics") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            strengthSkills: {
+              ...this.state.controls.skills.strengthSkills,
+              athletics: {
+                ...this.state.controls.skills.strengthSkills.athletics,
+                proficient: !this.state.controls.skills.strengthSkills.athletics.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+
+    //change dex proficiencies
+    if (element === "acrobatics") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            dexteritySkills: {
+              ...this.state.controls.skills.dexteritySkills,
+              acrobatics: {
+                ...this.state.controls.skills.dexteritySkills.acrobatics,
+                proficient: !this.state.controls.skills.dexteritySkills.acrobatics.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "slightOfHand") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            dexteritySkills: {
+              ...this.state.controls.skills.dexteritySkills,
+              slightOfHand: {
+                ...this.state.controls.skills.dexteritySkills.slightOfHand,
+                proficient: !this.state.controls.skills.dexteritySkills.slightOfHand.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "stealth") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            dexteritySkills: {
+              ...this.state.controls.skills.dexteritySkills,
+              stealth: {
+                ...this.state.controls.skills.dexteritySkills.stealth,
+                proficient: !this.state.controls.skills.dexteritySkills.stealth.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+
+    //change intelligence proficiencies
+    if (element === "arcana") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            intelligenceSkills: {
+              ...this.state.controls.skills.intelligenceSkills,
+              arcana: {
+                ...this.state.controls.skills.intelligenceSkills.arcana,
+                proficient: !this.state.controls.skills.intelligenceSkills.arcana.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "history") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            intelligenceSkills: {
+              ...this.state.controls.skills.intelligenceSkills,
+              history: {
+                ...this.state.controls.skills.intelligenceSkills.history,
+                proficient: !this.state.controls.skills.intelligenceSkills.history.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "investigation") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            intelligenceSkills: {
+              ...this.state.controls.skills.intelligenceSkills,
+              investigation: {
+                ...this.state.controls.skills.intelligenceSkills.investigation,
+                proficient: !this.state.controls.skills.intelligenceSkills.investigation.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "nature") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            intelligenceSkills: {
+              ...this.state.controls.skills.intelligenceSkills,
+              nature: {
+                ...this.state.controls.skills.intelligenceSkills.nature,
+                proficient: !this.state.controls.skills.intelligenceSkills.nature.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "religion") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            intelligenceSkills: {
+              ...this.state.controls.skills.intelligenceSkills,
+              religion: {
+                ...this.state.controls.skills.intelligenceSkills.religion,
+                proficient: !this.state.controls.skills.intelligenceSkills.religion.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+
+    //change wisdom proficiencies
+    if (element === "animalHandling") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            wisdomSkills: {
+              ...this.state.controls.skills.wisdomSkills,
+              animalHandling: {
+                ...this.state.controls.skills.wisdomSkills.animalHandling,
+                proficient: !this.state.controls.skills.wisdomSkills.animalHandling.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "insight") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            wisdomSkills: {
+              ...this.state.controls.skills.wisdomSkills,
+              insight: {
+                ...this.state.controls.skills.wisdomSkills.insight,
+                proficient: !this.state.controls.skills.wisdomSkills.insight.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "medicine") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            wisdomSkills: {
+              ...this.state.controls.skills.wisdomSkills,
+              medicine: {
+                ...this.state.controls.skills.wisdomSkills.medicine,
+                proficient: !this.state.controls.skills.wisdomSkills.medicine.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "perception") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            wisdomSkills: {
+              ...this.state.controls.skills.wisdomSkills,
+              perception: {
+                ...this.state.controls.skills.wisdomSkills.perception,
+                proficient: !this.state.controls.skills.wisdomSkills.perception.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "survival") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            wisdomSkills: {
+              ...this.state.controls.skills.wisdomSkills,
+              survival: {
+                ...this.state.controls.skills.wisdomSkills.survival,
+                proficient: !this.state.controls.skills.wisdomSkills.survival.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+
+    //change charisma proficiencies
+    if (element === "deception") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            charismaSkills: {
+              ...this.state.controls.skills.charismaSkills,
+              deception: {
+                ...this.state.controls.skills.charismaSkills.deception,
+                proficient: !this.state.controls.skills.charismaSkills.deception.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "intimidation") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            charismaSkills: {
+              ...this.state.controls.skills.charismaSkills,
+              intimidation: {
+                ...this.state.controls.skills.charismaSkills.intimidation,
+                proficient: !this.state.controls.skills.charismaSkills.intimidation.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "performance") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            charismaSkills: {
+              ...this.state.controls.skills.charismaSkills,
+              performance: {
+                ...this.state.controls.skills.charismaSkills.performance,
+                proficient: !this.state.controls.skills.charismaSkills.performance.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+    if (element === "persuasion") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            charismaSkills: {
+              ...this.state.controls.skills.charismaSkills,
+              persuasion: {
+                ...this.state.controls.skills.charismaSkills.persuasion,
+                proficient: !this.state.controls.skills.charismaSkills.persuasion.proficient
+              }
+            }
+          }
+        }
+      });
+    }
+
+  }
+
   render() {
     const directions = (
       <h3>Use this page to determine the skills and proficiencies for your character. To begin, check the box below for each skill that you are profiient in.</h3>
@@ -153,13 +473,14 @@ class NewCharacterSkills extends Component {
         config: this.state.controls.skills.charismaSkills[element]
       });
     }
-    //figure out change stuff
+
     let skillsForm = skillsArray.map(element => (
-      <div>
+      <div key = {element.id}>
         <SkillCard
           name={element.config.name}
           value={element.config.value}
-          proficient={element.config.proficient}/>
+          proficient={element.config.proficient}
+          changed = {(event) => this.onChangeHandler(event, element.id)}/>
       </div>
     ));
 
