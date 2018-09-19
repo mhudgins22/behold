@@ -946,7 +946,7 @@ class NewCharacter extends Component {
             <p><strong>Languages: </strong><em>Two of your choice</em></p>
             <p><strong>Equipment: </strong><em>A holy symbol (a gift to you when you entered the priesthood),
               a prayer book or prayer wheel, 5 sticks of incense, vestments, a set of common clothes, and a pouch
-              containing 15 gp</em></p>
+              containing 15 gold</em></p>
           </div>
         );
         break;
@@ -955,11 +955,15 @@ class NewCharacter extends Component {
           <div className={classes.InfoBox}>
             <p><strong>Background Description: </strong></p>
             <p>
-              <em></em>
+              <em>You have always had a way with people. You know what makes them tick, you can tease out their hearts’
+              desires after a few minutes of conversation, and with a few leading questions you can read them like they
+              were children’s books. It’s a useful talent, and one that you’re perfectly willing to use for your advantage.</em>
             </p>
-            <p><strong>Skill Proficiencies: </strong><em></em></p>
-            <p><strong>Languages: </strong><em></em></p>
-            <p><strong>Equipment: </strong><em></em></p>
+            <p><strong>Skill Proficiencies: </strong><em>Deception, Slight of Hand</em></p>
+            <p><strong>Tool Proficiencies: </strong><em>Disguise kit, forgery kit</em></p>
+            <p><strong>Equipment: </strong><em>A set of fine clothes, a disguise kit, tools of the con of your choice
+            (ten stoppered bottles filled with colored liquid, a set of weighted dice, a deck of marked cards, or a signet
+            ring of an imaginary duke), and a pouch containing 15 gold</em></p>
           </div>
         );
         break;
@@ -976,7 +980,7 @@ class NewCharacter extends Component {
             <p><strong>Skill Proficiencies: </strong><em>Deception, Stealth</em></p>
             <p><strong>Tool Proficiencies: </strong><em>One type of gaming set, thieves’ tools</em></p>
             <p><strong>Equipment: </strong><em>A crowbar, a set of dark common clothes including a hood,
-            and a pouch containing 15 gp</em></p>
+            and a pouch containing 15 gold</em></p>
           </div>
         );
         break;
@@ -985,11 +989,15 @@ class NewCharacter extends Component {
           <div className={classes.InfoBox}>
             <p><strong>Background Description: </strong></p>
             <p>
-              <em></em>
+              <em>You thrive in front of an audience. You know how to entrance them, entertain them, and even inspire them.
+              Your poetics can stir the hearts of those who hear you, awakening grief or joy, laughter or anger. Your music
+              raises their spirits or captures their sorrow. Your dance steps captivate, your humor cuts to the quick. Whatever
+              techniques you use, your art is your life.</em>
             </p>
-            <p><strong>Skill Proficiencies: </strong><em></em></p>
-            <p><strong>Languages: </strong><em></em></p>
-            <p><strong>Equipment: </strong><em></em></p>
+            <p><strong>Skill Proficiencies: </strong><em>Acrobatics, Performance</em></p>
+            <p><strong>Tool Proficiencies: </strong><em>Disguise kit, one musical instrument of your choice.</em></p>
+            <p><strong>Equipment: </strong><em>A musical instrument (one of your choice), the favor of an admirer (love letter,
+            lock of hair, or trinket), a costume, and a pouch containing 15 gold</em></p>
           </div>
         );
         break;
@@ -1005,20 +1013,23 @@ class NewCharacter extends Component {
             <p><strong>Skill Proficiencies: </strong><em>Animal Handling, Survival</em></p>
             <p><strong>Tool Proficiencies: </strong><em>One type of artisan’s tools, vehicles (land)</em></p>
             <p><strong>Equipment: </strong><em>A set of artisan’s tools (one of your choice), a shovel,
-            an iron pot, a set of common clothes, and a pouch containing 10 gp</em></p>
+            an iron pot, a set of common clothes, and a pouch containing 10 gold</em></p>
           </div>
         );
         break;
-      case "Galdiator":
+      case "Gladiator":
         backgroundInfo = (
           <div className={classes.InfoBox}>
             <p><strong>Background Description: </strong></p>
             <p>
-              <em></em>
+              <em>A gladiator is much an Entertainer as any minstrel or circus performer, trained to make
+              the arts of combat into a spectacle the crowd can enjoy. This kind of flashy combat is your entertainer routine,
+              though you might also have some skills as a tumbler or actor.</em>
             </p>
-            <p><strong>Skill Proficiencies: </strong><em></em></p>
-            <p><strong>Languages: </strong><em></em></p>
-            <p><strong>Equipment: </strong><em></em></p>
+            <p><strong>Skill Proficiencies: </strong><em>Acrobatics, Performance</em></p>
+            <p><strong>Tool Proficiencies: </strong><em>Disguise kit, an inexpensive but unusal weapon (such as a trident or net)</em></p>
+            <p><strong>Equipment: </strong><em>An inexpensive but unusal weapon (such as a trident or net), the favor of an admirer (love letter,
+            lock of hair, or trinket), a costume, and a pouch containing 15 gold</em></p>
           </div>
         );
         break;
@@ -1027,11 +1038,16 @@ class NewCharacter extends Component {
           <div className={classes.InfoBox}>
             <p><strong>Background Description: </strong></p>
             <p>
-              <em></em>
+              <em>You are a member of an artisan’s guild, skilled in a particular field and closely associated with
+              other artisans. You are a well-established part of the mercantile world, freed by talent and wealth from
+              the constraints of a feudal social order. You learned your skills as an apprentice to a master artisan, under
+              the sponsorship of your guild, until you became a master in your own right. </em>
             </p>
-            <p><strong>Skill Proficiencies: </strong><em></em></p>
-            <p><strong>Languages: </strong><em></em></p>
-            <p><strong>Equipment: </strong><em></em></p>
+            <p><strong>Skill Proficiencies: </strong><em>Insight, Persuasion</em></p>
+            <p><strong>Tool Proficiencies: </strong><em>One type of artisan’s tools</em></p>
+            <p><strong>Languages: </strong><em>One of your choice</em></p>
+            <p><strong>Equipment: </strong><em>A set of artisan’s tools (one of your choice), a letter of introduction
+            from your guild, a set of traveler’s clothes, and a pouch containing 15 gold</em></p>
           </div>
         );
         break;
@@ -1040,11 +1056,15 @@ class NewCharacter extends Component {
           <div className={classes.InfoBox}>
             <p><strong>Background Description: </strong></p>
             <p>
-              <em></em>
+              <em>You lived in seclusion - either in a sheltered community such as a monastary, or entirely alone - for a
+              formative part of your life. In your time apart from the clamor of society you found quiet, solitude, and perhaps
+              some of the answers you were looking for.</em>
             </p>
-            <p><strong>Skill Proficiencies: </strong><em></em></p>
-            <p><strong>Languages: </strong><em></em></p>
-            <p><strong>Equipment: </strong><em></em></p>
+            <p><strong>Skill Proficiencies: </strong><em>Medicine, Religion</em></p>
+            <p><strong>Tool Proficiencies: </strong><em>Herbalism kit</em></p>
+            <p><strong>Languages: </strong><em>One of your choice</em></p>
+            <p><strong>Equipment: </strong><em>A scroll case stuffed full of notes from your studies or prayers, a winter blanket,
+            a set of common clothes, an herbalism kit, and 5 gold</em></p>
           </div>
         );
         break;
@@ -1053,11 +1073,15 @@ class NewCharacter extends Component {
           <div className={classes.InfoBox}>
             <p><strong>Background Description: </strong></p>
             <p>
-              <em></em>
+              <em>A knighthood is among the lowest Noble titles in most societies, but it can be a path to higher
+              status. </em>
             </p>
-            <p><strong>Skill Proficiencies: </strong><em></em></p>
-            <p><strong>Languages: </strong><em></em></p>
-            <p><strong>Equipment: </strong><em></em></p>
+            <p><strong>Skill Proficiencies: </strong><em>History, Persuasion</em></p>
+            <p><strong>Tool Proficiencies: </strong><em>One type of gaming set</em></p>
+            <p><strong>Languages: </strong><em>One of your choice</em></p>
+            <p><strong>Equipment: </strong><em>A set of fine clothes, a signet ring, a scroll of pedigree,
+            and a purse containing 25 gold, a banner or or other token from a noble lord or lady to whom you
+            have given your heart (optional)</em></p>
           </div>
         );
         break;
@@ -1086,11 +1110,17 @@ class NewCharacter extends Component {
           <div className={classes.InfoBox}>
             <p><strong>Background Description: </strong></p>
             <p>
-              <em></em>
+              <em>You grew up in the wilds, far from civilization and the comforts of town and technology. You’ve witnessed
+              the migration of herds larger than forests, survived weather more extreme than any city-dweller could
+              comprehend, and enjoyed the solitude of being the only thinking creature for miles in any direction. The wilds
+              are in your blood, whether you were a nomad, an explorer, a recluse, a hunter-gatherer, or even a marauder. Even in
+              places where you don’t know the specific features of the terrain, you know the ways of the wild. </em>
             </p>
-            <p><strong>Skill Proficiencies: </strong><em></em></p>
-            <p><strong>Languages: </strong><em></em></p>
-            <p><strong>Equipment: </strong><em></em></p>
+            <p><strong>Skill Proficiencies: </strong><em>Athletics, Survival</em></p>
+            <p><strong>Tool Proficiencies: </strong><em>One type of musical instrument</em></p>
+            <p><strong>Languages: </strong><em>One of your choice</em></p>
+            <p><strong>Equipment: </strong><em>A staff, a hunting trap, a trophy from an animal you killed, a set of
+            traveler’s clothes, and a pouch containing 10 gold. </em></p>
           </div>
         );
         break;
@@ -1099,11 +1129,16 @@ class NewCharacter extends Component {
           <div className={classes.InfoBox}>
             <p><strong>Background Description: </strong></p>
             <p>
-              <em></em>
+              <em>You spent your youth under the sway of a dread pirate, a ruthless cutthroat who taught you how to
+              survive in a world of sharks and savages. You’ve indulged in larceny on the high seas and sent more
+              than one deserving soul to a briny grave. Fear and bloodshed are no strangers to you, and you’ve garnered
+              a somewhat unsavory reputation in many a port town.</em>
             </p>
-            <p><strong>Skill Proficiencies: </strong><em></em></p>
-            <p><strong>Languages: </strong><em></em></p>
-            <p><strong>Equipment: </strong><em></em></p>
+            <p><strong>Skill Proficiencies: </strong><em>Athletics, Perception</em></p>
+            <p><strong>Tool Proficiencies: </strong><em>Navigator’s tools, vehicles (water)</em></p>
+            <p><strong>Equipment: </strong><em>A belaying pin (club), 50 feet of silk rope, a lucky charm such as a rabbit
+            foot or small stone with a hole in the center (or you may roll for a random trinket from the Trinket Table), a set of
+            common clothes, and a pouch containing 10 gold. </em></p>
           </div>
         );
         break;
@@ -1120,7 +1155,7 @@ class NewCharacter extends Component {
             <p><strong>Languages: </strong><em>Two of your choice</em></p>
             <p><strong>Equipment: </strong><em>A bottle of black ink, a quill, a small knife, a letter from a dead
             colleague posing a question you have not yet been able to answer, a set of common clothes, and a pouch
-            containing 10 gp</em></p>
+            containing 10 gold</em></p>
           </div>
         );
         break;
@@ -1129,11 +1164,15 @@ class NewCharacter extends Component {
           <div className={classes.InfoBox}>
             <p><strong>Background Description: </strong></p>
             <p>
-              <em></em>
+              <em>You sailed on a seagoing vessel for years. In that time, you faced down mighty storms, monsters of the deep,
+              and those who wanted to sink your craft to the bottomless depths. Your first love is the distant line of the horizon,
+              but the time has come to try your hand at something new. </em>
             </p>
-            <p><strong>Skill Proficiencies: </strong><em></em></p>
-            <p><strong>Languages: </strong><em></em></p>
-            <p><strong>Equipment: </strong><em></em></p>
+            <p><strong>Skill Proficiencies: </strong><em>Athletics, Perception</em></p>
+            <p><strong>Tool Proficiencies: </strong><em>Navigator’s tools, vehicles (water)</em></p>
+            <p><strong>Equipment: </strong><em>A belaying pin (club), 50 feet of silk rope, a lucky charm such as a rabbit
+            foot or small stone with a hole in the center (or you may roll for a random trinket from the Trinket Table), a set of
+            common clothes, and a pouch containing 10 gold </em></p>
           </div>
         );
         break;
@@ -1151,7 +1190,7 @@ class NewCharacter extends Component {
             <p><strong>Tool Proficiences: </strong><em>One type of gaming set, vehicles (land)</em></p>
             <p><strong>Equipment: </strong><em>An insignia of rank, a trophy taken from a fallen enemy
             (a dagger, broken blade, or piece of a banner), a set of bone dice or deck of cards, a set of common
-            clothes, and a pouch containing 10 gp</em></p>
+            clothes, and a pouch containing 10 gold</em></p>
           </div>
         );
         break;
@@ -1160,12 +1199,16 @@ class NewCharacter extends Component {
           <div className={classes.InfoBox}>
             <p><strong>Background Description: </strong></p>
             <p>
-              <em></em>
+              <em>You grew up on the streets alone, orphaned, and poor. You had no one to watch over you or to provide
+              for you, so you learned to provide for yourself. You fought fiercely over food and kept a constant watch
+              out for other desperate souls who might steal from you. You slept on rooftops and in alleyways, exposed to the
+              elements, and endured sickness without the advantage of medicine or a place to recouperate. You’ve survived
+              despite all odds, and did so through cunning, strength, speed, or some combination of each.</em>
             </p>
-            <p><strong>Skill Proficiencies: </strong><em></em></p>
-            <p><strong>Tool Proficiences: </strong><em></em></p>
-            <p><strong>Languages: </strong><em></em></p>
-            <p><strong>Equipment: </strong><em></em></p>
+            <p><strong>Skill Proficiencies: </strong><em>Sleight of Hand, Stealth</em></p>
+            <p><strong>Tool Proficiences: </strong><em>Disguise kit, thieve’s tools</em></p>
+            <p><strong>Equipment: </strong><em>A small knife, a map of the city you grew up in, a pet mouse, a token to
+            remember your parents by, a set of common clothes, and a pouch containing 10 gold</em></p>
           </div>
         );
         break;
