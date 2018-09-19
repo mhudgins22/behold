@@ -7,6 +7,7 @@ import Button from '../../components/UI/Button/Button';
 import classes from './NewCharacter.css';
 import * as actions from '../../store/actions/index';
 import BackgroundDisplay from './BackgroundDisplay/BackgroundDisplay';
+import ClassDisplay from './ClassDisplay/ClassDisplay';
 
 class NewCharacter extends Component {
   state = {
@@ -794,141 +795,6 @@ class NewCharacter extends Component {
         )
       }
 
-    //display class information in box
-    let classInfo = "";
-
-    switch (this.state.controls.characterClass.value) {
-      case "Barbarian":
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong> <em>A fierce warrior of primitive background who can enter a battle rage.</em></p>
-            <p><strong>Hit Dice: </strong> <em>d12</em></p>
-            <p><strong>Primary Ability: </strong> <em>Strength</em></p>
-            <p><strong>Saving Throws: </strong> <em>Strength & Consitution</em></p>
-          </div>
-        );
-        break;
-      case "Bard":
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong> <em>An inspiring magician whose power echoes the music of creation.</em></p>
-            <p><strong>Hit Dice: </strong> <em>d8</em></p>
-            <p><strong>Primary Ability: </strong> <em>Charisma</em></p>
-            <p><strong>Saving Throws: </strong> <em>Dexterity & Charisma</em></p>
-          </div>
-        );
-        break;
-      case "Cleric":
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong><em>A priestly champion who wields divine magic in service of a higher power.</em></p>
-            <p><strong>Hit Dice: </strong> <em>d8</em></p>
-            <p><strong>Primary Ability: </strong> <em>Charisma</em></p>
-            <p><strong>Saving Throws: </strong> <em>Wisdom & Charisma</em></p>
-          </div>
-        );
-        break;
-      case "Druid":
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong> <em>A priest of the Old Faith, wielding the powers of nature and adopting animal forms.</em></p>
-            <p><strong>Hit Dice: </strong> <em>d8</em></p>
-            <p><strong>Primary Ability: </strong> <em>Wisdom</em></p>
-            <p><strong>Saving Throws: </strong> <em>Intelligence & Wisdom</em></p>
-          </div>
-        );
-        break;
-      case "Fighter":
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong> <em>A master of martial combat, skilled with a variety of weapons and armor</em></p>
-            <p><strong>Hit Dice: </strong> <em>d10</em></p>
-            <p><strong>Primary Ability: </strong> <em>Strength or Dexterity</em></p>
-            <p><strong>Saving Throws: </strong> <em>Strength & Constitution</em></p>
-          </div>
-        );
-        break;
-      case "Monk":
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong> <em>A master of martial arts, harnessing the power of the body in pursuit of physical and spiritual perfection.</em></p>
-            <p><strong>Hit Dice: </strong> <em>d8</em></p>
-            <p><strong>Primary Ability: </strong> <em>Dexterity & Wisdom</em></p>
-            <p><strong>Saving Throws: </strong> <em>Strength & Dexterity</em></p>
-          </div>
-        );
-        break;
-      case "Paladin":
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong> <em>A holy warrior bound to a sacred oath.</em></p>
-            <p><strong>Hit Dice: </strong> <em>d10</em></p>
-            <p><strong>Primary Ability: </strong> <em>Strength & Charisma</em></p>
-            <p><strong>Saving Throws: </strong> <em>Wisdom & Charisma</em></p>
-          </div>
-        );
-        break;
-      case "Ranger":
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong> <em>A warrior who combats threats on the edges of civilization.</em></p>
-            <p><strong>Hit Dice: </strong> <em>d10</em></p>
-            <p><strong>Primary Ability: </strong> <em>Dexterity & Wisdom</em></p>
-            <p><strong>Saving Throws: </strong> <em>Strength & Dexterity</em></p>
-          </div>
-        );
-        break;
-      case "Rouge":
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong> <em>A scoundrel who uses stealth and trickery to overcome obstacles and enemies.</em></p>
-            <p><strong>Hit Dice: </strong> <em>d8</em></p>
-            <p><strong>Primary Ability: </strong> <em>Dexterity</em></p>
-            <p><strong>Saving Throws: </strong> <em>Dexterity & Intelligence</em></p>
-          </div>
-        );
-        break;
-      case "Sorcerer":
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong> <em>A spellcaster who draws on inherent magic from a gift or bloodline.</em></p>
-            <p><strong>Hit Dice: </strong> <em>d6</em></p>
-            <p><strong>Primary Ability: </strong> <em>Charisma</em></p>
-            <p><strong>Saving Throws: </strong> <em>Consitution & Charisma</em></p>
-          </div>
-        );
-        break;
-      case "Warlock":
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong> <em>A wielder of magic that is derived from a bargain with an extraplanar entity.</em></p>
-            <p><strong>Hit Dice: </strong> <em>d8</em></p>
-            <p><strong>Primary Ability: </strong> <em>Charisma</em></p>
-            <p><strong>Saving Throws: </strong> <em>Wisdom & Charisma</em></p>
-          </div>
-        );
-        break;
-      case "Wizard":
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong> <em>A scholarly magic-user capable of manipulating the structures of reality</em></p>
-            <p><strong>Hit Dice: </strong> <em>d6</em></p>
-            <p><strong>Primary Ability: </strong> <em>Intelligence</em></p>
-            <p><strong>Saving Throws: </strong> <em>Intelligence & Wisdom</em></p>
-          </div>
-        )
-        break;
-      default:
-        classInfo = (
-          <div className={classes.InfoBox}>
-            <p><strong>Class Description: </strong> <em></em></p>
-            <p><strong>Hit Dice: </strong> <em></em></p>
-            <p><strong>Primary Ability: </strong> <em></em></p>
-            <p><strong>Saving Throws: </strong> <em></em></p>
-          </div>
-        );
-    }
-
     return (
       <div>
         <h1>Character Creation Guide</h1>
@@ -940,7 +806,7 @@ class NewCharacter extends Component {
         <br />
         {raceDescription}
         <br />
-        {classInfo}
+        <ClassDisplay class={this.state.controls.characterClass.value} />
         <br />
         <BackgroundDisplay background={this.state.controls.background.value} />
         <br />
