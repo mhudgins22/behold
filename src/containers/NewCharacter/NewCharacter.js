@@ -8,6 +8,7 @@ import classes from './NewCharacter.css';
 import * as actions from '../../store/actions/index';
 import BackgroundDisplay from './BackgroundDisplay/BackgroundDisplay';
 import ClassDisplay from './ClassDisplay/ClassDisplay';
+import RaceDisplay from './RaceDisplay/RaceDisplay';
 
 class NewCharacter extends Component {
   state = {
@@ -710,91 +711,6 @@ class NewCharacter extends Component {
       </div>
     ));
 
-    //display race information in box
-    let raceDescription = "";
-
-    switch (this.state.controls.characterRace.value) {
-      case "Dragonborn":
-        raceDescription = (
-          <div className={classes.InfoBox}>
-            <p><strong>Race Description: </strong><em>Dragonborn look very much like dragons standing erect in humanoid form, though they lack wings or a tail.</em></p>
-            <p><strong>Race Traits: </strong><em>+2 Strength, +1 Charisma, Draconic Ancestry, Breath Weapon, Damage Resistance</em></p>
-          </div>
-        );
-        break;
-      case "Dwarf":
-        raceDescription = (
-          <div className={classes.InfoBox}>
-            <p><strong>Race Description: </strong><em>Bold and hardy, dwarves are known as skilled warriors, miners, and workers of stone and metal.</em></p>
-            <p><strong>Race Traits: </strong><em>+2 Constitution, Darkvision, Dwarven Resilience, Dwarven Combat Training, Stonecunning</em></p>
-          </div>
-        );
-        break;
-      case "Elf":
-        raceDescription = (
-          <div className={classes.InfoBox}>
-            <p><strong>Race Description: </strong><em>Elves are a magical people of otherworldly grace, living in the world but not entirely part of it.</em></p>
-            <p><strong>Race Traits: </strong><em>+2 Dexterity, Darkvision, Keen Senses, Fey Ancestry, Trance</em></p>
-          </div>
-        );
-        break;
-      case "Gnome":
-        raceDescription = (
-          <div className={classes.InfoBox}>
-            <p><strong>Race Description: </strong><em>A gnome’s energy and enthusiasm for living shines through every inch of his or her tiny body.</em></p>
-            <p><strong>Race Traits: </strong><em>+2 Intelligence, Darkvision, Gnome Cunning</em></p>
-          </div>
-        );
-        break;
-      case "Half-Elf":
-        raceDescription = (
-          <div className={classes.InfoBox}>
-            <p><strong>Race Description: </strong><em>Half-elves combine what some say are the best qualities of their elf and human parents.</em></p>
-            <p><strong>Race Traits: </strong><em>+2 Charisma, +1 to Two Other Ability Scores, Darkvision, Fey Ancestry, Skill Versatility</em></p>
-          </div>
-        );
-        break;
-      case "Halfling":
-        raceDescription = (
-          <div className={classes.InfoBox}>
-            <p><strong>Race Description: </strong><em>The diminutive halflings survive in a world full of larger creatures by avoiding notice or, barring that, avoiding offense.</em></p>
-            <p><strong>Race Traits: </strong><em>+2 Dexterity, Lucky, Brave, Halfling Nimbleness</em></p>
-          </div>
-        );
-        break;
-      case "Half-Orc":
-        raceDescription = (
-          <div className={classes.InfoBox}>
-            <p><strong>Race Description: </strong><em>Half-orcs’ grayish pigmentation, sloping foreheads, jutting jaws, prominent teeth, and towering builds make their orcish heritage plain for all to see.</em></p>
-            <p><strong>Race Traits: </strong><em>+2 Strength, +1 Constitution, Darkvision, Menacing, Relentless </em></p>
-          </div>
-        );
-        break;
-      case "Human":
-        raceDescription = (
-          <div className={classes.InfoBox}>
-            <p><strong>Race Description: </strong><em>Humans are the most adaptable and ambitious people among the common races. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.</em></p>
-            <p><strong>Race Traits: </strong><em>+1 to All Ability Scores, Extra Language</em></p>
-          </div>
-        );
-        break;
-      case "Tiefling":
-        raceDescription = (
-          <div className={classes.InfoBox}>
-            <p><strong>Race Description: </strong><em>To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling.</em></p>
-            <p><strong>Race Traits: </strong><em>+2 Charisma, +1 Intelligence, Darkvision, Hellish Resistance, Infernal Legacy</em></p>
-          </div>
-        );
-        break;
-      default:
-        raceDescription = (
-          <div className={classes.InfoBox}>
-            <p><strong>Race Description: </strong></p>
-            <p><strong>Race Traits: </strong></p>
-          </div>
-        )
-      }
-
     return (
       <div>
         <h1>Character Creation Guide</h1>
@@ -804,7 +720,7 @@ class NewCharacter extends Component {
         <br />
         {form}
         <br />
-        {raceDescription}
+        <RaceDisplay race={this.state.controls.characterRace.value} />
         <br />
         <ClassDisplay class={this.state.controls.characterClass.value} />
         <br />
