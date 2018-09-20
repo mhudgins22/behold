@@ -819,6 +819,9 @@ class NewCharacter extends Component {
           touched = {element.config.touched}
           shouldValidate = {null}
           changed = {(event) => this.onChangeHandler(event, element.id)}/>
+        {element.id === "characterRace" ? <RaceDisplay race={this.state.controls.characterRace.value} /> : null}
+        {element.id === "characterClass" ? <ClassDisplay class={this.state.controls.characterClass.value} /> : null}
+        {element.id === "background" ? <BackgroundDisplay background={this.state.controls.background.value} /> : null}
       </div>
     ));
 
@@ -830,13 +833,6 @@ class NewCharacter extends Component {
           We will start by defining some basic characteristics of your new character.</h3>
         <br />
         {form}
-        <br />
-        <RaceDisplay race={this.state.controls.characterRace.value} />
-        <br />
-        <ClassDisplay class={this.state.controls.characterClass.value} />
-        <br />
-        <BackgroundDisplay background={this.state.controls.background.value} />
-        <br />
         <Link to={this.props.match.url + "/Stats"}>
           <Button
             buttonType="Success"
