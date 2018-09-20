@@ -2,6 +2,8 @@ import React from "react";
 
 import Data from "./Data/Data";
 
+import classes from "./Row.css";
+
 const row = (props) => {
 	
 	let row = null;
@@ -9,7 +11,7 @@ const row = (props) => {
 	switch(props.rowType) {
 		case "head":
 			row = (
-				<th>{props.text}</th>
+				<th className = {classes.TabelHead}>{props.text}</th>
 			)
 			break;
 		case "body":

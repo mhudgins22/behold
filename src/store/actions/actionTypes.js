@@ -59,6 +59,10 @@ export const SET_UPLOAD_TYPE = "SET_UPLOAD_TYPE";
 
 export const STAGE_UPLOAD = "STAGE_UPLOAD";
 
+export const UPLOAD_IMAGE_START = "UPLOAD_IMAGE_START";
+export const UPLOAD_IMAGE_SUCCESS = "UPLOAD_IMAGE_SUCCESS";
+export const UPLOAD_IMAGE_FAIL = "UPLOAD_IMAGE_FAIL";
+
 
 //===============================================================
 //Auth Actions

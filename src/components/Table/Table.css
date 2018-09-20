@@ -1,0 +1,11 @@
+.Table {
+	border: 3px outset #a32920;
+	margin: auto;
+	background-image: url("../../assets/images/backgrounds/old-paper.jpg");
+	width: 75%;
+	text-align: left;
+}
+
+.Hidden {
+	display: none;
+}

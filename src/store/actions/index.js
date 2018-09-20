@@ -22,5 +22,6 @@ export {
 
 export {
 	setUploadType,
-	stageUpload
+	stageUpload,
+	uploadImages
 } from "./uploadActions";

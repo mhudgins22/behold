@@ -2,9 +2,7 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
 	uploadType: null,
-	stagedUploads: [
-		
-	]
+	stagedUploads: null
 }
 
 const setUploadType = (state, action) => {
@@ -15,10 +13,18 @@ const setUploadType = (state, action) => {
 }
 
 const stageUpload = (state, action) => {
-	return {
-		...state,
-		stagedUploads: state.stagedUploads.concat(action.uploadData)
+	if (state.stagedUploads === null) {
+		return {
+			...state,
+			stagedUploads: [action.uploadData]
+		}
+	} else {
+		return {
+			...state,
+			stagedUploads: state.stagedUploads.concat(action.uploadData)
+		}
 	}
+	
 }
 
 const reducer = (state = initialState, action) => {

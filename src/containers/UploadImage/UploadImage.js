@@ -26,17 +26,18 @@ class UploadImage extends Component {
 				touched: false,
 				visible: true
 			},
-			localPath: {
+			fileName: {
 				elementType: "input",
 				elementConfig: {
 					type: "file",
-					placeholder: "File Path"
 				},
 				value: "",
 				validationRules: {
-					required: true
+					required: true,
+					maxFileSize: 9999999
 				},
 				valid: false,
+				fileList: null,
 				touched: false,
 				visible: true
 			}
@@ -54,9 +55,17 @@ class UploadImage extends Component {
 					this.itemUploadPrep();
 					break;
 				default: 
-					console.log("[COMPONENT DID MOUNT] Unknown uploadType");
 					break;
 			}
+		}
+	}
+
+	componentDidUpdate = (prevprops, prevState) => {
+		if (prevState.isValid !== this.shouldValidate()) {
+			this.setState({
+				...this.state,
+				isValid: this.shouldValidate()
+			})
 		}
 	}
 
@@ -377,7 +386,8 @@ class UploadImage extends Component {
 
 	//Change values for input and textarea elements
 	onChangeHandler = (event, element) => {
-		const value = event.target.value
+		let value = event.target.value
+		let fileList = null;
 		if (element === "itemType") {
 			switch(event.target.value) {
 				case "weaponType":
@@ -399,21 +409,25 @@ class UploadImage extends Component {
 					break;
 			}
 		}
-
+		if (event.target.files) {
+			fileList = event.target.files;
+			console.log("[ONCHANGE FILE]");
+			console.log(fileList);
+		}
 		//Sets the value of input elements
 		this.setState({
+			...this.state,
 			controls: {
 				...this.state.controls,
 				[element]: {
 					...this.state.controls[element],
 					value: value,
+					fileList: fileList,
 					valid: this.checkValidity(element, value),
 					touched: true
 				},
 			},
-			isValid: this.shouldValidate()
 		});
-		this.checkValidity(element, value);
 	}
 
 
@@ -486,12 +500,25 @@ class UploadImage extends Component {
 	};
 
 	stageUploadHandler = () => {
+		//Need just file name from fileName 
+		//For Filename this slices of the substring path and only sends the files name
 		const uploadData = {
 			name: this.state.controls.imageName.value,
-			localPath: this.state.controls.localPath.value,
-			storagePath: this.props.uploadType + "/" + this.state.controls.itemType.value + "/" + this.state.controls.weaponType.value || this.state.controls.armorType.value || this.state.controls.consumableType.value + "/" + this.state.controls.localPath.value
+			catagory: this.state.controls.itemType.value,
+			type: this.state.controls.weaponType.value || this.state.controls.armorType.value || this.state.controls.consumableType.value,
+			fileName: this.state.controls.fileName.fileList[0].name,
+			fileList: this.state.controls.fileName.fileList[0],
+			localPath: this.state.controls.fileName.value,
+			storagePath: this.props.uploadType + "/" + this.state.controls.itemType.value + "/" + (this.state.controls.weaponType.value || this.state.controls.armorType.value || this.state.controls.consumableType.value) + "/" + this.state.controls.fileName.value.substring(12)
 		}
 		this.props.onStageUpload(uploadData);
+		this.stageUploadHandler();
+		console.log(this.state.controls.fileName);
+	}
+
+	UploadImageHandler = () => {
+		const imageData = this.props.stagedUploads;
+		this.props.onUploadImage(imageData, "items");
 	}
 
 	render() {
@@ -509,24 +536,36 @@ class UploadImage extends Component {
 		//Table Creation
 		let tableHeaders = [];
 		let tableData = [];
+		let buttonType = "Success";
+		if (this.state.isValid === false) {
+			buttonType = "Disabled";
+		}
 		for (let element in this.props.stagedUploads) {
 			tableData.push({
 				name: this.props.stagedUploads[element].name,
-				localPath: this.props.stagedUploads[element].localPath,
+				fileName: this.props.stagedUploads[element].fileName,
 				storagePath: this.props.stagedUploads[element].storagePath
 			});
 		}
-		for (let item in this.props.stagedUploads[0]) {
-			tableHeaders.push(item.toString());
+		if (this.props.stagedUploads) {
+			tableHeaders = ["Image Name", "File Name", "Storage Path"];
 		}
+		
 
 		
 		
 		return(
 			<div>
 				{form}
-				<Button buttonType = "Success" clicked = {this.stageUploadHandler} text = "Add File"/>
-				<Table headers = {tableHeaders} data = {tableData}/>
+				<Button 
+					disabled = {!this.state.isValid}
+					buttonType = {buttonType} 
+					clicked = {this.stageUploadHandler} 
+					text = "Add File"/>
+				<Table headers = {tableHeaders} data = {tableData} />
+				<div style = {{float: "right", margin: "5px 12.5%"}}>
+					{this.props.stagedUploads ? <Button text = "Upload Images" clicked = {this.UploadImageHandler}/> : null}
+				</div>
 			</div>
 		)
 	}
@@ -542,7 +581,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		setUploadType: (uploadType) => dispatch(actions.setUploadType(uploadType)),
-		onStageUpload: (uploadData) => dispatch(actions.stageUpload(uploadData))
+		onStageUpload: (uploadData) => dispatch(actions.stageUpload(uploadData)),
+		onUploadImage: (imageData, uploadType) => dispatch(actions.uploadImages(imageData, uploadType))
 	}
 }
 

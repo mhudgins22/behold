@@ -1242,7 +1242,6 @@ class NewItem extends Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		console.log(this.state);
 		if (prevProps.imageOptions !== this.props.imageOptions) {
 			this.setState({
 				...this.state,
@@ -1253,6 +1252,12 @@ class NewItem extends Component {
 						options: [...this.props.imageOptions]
 					}
 				}
+			})
+		}
+		if (prevState.isValid !== this.shouldValidate()) {
+			this.setState({
+				...this.state,
+				isValid: this.shouldValidate()
 			})
 		}
 	}
@@ -1336,6 +1341,7 @@ class NewItem extends Component {
 
 		//Sets the value of input elements
 		this.setState({
+			...this.state,
 			controls: {
 				...this.state.controls,
 				[element]: {
@@ -1345,12 +1351,7 @@ class NewItem extends Component {
 					touched: true
 				},
 			},
-			isValid: this.shouldValidate()
 		});
-
-		
-
-		this.checkValidity(element, value);
 	}
 
 	//Update valid state of element

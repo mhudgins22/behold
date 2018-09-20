@@ -8,7 +8,6 @@ const body = (props) => {
 
 	if (props.data) {
 		rows = props.data.map((row, i) => {
-			console.log(row);
 			return(
 				<Row
 					key = {row + i}

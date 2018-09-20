@@ -28,7 +28,6 @@ export const fetchItemImage = (imagePath) => {
 		dispatch(clearItemImage());
 		dispatch(fetchItemImageStart());
 		const storageRef = storage.ref();
-		const spaceRef = storageRef.child(imagePath);
 		storageRef.child(imagePath).getDownloadURL()
 		.then(function(url){
 			console.log(url);
