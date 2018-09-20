@@ -26,6 +26,104 @@ class NewCharacter extends Component {
         valid: false,
         touched: false
       },
+      characterLevel: {
+        elementType: "select",
+        elementConfig: {
+
+        },
+        options: [
+          {
+            value: "",
+            label: "Starting Level"
+          },
+          {
+            value: "1",
+            label: "1"
+          },
+          {
+            value: "2",
+            label: "2"
+          },
+          {
+            value: "3",
+            label: "3"
+          },
+          {
+            value: "4",
+            label: "4"
+          },
+          {
+            value: "5",
+            label: "5"
+          },
+          {
+            value: "6",
+            label: "6"
+          },
+          {
+            value: "7",
+            label: "7"
+          },
+          {
+            value: "8",
+            label: "8"
+          },
+          {
+            value: "9",
+            label: "9"
+          },
+          {
+            value: "10",
+            label: "10"
+          },
+          {
+            value: "11",
+            label: "11"
+          },
+          {
+            value: "12",
+            label: "12"
+          },
+          {
+            value: "13",
+            label: "13"
+          },
+          {
+            value: "14",
+            label: "14"
+          },
+          {
+            value: "15",
+            label: "15"
+          },
+          {
+            value: "16",
+            label: "16"
+          },
+          {
+            value: "17",
+            label: "17"
+          },
+          {
+            value: "18",
+            label: "18"
+          },
+          {
+            value: "19",
+            label: "19"
+          },
+          {
+            value: "20",
+            label: "20"
+          },
+        ],
+        value: "",
+        validation: {
+          required: true
+        },
+        valid: false,
+        touched: false
+      },
       characterRace: {
         elementType: "select",
         elementConfig: {
@@ -237,12 +335,25 @@ class NewCharacter extends Component {
   onChangeHandler = (event, element) => {
 
     console.log(event.target.value);
+
     if (element === "characterName") {
       this.setState({
         controls: {
           ...this.state.controls,
           characterName: {
             ...this.state.controls.characterName,
+            value: event.target.value
+          }
+        }
+      });
+    }
+
+    if (element === "characterLevel") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          characterLevel: {
+            ...this.state.controls.characterLevel,
             value: event.target.value
           }
         }
@@ -708,6 +819,9 @@ class NewCharacter extends Component {
           touched = {element.config.touched}
           shouldValidate = {null}
           changed = {(event) => this.onChangeHandler(event, element.id)}/>
+        {element.id === "characterRace" ? <RaceDisplay race={this.state.controls.characterRace.value} /> : null}
+        {element.id === "characterClass" ? <ClassDisplay class={this.state.controls.characterClass.value} /> : null}
+        {element.id === "background" ? <BackgroundDisplay background={this.state.controls.background.value} /> : null}
       </div>
     ));
 
@@ -719,13 +833,6 @@ class NewCharacter extends Component {
           We will start by defining some basic characteristics of your new character.</h3>
         <br />
         {form}
-        <br />
-        <RaceDisplay race={this.state.controls.characterRace.value} />
-        <br />
-        <ClassDisplay class={this.state.controls.characterClass.value} />
-        <br />
-        <BackgroundDisplay background={this.state.controls.background.value} />
-        <br />
         <Link to={this.props.match.url + "/Stats"}>
           <Button
             buttonType="Success"
