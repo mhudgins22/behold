@@ -1,7 +1,5 @@
 import React from 'react';
 
-import classes from '../NewCharacter.css';
-
 const RaceDisplay = (props) => {
   let description = "";
   let traits = "";
@@ -46,7 +44,8 @@ const RaceDisplay = (props) => {
   };
 
   return (
-    <div className={classes.InfoBox}>
+    <div>
+      <hr />
       <p><strong>Race Description: </strong><em>{description}</em></p>
       <p><strong>Race Traits: </strong><em>{traits}</em></p>
     </div>

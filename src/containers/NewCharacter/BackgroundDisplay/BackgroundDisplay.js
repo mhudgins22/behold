@@ -1,7 +1,5 @@
 import React from 'react';
 
-import classes from '../NewCharacter.css';
-
 const BackgroundDisplay = (props) => {
   let description = "";
   let skillProficiencies = "";
@@ -127,7 +125,8 @@ const BackgroundDisplay = (props) => {
 
 
   return (
-    <div className={classes.InfoBox}>
+    <div>
+      <hr />
       <p><strong>Background Description: </strong></p>
       <p>
         <em>{description}</em>

@@ -806,8 +806,13 @@ class NewCharacter extends Component {
 
     let form = formElements.map(element => (
       <div
-        className={classes.Input}
+        className={classes.InfoBox}
         key = {element.id}>
+        {element.id === "characterName" ? <h4>Character Name:</h4> : null}
+        {element.id === "characterLevel" ? <h4>Starting Level:</h4> : null}
+        {element.id === "characterRace" ? <h4>Character Race:</h4> : null}
+        {element.id === "characterClass" ? <h4>Character Class:</h4> : null}
+        {element.id === "background" ? <h4>Character Background:</h4> : null}
         <Input
           elementType = {element.config.elementType}
           elementConfig = {element.config.elementConfig}

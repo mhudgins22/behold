@@ -1,10 +1,8 @@
-.Input {
-  display: block;
-}
-
 .InfoBox {
   border: 1px solid black;
   margin: 0 10px;
+  display: block;
+  margin-bottom: 15px;
 }
 
 .InfoBox p {

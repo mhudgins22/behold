@@ -1,7 +1,5 @@
 import React from 'react';
 
-import classes from '../NewCharacter.css';
-
 const ClassDisplay = (props) => {
   let description = "";
   let hitDice = "";
@@ -84,7 +82,8 @@ const ClassDisplay = (props) => {
   }
 
   return (
-    <div className={classes.InfoBox}>
+    <div>
+      <hr />
       <p><strong>Class Description: </strong> <em>{description}</em></p>
       <p><strong>Hit Dice: </strong> <em>{hitDice}</em></p>
       <p><strong>Primary Ability: </strong> <em>{primaryAbility}</em></p>
