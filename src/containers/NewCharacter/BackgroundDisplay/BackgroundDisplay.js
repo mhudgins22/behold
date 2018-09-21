@@ -132,7 +132,7 @@ const BackgroundDisplay = (props) => {
         <em>{description}</em>
       </p>
       <p><strong>Skill Proficiencies: </strong> <em>{skillProficiencies}</em></p>
-      <p><strong>Toll Proficiencies: </strong> <em>{toolProficiencies}</em></p>
+      <p><strong>Tool Proficiencies: </strong> <em>{toolProficiencies}</em></p>
       <p><strong>Languages: </strong> <em>{languages}</em></p>
       <p><strong>Equipment: </strong> <em>{equipment}</em></p>
     </div>

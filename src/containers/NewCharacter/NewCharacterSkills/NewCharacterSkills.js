@@ -112,7 +112,7 @@ class NewCharacterSkills extends Component {
           }
         }
       },
-      proficienyBonus: 0
+      proficienyBonus: 3
     }
   };
 
@@ -480,6 +480,7 @@ class NewCharacterSkills extends Component {
           name={element.config.name}
           value={element.config.value}
           proficient={element.config.proficient}
+          proficiencyBonus={this.state.controls.proficienyBonus}
           changed = {(event) => this.onChangeHandler(event, element.id)}/>
       </div>
     ));
