@@ -117,7 +117,7 @@ class NewCharacter extends Component {
             label: "20"
           },
         ],
-        value: "",
+        value: 1,
         validation: {
           required: true
         },
@@ -171,7 +171,7 @@ class NewCharacter extends Component {
             label: "Tiefling"
           }
         ],
-        value: "",
+        value: 1,
         validationRules: {
 					required: true
 				},
@@ -786,6 +786,7 @@ class NewCharacter extends Component {
     //event.preventDefault();
     let basicCharacterData = {
       name: this.state.controls.characterName.value,
+      level: this.state.controls.characterLevel.value,
       race: this.state.controls.characterRace.value,
       charClass: this.state.controls.characterClass.value,
       background: this.state.controls.background.value
@@ -851,7 +852,8 @@ class NewCharacter extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    class: state.char.basicCharacterData.characterClass
+    class: state.char.basicCharacterData.characterClass,
+    level: state.char.basicCharacterData.characterLevel
   };
 };
 

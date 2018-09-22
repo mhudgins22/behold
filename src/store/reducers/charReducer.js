@@ -4,6 +4,7 @@ import { updateObject } from '../utility';
 const initialState = {
   basicCharacterData: {
     characterName: "",
+    characterLevel: 1,
     characterRace: "",
     characterClass: "",
     background: ""
@@ -26,6 +27,7 @@ const postCharacterBasicsSuccess = (state, action) => {
 		loading: false,
     basicCharacterData: {
       characterName: action.charData.name,
+      characterLevel: action.charData.level,
       characterRace: action.charData.race,
       characterClass: action.charData.charClass,
       background: action.charData.background

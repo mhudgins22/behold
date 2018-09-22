@@ -15,7 +15,7 @@ class NewCharacterSkills extends Component {
           athletics: {
             name: "Athletics",
             value: 0,
-            proficient: false
+            proficient: false,
           }
         },
         dexteritySkills: {
@@ -112,11 +112,9 @@ class NewCharacterSkills extends Component {
           }
         }
       },
-      proficienyBonus: 3
     }
   };
 
-  //Will refactor later
   onChangeHandler = (event, element) => {
     //change strength proficiencies
     if (element === "athletics") {
@@ -474,13 +472,28 @@ class NewCharacterSkills extends Component {
       });
     }
 
+    let proficiencyBonus = 0;
+    if (this.props.level <= 4) {
+      proficiencyBonus = 2;
+    } else if (this.props.level > 4 && this.props.level <= 8) {
+      proficiencyBonus = 3;
+    } else if (this.props.level > 8 && this.props.level <= 12) {
+      proficiencyBonus = 4;
+    } else if (this.props.level > 12 && this.props.level <= 16) {
+      proficiencyBonus = 5;
+    } else if (this.props.level > 16 && this.props.level <= 20) {
+      proficiencyBonus = 6;
+    } else {
+      proficiencyBonus = 2;
+    }
+
     let skillsForm = skillsArray.map(element => (
       <div key = {element.id}>
         <SkillCard
           name={element.config.name}
           value={element.config.value}
           proficient={element.config.proficient}
-          proficiencyBonus={this.state.controls.proficienyBonus}
+          proficiencyBonus={proficiencyBonus}
           changed = {(event) => this.onChangeHandler(event, element.id)}/>
       </div>
     ));
@@ -496,4 +509,10 @@ class NewCharacterSkills extends Component {
   }
 }
 
-export default NewCharacterSkills;
+const mapStateToProps = (state) => {
+  return {
+    level: state.char.basicCharacterData.characterLevel
+  };
+};
+
+export default connect(mapStateToProps, null)(NewCharacterSkills);
