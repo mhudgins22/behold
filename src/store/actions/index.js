@@ -11,8 +11,9 @@ export {
 } from "./itemActions";
 
 export {
-	updateCharacterBasics,
-	updateCharacterStats,
+	saveCharacterBasics,
+	saveCharacterStats,
+	saveCharacterSkills,
 	rollCharacterStats
 } from "./charActions";
 

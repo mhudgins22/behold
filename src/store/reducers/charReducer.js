@@ -17,10 +17,30 @@ const initialState = {
     intelligenceScore: 0,
     wisdomScore: 0,
     charismaScore: 0
+  },
+  playerSkills: {
+    athletics: 0,
+    acrobatics: 0,
+    slightOfHand: 0,
+    stealth: 0,
+    arcana: 0,
+    history: 0,
+    investigation: 0,
+    nature: 0,
+    religion: 0,
+    animalHandling: 0,
+    insight: 0,
+    medicine: 0,
+    perception: 0,
+    survival: 0,
+    deception: 0,
+    intimidation: 0,
+    performance: 0,
+    persuasion: 0
   }
 };
 
-const updateCharacterBasics = (state, action) => {
+const saveCharacterBasics = (state, action) => {
   return {
     ...state,
     basicCharacterData: {
@@ -33,7 +53,7 @@ const updateCharacterBasics = (state, action) => {
   };
 };
 
-const updateCharacterStats = (state, action) => {
+const saveCharacterStats = (state, action) => {
   return {
     ...state,
     playerStats: {
@@ -43,6 +63,32 @@ const updateCharacterStats = (state, action) => {
       intelligenceScore: action.charStats.intelligence,
       wisdomScore: action.charStats.wisdom,
       charismaScore: action.charStats.charisma
+    }
+  };
+};
+
+const saveCharacterSkills = (state, action) => {
+  return {
+    ...state,
+    playerSkills: {
+      athletics: action.charSkills.athletics,
+      acrobatics: action.charSkills.acrobatics,
+      slightOfHand: action.charSkills.slightOfHand,
+      stealth: action.charSkills.stealth,
+      arcana: action.charSkills.arcana,
+      history: action.charSkills.history,
+      investigation: action.charSkills.investigation,
+      nature: action.charSkills.nature,
+      religion: action.charSkills.religion,
+      animalHandling: action.charSkills.animalHandling,
+      insight: action.charSkills.insight,
+      medicine: action.charSkills.medicine,
+      perception: action.charSkills.perception,
+      survival: action.charSkills.survival,
+      deception: action.charSkills.deception,
+      intimidation: action.charSkills.intimidation,
+      performance: action.charSkills.performance,
+      persuasion: action.charSkills.persuasion
     }
   };
 };
@@ -71,8 +117,9 @@ const rollCharacterStats = (state, action) => {
 
 const charReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.UPDATE_CHARACTER_BASICS: return updateCharacterBasics(state, action);
-    case actionTypes.UPDATE_CHARACTER_STATS: return updateCharacterStats(state, action);
+    case actionTypes.SAVE_CHARACTER_BASICS: return saveCharacterBasics(state, action);
+    case actionTypes.SAVE_CHARACTER_STATS: return saveCharacterStats(state, action);
+    case actionTypes.SAVE_CHARACTER_SKILLS: return saveCharacterSkills(state, action);
     case actionTypes.ROLL_CHARACTER_STATS: return rollCharacterStats(state, action);
     default: return state;
   };

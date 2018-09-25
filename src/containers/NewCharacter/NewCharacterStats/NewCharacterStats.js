@@ -696,7 +696,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSaveStats: (characterStats) => dispatch(actions.updateCharacterStats(characterStats)),
+    onSaveStats: (characterStats) => dispatch(actions.saveCharacterStats(characterStats)),
     onRollStats: () => dispatch(actions.rollCharacterStats())
   };
 };

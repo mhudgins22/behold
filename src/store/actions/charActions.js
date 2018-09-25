@@ -1,17 +1,24 @@
 import * as actionTypes from './actionTypes';
 import axios from "../../axios";
 
-export const updateCharacterBasics = (characterData) => {
+export const saveCharacterBasics = (characterData) => {
 	return {
-		type: actionTypes.UPDATE_CHARACTER_BASICS,
+		type: actionTypes.SAVE_CHARACTER_BASICS,
     charData: characterData
 	};
 };
 
-export const updateCharacterStats = (characterStats) => {
+export const saveCharacterStats = (characterStats) => {
   return {
-    type: actionTypes.UPDATE_CHARACTER_STATS,
+    type: actionTypes.SAVE_CHARACTER_STATS,
     charStats: characterStats
+  };
+};
+
+export const saveCharacterSkills = (characterSkills) => {
+  return {
+    type: actionTypes.SAVE_CHARACTER_SKILLS,
+    charSkills: characterSkills
   };
 };
 

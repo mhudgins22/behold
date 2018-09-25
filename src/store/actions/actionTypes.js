@@ -43,9 +43,9 @@ export const CLEAR_ITEM_PREVIEW = "CLEAR_ITEM_PREVIEW"
 
 //==============================================================
 //Character Page Actions
-export const UPDATE_CHARACTER_BASICS = "UPDATE_CHARACTER_BASICS";
-
-export const UPDATE_CHARACTER_STATS = "UPDATE_CHARACTER_STATS";
+export const SAVE_CHARACTER_BASICS = "SAVE_CHARACTER_BASICS";
+export const SAVE_CHARACTER_STATS = "SAVE_CHARACTER_STATS";
+export const SAVE_CHARACTER_SKILLS = "SAVE_CHARACTER_SKILLS";
 
 export const ROLL_CHARACTER_STATS = "ROLL_CHARACTER_STATS";
 

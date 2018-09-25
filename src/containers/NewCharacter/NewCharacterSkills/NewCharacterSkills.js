@@ -133,11 +133,8 @@ class NewCharacterSkills extends Component {
     let intelligenceMod = this.determineMod(this.props.intelligence);
     let wisdomMod = this.determineMod(this.props.wisdom);
     let charismaMod = this.determineMod(this.props.charisma);
-    console.log("global str type: " + typeof this.props.strength);
-    console.log("str mod test: " + this.determineMod(this.props.strength));
 
-    //athletics
-    this.setState((state, props) => ({
+    this.setState({
       controls: {
         ...this.state.controls,
         skills: {
@@ -231,7 +228,7 @@ class NewCharacterSkills extends Component {
           }
         }
       }
-    }));
+    });
   }
 
   onChangeHandler = (event, element) => {
@@ -552,6 +549,31 @@ class NewCharacterSkills extends Component {
     }
   }
 
+  onSaveCharacterSkills = (event) => {
+    let characterSkills = {
+      athletics: this.state.controls.skills.strengthSkills.athletics.value,
+      acrobatics: this.state.controls.skills.dexteritySkills.acrobatics.value,
+      slightOfHand: this.state.controls.skills.dexteritySkills.slightOfHand.value,
+      stealth: this.state.controls.skills.dexteritySkills.stealth.value,
+      arcana: this.state.controls.skills.intelligenceSkills.arcana.value,
+      history: this.state.controls.skills.intelligenceSkills.history.value,
+      investigation: this.state.controls.skills.intelligenceSkills.investigation.value,
+      nature: this.state.controls.skills.intelligenceSkills.nature.value,
+      religion: this.state.controls.skills.intelligenceSkills.religion.value,
+      animalHandling: this.state.controls.skills.wisdomSkills.animalHandling.value,
+      insight: this.state.controls.skills.wisdomSkills.insight.value,
+      medicine: this.state.controls.skills.wisdomSkills.medicine.value,
+      perception: this.state.controls.skills.wisdomSkills.perception.value,
+      survival: this.state.controls.skills.wisdomSkills.survival.value,
+      deception: this.state.controls.skills.charismaSkills.deception.value,
+      intimidation: this.state.controls.skills.charismaSkills.intimidation.value,
+      performance: this.state.controls.skills.charismaSkills.performance.value,
+      persuasion: this.state.controls.skills.charismaSkills.persuasion.value
+    };
+    console.log(characterSkills);
+    this.props.onSaveSkills(characterSkills);
+  }
+
   render() {
     const directions = (
       <h3>Use this page to determine the skills and proficiencies for your character. To begin, check the box below for each skill that you are profiient in.</h3>
@@ -608,6 +630,10 @@ class NewCharacterSkills extends Component {
         <h1>Skills & Proficiencies</h1>
         {directions}
         {skillsForm}
+        <Button
+          buttonType="Success"
+          clicked={this.onSaveCharacterSkills}
+          text="Save and Continue" />
       </div>
     )
   }
@@ -624,4 +650,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(NewCharacterSkills);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSaveSkills: (characterSkills) => dispatch(actions.saveCharacterSkills(characterSkills))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewCharacterSkills);
