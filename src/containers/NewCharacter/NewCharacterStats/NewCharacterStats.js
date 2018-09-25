@@ -19,75 +19,75 @@ class NewCharacterStats extends Component {
           },
           options: [
             {
-              value: "",
+              value: null,
               label: "Strength"
             },
             {
-              value: "3",
+              value: 3,
               label: "3"
             },
             {
-              value: "4",
+              value: 4,
               label: "4"
             },
             {
-              value: "5",
+              value: 5,
               label: "5"
             },
             {
-              value: "6",
+              value: 6,
               label: "6"
             },
             {
-              value: "7",
+              value: 7,
               label: "7"
             },
             {
-              value: "8",
+              value: 8,
               label: "8"
             },
             {
-              value: "9",
+              value: 9,
               label: "9"
             },
             {
-              value: "10",
+              value: 10,
               label: "10"
             },
             {
-              value: "11",
+              value: 11,
               label: "11"
             },
             {
-              value: "12",
+              value: 12,
               label: "12"
             },
             {
-              value: "13",
+              value: 13,
               label: "13"
             },
             {
-              value: "14",
+              value: 14,
               label: "14"
             },
             {
-              value: "15",
+              value: 15,
               label: "15"
             },
             {
-              value: "16",
+              value: 16,
               label: "16"
             },
             {
-              value: "17",
+              value: 17,
               label: "17"
             },
             {
-              value: "18",
+              value: 18,
               label: "18"
             }
           ],
-          value: "",
+          value: 0,
           validation: {
             required: true
           },
@@ -101,75 +101,75 @@ class NewCharacterStats extends Component {
           },
           options: [
             {
-              value: "",
+              value: null,
               label: "Dexterity"
             },
             {
-              value: "3",
+              value: 3,
               label: "3"
             },
             {
-              value: "4",
+              value: 4,
               label: "4"
             },
             {
-              value: "5",
+              value: 5,
               label: "5"
             },
             {
-              value: "6",
+              value: 6,
               label: "6"
             },
             {
-              value: "7",
+              value: 7,
               label: "7"
             },
             {
-              value: "8",
+              value: 8,
               label: "8"
             },
             {
-              value: "9",
+              value: 9,
               label: "9"
             },
             {
-              value: "10",
+              value: 10,
               label: "10"
             },
             {
-              value: "11",
+              value: 11,
               label: "11"
             },
             {
-              value: "12",
+              value: 12,
               label: "12"
             },
             {
-              value: "13",
+              value: 13,
               label: "13"
             },
             {
-              value: "14",
+              value: 14,
               label: "14"
             },
             {
-              value: "15",
+              value: 15,
               label: "15"
             },
             {
-              value: "16",
+              value: 16,
               label: "16"
             },
             {
-              value: "17",
+              value: 17,
               label: "17"
             },
             {
-              value: "18",
+              value: 18,
               label: "18"
             }
           ],
-          value: "",
+          value: 0,
           validation: {
             required: true
           },
@@ -183,75 +183,75 @@ class NewCharacterStats extends Component {
           },
           options: [
             {
-              value: "",
+              value: null,
               label: "Constitution"
             },
             {
-              value: "3",
+              value: 3,
               label: "3"
             },
             {
-              value: "4",
+              value: 4,
               label: "4"
             },
             {
-              value: "5",
+              value: 5,
               label: "5"
             },
             {
-              value: "6",
+              value: 6,
               label: "6"
             },
             {
-              value: "7",
+              value: 7,
               label: "7"
             },
             {
-              value: "8",
+              value: 8,
               label: "8"
             },
             {
-              value: "9",
+              value: 9,
               label: "9"
             },
             {
-              value: "10",
+              value: 10,
               label: "10"
             },
             {
-              value: "11",
+              value: 11,
               label: "11"
             },
             {
-              value: "12",
+              value: 12,
               label: "12"
             },
             {
-              value: "13",
+              value: 13,
               label: "13"
             },
             {
-              value: "14",
+              value: 14,
               label: "14"
             },
             {
-              value: "15",
+              value: 15,
               label: "15"
             },
             {
-              value: "16",
+              value: 16,
               label: "16"
             },
             {
-              value: "17",
+              value: 17,
               label: "17"
             },
             {
-              value: "18",
+              value: 18,
               label: "18"
             }
           ],
-          value: "",
+          value: 0,
           validation: {
             required: true
           },
@@ -265,75 +265,75 @@ class NewCharacterStats extends Component {
           },
           options: [
             {
-              value: "",
+              value: null,
               label: "Intelligence"
             },
             {
-              value: "3",
+              value: 3,
               label: "3"
             },
             {
-              value: "4",
+              value: 4,
               label: "4"
             },
             {
-              value: "5",
+              value: 5,
               label: "5"
             },
             {
-              value: "6",
+              value: 6,
               label: "6"
             },
             {
-              value: "7",
+              value: 7,
               label: "7"
             },
             {
-              value: "8",
+              value: 8,
               label: "8"
             },
             {
-              value: "9",
+              value: 9,
               label: "9"
             },
             {
-              value: "10",
+              value: 10,
               label: "10"
             },
             {
-              value: "11",
+              value: 11,
               label: "11"
             },
             {
-              value: "12",
+              value: 12,
               label: "12"
             },
             {
-              value: "13",
+              value: 13,
               label: "13"
             },
             {
-              value: "14",
+              value: 14,
               label: "14"
             },
             {
-              value: "15",
+              value: 15,
               label: "15"
             },
             {
-              value: "16",
+              value: 16,
               label: "16"
             },
             {
-              value: "17",
+              value: 17,
               label: "17"
             },
             {
-              value: "18",
+              value: 18,
               label: "18"
             }
           ],
-          value: "",
+          value: 0,
           validation: {
             required: true
           },
@@ -347,75 +347,75 @@ class NewCharacterStats extends Component {
           },
           options: [
             {
-              value: "",
+              value: null,
               label: "Charisma"
             },
             {
-              value: "3",
+              value: 3,
               label: "3"
             },
             {
-              value: "4",
+              value: 4,
               label: "4"
             },
             {
-              value: "5",
+              value: 5,
               label: "5"
             },
             {
-              value: "6",
+              value: 6,
               label: "6"
             },
             {
-              value: "7",
+              value: 7,
               label: "7"
             },
             {
-              value: "8",
+              value: 8,
               label: "8"
             },
             {
-              value: "9",
+              value: 9,
               label: "9"
             },
             {
-              value: "10",
+              value: 10,
               label: "10"
             },
             {
-              value: "11",
+              value: 11,
               label: "11"
             },
             {
-              value: "12",
+              value: 12,
               label: "12"
             },
             {
-              value: "13",
+              value: 13,
               label: "13"
             },
             {
-              value: "14",
+              value: 14,
               label: "14"
             },
             {
-              value: "15",
+              value: 15,
               label: "15"
             },
             {
-              value: "16",
+              value: 16,
               label: "16"
             },
             {
-              value: "17",
+              value: 17,
               label: "17"
             },
             {
-              value: "18",
+              value: 18,
               label: "18"
             }
           ],
-          value: "",
+          value: 0,
           validation: {
             required: true
           },
@@ -429,75 +429,75 @@ class NewCharacterStats extends Component {
           },
           options: [
             {
-              value: "",
+              value: null,
               label: "Wisdom"
             },
             {
-              value: "3",
+              value: 3,
               label: "3"
             },
             {
-              value: "4",
+              value: 4,
               label: "4"
             },
             {
-              value: "5",
+              value: 5,
               label: "5"
             },
             {
-              value: "6",
+              value: 6,
               label: "6"
             },
             {
-              value: "7",
+              value: 7,
               label: "7"
             },
             {
-              value: "8",
+              value: 8,
               label: "8"
             },
             {
-              value: "9",
+              value: 9,
               label: "9"
             },
             {
-              value: "10",
+              value: 10,
               label: "10"
             },
             {
-              value: "11",
+              value: 11,
               label: "11"
             },
             {
-              value: "12",
+              value: 12,
               label: "12"
             },
             {
-              value: "13",
+              value: 13,
               label: "13"
             },
             {
-              value: "14",
+              value: 14,
               label: "14"
             },
             {
-              value: "15",
+              value: 15,
               label: "15"
             },
             {
-              value: "16",
+              value: 16,
               label: "16"
             },
             {
-              value: "17",
+              value: 17,
               label: "17"
             },
             {
-              value: "18",
+              value: 18,
               label: "18"
             }
           ],
-          value: "",
+          value: 0,
           validation: {
             required: true
           },
@@ -517,15 +517,104 @@ class NewCharacterStats extends Component {
     return statDisplay;
   }
 
+  onChangeHandler = (event, element) => {
+    if (element === "strength") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          attributes: {
+            ...this.state.controls.attributes,
+            strength: {
+              ...this.state.controls.attributes.strength,
+              value: event.target.value
+            }
+          }
+        }
+      });
+    }
+    if (element === "dexterity") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          attributes: {
+            ...this.state.controls.attributes,
+            dexterity: {
+              ...this.state.controls.attributes.dexterity,
+              value: event.target.value
+            }
+          }
+        }
+      });
+    }
+    if (element === "constitution") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          attributes: {
+            ...this.state.controls.attributes,
+            constitution: {
+              ...this.state.controls.attributes.constitution,
+              value: event.target.value
+            }
+          }
+        }
+      });
+    }
+    if (element === "intelligence") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          attributes: {
+            ...this.state.controls.attributes,
+            intelligence: {
+              ...this.state.controls.attributes.intelligence,
+              value: event.target.value
+            }
+          }
+        }
+      });
+    }
+    if (element === "charisma") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          attributes: {
+            ...this.state.controls.attributes,
+            charisma: {
+              ...this.state.controls.attributes.charisma,
+              value: event.target.value
+            }
+          }
+        }
+      });
+    }
+    if (element === "wisdom") {
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          attributes: {
+            ...this.state.controls.attributes,
+            wisdom: {
+              ...this.state.controls.attributes.wisdom,
+              value: event.target.value
+            }
+          }
+        }
+      });
+    }
+
+  }
+
+
   onSaveCharacterStats = (event) => {
     let characterStats = {
-      strength: this.state.controls.attributes.strength,
-      dexterity: this.state.controls.attributes.dexterity,
-      constitution: this.state.controls.attributes.constitution,
-      intelligence: this.state.controls.attributes.intelligence,
-      charisma: this.state.controls.attributes.charisma,
-      wisdom: this.state.controls.attributes.wisdom
-    }
+      strength: this.state.controls.attributes.strength.value,
+      dexterity: this.state.controls.attributes.dexterity.value,
+      constitution: this.state.controls.attributes.constitution.value,
+      intelligence: this.state.controls.attributes.intelligence.value,
+      charisma: this.state.controls.attributes.charisma.value,
+      wisdom: this.state.controls.attributes.wisdom.value
+    };
     this.props.onSaveStats(characterStats);
   }
 
@@ -569,7 +658,7 @@ class NewCharacterStats extends Component {
           valid = {element.config.valid}
           touched = {element.config.touched}
           shouldValidate = {null}
-          changed = {null}/>
+          changed = {(event) => this.onChangeHandler(event, element.id)}/>
       </div>
     ));
 
@@ -601,7 +690,7 @@ const mapStateToProps = (state) => {
   return {
     stats: state.char.rolledStats,
     class: state.char.basicCharacterData.characterClass,
-    race: state.char.basicCharacterData.characterRace
+    race: state.char.basicCharacterData.characterRace,
   };
 };
 

@@ -10,7 +10,15 @@ const initialState = {
     background: ""
   },
   rolledStats: [],
-  loading: false
+  loading: false,
+  playerStats: {
+    strengthScore: 0,
+    dexterityScore: 0,
+    constitutionScore: 0,
+    intelligenceScore: 0,
+    wisdomScore: 0,
+    charismaScore: 0
+  }
 };
 
 //Post character basics
@@ -22,7 +30,7 @@ const postCharacterBasicsStart = (state, action) => {
 };
 
 const postCharacterBasicsSuccess = (state, action) => {
-	return {
+  return {
 		...state,
 		loading: false,
     basicCharacterData: {
@@ -33,6 +41,7 @@ const postCharacterBasicsSuccess = (state, action) => {
       background: action.charData.background
     }
 	};
+
 };
 
 const postCharacterBasicsFail = (state, action) => {
@@ -54,7 +63,15 @@ const postCharacterStatsStart = (state, action) => {
 const postCharacterStatsSuccess = (state, action) => {
   return {
     ...state,
-    loading: false,
+		loading: false,
+    playerStats: {
+      strengthScore: action.charStats.strength,
+      dexterityScore: action.charStats.dexterity,
+      constitutionScore: action.charStats.constitution,
+      intelligenceScore: action.charStats.intelligence,
+      wisdomScore: action.charStats.wisdom,
+      charismaScore: action.charStats.charisma
+    }
   };
 };
 

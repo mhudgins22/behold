@@ -117,7 +117,7 @@ class NewCharacter extends Component {
             label: "20"
           },
         ],
-        value: 1,
+        value: "",
         validation: {
           required: true
         },
@@ -790,7 +790,7 @@ class NewCharacter extends Component {
       race: this.state.controls.characterRace.value,
       charClass: this.state.controls.characterClass.value,
       background: this.state.controls.background.value
-    }
+    };
     this.props.onSaveBasics(basicCharacterData);
   }
 

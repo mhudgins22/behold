@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SkillCard = (props) => {
-  let skillValue = 0;
   let proficiencyBonus = 0;
   if (props.level <= 4) {
     proficiencyBonus = 2;
@@ -16,6 +15,8 @@ const SkillCard = (props) => {
   } else {
     proficiencyBonus = 2;
   }
+
+  let skillValue = 0;
 
   if (props.proficient) {
     skillValue = props.value + proficiencyBonus;

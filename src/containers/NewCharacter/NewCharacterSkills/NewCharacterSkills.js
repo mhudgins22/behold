@@ -115,6 +115,329 @@ class NewCharacterSkills extends Component {
     }
   };
 
+  //Setting skill values based on attribute modifiers (received from global state)
+  determineMod = (score) => {
+    let mod = (score % 2) - 5;
+    return mod;
+  };
+
+  componentWillMount () {
+    console.log("Global state strength: " + this.props.strength);
+    console.log("Global state player level: " +this.props.level);
+    console.log("Global state loading: " +this.props.loading);
+    let strengthMod = this.determineMod(this.props.strength);
+    let dexterityMod = this.determineMod(this.props.dexterity);
+    let intelligenceMod = this.determineMod(this.props.intelligence);
+    let wisdomMod = this.determineMod(this.props.wisdom);
+    let charismaMod = this.determineMod(this.props.charisma);
+
+    //athletics
+    this.setState({
+      controls: {
+        ...this.state.controls,
+        skills: {
+          ...this.state.controls.skills,
+          strengthSkills: {
+            ...this.state.controls.skills.strengthSkills,
+            athletics: {
+              ...this.state.controls.skills.strengthSkills.athletics,
+              value: strengthMod
+            }
+          }
+        }
+      }
+    });
+
+    //acrobatics
+    this.setState({
+      controls: {
+        ...this.state.controls,
+        skills: {
+          ...this.state.controls.skills,
+          dexteritySkills: {
+            ...this.state.controls.skills.dexteritySkills,
+            acrobatics: {
+              ...this.state.controls.skills.dexteritySkills.acrobatics,
+              value: dexterityMod
+            }
+          }
+        }
+      }
+    });
+
+    //slight of hand
+    this.setState({
+      controls: {
+        ...this.state.controls,
+        skills: {
+          ...this.state.controls.skills,
+          dexteritySkills: {
+            ...this.state.controls.skills.dexteritySkills,
+            slightOfHand: {
+              ...this.state.controls.skills.dexteritySkills.slightOfHand,
+              value: dexterityMod
+            }
+          }
+        }
+      }
+    });
+
+    //stealth
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            dexteritySkills: {
+              ...this.state.controls.skills.dexteritySkills,
+              stealth: {
+                ...this.state.controls.skills.dexteritySkills.stealth,
+                value: dexterityMod
+              }
+            }
+          }
+        }
+      });
+
+      //arcana
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            intelligenceSkills: {
+              ...this.state.controls.skills.intelligenceSkills,
+              arcana: {
+                ...this.state.controls.skills.intelligenceSkills.arcana,
+                value: intelligenceMod
+              }
+            }
+          }
+        }
+      });
+
+      //history
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            intelligenceSkills: {
+              ...this.state.controls.skills.intelligenceSkills,
+              history: {
+                ...this.state.controls.skills.intelligenceSkills.history,
+                value: intelligenceMod
+              }
+            }
+          }
+        }
+      });
+
+      //investigation
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            intelligenceSkills: {
+              ...this.state.controls.skills.intelligenceSkills,
+              investigation: {
+                ...this.state.controls.skills.intelligenceSkills.investigation,
+                value: intelligenceMod
+              }
+            }
+          }
+        }
+      });
+
+      //nature
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            intelligenceSkills: {
+              ...this.state.controls.skills.intelligenceSkills,
+              nature: {
+                ...this.state.controls.skills.intelligenceSkills.nature,
+                value: intelligenceMod
+              }
+            }
+          }
+        }
+      });
+
+      //religion
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            intelligenceSkills: {
+              ...this.state.controls.skills.intelligenceSkills,
+              religion: {
+                ...this.state.controls.skills.intelligenceSkills.religion,
+                value: intelligenceMod
+              }
+            }
+          }
+        }
+      });
+
+      //animal handling
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            wisdomSkills: {
+              ...this.state.controls.skills.wisdomSkills,
+              animalHandling: {
+                ...this.state.controls.skills.wisdomSkills.animalHandling,
+                value: wisdomMod
+              }
+            }
+          }
+        }
+      });
+
+      //insight
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            wisdomSkills: {
+              ...this.state.controls.skills.wisdomSkills,
+              insight: {
+                ...this.state.controls.skills.wisdomSkills.insight,
+                value: wisdomMod
+              }
+            }
+          }
+        }
+      });
+
+      //medicine
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            wisdomSkills: {
+              ...this.state.controls.skills.wisdomSkills,
+              medicine: {
+                ...this.state.controls.skills.wisdomSkills.medicine,
+                value: wisdomMod
+              }
+            }
+          }
+        }
+      });
+
+      //perception
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            wisdomSkills: {
+              ...this.state.controls.skills.wisdomSkills,
+              perception: {
+                ...this.state.controls.skills.wisdomSkills.perception,
+                value: wisdomMod
+              }
+            }
+          }
+        }
+      });
+
+      //survival
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            wisdomSkills: {
+              ...this.state.controls.skills.wisdomSkills,
+              survival: {
+                ...this.state.controls.skills.wisdomSkills.survival,
+                value: wisdomMod
+              }
+            }
+          }
+        }
+      });
+
+      //deception
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            charismaSkills: {
+              ...this.state.controls.skills.charismaSkills,
+              deception: {
+                ...this.state.controls.skills.charismaSkills.deception,
+                value: charismaMod
+              }
+            }
+          }
+        }
+      });
+
+      //intimidation
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            charismaSkills: {
+              ...this.state.controls.skills.charismaSkills,
+              intimidation: {
+                ...this.state.controls.skills.charismaSkills.intimidation,
+                value: charismaMod
+              }
+            }
+          }
+        }
+      });
+
+      //performance
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            charismaSkills: {
+              ...this.state.controls.skills.charismaSkills,
+              performance: {
+                ...this.state.controls.skills.charismaSkills.performance,
+                value: charismaMod
+              }
+            }
+          }
+        }
+      });
+
+      //persuasion
+      this.setState({
+        controls: {
+          ...this.state.controls,
+          skills: {
+            ...this.state.controls.skills,
+            charismaSkills: {
+              ...this.state.controls.skills.charismaSkills,
+              persuasion: {
+                ...this.state.controls.skills.charismaSkills.persuasion,
+                value: charismaMod
+              }
+            }
+          }
+        }
+      });
+  }
+
   onChangeHandler = (event, element) => {
     //change strength proficiencies
     if (element === "athletics") {
@@ -431,7 +754,6 @@ class NewCharacterSkills extends Component {
         }
       });
     }
-
   }
 
   render() {
@@ -440,6 +762,7 @@ class NewCharacterSkills extends Component {
     );
 
     let skillsArray = [];
+
     //there has to be a better way of doing this part, will refactor this code
     for (let element in this.state.controls.skills.strengthSkills) {
       skillsArray.push({
@@ -473,7 +796,7 @@ class NewCharacterSkills extends Component {
     }
 
     let skillsForm = skillsArray.map(element => (
-      <div key = {element.id}>
+      <div key={element.id}>
         <SkillCard
           name={element.config.name}
           value={element.config.value}
@@ -496,7 +819,13 @@ class NewCharacterSkills extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    level: state.char.basicCharacterData.characterLevel
+    level: state.char.basicCharacterData.characterLevel,
+    loading: state.char.loading,
+    strength: state.char.playerStats.strengthScore,
+    dexterity: state.char.playerStats.dexterityScore,
+    intelligence: state.char.playerStats.intelligenceScore,
+    wisdom: state.char.playerStats.wisdomScore,
+    charisma: state.char.playerStats.charismaScore
   };
 };
 

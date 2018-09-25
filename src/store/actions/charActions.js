@@ -27,7 +27,6 @@ export const postCharacterBasics = (basicCharacterData) => {
 		dispatch(postCharacterBasicsStart());
 		axios.post("/characters/custom.json", basicCharacterData)
 		.then (response => {
-      console.log(response.data);
 			dispatch(postCharacterBasicsSuccess(response.data.name, basicCharacterData));
 		})
 		.catch(err => {
@@ -38,19 +37,21 @@ export const postCharacterBasics = (basicCharacterData) => {
 
 export const postCharacterStatsStart = () => {
   return {
-    type: actionTypes.POST_CHARACTER_BASICS_START
+    type: actionTypes.POST_CHARACTER_STATS_START
   };
 };
 
-export const postCharacterStatsSuccess = () => {
+export const postCharacterStatsSuccess = (id, characterStats) => {
   return {
-    type: actionTypes.POST_CHARACTER_BASICS_SUCCESS
+    type: actionTypes.POST_CHARACTER_STATS_SUCCESS,
+    id: id,
+    charStats: characterStats
   };
 };
 
 export const postCharacterStatsFail = (error) => {
   return {
-    type: actionTypes.POST_CHARACTER_BASICS_START,
+    type: actionTypes.POST_CHARACTER_STATS_FAIL,
     error: error
   };
 };
@@ -60,10 +61,10 @@ export const postCharacterStats = (characterStats) => {
     dispatch(postCharacterStatsStart());
     axios.post("/characters/custom/stats.json", characterStats)
       .then(response => {
-        dispatch(postCharacterStatsSuccess());
+        dispatch(postCharacterStatsSuccess(response.data.name, characterStats));
       })
       .catch(err => {
-        dispatch(postCharacterStatsFail(err))
+        dispatch(postCharacterStatsFail(err));
       });
   };
 };
