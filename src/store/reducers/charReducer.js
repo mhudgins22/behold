@@ -10,7 +10,6 @@ const initialState = {
     background: ""
   },
   rolledStats: [],
-  loading: false,
   playerStats: {
     strengthScore: 0,
     dexterityScore: 0,
@@ -21,18 +20,9 @@ const initialState = {
   }
 };
 
-//Post character basics
-const postCharacterBasicsStart = (state, action) => {
-	return {
-		...state,
-		loading: true,
-	};
-};
-
-const postCharacterBasicsSuccess = (state, action) => {
+const updateCharacterBasics = (state, action) => {
   return {
-		...state,
-		loading: false,
+    ...state,
     basicCharacterData: {
       characterName: action.charData.name,
       characterLevel: action.charData.level,
@@ -40,30 +30,12 @@ const postCharacterBasicsSuccess = (state, action) => {
       characterClass: action.charData.charClass,
       background: action.charData.background
     }
-	};
-
-};
-
-const postCharacterBasicsFail = (state, action) => {
-	return {
-		...state,
-		loading: false,
-		error: action.error
-	};
-};
-
-//Post character stats
-const postCharacterStatsStart = (state, action) => {
-  return {
-    ...state,
-    loading: true
   };
 };
 
-const postCharacterStatsSuccess = (state, action) => {
+const updateCharacterStats = (state, action) => {
   return {
     ...state,
-		loading: false,
     playerStats: {
       strengthScore: action.charStats.strength,
       dexterityScore: action.charStats.dexterity,
@@ -72,14 +44,6 @@ const postCharacterStatsSuccess = (state, action) => {
       wisdomScore: action.charStats.wisdom,
       charismaScore: action.charStats.charisma
     }
-  };
-};
-
-const postCharacterStatsFail = (state, action) => {
-  return {
-    ...state,
-    loading: false,
-    error: action.error
   };
 };
 
@@ -107,12 +71,8 @@ const rollCharacterStats = (state, action) => {
 
 const charReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.POST_CHARACTER_BASICS_START: return postCharacterBasicsStart(state, action);
-    case actionTypes.POST_CHARACTER_BASICS_SUCCESS: return postCharacterBasicsSuccess(state, action);
-    case actionTypes.POST_CHARACTER_BASICS_FAIL: return postCharacterBasicsFail(state, action);
-    case actionTypes.POST_CHARACTER_STATS_START: return postCharacterStatsStart(state, action);
-    case actionTypes.POST_CHARACTER_STATS_SUCCESS: return postCharacterStatsSuccess(state, action);
-    case actionTypes.POST_CHARACTER_STATS_FAIL: return postCharacterStatsFail(state, action);
+    case actionTypes.UPDATE_CHARACTER_BASICS: return updateCharacterBasics(state, action);
+    case actionTypes.UPDATE_CHARACTER_STATS: return updateCharacterStats(state, action);
     case actionTypes.ROLL_CHARACTER_STATS: return rollCharacterStats(state, action);
     default: return state;
   };

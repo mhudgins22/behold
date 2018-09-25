@@ -11,8 +11,8 @@ export {
 } from "./itemActions";
 
 export {
-	postCharacterBasics,
-	postCharacterStats,
+	updateCharacterBasics,
+	updateCharacterStats,
 	rollCharacterStats
 } from "./charActions";
 
