@@ -8,6 +8,7 @@ import Card from "../../components/Card/Card";
 import ListItem from "../../components/ListItem/ListItem";
 import Button from "../../components/UI/Button/Button";
 import Spinner from "../../components/UI/Spinner/Spinner";
+import Filter from "../Filter/Filter";
 
 import * as actions from "../../store/actions/index";
 
@@ -19,6 +20,7 @@ class ItemsPage extends Component {
 		baseTab: "ActiveTab",
 		customTab: "Tab",
 		showCard: false,
+		showFilter: false
 	}
 
 	componentDidMount() {
@@ -184,6 +186,7 @@ class ItemsPage extends Component {
 		
 		return(
 			<div className = {classes.Page}>
+				<Filter />
 				<div className = {classes.Header}>
 					<h1>Items To Create and Use</h1>
 					<Link onClick = {() => this.props.setUploadType("items")} style = {{textDecoration: "none", color: "black"}} to = {this.props.match.url + "/Upload"}>

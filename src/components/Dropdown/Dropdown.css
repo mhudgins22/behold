@@ -1,0 +1,18 @@
+.Dropdown {
+	width: 100%;
+	background-color: #d3e4ff;
+	position: relative;
+	z-index: 100;
+}
+
+.Collapsed {
+	height: 15px;
+}
+
+.Expanded {
+	height: 80px;
+}
+
+.Toggle:hover {
+	cursor: pointer;
+}

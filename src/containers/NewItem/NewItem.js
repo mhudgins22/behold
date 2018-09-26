@@ -1124,6 +1124,13 @@ class NewItem extends Component {
 		isValid: false,
 	}
 
+	componentWillMount() {
+		console.log(this.props);
+		if (this.props.match.path == "/Create/Items/Edit/:id" && this.props.itemPreview.name === "") {
+			this.props.history.push("/Create/Items/NewItem");
+		}
+	}
+
 	componentDidMount() {
 		//I'm lazy so populates the number of dice with nums 1-100 for damage dice
 
@@ -1251,7 +1258,8 @@ class NewItem extends Component {
 					...this.state.controls,
 					itemImage: {
 						...this.state.controls.itemImage,
-						options: [...this.props.imageOptions]
+						options: [...this.props.imageOptions],
+						value: this.props.itemPreview.imagePath
 					}
 				}
 			})
