@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import * as actions from "../../store/actions/index";
 
 import classes from "./Filter.css";
 
@@ -22,17 +23,17 @@ class Filter extends Component {
 			...this.state,
 			isValid: false,
 			controls: {
-				imageName: {
+				itemName: {
 					elementType: "input",
 					elementConfig: {
 						type: "input",
-						placeholder: "Image Name"
+						placeholder: "Item Name"
 					},
 					value: "",
 					validationRules: {
-						required: true
+						required: false
 					},
-					valid: false,
+					valid: true,
 					touched: false,
 					visible: true
 				},
@@ -44,23 +45,27 @@ class Filter extends Component {
 					},
 					options: [
 						{
-							value: "weaponType",
+							value: "",
+							label: "None"
+						},
+						{
+							value: "Weapon",
 							label: "Weapon",
 						},
 						{
-							value: "armorType",
+							value: "Armor",
 							label: "Armor",
 						},
 						{
-							value: "consumableType",
+							value: "Consumable",
 							label: "Consumable",
 						},
 						{
-							value: "otherType",
+							value: "Other",
 							label: "Other"
 						}
 					],
-					value: "weaponType",
+					value: "",
 					validationRules: {
 					
 					},
@@ -368,22 +373,22 @@ class Filter extends Component {
 		let value = event.target.value
 		if (element === "itemType") {
 			switch(event.target.value) {
-				case "weaponType":
+				case "Weapon":
 					//FIX SETSTATE ISSUE BY ONLY HAVING ONE SETSTATE FOR FUNCTION
 					//Handles visiblity for form options
 					this.onVisibilityHandler(["weaponType"], true);
-					this.onVisibilityHandler(["armorType", "consumableType"], false);
+					this.onVisibilityHandler(["armorType", "consumableType", "otherType"], false);
 					break;
-				case "armorType":
+				case "Armor":
 					this.onVisibilityHandler(["armorType"], true);
-					this.onVisibilityHandler(["weaponType", "consumableType"], false)
+					this.onVisibilityHandler(["weaponType", "consumableType", "otherType"], false)
 					break;
-				case "consumableType":
+				case "Consumable":
 					//adjust visibility of item types
 					this.onVisibilityHandler(["consumableType"], true);
-					this.onVisibilityHandler(["weaponType", "armorType"], false);
+					this.onVisibilityHandler(["weaponType", "armorType", "otherType"], false);
 					break;
-				case "otherType":
+				case "Other":
 					this.onVisibilityHandler(["otherType"], true);
 					this.onVisibilityHandler(['weaponType', "armorType", "consumableType"], false);
 				default:
@@ -475,10 +480,27 @@ class Filter extends Component {
 		})
 	}
 
+	setFilterHandler = () => {
+		let filter = {
+			name: this.state.controls.itemName.value,
+			catagory: this.state.controls.itemType.value,
+			type: this.state.controls.weaponType.value || this.state.controls.armorType.value || this.state.controls.consumableType.value || this.state.controls.otherType.value,
+		};
+		if (filter.name === "" && filter.catagory === "" && filter.type === "") {
+			filter = null;
+		}
+		this.props.onSetItemFilter(filter);
+	}
+
+	clearFilterHandler = () => {
+		this.props.onClearItemFilter();
+	}
+
 	render() {
 		
 		let formElements = [];
-		let form = null
+		let form = null;
+		let button = null;
 		for (let element in this.state.controls) {
 			formElements.push({
 				id: element,
@@ -486,13 +508,33 @@ class Filter extends Component {
 			});
 		}
 		form = this.mapElements(formElements);
-
+		form.push(<Button text = "Apply Filter" clicked = {this.setFilterHandler}/>)
+		
+		if (this.props.filter) {
+			button = (
+				<Button buttonType = "Filter" text = "Clear Filter" clicked = {this.clearFilterHandler} />
+			)
+		}
+		
 		return(
 			<div>
-				<Dropdown form = {form} view = {this.state.showFilter} clicked = {this.toggleFilterHandler}/>
+				<Dropdown form = {form} view = {this.state.showFilter} clicked = {this.toggleFilterHandler} filter = {button}/>
 			</div>
 		)
 	}
 }
 
-export default Filter
+const mapStateToProps = state => {
+	return{
+		filter: state.items.filter
+	}
+}
+
+const mapDispatchToProps = dispatch => {
+	return {
+		onSetItemFilter: (filter) => dispatch(actions.setItemFilter(filter)),
+		onClearItemFilter: () => dispatch(actions.clearItemFilter())
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filter)

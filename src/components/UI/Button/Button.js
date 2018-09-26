@@ -37,6 +37,10 @@ const button = (props) => {
 		names.push(classes.Disabled)
 	}
 
+	if (props.buttonType === "Filter") {
+		names.push(classes.Filter)
+	}
+
 	return (
 		<button className = {names.join(" ")} onClick = {props.clicked} disabled = {props.disabled}>{props.text}</button>
 	)

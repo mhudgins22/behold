@@ -414,16 +414,16 @@ class UploadImage extends Component {
 					//FIX SETSTATE ISSUE BY ONLY HAVING ONE SETSTATE FOR FUNCTION
 					//Handles visiblity for form options
 					this.onVisibilityHandler(["weaponType"], true);
-					this.onVisibilityHandler(["armorType", "consumableType"], false);
+					this.onVisibilityHandler(["armorType", "consumableType", "otherType"], false);
 					break;
 				case "armorType":
 					this.onVisibilityHandler(["armorType"], true);
-					this.onVisibilityHandler(["weaponType", "consumableType"], false)
+					this.onVisibilityHandler(["weaponType", "consumableType", "otherType"], false)
 					break;
 				case "consumableType":
 					//adjust visibility of item types
 					this.onVisibilityHandler(["consumableType"], true);
-					this.onVisibilityHandler(["weaponType", "armorType"], false);
+					this.onVisibilityHandler(["weaponType", "armorType", "otherType"], false);
 					break;
 				case "otherType":
 					this.onVisibilityHandler(["otherType"], true);

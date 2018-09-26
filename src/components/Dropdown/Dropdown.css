@@ -2,7 +2,7 @@
 	width: 100%;
 	background-color: #d3e4ff;
 	position: relative;
-	z-index: 100;
+	z-index: 50;
 }
 
 .Collapsed {

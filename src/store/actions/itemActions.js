@@ -218,6 +218,22 @@ export const fetchItemList = () => {
 	}
 }
 
+//===========================================================
+//Action to clear item filter
+export const clearItemFilter = () => {
+	return {
+		type: actionTypes.CLEAR_ITEM_FILTER
+	}
+}
+
+//Action to set item filter
+export const setItemFilter = (filter) => {
+	return {
+		type: actionTypes.SET_ITEM_FILTER,
+		filter: filter
+	}
+}
+
 
 
 //========================================================

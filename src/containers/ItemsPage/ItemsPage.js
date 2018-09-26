@@ -44,18 +44,52 @@ class ItemsPage extends Component {
 	makeListHandler = (items) => {
 		return (
 			items.map(item => {
-				return(
-					<ListItem 
-						key = {item.id}
-						listType = "item"
-						name = {item.name}
-						rarity = {item.rarity}
-						properties = {item.properties}
-						type = {item.type}
-						clicked = {() => this.onPreviewHandler(item)}/>
-				)
+				if (this.props.filter) {
+					if (this.filterItemHandler(item, this.props.filter) === false) {
+						return (
+							<ListItem 
+								key = {item.id}
+								listType = "item"
+								name = {item.name}
+								rarity = {item.rarity}
+								properties = {item.properties}
+								type = {item.type}
+								clicked = {() => this.onPreviewHandler(item)}/>
+						)
+					}
+				} else {
+					return(
+						<ListItem 
+							key = {item.id}
+							listType = "item"
+							name = {item.name}
+							rarity = {item.rarity}
+							properties = {item.properties}
+							type = {item.type}
+							clicked = {() => this.onPreviewHandler(item)}/>
+					)
+				}
 			})
 		)
+	}
+
+	filterItemHandler = (item, filter) => {
+		if (filter.name) {
+			if (filter.name !== item.name) {
+				return true;
+			}
+		}
+		if (filter.catagory) {
+			if(filter.catagory !== item.catagory) {
+				return true;
+			}
+		}
+		if (filter.type) {
+			if(filter.type !== item.type) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	render() {
@@ -231,7 +265,8 @@ const mapStateToProps = state => {
 		baseList: state.items.baseList,
 		itemPreview: state.items.itemPreview,
 		image: state.items.image,
-		loading: state.items.loading
+		loading: state.items.loading,
+		filter: state.items.filter
 	}
 }
 

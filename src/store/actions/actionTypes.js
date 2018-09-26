@@ -39,7 +39,11 @@ export const FETCH_ITEM_PATHS_SUCCESS = "FETCH_ITEM_PATHS_SUCCESS";
 
 //Item preview actions
 export const PREVIEW_ITEM_CARD = "PREVIEW_ITEM_CARD";
-export const CLEAR_ITEM_PREVIEW = "CLEAR_ITEM_PREVIEW"
+export const CLEAR_ITEM_PREVIEW = "CLEAR_ITEM_PREVIEW";
+
+//Item Filter Actions
+export const SET_ITEM_FILTER = "SET_ITEM_FILTER";
+export const CLEAR_ITEM_FILTER = "CLEAR_ITEM_FILTER";
 
 //==============================================================
 //Character Page Actions

@@ -7,7 +7,9 @@ export {
 	fetchItemImage,
 	clearItemImage,
 	previewItemCard,
-	clearItemPreview
+	clearItemPreview,
+	setItemFilter,
+	clearItemFilter
 } from "./itemActions";
 
 export {

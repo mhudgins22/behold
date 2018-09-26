@@ -54,7 +54,8 @@ const initialState = {
 	},
 	loading: false,
 	error: null,
-	image: ""
+	image: "",
+	filter: null
 }
 
 
@@ -227,6 +228,23 @@ const clearItemPreview = (state, action) => {
 	}
 }
 
+//=============================================================================
+//Clears item filter
+const clearitemFilter = (state, action) => {
+	return {
+		...state,
+		filter: null
+	}
+}
+
+//Sets Item filter
+const setItemFilter = (state, action) => {
+	return {
+		...state,
+		filter: action.filter
+	}
+}
+
 const reducer = (state = initialState, action) => {
 	switch(action.type) {
 		//Post item cases
@@ -247,7 +265,9 @@ const reducer = (state = initialState, action) => {
 		//Adjust preview cases
 		case actionTypes.PREVIEW_ITEM_CARD: return previewItemCard(state, action);
 		case actionTypes.CLEAR_ITEM_PREVIEW: return clearItemPreview(state, action);
-		
+		//Set/Clear Filters
+		case actionTypes.CLEAR_ITEM_FILTER: return clearitemFilter(state, action);
+		case actionTypes.SET_ITEM_FILTER: return setItemFilter(state, action);
 		default: return state;
 	}
 }

@@ -23,8 +23,9 @@ const dropdown = (props) => {
 			<div>
 				<FontAwesomeIcon className = {classes.Toggle} onClick = {props.clicked} icon = "arrow-up" />
 				Hide Filter
-				{props.form}
+				{props.filter}
 				<br/>
+				{props.form}
 			</div>
 		)
 	}
