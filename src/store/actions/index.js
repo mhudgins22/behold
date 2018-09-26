@@ -23,5 +23,6 @@ export {
 export {
 	setUploadType,
 	stageUpload,
+	clearStagedUploads,
 	uploadImages
 } from "./uploadActions";

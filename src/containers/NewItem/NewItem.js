@@ -1142,6 +1142,8 @@ class NewItem extends Component {
 				case "Consumable":
 					this.props.fetchItemPaths("consumableType", this.props.itemPreview.type);
 					break;
+				case "Other":
+					this.props.fetchItemPaths("otherType", "other");
 				default: break;
 			}
 		}
@@ -1298,6 +1300,7 @@ class NewItem extends Component {
 					this.onVisibilityHandler(["otherType"], true);
 					this.onVisibilityHandler(["weaponType", "armorType", "consumableType", "armorClass", "armorClassBonus", "numberOfDamageDiceOne", "numberOfDamageDiceTwo", "numberOfDamageDiceThree", "damageDieOne", "damageDieTwo", "damageDieThree", "damageBonusOne", "damageBonusTwo", "damageBonusThree", "damageTypeOne", "damageTypeTwo", "damageTypeThree", "numberOfHealingDice", "healingDie", "healingBonus"], false);
 					this.onCheckboxHandler([], ["damageCheckBox", "armorClassCheckBox", "healingCheckBox"]);
+					this.props.fetchItemPaths("otherType", "other");
 					break;
 				default:
 					break;
@@ -1332,7 +1335,6 @@ class NewItem extends Component {
 		}
 		if ((element === "weaponType" || element === "armorType" || element === "consumableType") && value != "") {
 			this.props.fetchItemPaths(element, value);
-
 		}
 
 		if (element === "itemImage") {

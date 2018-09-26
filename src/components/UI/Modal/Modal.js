@@ -13,16 +13,16 @@ const modal = (props) => {
 			</div>
 			<div className = {classes.Controls}>
 				<div className = {classes.Option}>
-					<Button 
+					{props.buttonOneText ? <Button 
 						buttonType = {props.buttonOneType}
 						text = {props.buttonOneText}
-						clicked = {props.buttonOneClicked}/>
+						clicked = {props.buttonOneClicked}/> : null}
 				</div>
 				<div className = {classes.Option}>
-					<Button
+					{props.buttonTwoText ? <Button
 						buttonType = {props.buttonTwoType}
 						text = {props.buttonTwoText}
-						clicked = {props.buttonTwoClicked}/>
+						clicked = {props.buttonTwoClicked}/> : null}
 				</div>
 			</div>
 		</div>

@@ -1,9 +1,13 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import {Link} from "react-router-dom";
 import * as actions from "../../store/actions/index";
 
 import Input from "../../components/UI/Input/Input";
 import Button from "../../components/UI/Button/Button";
+import Modal from "../../components/UI/Modal/Modal";
+import Backdrop from "../../components/UI/Modal/Modal";
+import Spinner from "../../components/UI/Spinner/Spinner";
 import Table from "../../components/Table/Table";
 
 import classes from "./UploadImage.css";
@@ -11,38 +15,7 @@ import classes from "./UploadImage.css";
 class UploadImage extends Component {
 	
 	state = {
-		controls: {
-			imageName: {
-				elementType: "input",
-				elementConfig: {
-					type: "input",
-					placeholder: "Image Name"
-				},
-				value: "",
-				validationRules: {
-					required: true
-				},
-				valid: false,
-				touched: false,
-				visible: true
-			},
-			fileName: {
-				elementType: "input",
-				elementConfig: {
-					type: "file",
-				},
-				value: "",
-				validationRules: {
-					required: true,
-					maxFileSize: 9999999
-				},
-				valid: false,
-				fileList: null,
-				touched: false,
-				visible: true
-			}
-		},
-		isValid: false
+		showModal: false
 	}
 
 	componentDidMount() {
@@ -67,11 +40,12 @@ class UploadImage extends Component {
 				isValid: this.shouldValidate()
 			})
 		}
+		
 	}
 
 	itemUploadPrep = () => {
 		this.setState({
-			...this.state,
+			isValid: false,
 			controls: {
 				itemType: {
 					elementType: "radio",
@@ -92,6 +66,10 @@ class UploadImage extends Component {
 							value: "consumableType",
 							label: "Consumable",
 						},
+						{
+							value: "otherType",
+							label: "Other"
+						}
 					],
 					value: "weaponType",
 					validationRules: {
@@ -379,7 +357,49 @@ class UploadImage extends Component {
 					touched: false,
 					visible: false
 				},
-				...this.state.controls
+				otherType: {
+					elementType: "input",
+					elementConfig: {
+						type: "input",
+						placeholder: "Item Type"
+					},
+					value: "",
+					validationRules: {
+						required: false
+					},
+					valid: true,
+					touched: false,
+					visible: false
+				},
+				imageName: {
+					elementType: "input",
+					elementConfig: {
+						type: "input",
+						placeholder: "Image Name"
+					},
+					value: "",
+					validationRules: {
+						required: true
+					},
+					valid: false,
+					touched: false,
+					visible: true
+				},
+				fileName: {
+					elementType: "input",
+					elementConfig: {
+						type: "file",
+					},
+					value: "",
+					validationRules: {
+						required: true,
+						maxFileSize: 9999999
+					},
+					valid: false,
+					fileList: null,
+					touched: false,
+					visible: true
+				}
 			}
 		})
 	}
@@ -405,14 +425,15 @@ class UploadImage extends Component {
 					this.onVisibilityHandler(["consumableType"], true);
 					this.onVisibilityHandler(["weaponType", "armorType"], false);
 					break;
+				case "otherType":
+					this.onVisibilityHandler(["otherType"], true);
+					this.onVisibilityHandler(['weaponType', "armorType", "consumableType"], false);
 				default:
 					break;
 			}
 		}
 		if (event.target.files) {
 			fileList = event.target.files;
-			console.log("[ONCHANGE FILE]");
-			console.log(fileList);
 		}
 		//Sets the value of input elements
 		this.setState({
@@ -478,7 +499,7 @@ class UploadImage extends Component {
 		this.state = updatedState;
 	}
 
-
+	//Maps state to input Elements
 	mapElements = (elements) => {
 		return elements.map((element, i) => {
 			if (element.config.visible) {
@@ -499,26 +520,38 @@ class UploadImage extends Component {
 		});
 	};
 
+	//Stores what images and where to upload them to in redux state
 	stageUploadHandler = () => {
 		//Need just file name from fileName 
 		//For Filename this slices of the substring path and only sends the files name
-		const uploadData = {
+		let uploadData = {
 			name: this.state.controls.imageName.value,
 			catagory: this.state.controls.itemType.value,
-			type: this.state.controls.weaponType.value || this.state.controls.armorType.value || this.state.controls.consumableType.value,
+			type: this.state.controls.weaponType.value || this.state.controls.armorType.value || this.state.controls.consumableType.value || "other",
 			fileName: this.state.controls.fileName.fileList[0].name,
 			fileList: this.state.controls.fileName.fileList[0],
 			localPath: this.state.controls.fileName.value,
-			storagePath: this.props.uploadType + "/" + this.state.controls.itemType.value + "/" + (this.state.controls.weaponType.value || this.state.controls.armorType.value || this.state.controls.consumableType.value) + "/" + this.state.controls.fileName.value.substring(12)
+			storagePath: this.props.uploadType + "/" + this.state.controls.itemType.value + "/" + (this.state.controls.weaponType.value || this.state.controls.armorType.value || this.state.controls.consumableType.value || "other") + "/" + this.state.controls.fileName.fileList[0].name
 		}
 		this.props.onStageUpload(uploadData);
-		this.stageUploadHandler();
+		this.itemUploadPrep();
 		console.log(this.state.controls.fileName);
 	}
 
+	//Uploads images to backend on click
 	UploadImageHandler = () => {
 		const imageData = this.props.stagedUploads;
 		this.props.onUploadImage(imageData, "items");
+		this.props.onClearStagedUploads();
+		this.setState({
+			...this.state,
+			showModal: true
+		});
+	}
+
+	//Clears staged uploads when link back to items is clicked
+	onClickHandler = () => {
+		this.props.onClearStagedUploads();
 	}
 
 	render() {
@@ -547,25 +580,50 @@ class UploadImage extends Component {
 				storagePath: this.props.stagedUploads[element].storagePath
 			});
 		}
-		if (this.props.stagedUploads) {
+		if (this.props.uploadType === "items") {
 			tableHeaders = ["Image Name", "File Name", "Storage Path"];
 		}
 		
-
+		//Modal Rendering
+		let modal = null;
+		let backdrop = null;
+		if (this.state.showModal) {
+			backdrop = <Backdrop />
+			if (this.props.loading) {
+				modal = <Modal text = {<Spinner />}/>
+			} else {
+				modal = <Modal text = "Images Successfully Uploaded" buttonOneType = "Success" buttonOneText = "Back to Uploads" buttonOneClicked = {() => this.setState({...this.state, showModal: false})}/>
+			}
+		}
 		
 		
 		return(
 			<div>
-				{form}
-				<Button 
-					disabled = {!this.state.isValid}
-					buttonType = {buttonType} 
-					clicked = {this.stageUploadHandler} 
-					text = "Add File"/>
+				<div style = {{textAlign: "center"}}>
+					{backdrop}
+					{modal}
+					{form}
+					<Button 
+						disabled = {!this.state.isValid}
+						buttonType = {buttonType} 
+						clicked = {this.stageUploadHandler} 
+						text = "Add File"/>
+				</div>
 				<Table headers = {tableHeaders} data = {tableData} />
 				<div style = {{float: "right", margin: "5px 12.5%"}}>
 					{this.props.stagedUploads ? <Button text = "Upload Images" clicked = {this.UploadImageHandler}/> : null}
 				</div>
+				<Link 
+					style = {{
+						textDecoration: "underline", 
+						color: "black", 
+						margin: "0 20px", 
+						textAlign: "center"
+					}} 
+					to = "/Create/Items"
+					onClick = {() => this.onClickHandler()}>
+						<h4>Back To Item List</h4>
+				</Link>
 			</div>
 		)
 	}
@@ -582,6 +640,7 @@ const mapDispatchToProps = dispatch => {
 	return {
 		setUploadType: (uploadType) => dispatch(actions.setUploadType(uploadType)),
 		onStageUpload: (uploadData) => dispatch(actions.stageUpload(uploadData)),
+		onClearStagedUploads: () => dispatch(actions.clearStagedUploads()),
 		onUploadImage: (imageData, uploadType) => dispatch(actions.uploadImages(imageData, uploadType))
 	}
 }

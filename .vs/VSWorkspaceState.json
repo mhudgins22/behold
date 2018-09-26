@@ -4,13 +4,14 @@
     "\\src",
     "\\src\\assets",
     "\\src\\assets\\itemLists",
-    "\\src\\components",
-    "\\src\\components\\Card",
-    "\\src\\components\\UI",
     "\\src\\containers",
+    "\\src\\containers\\NewCharacter",
+    "\\src\\containers\\NewCharacter\\NewCharacterSkills",
+    "\\src\\containers\\NewCharacter\\NewCharacterStats",
+    "\\src\\store",
     "\\src\\store\\actions",
     "\\src\\store\\reducers"
   ],
-  "SelectedNode": "\\src\\containers\\Layout",
+  "SelectedNode": "\\src\\store\\reducers\\charReducer.js",
   "PreviewInSolutionExplorer": false
 }

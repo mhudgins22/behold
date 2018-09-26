@@ -23,7 +23,9 @@ class ItemsPage extends Component {
 
 	componentDidMount() {
 		this.props.clearPreviewHandler();
-		this.props.fetchItemListHandler();
+		if (!this.props.customList || !this.props.baseList){
+			this.props.fetchItemListHandler();
+		}
 	}
 
 	onPreviewHandler = (data) => {

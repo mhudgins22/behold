@@ -16,6 +16,12 @@ export const stageUpload = (uploadData) => {
 	}
 }
 
+export const clearStagedUploads = () => {
+	return {
+		type: actionTypes.CLEAR_STAGED_UPLOADS
+	}
+}
+
 //Actions for uploading image to stroage and image path to database
 
 export const uploadImageStart = () => {
@@ -30,15 +36,17 @@ export const uploadImageSuccess = () => {
 	}
 }
 
-export const uploadImageFail = () => {
+export const uploadImageFail = (error) => {
 	return {
-		type: actionTypes.UPLOAD_IMAGE_FAIL
+		type: actionTypes.UPLOAD_IMAGE_FAIL,
+		error: error
 	}
 }
 
 export const uploadImages = (imageData, uploadType) => {
 	//Be sure for inputs with type = "file" to pass in the file list as this.state.controls.inputName.fileList[0] to properly look at the listed image
 	return dispatch => {
+		dispatch(uploadImageStart());
 		for (let image in imageData) {
 			if (uploadType === "items") {
 				axios.post("/items/imagePath/" + imageData[image].catagory + "/" + imageData[image].type + ".json", {name: imageData[image].name, path: imageData[image].storagePath});
@@ -48,9 +56,13 @@ export const uploadImages = (imageData, uploadType) => {
 				const file = imageData[image].fileList
 				imagePathRef.put(file).then(function(snapshot) {
 					console.log('[UPLOAD_IMAGE_SUCCESS] Image Uploaded to Storage');
+				})
+				.catch(err => {
+					console.log(err)
+					dispatch(uploadImageFail(err));
 				});
-			}
-			
+			}	
 		}
+		dispatch(uploadImageSuccess());
 	}
 }
