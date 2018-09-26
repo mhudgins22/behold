@@ -10,7 +10,6 @@ const initialState = {
     background: ""
   },
   rolledStats: [],
-  loading: false,
   playerStats: {
     strengthScore: 0,
     dexterityScore: 0,
@@ -18,21 +17,32 @@ const initialState = {
     intelligenceScore: 0,
     wisdomScore: 0,
     charismaScore: 0
+  },
+  playerSkills: {
+    athletics: 0,
+    acrobatics: 0,
+    slightOfHand: 0,
+    stealth: 0,
+    arcana: 0,
+    history: 0,
+    investigation: 0,
+    nature: 0,
+    religion: 0,
+    animalHandling: 0,
+    insight: 0,
+    medicine: 0,
+    perception: 0,
+    survival: 0,
+    deception: 0,
+    intimidation: 0,
+    performance: 0,
+    persuasion: 0
   }
 };
 
-//Post character basics
-const postCharacterBasicsStart = (state, action) => {
-	return {
-		...state,
-		loading: true,
-	};
-};
-
-const postCharacterBasicsSuccess = (state, action) => {
+const saveCharacterBasics = (state, action) => {
   return {
-		...state,
-		loading: false,
+    ...state,
     basicCharacterData: {
       characterName: action.charData.name,
       characterLevel: action.charData.level,
@@ -40,30 +50,12 @@ const postCharacterBasicsSuccess = (state, action) => {
       characterClass: action.charData.charClass,
       background: action.charData.background
     }
-	};
-
-};
-
-const postCharacterBasicsFail = (state, action) => {
-	return {
-		...state,
-		loading: false,
-		error: action.error
-	};
-};
-
-//Post character stats
-const postCharacterStatsStart = (state, action) => {
-  return {
-    ...state,
-    loading: true
   };
 };
 
-const postCharacterStatsSuccess = (state, action) => {
+const saveCharacterStats = (state, action) => {
   return {
     ...state,
-		loading: false,
     playerStats: {
       strengthScore: action.charStats.strength,
       dexterityScore: action.charStats.dexterity,
@@ -75,11 +67,29 @@ const postCharacterStatsSuccess = (state, action) => {
   };
 };
 
-const postCharacterStatsFail = (state, action) => {
+const saveCharacterSkills = (state, action) => {
   return {
     ...state,
-    loading: false,
-    error: action.error
+    playerSkills: {
+      athletics: action.charSkills.athletics,
+      acrobatics: action.charSkills.acrobatics,
+      slightOfHand: action.charSkills.slightOfHand,
+      stealth: action.charSkills.stealth,
+      arcana: action.charSkills.arcana,
+      history: action.charSkills.history,
+      investigation: action.charSkills.investigation,
+      nature: action.charSkills.nature,
+      religion: action.charSkills.religion,
+      animalHandling: action.charSkills.animalHandling,
+      insight: action.charSkills.insight,
+      medicine: action.charSkills.medicine,
+      perception: action.charSkills.perception,
+      survival: action.charSkills.survival,
+      deception: action.charSkills.deception,
+      intimidation: action.charSkills.intimidation,
+      performance: action.charSkills.performance,
+      persuasion: action.charSkills.persuasion
+    }
   };
 };
 
@@ -107,12 +117,9 @@ const rollCharacterStats = (state, action) => {
 
 const charReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.POST_CHARACTER_BASICS_START: return postCharacterBasicsStart(state, action);
-    case actionTypes.POST_CHARACTER_BASICS_SUCCESS: return postCharacterBasicsSuccess(state, action);
-    case actionTypes.POST_CHARACTER_BASICS_FAIL: return postCharacterBasicsFail(state, action);
-    case actionTypes.POST_CHARACTER_STATS_START: return postCharacterStatsStart(state, action);
-    case actionTypes.POST_CHARACTER_STATS_SUCCESS: return postCharacterStatsSuccess(state, action);
-    case actionTypes.POST_CHARACTER_STATS_FAIL: return postCharacterStatsFail(state, action);
+    case actionTypes.SAVE_CHARACTER_BASICS: return saveCharacterBasics(state, action);
+    case actionTypes.SAVE_CHARACTER_STATS: return saveCharacterStats(state, action);
+    case actionTypes.SAVE_CHARACTER_SKILLS: return saveCharacterSkills(state, action);
     case actionTypes.ROLL_CHARACTER_STATS: return rollCharacterStats(state, action);
     default: return state;
   };

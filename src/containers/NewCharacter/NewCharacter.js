@@ -859,7 +859,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSaveBasics: (basicCharacterData) => dispatch(actions.postCharacterBasics(basicCharacterData))
+    onSaveBasics: (basicCharacterData) => dispatch(actions.saveCharacterBasics(basicCharacterData))
   };
 };
 
