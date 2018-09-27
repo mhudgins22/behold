@@ -17,7 +17,7 @@ const BackgroundDisplay = (props) => {
       break;
     case "Charlatan":
       description = "You have always had a way with people. You know what makes them tick, you can tease out their hearts’ desires after a few minutes of conversation, and with a few leading questions you can read them like they were children’s books. It’s a useful talent, and one that you’re perfectly willing to use for your advantage.";
-      skillProficiencies = "Deception, Slight of Hand";
+      skillProficiencies = "Deception, Sleight of Hand";
       toolProficiencies = "Disguise kit, forgery kit";
       languages = "No additional languages";
       equipment = "A set of fine clothes, a disguise kit, tools of the con of your choice (ten stoppered bottles filled with colored liquid, a set of weighted dice, a deck of marked cards, or a signet ring of an imaginary duke), and a pouch containing 15 gold";

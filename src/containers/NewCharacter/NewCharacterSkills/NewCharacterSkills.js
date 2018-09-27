@@ -6,6 +6,7 @@ import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input';
 import classes from './NewCharacterSkills.css';
 import * as actions from '../../../store/actions/index';
+import SkillsSuggestionBox from './SkillsSuggestionBox/SkillsSuggestionBox';
 
 class NewCharacterSkills extends Component {
   state = {
@@ -24,8 +25,8 @@ class NewCharacterSkills extends Component {
             value: 0,
             proficient: false
           },
-          slightOfHand: {
-            name: "Slight of Hand",
+          sleightOfHand: {
+            name: "Sleight of Hand",
             value: 0,
             proficient: false
           },
@@ -152,8 +153,8 @@ class NewCharacterSkills extends Component {
               ...this.state.controls.skills.dexteritySkills.acrobatics,
               value: dexterityMod
             },
-            slightOfHand: {
-              ...this.state.controls.skills.dexteritySkills.slightOfHand,
+            sleightOfHand: {
+              ...this.state.controls.skills.dexteritySkills.sleightOfHand,
               value: dexterityMod
             },
             stealth: {
@@ -269,7 +270,7 @@ class NewCharacterSkills extends Component {
         }
       });
     }
-    if (element === "slightOfHand") {
+    if (element === "sleightOfHand") {
       this.setState({
         controls: {
           ...this.state.controls,
@@ -277,9 +278,9 @@ class NewCharacterSkills extends Component {
             ...this.state.controls.skills,
             dexteritySkills: {
               ...this.state.controls.skills.dexteritySkills,
-              slightOfHand: {
-                ...this.state.controls.skills.dexteritySkills.slightOfHand,
-                proficient: !this.state.controls.skills.dexteritySkills.slightOfHand.proficient
+              sleightOfHand: {
+                ...this.state.controls.skills.dexteritySkills.sleightOfHand,
+                proficient: !this.state.controls.skills.dexteritySkills.sleightOfHand.proficient
               }
             }
           }
@@ -553,7 +554,7 @@ class NewCharacterSkills extends Component {
     let characterSkills = {
       athletics: this.state.controls.skills.strengthSkills.athletics.value,
       acrobatics: this.state.controls.skills.dexteritySkills.acrobatics.value,
-      slightOfHand: this.state.controls.skills.dexteritySkills.slightOfHand.value,
+      sleightOfHand: this.state.controls.skills.dexteritySkills.sleightOfHand.value,
       stealth: this.state.controls.skills.dexteritySkills.stealth.value,
       arcana: this.state.controls.skills.intelligenceSkills.arcana.value,
       history: this.state.controls.skills.intelligenceSkills.history.value,
@@ -570,7 +571,6 @@ class NewCharacterSkills extends Component {
       performance: this.state.controls.skills.charismaSkills.performance.value,
       persuasion: this.state.controls.skills.charismaSkills.persuasion.value
     };
-    console.log(characterSkills);
     this.props.onSaveSkills(characterSkills);
   }
 
@@ -629,6 +629,7 @@ class NewCharacterSkills extends Component {
       <div>
         <h1>Skills & Proficiencies</h1>
         {directions}
+        <SkillsSuggestionBox background={this.props.background}/>
         {skillsForm}
         <Button
           buttonType="Success"
@@ -642,6 +643,7 @@ class NewCharacterSkills extends Component {
 const mapStateToProps = (state) => {
   return {
     level: state.char.basicCharacterData.characterLevel,
+    background: state.char.basicCharacterData.background,
     strength: state.char.playerStats.strengthScore,
     dexterity: state.char.playerStats.dexterityScore,
     intelligence: state.char.playerStats.intelligenceScore,
