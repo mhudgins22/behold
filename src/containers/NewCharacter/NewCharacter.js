@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import ReactTooltip from 'react-tooltip';
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
@@ -805,12 +806,14 @@ class NewCharacter extends Component {
       });
     }
 
+    const levelTip = "If you are creating this character for a specific campaign, consult with your DM as to what level everyone will be starting at.";
+
     let form = formElements.map(element => (
       <div
         className={classes.InfoBox}
         key = {element.id}>
         {element.id === "characterName" ? <h4>Character Name:</h4> : null}
-        {element.id === "characterLevel" ? <h4>Starting Level:</h4> : null}
+        {element.id === "characterLevel" ? <h4 data-tip={levelTip}>Starting Level:</h4> : null}
         {element.id === "characterRace" ? <h4>Character Race:</h4> : null}
         {element.id === "characterClass" ? <h4>Character Class:</h4> : null}
         {element.id === "background" ? <h4>Character Background:</h4> : null}
@@ -845,6 +848,7 @@ class NewCharacter extends Component {
             clicked={this.onSaveCharacterBasics}
             text="Save and Continue" />
         </Link>
+        <ReactTooltip />
       </div>
     )
   }

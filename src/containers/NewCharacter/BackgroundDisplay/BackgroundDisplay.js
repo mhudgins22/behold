@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactTooltip from 'react-tooltip';
 
 const BackgroundDisplay = (props) => {
   let description = "";
@@ -122,7 +123,10 @@ const BackgroundDisplay = (props) => {
       break;
   }
 
-
+  const skillsTip = "If your character is proficient with a skill, you may add your proficieny bonus when you make a roll using the same skill. Proficiency bonus is determined by your level.";
+  const toolsTip = "If your character is proficient with a tool, you may add your proficieny bonus when you make a roll using the same tool. Proficiency bonus is determined by your level.";
+  const languagesTip = "Certain backgrounds allow for the ability to speak, read, or write in different languages";
+  const equipmentTip = "Your background determines what items you will begin your adventure with.";
 
   return (
     <div>
@@ -131,10 +135,11 @@ const BackgroundDisplay = (props) => {
       <p>
         <em>{description}</em>
       </p>
-      <p><strong>Skill Proficiencies: </strong> <em>{skillProficiencies}</em></p>
-      <p><strong>Tool Proficiencies: </strong> <em>{toolProficiencies}</em></p>
-      <p><strong>Languages: </strong> <em>{languages}</em></p>
-      <p><strong>Equipment: </strong> <em>{equipment}</em></p>
+      <p data-tip={skillsTip}><strong>Skill Proficiencies: </strong> <em>{skillProficiencies}</em></p>
+      <p data-tip={toolsTip}><strong>Tool Proficiencies: </strong> <em>{toolProficiencies}</em></p>
+      <p data-tip={languagesTip}><strong>Languages: </strong> <em>{languages}</em></p>
+      <p data-tip={equipmentTip}><strong>Equipment: </strong> <em>{equipment}</em></p>
+      <ReactTooltip />
     </div>
   );
 };

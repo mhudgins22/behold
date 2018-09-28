@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactTooltip from 'react-tooltip';
 
 const ClassDisplay = (props) => {
   let description = "";
@@ -81,13 +82,18 @@ const ClassDisplay = (props) => {
       break;
   }
 
+  const hitDiceTip = "You will roll one hit dice every time you level up and your max HP will increase by that amount permanantly. You can also spend hit dice during short rests to regain lost health.";
+  const primaryAbilityTip = "There are six ability scores: Strength, Dexterity, Constitution, Intelligence, Wisdom, and Charisma. You will roll stats for these in the next section.";
+  const savingThrowsTip = "A saving throw--also called a save--represents an attempt to resist a spell, a trap, a poison, a disease, or a similar threat. You don’t normally decide to make a saving throw; you are forced to make one because your character or monster is at risk of harm. "
+
   return (
     <div>
       <hr />
       <p><strong>Class Description: </strong> <em>{description}</em></p>
-      <p><strong>Hit Dice: </strong> <em>{hitDice}</em></p>
-      <p><strong>Primary Ability: </strong> <em>{primaryAbility}</em></p>
-      <p><strong>Saving Throws: </strong> <em>{savingThrows}</em></p>
+      <p data-tip={hitDiceTip}><strong>Hit Dice: </strong> <em>{hitDice}</em></p>
+      <p data-tip={primaryAbilityTip}><strong>Primary Ability: </strong> <em>{primaryAbility}</em></p>
+      <p data-tip={savingThrowsTip}><strong>Saving Throws: </strong> <em>{savingThrows}</em></p>
+      <ReactTooltip /> 
     </div>
   );
 };
