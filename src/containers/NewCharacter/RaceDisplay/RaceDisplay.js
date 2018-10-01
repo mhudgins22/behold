@@ -44,11 +44,13 @@ const RaceDisplay = (props) => {
       break;
   };
 
+  const raceTraitsTip = "Each race includes racial traits that are common to members of that race";
+
   return (
     <div>
       <hr />
       <p><strong>Race Description: </strong><em>{description}</em></p>
-      <p data-tip="Each race includes racial traits that are common to members of that race"><strong>Race Traits: </strong><em>{traits}</em></p>
+      <p data-tip={raceTraitsTip}><strong>Race Traits: </strong><em>{traits}</em></p>
       <ReactTooltip />
     </div>
   );

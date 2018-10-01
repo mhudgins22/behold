@@ -613,7 +613,21 @@ class NewCharacterSkills extends Component {
       });
     }
 
-    let skillsForm = skillsArray.map(element => (
+    let orderedSkillsArray = skillsArray.sort((a,b) => {
+      let nameA = a.id.toUpperCase(); // ignore upper and lowercase
+      let nameB = b.id.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+
+      // names must be equal
+      return 0;
+    });
+
+    let skillsForm = orderedSkillsArray.map(element => (
       <div key={element.id}>
         <SkillCard
           name={element.config.name}
@@ -630,7 +644,9 @@ class NewCharacterSkills extends Component {
         <h1>Skills & Proficiencies</h1>
         {directions}
         <SkillsSuggestionBox background={this.props.background}/>
-        {skillsForm}
+        <div className={classes.SkillBoard}>
+          {skillsForm}
+        </div>
         <Button
           buttonType="Success"
           clicked={this.onSaveCharacterSkills}

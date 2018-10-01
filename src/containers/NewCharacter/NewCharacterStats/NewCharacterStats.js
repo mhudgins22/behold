@@ -690,7 +690,7 @@ const mapStateToProps = (state) => {
   return {
     stats: state.char.rolledStats,
     class: state.char.basicCharacterData.characterClass,
-    race: state.char.basicCharacterData.characterRace,
+    race: state.char.basicCharacterData.characterRace
   };
 };
 
