@@ -3,15 +3,14 @@
     "",
     "\\src",
     "\\src\\assets",
-    "\\src\\assets\\itemLists",
-    "\\src\\containers",
-    "\\src\\containers\\NewCharacter",
-    "\\src\\containers\\NewCharacter\\NewCharacterSkills",
-    "\\src\\containers\\NewCharacter\\NewCharacterStats",
+    "\\src\\components",
+    "\\src\\components\\Navigation",
+    "\\src\\components\\Navigation\\Navbar",
+    "\\src\\components\\UI",
+    "\\src\\components\\UI\\Button",
     "\\src\\store",
-    "\\src\\store\\actions",
     "\\src\\store\\reducers"
   ],
-  "SelectedNode": "\\src\\store\\reducers\\charReducer.js",
+  "SelectedNode": "\\src\\components\\UI\\Button\\Button.css",
   "PreviewInSolutionExplorer": false
 }

@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
+import html2canvas from "html2canvas";
 
 import classes from "./ItemsPage.css";
 
@@ -12,6 +13,7 @@ import Filter from "../Filter/Filter";
 
 import * as actions from "../../store/actions/index";
 
+
 class ItemsPage extends Component {
 
 	state = {
@@ -20,7 +22,8 @@ class ItemsPage extends Component {
 		baseTab: "ActiveTab",
 		customTab: "Tab",
 		showCard: false,
-		showFilter: false
+		showFilter: false,
+		expandedCard: false
 	}
 
 	componentDidMount() {
@@ -38,6 +41,32 @@ class ItemsPage extends Component {
 				...this.state,
 				showCard: true
 			})
+		}
+	}
+
+	toggleCardView = () => {
+		this.setState({
+			expandedCard: !this.state.expandedCard
+		})
+	}
+
+	saveCardHandler = () => {
+		let canvas = document.getElementById("image");
+		if (!canvas.childNodes[0]) {
+			html2canvas(document.querySelector("#capture"), {
+				allowTaint: true,
+				backgroundColor: "#ddd99f"
+			}).then(canvas => {
+				document.getElementById("image").appendChild(canvas);
+			});
+		}
+	}
+
+	backToListHandler = () => {
+		this.toggleCardView();
+		let canvas = document.getElementById("image");
+		if (canvas.childNodes[0]) {
+			canvas.removeChild(canvas.childNodes[0])
 		}
 	}
 
@@ -133,12 +162,54 @@ class ItemsPage extends Component {
 					loading = {this.props.loading}/>
 			);
 			
-			controls = (
-				<div className = {classes.CardOptions}>
-					<Button clicked = {() => this.props.history.push("/Create/Items/Edit/id=" + this.props.itemPreview.id)} buttonType = "Success" text = "Edit"/>
-					<Button clicked = {null} buttonType = "Success" text = "Save as Image" />
-				</div>
-			);
+			if (this.state.expandedCard) {
+				card = (
+					<Card 
+							cardType = "expandedItem"  
+							itemName = {this.props.itemPreview.name} 
+							itemRarity = {this.props.itemPreview.rarity}
+							itemType = {this.props.itemPreview.type}
+							itemProperties = {this.props.itemPreview.properties}
+							numberOfDamageDiceOne = {this.props.itemPreview.damageValues[0].numberOfDice}
+							damageDieOne = {this.props.itemPreview.damageValues[0].die}
+							damageTypeOne = {this.props.itemPreview.damageValues[0].type}
+							damageBonusOne = {this.props.itemPreview.damageValues[0].bonus}
+							numberOfDamageDiceTwo = {this.props.itemPreview.damageValues[1].numberOfDice}
+							damageDieTwo = {this.props.itemPreview.damageValues[1].die}
+							damageBonusTwo = {this.props.itemPreview.damageValues[1].bonus}
+							damageTypeTwo = {this.props.itemPreview.damageValues[1].type}
+							numberOfDamageDiceThree = {this.props.itemPreview.damageValues[2].numberOfDice}
+							damageDieThree = {this.props.itemPreview.damageValues[2].die}
+							damageBonusThree = {this.props.itemPreview.damageValues[2].bonus}
+							damageTypeThree = {this.props.itemPreview.damageValues[2].type}
+							armorClass = {this.props.itemPreview.armorClassValues.AC}
+							armorClassBonus = {this.props.itemPreview.armorClassValues.bonus}
+							numberOfHealingDice = {this.props.itemPreview.healingValues.numberOfDice}
+							healingDie = {this.props.itemPreview.healingValues.die}
+							healingBonus = {this.props.itemPreview.healingValues.bonus}
+							itemFlavorText = {this.props.itemPreview.flavorText}
+							itemAbilities = {this.props.itemPreview.abilities}
+							itemImage = {this.props.image}
+							loading = {this.props.loading}/>
+				)
+			}
+
+			if (this.state.baseListVisible) {
+				controls = (
+					<div className = {classes.CardOptions}>
+						<Button clicked = {() => this.props.history.push("/Create/Items/Edit/id=" + this.props.itemPreview.id)} buttonType = "Disabled" disabled text = "Edit"/>
+						<Button clicked = {this.toggleCardView} buttonType = "Success" text = "Save as Image" />
+					</div>
+				);
+			} else if (this.state.customListVisible) {
+				controls = (
+					<div className = {classes.CardOptions}>
+						<Button clicked = {() => this.props.history.push("/Create/Items/Edit/id=" + this.props.itemPreview.id)} buttonType = "Success" text = "Edit"/>
+						<Button clicked = {this.toggleCardView} buttonType = "Success" text = "Save as Image" />
+					</div>
+				);
+			}
+			
 		}
 
 		if (this.state.showCard === false) {
@@ -214,46 +285,66 @@ class ItemsPage extends Component {
 							text = "Back to List" />
 						</div>
 					</div>
+					{this.state.showCard || window.innerWidth >= 1000 ?
+					<div>
+						{controls}
+					</div> 
+					: null}
 				</div>
 			);
 		}
 		
 		return(
 			<div className = {classes.Page}>
-				<Filter />
-				<div className = {classes.Header}>
-					<h1>Items To Create and Use</h1>
-					<Link onClick = {() => this.props.setUploadType("items")} style = {{textDecoration: "none", color: "black"}} to = {this.props.match.url + "/Upload"}>
-						<h6>+Upload new images</h6>
-					</Link>
-				</div>
-				<div className = {controlClasses.join(" ")}>
-					<Button 
-						buttonType = {this.state.baseTab}
-						text = "Base Items"
-						clicked = {() => {
-							this.setState({
-								baseListVisible: true,
-								customListVisible: false,
-								baseTab: "ActiveTab",
-								customTab: "Tab"
-							});
-							this.props.clearPreviewHandler();
-						}}/>
-					<Button 
-						buttonType = {this.state.customTab}
-						text = "Custom Items"
-						clicked = {() => {
-							this.setState({
-								baseListVisible: false,
-								customListVisible: true,
-								baseTab: "Tab",
-								customTab: "ActiveTab"
-							});
-							this.props.clearPreviewHandler();
-						}}/>
-				</div>
-				{list}
+				{!this.state.expandedCard ? 
+				<div>
+					<Filter />
+					<div className = {classes.Header}>
+						<h1>Items To Create and Use</h1>
+						<Link onClick = {() => this.props.setUploadType("items")} style = {{textDecoration: "none", color: "black"}} to = {this.props.match.url + "/Upload"}>
+							<h6>+Upload new images</h6>
+						</Link>
+					</div>
+					<div className = {controlClasses.join(" ")}>
+						<Button 
+							buttonType = {this.state.baseTab}
+							text = "Base Items"
+							clicked = {() => {
+								this.setState({
+									baseListVisible: true,
+									customListVisible: false,
+									baseTab: "ActiveTab",
+									customTab: "Tab"
+								});
+								this.props.clearPreviewHandler();
+							}}/>
+						<Button 
+							buttonType = {this.state.customTab}
+							text = "Custom Items"
+							clicked = {() => {
+								this.setState({
+									baseListVisible: false,
+									customListVisible: true,
+									baseTab: "Tab",
+									customTab: "ActiveTab"
+								});
+								this.props.clearPreviewHandler();
+							}}/>
+					</div>
+					{list} 
+					</div> : 
+					<div>
+						<div id = "capture">
+							{card}
+						</div>
+						<div>
+							<Button buttonType = "Success" text = "Convert" clicked = {this.saveCardHandler}/>
+							<Button buttonType = "Danger" text = "Back" clicked = {this.backToListHandler}/>
+						</div>
+						<div id = "image">
+						</div>
+					</div>
+				}
 			</div>
 		);
 	}
