@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import SkillCard from '../../../components/SkillCard/SkillCard';
 import Button from '../../../components/UI/Button/Button';
@@ -647,10 +648,12 @@ class NewCharacterSkills extends Component {
         <div className={classes.SkillBoard}>
           {skillsForm}
         </div>
-        <Button
-          buttonType="Success"
-          clicked={this.onSaveCharacterSkills}
-          text="Save and Continue" />
+        <Link to={"/Create/Characters/NewCharacter/AbilitiesAndSpells"}>
+          <Button
+            buttonType="Success"
+            clicked={this.onSaveCharacterSkills}
+            text="Save and Continue" />
+        </Link>
       </div>
     )
   }
