@@ -23,7 +23,8 @@ class ItemsPage extends Component {
 		customTab: "Tab",
 		showCard: false,
 		showFilter: false,
-		expandedCard: false
+		expandedCard: false,
+		converted: false
 	}
 
 	componentDidMount() {
@@ -46,7 +47,8 @@ class ItemsPage extends Component {
 
 	toggleCardView = () => {
 		this.setState({
-			expandedCard: !this.state.expandedCard
+			expandedCard: !this.state.expandedCard,
+			converted: false
 		})
 	}
 
@@ -57,16 +59,21 @@ class ItemsPage extends Component {
 				allowTaint: true,
 				backgroundColor: "#ddd99f"
 			}).then(canvas => {
-				document.getElementById("image").appendChild(canvas);
+				document.getElementById("capture").appendChild(canvas);
+				document.getElementById("capture").removeChild(document.getElementById("capture").childNodes[0]);
 			});
+			this.setState({
+				...this.state,
+				converted: true
+			})
 		}
 	}
 
 	backToListHandler = () => {
 		this.toggleCardView();
-		let canvas = document.getElementById("image");
+		let canvas = document.getElementById("capture");
 		if (canvas.childNodes[0]) {
-			canvas.removeChild(canvas.childNodes[0])
+			canvas.removeChild(canvas.childNodes[0]);
 		}
 	}
 
@@ -198,14 +205,14 @@ class ItemsPage extends Component {
 				controls = (
 					<div className = {classes.CardOptions}>
 						<Button clicked = {() => this.props.history.push("/Create/Items/Edit/id=" + this.props.itemPreview.id)} buttonType = "Disabled" disabled text = "Edit"/>
-						<Button clicked = {this.toggleCardView} buttonType = "Success" text = "Save as Image" />
+						<Button clicked = {this.toggleCardView} buttonType = "Success" text = "Convert to Image" />
 					</div>
 				);
 			} else if (this.state.customListVisible) {
 				controls = (
 					<div className = {classes.CardOptions}>
 						<Button clicked = {() => this.props.history.push("/Create/Items/Edit/id=" + this.props.itemPreview.id)} buttonType = "Success" text = "Edit"/>
-						<Button clicked = {this.toggleCardView} buttonType = "Success" text = "Save as Image" />
+						<Button clicked = {this.toggleCardView} buttonType = "Success" text = "Convert to Image" />
 					</div>
 				);
 			}
@@ -332,13 +339,16 @@ class ItemsPage extends Component {
 							}}/>
 					</div>
 					{list} 
-					</div> : 
+					</div> 
+					
+					: 
+					
 					<div>
 						<div id = "capture">
 							{card}
 						</div>
-						<div>
-							<Button buttonType = "Success" text = "Convert" clicked = {this.saveCardHandler}/>
+						<div style = {{textAlign: "center"}}>
+							{!this.state.converted ? <Button buttonType = "Success" text = "Convert" clicked = {this.saveCardHandler}/> : <Button buttonType = "Disabled" disabled text = "Convert" clicked = {null}/>}
 							<Button buttonType = "Danger" text = "Back" clicked = {this.backToListHandler}/>
 						</div>
 						<div id = "image">
