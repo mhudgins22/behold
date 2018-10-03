@@ -508,7 +508,7 @@ class Filter extends Component {
 			});
 		}
 		form = this.mapElements(formElements);
-		form.push(<Button text = "Apply Filter" clicked = {this.setFilterHandler}/>)
+		form.push(<Button key = {"Filter"} text = "Apply Filter" clicked = {this.setFilterHandler}/>)
 		
 		if (this.props.filter) {
 			button = (
