@@ -1,0 +1,52 @@
+{
+  "Barbarian": {
+    "abilities": {
+      "base": [
+        {
+          "name": "Rage",
+          "description": "In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action... (et al)."
+        }
+      ],
+      "secondLevel": [
+        {
+          "name": "Reckless Attack",
+          "description": "Starting at second level, you can throw aside all concern ... (et al). "
+        }
+      ]
+    },
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
+    "hitDice": "",
+    "hitPointsFirstLevel": "",
+    "proficiencies": {
+      "armor": [
+        "",
+        "",
+        ""
+      ],
+      "weapons": [
+        "",
+        "",
+        ""
+      ],
+      "tools": [
+        "",
+        "",
+        ""
+      ],
+      "savingThrows": [
+        "",
+        "",
+        ""
+      ],
+      "skills": [
+        "",
+        "",
+        ""
+      ]
+    }
+  }
+}

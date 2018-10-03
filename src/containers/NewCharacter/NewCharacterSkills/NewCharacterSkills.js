@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import classes from './NewCharacterSkills.css';
+import * as actions from '../../../store/actions/index';
+
 import SkillCard from '../../../components/SkillCard/SkillCard';
 import Button from '../../../components/UI/Button/Button';
 import Input from '../../../components/UI/Input/Input';
-import classes from './NewCharacterSkills.css';
-import * as actions from '../../../store/actions/index';
 import SkillsSuggestionBox from './SkillsSuggestionBox/SkillsSuggestionBox';
 
 class NewCharacterSkills extends Component {
