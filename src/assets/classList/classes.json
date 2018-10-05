@@ -1,16 +1,30 @@
 {
   "Barbarian": {
     "abilities": {
-      "base": [
+      "firstLevel": [
         {
           "name": "Rage",
-          "description": "In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action... (et al)."
+          "description": "In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action... (et al).",
+          "level": 1
         }
       ],
       "secondLevel": [
         {
           "name": "Reckless Attack",
-          "description": "Starting at second level, you can throw aside all concern ... (et al). "
+          "description": "Starting at second level, you can throw aside all concern ... (et al). ",
+          "level": 2
+        },
+        {
+          "name": "Danger Sense",
+          "description": "At second level, you gain an uncanny sense of when things nearby aren't as they should be, (et al)...",
+          "level": 2
+        }
+      ],
+      "thirdLevel": [
+        {
+          "name": "Primal Path (Archetype Choice)",
+          "description": "At third level, you choose a path that shapes the nature of your rage. (et al) ",
+          "level": 3
         }
       ]
     },
