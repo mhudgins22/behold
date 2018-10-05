@@ -3,28 +3,52 @@
     "abilities": {
       "firstLevel": [
         {
+          "name": "Unarmored Defense",
+          "description": "While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.",
+          "level": 1
+        },
+        {
           "name": "Rage",
-          "description": "In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action... (et al).",
+          "description": "In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. (ET AL)",
           "level": 1
         }
       ],
       "secondLevel": [
         {
           "name": "Reckless Attack",
-          "description": "Starting at second level, you can throw aside all concern ... (et al). ",
+          "description": "Starting at second level, you can throw aside all concern for defense and attack with fierce desperation. When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage against you until next turn. ",
           "level": 2
         },
         {
           "name": "Danger Sense",
-          "description": "At second level, you gain an uncanny sense of when things nearby aren't as they should be, (et al)...",
+          "description": "At second level, you gain an uncanny sense of when things nearby aren't as they should be, giving you an edge when you dodge away from danger. You have advantage on Dexterity saving throws against effects you can see, such as traps and spells. To gain this benefit, you can't be blinded, deafened, or incapacitated.",
           "level": 2
         }
       ],
       "thirdLevel": [
         {
           "name": "Primal Path (Archetype Choice)",
-          "description": "At third level, you choose a path that shapes the nature of your rage. (et al) ",
+          "description": "At third level, you choose a path that shapes the nature of your rage. Choose the Path of the Berserker or the Path of the Totem Warrior, both detailed below. Your choice grants you features at 3rd level and again at 6th, 10th, and 14th levels.",
           "level": 3
+        }
+      ],
+      "fourthLevel": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores by 1. As normal, you can't increase an ability score above 20 using this feature.",
+          "level": 4
+        }
+      ],
+      "fifthLevel": [
+        {
+          "name": "Extra Attack",
+          "description": "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.",
+          "level": 5
+        },
+        {
+          "name": "Fast Movement",
+          "description": "Starting at 5th level, your speed increases by 10 while you are not wearing heavy armor.",
+          "level": 5
         }
       ]
     },

@@ -8,24 +8,33 @@ class NewCharacterAbilities extends Component {
   render () {
 
     let playerAbilities = [];
-    for (let level in classes.Barbarian.abilities) {                //Loop through all levels in the classes' "abilities" section
-      classes.Barbarian.abilities[level].forEach((ability) => {     //Loop through all abilities in a given level
-        playerAbilities.push({                                      //Push the ability information as a new object to abilityHolder
-          id: ability.name,
-          name: ability.name,
-          description: ability.description,
-          level: ability.level
+    if (this.props.class === "Barbarian") {
+      for (let level in classes.Barbarian.abilities) {                //Loop through all levels in the classes' "abilities" section
+        classes.Barbarian.abilities[level].forEach((ability) => {     //Perform action on all abilities in a given level
+          playerAbilities.push({                                      //Push the ability information as a new object to playerAbilities
+            id: ability.name,
+            name: ability.name,
+            description: ability.description,
+            level: ability.level
+          });
         });
-      });
-    };
+      };
+    }
 
     //Will be replaced with an ability card functional component
-    let form = playerAbilities.map(ability => (
-      <div key={ability.name}>
-        <h3>Name: {ability.name}</h3>
-        <h3>Description: {ability.description}</h3>
-      </div>
-    ));
+    let form;
+    if (playerAbilities.length !== 0) {
+      form = playerAbilities.map(ability => (
+        <div key={ability.name}>
+          <p>Name: {ability.name}</p>
+          <p>Description: {ability.description}</p>
+          <hr />
+        </div>
+      ));
+    }
+    else { //This is temporary
+      form = <h3 style={{color: "red"}}><em>You need to pick a character class and level!</em></h3>
+    }
 
     return (
       <div>

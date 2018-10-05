@@ -335,8 +335,6 @@ class NewCharacter extends Component {
 
   onChangeHandler = (event, element) => {
 
-    console.log(event.target.value);
-
     if (element === "characterName") {
       this.setState({
         controls: {
