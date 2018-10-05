@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import classes from "../../../../assets/classList/classes.json";
+import Card from "../../../../components/Card/Card";
 
 class NewCharacterAbilities extends Component {
 
@@ -37,11 +38,11 @@ class NewCharacterAbilities extends Component {
     let form;
     if (playerAbilities.length !== 0) {
       form = playerAbilities.map(ability => (
-        <div key={ability.name}>
-          <p>Name: {ability.name}</p>
-          <p>Description: {ability.description}</p>
-          <hr />
-        </div>
+        <Card
+        cardType = "abilityCard"
+        name = {ability.name}
+        description = {ability.description}
+        level = {ability.level}/>
       ));
     }
     else { //This is temporary

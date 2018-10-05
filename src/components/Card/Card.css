@@ -12,7 +12,7 @@
 	text-align: left;
 }
 
-.ExpandedCard { 
+.ExpandedCard {
 	margin: auto;
 	margin-bottom: 10px;
 	width: 400px;
@@ -109,6 +109,43 @@
 	margin: 5px 0px;
 }
 
+.AbilityCard {
+	border: 3px solid grey;
+	width: 75%;
+	margin: 15px 30px;
+}
+
+.AbilityHeader {
+	color: #aa2020;
+	font-style: bold;
+	font-size: 20px;
+	padding-left: 3px;
+	height: 18px;
+	line-height: .1;
+	border-bottom: 2px solid #a58f59;
+}
+
+.AbilitySubheader {
+	display: inline;
+	font-style: italic;
+	padding-left: 3px;
+	color: #494848;
+	font-size: 12px;
+	line-height: normal;
+}
+
+.AbilityDescription {
+	border: 1px solid black;
+	display: block;
+	width: 90%;
+	height: 25%;
+	margin: 30px auto 15px auto;
+	padding-left: 2px;
+	position: relative;
+	top: 70%;
+	overflow: auto;
+}
+
 /* width */
 .Card::-webkit-scrollbar {
     width: 5px;
@@ -126,7 +163,7 @@
 
 /* Track */
 .Card::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #f1f1f1;
 }
 
 /*Progress bar*/
@@ -136,10 +173,10 @@
 
 /* Handle */
 .Card::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #888;
 }
 
 /* Handle on hover */
 .Card::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #555;
 }

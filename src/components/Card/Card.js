@@ -9,7 +9,7 @@ import Spinner from "../UI/Spinner/Spinner";
 
 const card = props => {
 	let card = null;
-	
+
 	if (props.cardType === "item") {
 		card = (
 			<div className = {classes.Card}>
@@ -25,7 +25,7 @@ const card = props => {
 				</div>
 				{/*Item Stats and FlavorText here*/}
 				<div className = {classes.Stats}>
-					<div className = {classes.FlavorText}>	
+					<div className = {classes.FlavorText}>
 						<p>{props.itemFlavorText}</p>
 					</div>
 					{props.itemFlavorText ? <div className = {classes.XDivider}>
@@ -33,7 +33,7 @@ const card = props => {
 					<div className = {classes.Attributes}>
 						{props.damageDieOne || props.damageTypeOne|| props.numberOfDamageDiceOne || props.damageBonusOne ? <h4>Damage: </h4> : null}
 						<p>{props.numberOfDamageDiceOne}{props.damageDieOne}{props.damageBonusOne} {props.damageTypeOne}</p>
-						{props.damageDieTwo || props.numberOfDamageDiceTwo || props.damageBonusTwo || props.damageTypeTwo ? 
+						{props.damageDieTwo || props.numberOfDamageDiceTwo || props.damageBonusTwo || props.damageTypeTwo ?
 							<p>{props.numberOfDamageDiceTwo}{props.damageDieTwo}{props.damageBonusTwo} {props.damageTypeTwo}</p>
 						: null}
 						{props.numberOfDamageDiceThree || props.damageDieThree || props.damageBonusThree || props.damageTypeThree ?
@@ -53,7 +53,7 @@ const card = props => {
 				{/*Item Abilities here*/}
 				{props.itemAbilities ?
 					<div>
-						<h4 style = {{margin: "0px 2.5%"}}>Ablities:</h4> 
+						<h4 style = {{margin: "0px 2.5%"}}>Ablities:</h4>
 						<div className = {classes.Abilities}>
 							<ReactMarkdown source = {props.itemAbilities} />
 						</div>
@@ -76,7 +76,7 @@ const card = props => {
 				</div>
 				{/*Item Stats and FlavorText here*/}
 				<div className = {classes.Stats}>
-					<div className = {classes.FlavorText}>	
+					<div className = {classes.FlavorText}>
 						<p>{props.itemFlavorText}</p>
 					</div>
 					{props.itemFlavorText ? <div className = {classes.XDivider}>
@@ -84,7 +84,7 @@ const card = props => {
 					<div className = {classes.Attributes}>
 						{props.damageDieOne || props.damageTypeOne|| props.numberOfDamageDiceOne || props.damageBonusOne ? <h4>Damage: </h4> : null}
 						<p>{props.numberOfDamageDiceOne}{props.damageDieOne}{props.damageBonusOne} {props.damageTypeOne}</p>
-						{props.damageDieTwo || props.numberOfDamageDiceTwo || props.damageBonusTwo || props.damageTypeTwo ? 
+						{props.damageDieTwo || props.numberOfDamageDiceTwo || props.damageBonusTwo || props.damageTypeTwo ?
 							<p>{props.numberOfDamageDiceTwo}{props.damageDieTwo}{props.damageBonusTwo} {props.damageTypeTwo}</p>
 						: null}
 						{props.numberOfDamageDiceThree || props.damageDieThree || props.damageBonusThree || props.damageTypeThree ?
@@ -105,13 +105,30 @@ const card = props => {
 				{props.itemAbilities ?
 					<div>
 						<div className = {classes.AbilitiesExpanded}>
-							<h4>Ablities:</h4> 
+							<h4>Ablities:</h4>
 							<ReactMarkdown source = {props.itemAbilities} />
 						</div>
 					</div>
 				: null}
 			</div>
 		)
+	} else if (props.cardType === "abilityCard") {
+		card = (
+			<div className={classes.AbilityCard}>
+				<div className = {classes.AbilityHeader}>
+					<h4>{props.name}</h4>
+					<div className = {classes.Subheader}>
+						<p>Level: {props.level}</p>
+					</div>
+				</div>
+				<div>
+					<div className = {classes.AbilityDescription}>
+						<h5>Description:</h5>
+						<ReactMarkdown source = {props.description} />
+					</div>
+				</div>
+			</div>
+		);
 	}
 	return(
 		<div>
