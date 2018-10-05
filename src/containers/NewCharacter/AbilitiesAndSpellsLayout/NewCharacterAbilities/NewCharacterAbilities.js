@@ -33,6 +33,18 @@ class NewCharacterAbilities extends Component {
         });
       };
     }
+    if (this.props.class === "Cleric") {
+      for (let level in classes.Cleric.abilities) {                //Loop through all levels in the classes' "abilities" section
+        classes.Cleric.abilities[level].forEach((ability) => {     //Perform action on all abilities in a given level
+          playerAbilities.push({                                 //Push the ability information as a new object to playerAbilities
+            id: ability.name,
+            name: ability.name,
+            description: ability.description,
+            level: ability.level
+          });
+        });
+      };
+    }
 
     //Will be replaced with an ability card functional component
     let form;

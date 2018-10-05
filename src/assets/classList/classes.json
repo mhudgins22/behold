@@ -227,5 +227,83 @@
         ""
       ]
     }
+  },
+  "Cleric": {
+    "abilities": {
+      "firstLevel": [
+        {
+          "name": "Divine Domain",
+          "description": "Choose one domain related to your deity: Knowledge, Life, Light, Nature, Tempest, Trickery, or War. Each domain is detailed below, and each one has examples of gods associated with it. Your choice grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity when you gain that feature at 2nd level, and additional benefits at 6th, 8th, and 17th levels. (ET AL)",
+          "level": 1
+        }
+      ],
+      "secondLevel": [
+        {
+          "name": "Channel Divinity",
+          "description": "At 2nd level, you gain the ability to channel divine energy directly from your deity, using the energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in their descriptions. (ET AL)",
+          "level": 2
+        },
+        {
+          "name": "Channel Divinity: Turn Undead",
+          "description": "As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its throw, it is turned for 1 minute or until it takes any damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can only use the Dash action to try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.",
+          "level": 2
+        }
+      ],
+      "fourthLevel": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores by 1. As normal, you can't increase an ability score above 20 using this feature.",
+          "level": 4
+        }
+      ],
+      "fifthLevel": [
+        {
+          "name": "Destroy Undead",
+          "description": "Starting at 5th level, when an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold, as shown in the Destroy Undead table.",
+          "level": 5
+        }
+      ],
+      "tenthLevel": [
+        {
+          "name": "Divine Intervention",
+          "description": "Beginning at 10th level, you can call on your deity to intervene on your behalf when your need is great. Imploring your deity's aid requires you to use your action. Describe the assistance you seek, and roll a percentile dice. If you roll a number at or equal to your cleric level, your diety intervenes. The DM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you cannot use this ability again for 7 days. Otherwise, you can use it again after you finish a long rest. At 20th level, your call for intervention succeeds automatically, no roll required.",
+          "level": 10
+        }
+      ]
+    },
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
+    "hitDice": "",
+    "hitPointsFirstLevel": "",
+    "proficiencies": {
+      "armor": [
+        "",
+        "",
+        ""
+      ],
+      "weapons": [
+        "",
+        "",
+        ""
+      ],
+      "tools": [
+        "",
+        "",
+        ""
+      ],
+      "savingThrows": [
+        "",
+        "",
+        ""
+      ],
+      "skills": [
+        "",
+        "",
+        ""
+      ]
+    }
   }
 }
