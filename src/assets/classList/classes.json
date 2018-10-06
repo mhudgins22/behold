@@ -315,7 +315,7 @@
           "level": 2
         },
         {
-          "name": "Druid Circle",
+          "name": "Druid Circle (Archetype Choice)",
           "description": "At 2nd level, you you choose to identify with a circle of druids: the Circle of the Land or the Circle of the Moon, both detailed below. Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level.",
           "level": 2
         }
@@ -344,6 +344,91 @@
           "name": "Archdruid",
           "description": "At 20th level, you can use your Wild Shape and unlimited amount of times.",
           "level": 20
+        }
+      ]
+    },
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
+    "hitDice": "",
+    "hitPointsFirstLevel": "",
+    "proficiencies": {
+      "armor": [
+        "",
+        "",
+        ""
+      ],
+      "weapons": [
+        "",
+        "",
+        ""
+      ],
+      "tools": [
+        "",
+        "",
+        ""
+      ],
+      "savingThrows": [
+        "",
+        "",
+        ""
+      ],
+      "skills": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "Fighter": {
+    "abilities": {
+      "secondLevel": [
+        {
+          "name": "Fighting Style",
+          "description": "You adopt a particular style of fighting as your specialty. Choose one of the below options. You can't take a Fighting Style option more than once, even even if you later get to choose again.",
+          "level": 1
+        },
+        {
+          "name": "Second Wind",
+          "description": "You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. Once you use this feature, you must finish a short or long rest before you can use it again.",
+          "level": 1
+        }
+      ],
+      "secondLevel": [
+        {
+          "name": "Action Surge",
+          "description": "Starting at 2nd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a short or long rest before you can use it again. Starting at 17th level, you can use it twice before a rest, but only once per turn.",
+          "level": 2
+        }
+      ],
+      "thirdLevel": [
+        {
+          "name": "Martial Archetype (Archetype Choice)",
+          "description": "At 3rd level, you choose an archeytpe that you strive to emulate in your combat styles and techniques. Choose Champion, Battle Master, or Eldritch Knight, all detailed below. The archetype you choose grants you features grants you features at 3rd level and again at 7th, 10th, 15th, and 18th level.",
+          "level": 3
+        }
+      ],
+      "fourthLevel": [
+          {
+            "name": "Ability Score Improvement",
+            "description": "When you reach 4th level, and again at 6th, 8th, 12th, 14th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores by 1. As normal, you can't increase an ability score above 20 using this feature.",
+            "level": 4
+          }
+        ],
+      "fifthLevel": [
+        {
+          "name": "Extra Attack",
+          "description": "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.",
+          "level": 5
+        }
+      ],
+      "ninethLevel": [
+        {
+          "name": "Indomitable",
+          "description": "Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest. You can use this feature twice between long rests at 13th level and three times between long rests starting at 17th level.",
+          "level": 9
         }
       ]
     },
