@@ -305,5 +305,81 @@
         ""
       ]
     }
+  },
+  "Druid": {
+    "abilities": {
+      "secondLevel": [
+        {
+          "name": "Wild Shape",
+          "description": "Starting at 2nd level, you can use your action to magically assume the shape of a beast that you have seen before. You can use this feature twice. You regain expended uses when you finish a short or long rest. Detailed information about this feature can be found below.",
+          "level": 2
+        },
+        {
+          "name": "Druid Circle",
+          "description": "At 2nd level, you you choose to identify with a circle of druids: the Circle of the Land or the Circle of the Moon, both detailed below. Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level.",
+          "level": 2
+        }
+      ],
+      "fourthLevel": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores by 1. As normal, you can't increase an ability score above 20 using this feature.",
+          "level": 4
+        }
+      ],
+      "eighteenthLevel": [
+        {
+          "name": "Timeless Body",
+          "description": "Starting at 18th level, the primal magic that you weild causes you to age more slowly. For every 10 years that pass, your body ages only 1 year.",
+          "level": 18
+        },
+        {
+          "name": "Beast Spells",
+          "description": "Beginning at 18th level, you can cast many of your druid spells in any shape you assume using Wild Shape. You can perform the somatic and verbal components of a druid spell while a beast shape, but you aren't able to provide material components.",
+          "level": 18
+        }
+      ],
+      "twentiethLevel": [
+        {
+          "name": "Archdruid",
+          "description": "At 20th level, you can use your Wild Shape and unlimited amount of times.",
+          "level": 20
+        }
+      ]
+    },
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
+    "hitDice": "",
+    "hitPointsFirstLevel": "",
+    "proficiencies": {
+      "armor": [
+        "",
+        "",
+        ""
+      ],
+      "weapons": [
+        "",
+        "",
+        ""
+      ],
+      "tools": [
+        "",
+        "",
+        ""
+      ],
+      "savingThrows": [
+        "",
+        "",
+        ""
+      ],
+      "skills": [
+        "",
+        "",
+        ""
+      ]
+    }
   }
 }

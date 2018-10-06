@@ -54,6 +54,21 @@ class NewCharacterAbilities extends Component {
       };
     }
 
+    if (this.props.class === "Druid") {
+      for (let level in classes.Druid.abilities) {                   //Loop through all levels in the classes' "abilities" section
+        classes.Druid.abilities[level].forEach((ability) => {        //Perform action on all abilities in a given level
+          if (ability.level <= this.props.level) {                    //Only act on abilities that apply to the player's chosen level
+            playerAbilities.push({                                    //Push the ability information as a new object to playerAbilities
+              id: ability.name,
+              name: ability.name,
+              description: ability.description,
+              level: ability.level
+            });
+          }
+        });
+      };
+    }
+
     //Build the form with an ability card for each ability
     let form;
     if (playerAbilities.length !== 0) {
