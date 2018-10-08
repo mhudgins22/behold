@@ -57,8 +57,8 @@ class NewCharacterAbilities extends Component {
     if (this.props.class === "Druid") {
       for (let level in classes.Druid.abilities) {                   //Loop through all levels in the classes' "abilities" section
         classes.Druid.abilities[level].forEach((ability) => {        //Perform action on all abilities in a given level
-          if (ability.level <= this.props.level) {                    //Only act on abilities that apply to the player's chosen level
-            playerAbilities.push({                                    //Push the ability information as a new object to playerAbilities
+          if (ability.level <= this.props.level) {                   //Only act on abilities that apply to the player's chosen level
+            playerAbilities.push({                                   //Push the ability information as a new object to playerAbilities
               id: ability.name,
               name: ability.name,
               description: ability.description,
@@ -70,8 +70,8 @@ class NewCharacterAbilities extends Component {
     }
 
     if (this.props.class === "Fighter") {
-      for (let level in classes.Fighter.abilities) {                   //Loop through all levels in the classes' "abilities" section
-        classes.Fighter.abilities[level].forEach((ability) => {        //Perform action on all abilities in a given level
+      for (let level in classes.Fighter.abilities) {                  //Loop through all levels in the classes' "abilities" section
+        classes.Fighter.abilities[level].forEach((ability) => {       //Perform action on all abilities in a given level
           if (ability.level <= this.props.level) {                    //Only act on abilities that apply to the player's chosen level
             playerAbilities.push({                                    //Push the ability information as a new object to playerAbilities
               id: ability.name,
@@ -87,6 +87,36 @@ class NewCharacterAbilities extends Component {
     if (this.props.class === "Monk") {
       for (let level in classes.Monk.abilities) {                     //Loop through all levels in the classes' "abilities" section
         classes.Monk.abilities[level].forEach((ability) => {          //Perform action on all abilities in a given level
+          if (ability.level <= this.props.level) {                    //Only act on abilities that apply to the player's chosen level
+            playerAbilities.push({                                    //Push the ability information as a new object to playerAbilities
+              id: ability.name,
+              name: ability.name,
+              description: ability.description,
+              level: ability.level
+            });
+          }
+        });
+      };
+    }
+
+    if (this.props.class === "Paladin") {
+      for (let level in classes.Paladin.abilities) {                  //Loop through all levels in the classes' "abilities" section
+        classes.Paladin.abilities[level].forEach((ability) => {       //Perform action on all abilities in a given level
+          if (ability.level <= this.props.level) {                    //Only act on abilities that apply to the player's chosen level
+            playerAbilities.push({                                    //Push the ability information as a new object to playerAbilities
+              id: ability.name,
+              name: ability.name,
+              description: ability.description,
+              level: ability.level
+            });
+          }
+        });
+      };
+    }
+
+    if (this.props.class === "Ranger") {
+      for (let level in classes.Ranger.abilities) {                  //Loop through all levels in the classes' "abilities" section
+        classes.Ranger.abilities[level].forEach((ability) => {       //Perform action on all abilities in a given level
           if (ability.level <= this.props.level) {                    //Only act on abilities that apply to the player's chosen level
             playerAbilities.push({                                    //Push the ability information as a new object to playerAbilities
               id: ability.name,
