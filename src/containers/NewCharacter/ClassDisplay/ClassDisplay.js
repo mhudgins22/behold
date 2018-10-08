@@ -56,7 +56,7 @@ const ClassDisplay = (props) => {
       primaryAbility = "Dexterity & Wisdom";
       savingThrows = "Strength & Dexterity";
       break;
-    case "Rouge":
+    case "Rogue":
       description = "A scoundrel who uses stealth and trickery to overcome obstacles and enemies.";
       hitDice = "d8";
       primaryAbility = "Dexterity";
@@ -93,7 +93,7 @@ const ClassDisplay = (props) => {
       <p data-tip={hitDiceTip}><strong>Hit Dice: </strong> <em>{hitDice}</em></p>
       <p data-tip={primaryAbilityTip}><strong>Primary Ability: </strong> <em>{primaryAbility}</em></p>
       <p data-tip={savingThrowsTip}><strong>Saving Throws: </strong> <em>{savingThrows}</em></p>
-      <ReactTooltip /> 
+      <ReactTooltip />
     </div>
   );
 };

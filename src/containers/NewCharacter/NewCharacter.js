@@ -223,8 +223,8 @@ class NewCharacter extends Component {
             label: "Ranger"
           },
           {
-            value: "Rouge",
-            label: "Rouge"
+            value: "Rogue",
+            label: "Rogue"
           },
           {
             value: "Sorcerer",
@@ -552,13 +552,13 @@ class NewCharacter extends Component {
             }
           });
           break;
-        case ("Rouge"):
+        case ("Rogue"):
           this.setState({
             controls: {
               ...this.state.controls,
               characterClass: {
                 ...this.state.controls.characterClass,
-                value: "Rouge"
+                value: "Rogue"
               }
             }
           });

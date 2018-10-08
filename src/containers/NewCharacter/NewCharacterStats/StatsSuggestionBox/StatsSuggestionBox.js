@@ -42,7 +42,7 @@ const StatsSuggestionBox = (props) => {
       firstSuggestion = "Dexterity";
       secondSuggestion = "Wisdom";
       break;
-    case "Rouge":
+    case "Rogue":
       firstSuggestion = "Dexterity";
       secondSuggestion = "Intelligence";
       // additionalNotes = "Choose charisma instead of intelligence if you plan to emphasize deception and social interaction";
