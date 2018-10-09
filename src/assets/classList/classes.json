@@ -910,5 +910,158 @@
         ""
       ]
     }
+  },
+  "Sorcerer": {
+    "abilities": {
+      "firstLevel": [
+        {
+          "name": "Sorcerous Origin (Archetype Choice)",
+          "description": "Choose a sorcerous origin, which describes the source of your innate magical power: Draconic Bloodline or Wild Magic, both detailed below. Your choice grants you features when you choose it at 1st level and again at 6th, 14th, and 18th level.",
+          "level": 1
+        }
+      ],
+      "secondLevel": [
+        {
+          "name": "Font of Magic",
+          "description": "At 2nd level, you tap into a deep wellspring of magic within yourself. This wellspring is represented by sorcery points, which allow you to create a variety of magical effects. (ET AL)",
+          "level": 2
+        }
+      ],
+      "thirdLevel": [
+        {
+          "name": "Metamagic",
+          "description": "At 3rd level, you gain the ability to twist your spells to suit your needs. You gain two of the following Metamagic options of your choice. You gain another one at 10th and 17th level. You can only use one Metamagic option on a spell when you cast it, unless otherwise noted.",
+          "level": 3
+        }
+      ],
+      "fourthLevel": [
+          {
+            "name": "Ability Score Improvement",
+            "description": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores by 1. As normal, you can't increase an ability score above 20 using this feature.",
+            "level": 4
+          }
+        ],
+      "twentiethLevel": [
+        {
+          "name": "Sorcerous Restoration",
+          "description": "At 20th level, you regain 4 expended sorcery points whenever you finish a short rest.",
+          "level": 20
+        }
+      ]
+    },
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
+    "hitDice": "",
+    "hitPointsFirstLevel": "",
+    "proficiencies": {
+      "armor": [
+        "",
+        "",
+        ""
+      ],
+      "weapons": [
+        "",
+        "",
+        ""
+      ],
+      "tools": [
+        "",
+        "",
+        ""
+      ],
+      "savingThrows": [
+        "",
+        "",
+        ""
+      ],
+      "skills": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "Warlock": {
+    "abilities": {
+      "firstLevel": [
+        {
+          "name": "Ohterworldly Patron (Archetype Choice)",
+          "description": "At 1st level, you have struck a bargain with an otherworldly being of your choice: the Archfey, the Fiend, or the Great Old One, each of which is detailed below. Your choice grants you features at 1st level and again at 6th, 10th, and 14th level.",
+          "level": 1
+        }
+      ],
+      "secondLevel": [
+        {
+          "name": "Eldritch Invocations",
+          "description": "In your study of occult lore, you have unearthed eldritch invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability. At 2nd level, you gain two eldritch invocations of your choice. Your invocation options are detailed below. When you gain certain warlock levels, you gain additional invocations of your choice, as shown in the Invocations Known column of the warlock table. Additionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level. (ET AL)",
+          "level": 2
+        }
+      ],
+      "thirdLevel": [
+        {
+          "name": "Pact Boon",
+          "description": "At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You gain one of the following features of your choice.",
+          "level": 3
+        }
+      ],
+      "fourthLevel": [
+          {
+            "name": "Ability Score Improvement",
+            "description": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores by 1. As normal, you can't increase an ability score above 20 using this feature.",
+            "level": 4
+          }
+        ],
+        "eleventhLevel": [
+          {
+            "name": "Mystic Arcanum",
+            "description": "At 11th level, your patron bestows upon you a magical secret called an arcanum. Choose one 6th-level spell from the warlock spell list as as this arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do this again. At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.",
+            "level": 11
+          }
+        ],
+      "twentiethLevel": [
+        {
+          "name": "Eldritch Master",
+          "description": "At 20th level, you can draw on your inner reserve of mystical powers while entreating yoru patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expected spell slots from the Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.",
+          "level": 20
+        }
+      ]
+    },
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
+    "hitDice": "",
+    "hitPointsFirstLevel": "",
+    "proficiencies": {
+      "armor": [
+        "",
+        "",
+        ""
+      ],
+      "weapons": [
+        "",
+        "",
+        ""
+      ],
+      "tools": [
+        "",
+        "",
+        ""
+      ],
+      "savingThrows": [
+        "",
+        "",
+        ""
+      ],
+      "skills": [
+        "",
+        "",
+        ""
+      ]
+    }
   }
 }
