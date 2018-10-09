@@ -988,7 +988,7 @@
     "abilities": {
       "firstLevel": [
         {
-          "name": "Ohterworldly Patron (Archetype Choice)",
+          "name": "Otherworldly Patron (Archetype Choice)",
           "description": "At 1st level, you have struck a bargain with an otherworldly being of your choice: the Archfey, the Fiend, or the Great Old One, each of which is detailed below. Your choice grants you features at 1st level and again at 6th, 10th, and 14th level.",
           "level": 1
         }
@@ -1008,23 +1008,96 @@
         }
       ],
       "fourthLevel": [
-          {
-            "name": "Ability Score Improvement",
-            "description": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores by 1. As normal, you can't increase an ability score above 20 using this feature.",
-            "level": 4
-          }
-        ],
-        "eleventhLevel": [
-          {
-            "name": "Mystic Arcanum",
-            "description": "At 11th level, your patron bestows upon you a magical secret called an arcanum. Choose one 6th-level spell from the warlock spell list as as this arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do this again. At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.",
-            "level": 11
-          }
-        ],
+        {
+          "name": "Ability Score Improvement",
+          "description": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores by 1. As normal, you can't increase an ability score above 20 using this feature.",
+          "level": 4
+        }
+      ],
+      "eleventhLevel": [
+        {
+          "name": "Mystic Arcanum",
+          "description": "At 11th level, your patron bestows upon you a magical secret called an arcanum. Choose one 6th-level spell from the warlock spell list as as this arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do this again. At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.",
+          "level": 11
+        }
+      ],
       "twentiethLevel": [
         {
           "name": "Eldritch Master",
           "description": "At 20th level, you can draw on your inner reserve of mystical powers while entreating yoru patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expected spell slots from the Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.",
+          "level": 20
+        }
+      ]
+    },
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
+    "hitDice": "",
+    "hitPointsFirstLevel": "",
+    "proficiencies": {
+      "armor": [
+        "",
+        "",
+        ""
+      ],
+      "weapons": [
+        "",
+        "",
+        ""
+      ],
+      "tools": [
+        "",
+        "",
+        ""
+      ],
+      "savingThrows": [
+        "",
+        "",
+        ""
+      ],
+      "skills": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "Wizard": {
+    "abilities": {
+      "firstLevel": [
+        {
+          "name": "Arcane Recovery",
+          "description": "You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher. For example, if you're a 4th level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell or two 1st-level spell slots.",
+          "level": 1
+        }
+      ],
+      "secondLevel": [
+        {
+          "name": "Arcane Tradition (Archetype Choice)",
+          "description": "When you reach 2nd level, choose an arcane tradition, shaping your practice of magic through one of eight schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, or Transmutation, all detailed below. Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level.",
+          "level": 2
+        }
+      ],
+      "fourthLevel": [
+        {
+          "name": "Ability Score Improvement",
+          "description": "When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores by 1. As normal, you can't increase an ability score above 20 using this feature.",
+          "level": 4
+        }
+      ],
+      "eighteenthLevel": [
+        {
+          "name": "Spell Mastery",
+          "description": "At 18th level, you have achieved such mastery over certain spells that you can cast them at will. Choose a 1st-level wizard spell and a 2nd-level wizard spell that are in your spellbook. You can cast those spells at their lowest level without expending a spell slot when you have them prepared. If you want to cast either spell at a higher level, you must expend a spell slot as normal. By spending 8 hours in study, you can exchange one or both of the spells you chose for different spells of the same level.",
+          "level": 18
+        }
+      ],
+      "twentiethLevel": [
+        {
+          "name": "Signature Spells",
+          "description": "When you reach 20th level, you gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells in your spellbook. You always have these spells prepared, they don't count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest. If you want to cast either spell at a higher level, you must expend a spell slot like normal.",
           "level": 20
         }
       ]
