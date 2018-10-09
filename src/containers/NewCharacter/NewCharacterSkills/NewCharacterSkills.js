@@ -649,7 +649,7 @@ class NewCharacterSkills extends Component {
         <div className={classes.SkillBoard}>
           {skillsForm}
         </div>
-        <Link to={"/Create/Characters/NewCharacter/AbilitiesAndSpells"}>
+        <Link to={"/Create/Characters/NewCharacter/FeatsAndSpells"}>
           <Button
             buttonType="Success"
             clicked={this.onSaveCharacterSkills}

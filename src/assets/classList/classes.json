@@ -1,6 +1,6 @@
 {
   "Barbarian": {
-    "abilities": {
+    "features": {
       "firstLevel": [
         {
           "name": "Unarmored Defense",
@@ -130,7 +130,7 @@
     }
   },
   "Bard": {
-    "abilities": {
+    "features": {
       "firstLevel": [
         {
           "name": "Bardic Inspiration",
@@ -229,7 +229,7 @@
     }
   },
   "Cleric": {
-    "abilities": {
+    "features": {
       "firstLevel": [
         {
           "name": "Divine Domain",
@@ -307,7 +307,7 @@
     }
   },
   "Druid": {
-    "abilities": {
+    "features": {
       "secondLevel": [
         {
           "name": "Wild Shape",
@@ -383,7 +383,7 @@
     }
   },
   "Fighter": {
-    "abilities": {
+    "features": {
       "firstLevel": [
         {
           "name": "Fighting Style",
@@ -468,7 +468,7 @@
     }
   },
   "Monk": {
-    "abilities": {
+    "features": {
       "firstLevel": [
         {
           "name": "Unarmored Defense",
@@ -553,7 +553,7 @@
     }
   },
   "Paladin": {
-    "abilities": {
+    "features": {
       "firstLevel": [
         {
           "name": "Divine Sense",
@@ -669,7 +669,7 @@
     }
   },
   "Ranger": {
-    "abilities": {
+    "features": {
       "firstLevel": [
         {
           "name": "Favored Enemy",
@@ -787,7 +787,7 @@
     }
   },
   "Rogue": {
-    "abilities": {
+    "features": {
       "firstLevel": [
         {
           "name": "Expertise",
@@ -912,7 +912,7 @@
     }
   },
   "Sorcerer": {
-    "abilities": {
+    "features": {
       "firstLevel": [
         {
           "name": "Sorcerous Origin (Archetype Choice)",
@@ -985,7 +985,7 @@
     }
   },
   "Warlock": {
-    "abilities": {
+    "features": {
       "firstLevel": [
         {
           "name": "Otherworldly Patron (Archetype Choice)",
@@ -1065,7 +1065,7 @@
     }
   },
   "Wizard": {
-    "abilities": {
+    "features": {
       "firstLevel": [
         {
           "name": "Arcane Recovery",
