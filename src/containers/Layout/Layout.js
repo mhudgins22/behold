@@ -11,6 +11,7 @@ import UploadImage from "../UploadImage/UploadImage";
 import CharacterPage from "../CharacterPage/CharacterPage";
 import ItemsPage from "../ItemsPage/ItemsPage";
 import NewCharacter from "../NewCharacter/NewCharacter";
+import NewCharacterWelcome from "../NewCharacter/NewCharacterWelcome/NewCharacterWelcome";
 import NewCharacterStats from "../NewCharacter/NewCharacterStats/NewCharacterStats";
 import NewCharacterSkills from "../NewCharacter/NewCharacterSkills/NewCharacterSkills";
 import NewItem from "../NewItem/NewItem";
@@ -50,6 +51,7 @@ class Layout extends Component {
 				<Route path = "/Create" exact component = {Create} />
 				<Route path = "/Create/Characters" exact component = {CharacterPage} />
 				<Route path = "/Create/Characters/NewCharacter" exact component = {NewCharacter} />
+				<Route path = "/Create/Characters/NewCharacter/Welcome" exact component = {NewCharacterWelcome} />
 				<Route path = "/Create/Characters/NewCharacter/Stats" exact component = {NewCharacterStats} />
 				<Route path = "/Create/Characters/NewCharacter/Skills" exact component = {NewCharacterSkills} />
 				<Route path = "/Create/Characters/NewCharacter/FeatsAndSpells" exact component = {FeatsAndSpellsLayout} />

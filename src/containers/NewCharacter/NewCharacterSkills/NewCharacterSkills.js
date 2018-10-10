@@ -114,7 +114,7 @@ class NewCharacterSkills extends Component {
             proficient: false
           }
         }
-      },
+      }
     }
   };
 
@@ -235,6 +235,23 @@ class NewCharacterSkills extends Component {
   }
 
   onChangeHandler = (event, element) => {
+    // const updatedForm = {
+    //   ...this.state.controls
+    // };
+    //
+    // const updatedFormElement = {
+    //   ...this.state.controls[element]
+    // };
+    //
+    // for (let elements in updatedFormElement) {
+    //   for (let skill in elements) {
+    //     updatedFormElement[elements].skill.proficient = !updatedFormElement[elements].skill.proficient
+    //   }
+    // }
+    //
+    // updatedForm[element] = updatedFormElement;
+    // this.setState({controls: updatedForm})
+
     //change strength proficiencies
     if (element === "athletics") {
       this.setState({

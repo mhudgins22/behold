@@ -427,7 +427,7 @@ class NewCharacter extends Component {
           We will start by defining some basic characteristics of your new character.</h3>
         <br />
         {form}
-        <Link to={this.props.match.url + "/Stats"}>
+        <Link to={this.props.match.url + "/Welcome"}>
           <Button
             buttonType={this.state.pageIsValid ? "Success" : "Disabled" }
             disabled={!this.state.pageIsValid}
