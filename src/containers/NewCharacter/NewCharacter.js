@@ -173,10 +173,10 @@ class NewCharacter extends Component {
           }
         ],
         value: 1,
-        validationRules: {
+        validation: {
 					required: true
 				},
-				valid: true,
+				valid: false,
 				touched: false,
 				visible: true
       },
@@ -240,10 +240,10 @@ class NewCharacter extends Component {
           },
         ],
         value: "",
-        validationRules: {
+        validation: {
 					required: true
 				},
-				valid: true,
+				valid: false,
 				touched: false,
 				visible: true
       },
@@ -323,462 +323,49 @@ class NewCharacter extends Component {
           },
         ],
         value: "",
-        validationRules: {
+        validation: {
 					required: true
 				},
-				valid: true,
+				valid: false,
 				touched: false,
 				visible: true
       }
-    }
+    },
+    pageIsValid: false
   }
+
+  checkValidity (value, rules) {
+    let isValid = false;
+
+    if (rules.required) {
+      isValid = value.trim() !== "";
+    }
+
+    return isValid;
+  }
+
 
   onChangeHandler = (event, element) => {
 
-    if (element === "characterName") {
-      this.setState({
-        controls: {
-          ...this.state.controls,
-          characterName: {
-            ...this.state.controls.characterName,
-            value: event.target.value
-          }
-        }
-      });
+    const updatedForm = {
+      ...this.state.controls
+    };
+
+    const updatedFormElement = {
+      ...updatedForm[element]
     }
 
-    if (element === "characterLevel") {
-      this.setState({
-        controls: {
-          ...this.state.controls,
-          characterLevel: {
-            ...this.state.controls.characterLevel,
-            value: event.target.value
-          }
-        }
-      });
+    updatedFormElement.value = event.target.value;
+    updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+    updatedForm[element] = updatedFormElement;
+
+    let pageIsValid = true;
+    for (let element in updatedForm) {
+      pageIsValid = updatedForm[element].valid && pageIsValid;
     }
 
-    if (element === "characterRace") {
-      switch (event.target.value) {
-        case ("Dragonborn"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterRace: {
-                ...this.state.controls.characterRace,
-                value: "Dragonborn"
-              }
-            }
-          });
-          break;
-        case ("Dwarf"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterRace: {
-                ...this.state.controls.characterRace,
-                value: "Dwarf"
-              }
-            }
-          });
-          break;
-        case ("Elf"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterRace: {
-                ...this.state.controls.characterRace,
-                value: "Elf"
-              }
-            }
-          });
-          break;
-        case ("Gnome"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterRace: {
-                ...this.state.controls.characterRace,
-                value: "Gnome"
-              }
-            }
-          });
-          break;
-        case ("Half-Elf"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterRace: {
-                ...this.state.controls.characterRace,
-                value: "Half-Elf"
-              }
-            }
-          });
-          break;
-        case ("Halfling"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterRace: {
-                ...this.state.controls.characterRace,
-                value: "Halfling"
-              }
-            }
-          });
-          break;
-        case ("Half-Orc"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterRace: {
-                ...this.state.controls.characterRace,
-                value: "Half-Orc"
-              }
-            }
-          });
-          break;
-        case ("Human"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterRace: {
-                ...this.state.controls.characterRace,
-                value: "Human"
-              }
-            }
-          });
-          break;
-        case ("Tiefling"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterRace: {
-                ...this.state.controls.characterRace,
-                value: "Tiefling"
-              }
-            }
-          });
-          break;
-      }
-    }
-    if (element === "characterClass") {
-      switch (event.target.value) {
-        case ("Barbarian"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
-                value: "Barbarian"
-              }
-            }
-          });
-          break;
-        case ("Bard"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
-                value: "Bard"
-              }
-            }
-          });
-          break;
-        case ("Cleric"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
-                value: "Cleric"
-              }
-            }
-          });
-          break;
-        case ("Druid"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
-                value: "Druid"
-              }
-            }
-          });
-          break;
-        case ("Fighter"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
-                value: "Fighter"
-              }
-            }
-          });
-          break;
-        case ("Monk"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
-                value: "Monk"
-              }
-            }
-          });
-          break;
-        case ("Paladin"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
-                value: "Paladin"
-              }
-            }
-          });
-          break;
-        case ("Ranger"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
-                value: "Ranger"
-              }
-            }
-          });
-          break;
-        case ("Rogue"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
-                value: "Rogue"
-              }
-            }
-          });
-          break;
-        case ("Sorcerer"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
-                value: "Sorcerer"
-              }
-            }
-          });
-          break;
-        case ("Warlock"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
-                value: "Warlock"
-              }
-            }
-          });
-          break;
-        case ("Wizard"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              characterClass: {
-                ...this.state.controls.characterClass,
-                value: "Wizard"
-              }
-            }
-          });
-          break;
-      }
-    }
 
-    if (element === "background") {
-      switch (event.target.value) {
-        case ("Acolyte"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Acolyte"
-              }
-            }
-          });
-          break;
-        case ("Charlatan"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Charlatan"
-              }
-            }
-          });
-          break;
-        case ("Criminal/Spy"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Criminal/Spy"
-              }
-            }
-          });
-          break;
-        case ("Entertainer"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Entertainer"
-              }
-            }
-          });
-          break;
-        case ("Folk Hero"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Folk Hero"
-              }
-            }
-          });
-          break;
-        case ("Gladiator"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Gladiator"
-              }
-            }
-          });
-          break;
-        case ("Guild Artisan/Guild Merchant"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Guild Artisan/Guild Merchant"
-              }
-            }
-          });
-          break;
-        case ("Hermit"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Hermit"
-              }
-            }
-          });
-          break;
-        case ("Knight"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Knight"
-              }
-            }
-          });
-          break;
-        case ("Noble"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Noble"
-              }
-            }
-          });
-          break;
-        case ("Outlander"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Outlander"
-              }
-            }
-          });
-          break;
-        case ("Pirate"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Pirate"
-              }
-            }
-          });
-          break;
-        case ("Sage"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Sage"
-              }
-            }
-          });
-          break;
-        case ("Sailor"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Sailor"
-              }
-            }
-          });
-          break;
-        case ("Soldier"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Soldier"
-              }
-            }
-          });
-          break;
-        case ("Urchin"):
-          this.setState({
-            controls: {
-              ...this.state.controls,
-              background: {
-                ...this.state.controls.background,
-                value: "Urchin"
-              }
-            }
-          });
-          break;
-      }
-    }
+    this.setState({controls: updatedForm, pageIsValid: pageIsValid});
   }
 
   onSaveCharacterBasics = (event) => {
@@ -842,7 +429,8 @@ class NewCharacter extends Component {
         {form}
         <Link to={this.props.match.url + "/Stats"}>
           <Button
-            buttonType="Success"
+            buttonType={this.state.pageIsValid ? "Success" : "Disabled" }
+            disabled={!this.state.pageIsValid}
             clicked={this.onSaveCharacterBasics}
             text="Save and Continue" />
         </Link>

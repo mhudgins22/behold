@@ -1,5 +1,10 @@
 {
   "Barbarian": {
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
     "features": {
       "firstLevel": [
         {
@@ -94,11 +99,6 @@
         }
       ]
     },
-    "equipment": [
-      "",
-      "",
-      ""
-    ],
     "hitDice": "",
     "hitPointsFirstLevel": "",
     "proficiencies": {
@@ -130,6 +130,11 @@
     }
   },
   "Bard": {
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
     "features": {
       "firstLevel": [
         {
@@ -193,11 +198,6 @@
         }
       ]
     },
-    "equipment": [
-      "",
-      "",
-      ""
-    ],
     "hitDice": "",
     "hitPointsFirstLevel": "",
     "proficiencies": {
@@ -229,6 +229,11 @@
     }
   },
   "Cleric": {
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
     "features": {
       "firstLevel": [
         {
@@ -271,11 +276,6 @@
         }
       ]
     },
-    "equipment": [
-      "",
-      "",
-      ""
-    ],
     "hitDice": "",
     "hitPointsFirstLevel": "",
     "proficiencies": {
@@ -307,6 +307,11 @@
     }
   },
   "Druid": {
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
     "features": {
       "secondLevel": [
         {
@@ -347,11 +352,6 @@
         }
       ]
     },
-    "equipment": [
-      "",
-      "",
-      ""
-    ],
     "hitDice": "",
     "hitPointsFirstLevel": "",
     "proficiencies": {
@@ -383,6 +383,11 @@
     }
   },
   "Fighter": {
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
     "features": {
       "firstLevel": [
         {
@@ -432,11 +437,6 @@
         }
       ]
     },
-    "equipment": [
-      "",
-      "",
-      ""
-    ],
     "hitDice": "",
     "hitPointsFirstLevel": "",
     "proficiencies": {
@@ -468,6 +468,11 @@
     }
   },
   "Monk": {
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
     "features": {
       "firstLevel": [
         {
@@ -517,11 +522,6 @@
         }
       ]
     },
-    "equipment": [
-      "",
-      "",
-      ""
-    ],
     "hitDice": "",
     "hitPointsFirstLevel": "",
     "proficiencies": {
@@ -553,6 +553,11 @@
     }
   },
   "Paladin": {
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
     "features": {
       "firstLevel": [
         {
@@ -633,11 +638,6 @@
         }
       ]
     },
-    "equipment": [
-      "",
-      "",
-      ""
-    ],
     "hitDice": "",
     "hitPointsFirstLevel": "",
     "proficiencies": {
@@ -669,6 +669,11 @@
     }
   },
   "Ranger": {
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
     "features": {
       "firstLevel": [
         {
@@ -751,11 +756,6 @@
         }
       ]
     },
-    "equipment": [
-      "",
-      "",
-      ""
-    ],
     "hitDice": "",
     "hitPointsFirstLevel": "",
     "proficiencies": {
@@ -787,6 +787,11 @@
     }
   },
   "Rogue": {
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
     "features": {
       "firstLevel": [
         {
@@ -876,11 +881,6 @@
         }
       ]
     },
-    "equipment": [
-      "",
-      "",
-      ""
-    ],
     "hitDice": "",
     "hitPointsFirstLevel": "",
     "proficiencies": {
@@ -912,6 +912,11 @@
     }
   },
   "Sorcerer": {
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
     "features": {
       "firstLevel": [
         {
@@ -949,11 +954,6 @@
         }
       ]
     },
-    "equipment": [
-      "",
-      "",
-      ""
-    ],
     "hitDice": "",
     "hitPointsFirstLevel": "",
     "proficiencies": {
@@ -985,6 +985,11 @@
     }
   },
   "Warlock": {
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
     "features": {
       "firstLevel": [
         {
@@ -1029,11 +1034,6 @@
         }
       ]
     },
-    "equipment": [
-      "",
-      "",
-      ""
-    ],
     "hitDice": "",
     "hitPointsFirstLevel": "",
     "proficiencies": {
@@ -1065,6 +1065,11 @@
     }
   },
   "Wizard": {
+    "equipment": [
+      "",
+      "",
+      ""
+    ],
     "features": {
       "firstLevel": [
         {
@@ -1102,11 +1107,6 @@
         }
       ]
     },
-    "equipment": [
-      "",
-      "",
-      ""
-    ],
     "hitDice": "",
     "hitPointsFirstLevel": "",
     "proficiencies": {
