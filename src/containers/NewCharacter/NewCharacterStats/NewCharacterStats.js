@@ -10,8 +10,7 @@ import StatsSuggestionBox from './StatsSuggestionBox/StatsSuggestionBox';
 
 class NewCharacterStats extends Component {
   state = {
-    controls: {
-      attributes: {
+      abilityScores: {
         strength: {
           elementType: "select",
           elementConfig: {
@@ -19,7 +18,7 @@ class NewCharacterStats extends Component {
           },
           options: [
             {
-              value: null,
+              value: 0,
               label: "Strength"
             },
             {
@@ -101,7 +100,7 @@ class NewCharacterStats extends Component {
           },
           options: [
             {
-              value: null,
+              value: 0,
               label: "Dexterity"
             },
             {
@@ -183,7 +182,7 @@ class NewCharacterStats extends Component {
           },
           options: [
             {
-              value: null,
+              value: 0,
               label: "Constitution"
             },
             {
@@ -265,7 +264,7 @@ class NewCharacterStats extends Component {
           },
           options: [
             {
-              value: null,
+              value: 0,
               label: "Intelligence"
             },
             {
@@ -347,7 +346,7 @@ class NewCharacterStats extends Component {
           },
           options: [
             {
-              value: null,
+              value: 0,
               label: "Charisma"
             },
             {
@@ -429,7 +428,7 @@ class NewCharacterStats extends Component {
           },
           options: [
             {
-              value: null,
+              value: 0,
               label: "Wisdom"
             },
             {
@@ -505,8 +504,8 @@ class NewCharacterStats extends Component {
           touched: false
         }
       },
-      storedStats: []
-    }
+      storedStats: [],
+      pageIsValid: false
   }
 
   displayStatsNicely = (arr) => {          //Used so the app doesn't freak out when you try to call .join when the stats array is not yet defined
@@ -517,103 +516,49 @@ class NewCharacterStats extends Component {
     return statDisplay;
   }
 
+  checkValidity (value, rules) {
+    let isValid = false;
+
+    if (rules.required) {
+      isValid = value !== 0;
+    }
+
+    return isValid;
+  }
+
   onChangeHandler = (event, element) => {
-    if (element === "strength") {
-      this.setState({
-        controls: {
-          ...this.state.controls,
-          attributes: {
-            ...this.state.controls.attributes,
-            strength: {
-              ...this.state.controls.attributes.strength,
-              value: event.target.value
-            }
-          }
-        }
-      });
+
+    const updatedForm = {
+      ...this.state.abilityScores
+    };
+
+    const updatedFormElement = {
+      ...updatedForm[element]
+    };
+
+    //Compare the validation to NewCharacter to fix it.
+    updatedFormElement.value = event.target.value;
+    updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation)
+    updatedForm[element] = updatedFormElement;
+
+    let pageIsValid = true;
+    for (let element in updatedForm) {
+      pageIsValid = updatedForm[element].valid && pageIsValid;
     }
-    if (element === "dexterity") {
-      this.setState({
-        controls: {
-          ...this.state.controls,
-          attributes: {
-            ...this.state.controls.attributes,
-            dexterity: {
-              ...this.state.controls.attributes.dexterity,
-              value: event.target.value
-            }
-          }
-        }
-      });
-    }
-    if (element === "constitution") {
-      this.setState({
-        controls: {
-          ...this.state.controls,
-          attributes: {
-            ...this.state.controls.attributes,
-            constitution: {
-              ...this.state.controls.attributes.constitution,
-              value: event.target.value
-            }
-          }
-        }
-      });
-    }
-    if (element === "intelligence") {
-      this.setState({
-        controls: {
-          ...this.state.controls,
-          attributes: {
-            ...this.state.controls.attributes,
-            intelligence: {
-              ...this.state.controls.attributes.intelligence,
-              value: event.target.value
-            }
-          }
-        }
-      });
-    }
-    if (element === "charisma") {
-      this.setState({
-        controls: {
-          ...this.state.controls,
-          attributes: {
-            ...this.state.controls.attributes,
-            charisma: {
-              ...this.state.controls.attributes.charisma,
-              value: event.target.value
-            }
-          }
-        }
-      });
-    }
-    if (element === "wisdom") {
-      this.setState({
-        controls: {
-          ...this.state.controls,
-          attributes: {
-            ...this.state.controls.attributes,
-            wisdom: {
-              ...this.state.controls.attributes.wisdom,
-              value: event.target.value
-            }
-          }
-        }
-      });
-    }
+
+    this.setState({abilityScores: updatedForm, pageIsValid: pageIsValid});
 
   }
 
 
   onSaveCharacterStats = (event) => {
     let characterStats = {
-      strength: this.state.controls.attributes.strength.value,
-      dexterity: this.state.controls.attributes.dexterity.value,
-      constitution: this.state.controls.attributes.constitution.value,
-      intelligence: this.state.controls.attributes.intelligence.value,
-      charisma: this.state.controls.attributes.charisma.value,
-      wisdom: this.state.controls.attributes.wisdom.value
+      strength: this.state.abilityScores.strength.value,
+      dexterity: this.state.abilityScores.dexterity.value,
+      constitution: this.state.abilityScores.constitution.value,
+      intelligence: this.state.abilityScores.intelligence.value,
+      charisma: this.state.abilityScores.charisma.value,
+      wisdom: this.state.abilityScores.wisdom.value
     };
     this.props.onSaveStats(characterStats);
   }
@@ -623,7 +568,7 @@ class NewCharacterStats extends Component {
     const directions = (
       <div>
         <h1>Roll Your Stats</h1>
-        <h3>There are six attributes where you will need to define the stats for your character: Strength, Dexterity, Constitution, Wisdom, Intelligence, and Charisma. You can either roll your six stats automatically by
+        <h3>There are six ability scores where you will need to define the stats for your character: Strength, Dexterity, Constitution, Wisdom, Intelligence, and Charisma. You can either roll your six stats automatically by
           pressing the button below or the "old fashioned way" by using four six-sided dice and by following
           the directions below:
         </h3>
@@ -632,16 +577,16 @@ class NewCharacterStats extends Component {
           <li>Subtract the lowest dice roll from the group of four.</li>
           <li>Add the three remaining dice together and note the value.</li>
           <li>Complete steps 1 - 3 six times until you have your six stat values.</li>
-          <li>Choose which stat values you would like to represent each of the attributes.</li>
+          <li>Choose which stat values you would like to represent each of the ability scores.</li>
         </ol>
       </div>
     );
 
     let formElements = [];
-    for (let element in this.state.controls.attributes) {
+    for (let element in this.state.abilityScores) {
       formElements.push({
         id: element,
-        config: this.state.controls.attributes[element]
+        config: this.state.abilityScores[element]
       });
     }
 
@@ -666,7 +611,7 @@ class NewCharacterStats extends Component {
       <div>
         {directions}
         <Button
-          buttonType="Character"
+          buttonType={"Character"}
           clicked={this.props.onRollStats}
           text="Roll My Stats" />
         <h3>Your automatically rolled stat values are: {this.displayStatsNicely(this.props.stats)}</h3>
@@ -677,7 +622,7 @@ class NewCharacterStats extends Component {
         {form}
         <Link to={"/Create/Characters/NewCharacter/Skills"}>
           <Button
-            buttonType="Success"
+            buttonType= {this.state.pageIsValid ? "Success" : "Disabled"}
             clicked={this.onSaveCharacterStats}
             text="Save and Continue" />
         </Link>
