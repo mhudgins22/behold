@@ -1,3 +1,9 @@
+.ClassicCard {
+	background-image: url("../../assets/images/backgrounds/old-paper.jpg");
+	background-size: cover;
+}
+
+
 .Card {
 	margin: auto;
 	margin-bottom: 10px;
@@ -6,8 +12,6 @@
 	border: 5px double #d1b673;
 	border-radius: 5px;
 	padding: 5px;
-	background-image: url("../../assets/images/backgrounds/old-paper.jpg");
-	background-size: cover;
 	position: relative;
 	text-align: left;
 }
@@ -145,6 +149,9 @@
 	top: 70%;
 	overflow: auto;
 }
+
+
+
 
 /* width */
 .Card::-webkit-scrollbar {

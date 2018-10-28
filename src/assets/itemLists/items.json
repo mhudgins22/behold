@@ -81,6 +81,1892 @@
 		"rarity": "Common",
 		"type": "Shortsword"
 	},
+	"Abacus": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Consumable",
+		"damage": false,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "A standard tool used to make calculations.",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "Abacus",
+		"properties": "",
+		"rarity": "Common",
+		"type": "Adventuring Gear"
+	},
+	"Vial of Acid": {
+		"abilities": "As an action, you can splash the contents of this vial onto a creature within 5 feet of you or throw the vial up to 20 feet, shattering it on impact. In either case, make a ranged attack against a creature or object, treating the acid as an improvised weapon. On a hit, the target takes 2d6 acid damage.",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Consumable",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "+0",
+				"die": "d6",
+				"numberOfDice": "2",
+				"type": "Acid"
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "The small vial contains a viscous, pungent, clear liquid.",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "Vial of Acid",
+		"properties": "Damage",
+		"rarity": "Common",
+		"type": "Adventuring Gear"
+	},
+	"Alchemist's Fire": {
+		"abilities": "As an action, you can throw this flask up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the alchemist's fire as an improvised weapon. On a hit, the target takes 1d4 fire damage at the start of each of its turns. A creature can end this damage by using its action to make a DC 10 Dexterity check to extinguish the flames.",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Consumable",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "+0",
+				"die": "d4",
+				"numberOfDice": "1",
+				"type": "Fire"
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "This sticky, adhesive fluid ignites when exposed to air.",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "Alchemist's Fire",
+		"properties": "Damage",
+		"rarity": "Common",
+		"type": "Adventuring Gear"
+	},
+	"Alchemist's Supplies": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
+	"itemName": {
+		"abilities": "",
+		"armorClassValues": {
+			"AC": "",
+			"bonus": ""
+		},
+		"catagory": "Weapon",
+		"damage": true,
+		"damageValues": [
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			},
+			{
+				"bonus": "",
+				"die": "",
+				"numberOfDice": "",
+				"type": ""
+			}
+		],
+		"flavorText": "",
+		"healing": false,
+		"healingValues": {
+			"bonus": "",
+			"die": "",
+			"numberOfDice": ""
+		},
+		"imagePath": "",
+		"name": "",
+		"properties": "",
+		"rarity": "",
+		"type": ""
+	},
 	"itemName": {
 		"abilities": "",
 		"armorClassValues": {

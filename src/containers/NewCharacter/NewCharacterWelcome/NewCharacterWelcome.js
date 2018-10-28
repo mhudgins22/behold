@@ -8,14 +8,14 @@ class NewCharacterWelcome extends Component {
 
   render () {
 
-    let firstParagraph = ();
-    let secondParagraph = ();
+    let firstParagraph = "";
+    let secondParagraph = "";
     
 
     return (
       <div>
         <h1>Welcome, {this.props.name}</h1>
-        <h2>About the {this.props.class} class: </h3>
+        <h2>About the {this.props.class} class: </h2>
         <Link to={"/Create/Characters/NewCharacter/Stats"}>
           <Button
             buttonType="Success"

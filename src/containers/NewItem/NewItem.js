@@ -17,6 +17,33 @@ class NewItem extends Component {
 
 	state = {
 		controls: {
+			cardStyle: {
+				elementType: "select",
+				elementConfig: {
+				
+				},
+				options: [
+					{
+						value: "Classic",
+						label: "Card Style"
+					},
+					{
+						value: "Classic",
+						label: "Classic"
+					},
+					{
+						value: "Eldritch",
+						label: "Eldritch"
+					}
+				],
+				value: "Classic",
+				validationRules: {
+					required: true
+				},
+				valid: true,
+				touched: false,
+				visible: true
+			},
 			itemName: {
 				elementType: "input",
 				elementConfig: {
@@ -1599,7 +1626,7 @@ class NewItem extends Component {
 
 		//Splits the form elements into two sections
 		for (let element in this.state.controls) {
-			if (i < 10) {
+			if (i < 11) {
 				itemInfoElements.push({
 					id: element,
 					config: this.state.controls[element]
@@ -1778,7 +1805,8 @@ class NewItem extends Component {
 					</div>
 				</form>
 				<Card 
-					cardType = "item"  
+					cardType = "item" 
+					cardStyle = {this.state.controls.cardStyle.value}
 					itemName = {this.state.controls.itemName.value} 
 					itemRarity = {this.state.controls.itemRarity.value}
 					itemType = {this.state.controls.weaponType.value || this.state.controls.armorType.value || this.state.controls.consumableType.value || this.state.controls.otherType.value}

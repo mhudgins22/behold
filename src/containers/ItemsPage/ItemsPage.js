@@ -32,11 +32,14 @@ class ItemsPage extends Component {
 		if (!this.props.customList || !this.props.baseList){
 			this.props.fetchItemListHandler();
 		}
+		console.log(this.props);
 	}
 
 	onPreviewHandler = (data) => {
-		this.props.itemPreviewHandler(data);
-		this.props.fetchItemImage(data.imagePath);
+		if (data !== this.props.itemPreview) {
+			this.props.itemPreviewHandler(data);
+			this.props.fetchItemImage(data.imagePath);
+		}
 		if (window.innerWidth < 1000) {
 			this.setState({
 				...this.state,

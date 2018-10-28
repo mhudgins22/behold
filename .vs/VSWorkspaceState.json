@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\public",
     "\\src",
-    "\\src\\assets",
     "\\src\\components",
-    "\\src\\components\\Navigation",
-    "\\src\\components\\Navigation\\Navbar",
-    "\\src\\components\\UI",
-    "\\src\\components\\UI\\Button",
+    "\\src\\components\\Card",
+    "\\src\\containers",
+    "\\src\\containers\\Layout",
+    "\\src\\containers\\NewItem",
     "\\src\\store",
-    "\\src\\store\\reducers"
+    "\\src\\store\\actions"
   ],
-  "SelectedNode": "\\src\\components\\UI\\Button\\Button.css",
+  "SelectedNode": "\\public\\index.html",
   "PreviewInSolutionExplorer": false
 }

@@ -10,9 +10,14 @@ import Spinner from "../UI/Spinner/Spinner";
 const card = props => {
 	let card = null;
 
+	let cardClasses = [classes.Card];
+	switch(props.cardStyle) {
+		case "Classic": cardClasses.push(classes.ClassicCard);
+	}
+
 	if (props.cardType === "item") {
 		card = (
-			<div className = {classes.Card}>
+			<div className = {cardClasses.join(" ")}>
 				<div className = {classes.Header}>
 					<h3>{props.itemName}</h3>
 					<div className = {classes.Subheader}>
